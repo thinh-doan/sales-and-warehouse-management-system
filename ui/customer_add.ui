@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CustomerDialog</class>
+ <widget class="QDialog" name="CustomerDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>485</width>
+    <height>627</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Customer Information</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout" stretch="2,4,3,3,1">
+   <item>
+    <widget class="QGroupBox" name="groupCustomerType">
+     <property name="title">
+      <string>Nhóm khách hàng</string>
+     </property>
+     <layout class="QHBoxLayout">
+      <item>
+       <widget class="QRadioButton" name="radioIndividual">
+        <property name="text">
+         <string>KH cá nhân</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="radioBusiness">
+        <property name="text">
+         <string>KH doanh nghiệp</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupGeneralInfo">
+     <property name="title">
+      <string>Thông tin chung</string>
+     </property>
+     <layout class="QFormLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="lblName">
+        <property name="text">
+         <string>Tên KH</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="txtCustomerName"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="lblPhone">
+        <property name="text">
+         <string>SDT</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="txtPhone"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="lblEmail">
+        <property name="text">
+         <string>Email</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="txtEmail"/>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Địa chỉ</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="lineEdit"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupIndividual">
+     <property name="locale">
+      <locale language="Vietnamese" country="Vietnam"/>
+     </property>
+     <property name="title">
+      <string>Thông tin cá nhân</string>
+     </property>
+     <layout class="QFormLayout" name="formLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="lblDob">
+        <property name="text">
+         <string>Ngày sinh</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="lblGender">
+        <property name="text">
+         <string>Giới tính</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QRadioButton" name="radioButton">
+          <property name="text">
+           <string>Nam</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="radioButton_2">
+          <property name="text">
+           <string>Nữ</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item row="0" column="1">
+       <widget class="QDateEdit" name="dateEdit">
+        <property name="displayFormat">
+         <string>dd/MM/yyyy</string>
+        </property>
+        <property name="calendarPopup">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBusiness">
+     <property name="title">
+      <string>Thông tin doanh nghiệp</string>
+     </property>
+     <layout class="QFormLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="lblCompany">
+        <property name="text">
+         <string>Mã số thuế</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="txtCompanyName"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout">
+     <item>
+      <widget class="QPushButton" name="btnSave">
+       <property name="text">
+        <string>Lưu</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnCancel">
+       <property name="text">
+        <string>Hủy</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
