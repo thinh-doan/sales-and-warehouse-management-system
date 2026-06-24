@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CustomerTab</class>
+ <widget class="QWidget" name="CustomerTab">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>649</width>
+    <height>581</height>
+   </rect>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="mainLayout">
+     <item>
+      <widget class="QGroupBox" name="groupInfo">
+       <property name="title">
+        <string>Thông tin khách hàng</string>
+       </property>
+       <layout class="QFormLayout" name="formLayout">
+        <item row="0" column="0">
+         <widget class="QLabel" name="labelID">
+          <property name="text">
+           <string>Mã KH</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="lineEditCustomerID"/>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="labelName">
+          <property name="text">
+           <string>Tên</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="lineEditCustomerName"/>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="labelPhone">
+          <property name="text">
+           <string>SĐT</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="lineEditPhone"/>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="labelEmail">
+          <property name="text">
+           <string>Email</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QLineEdit" name="lineEditEmail"/>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0">
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QTableWidget" name="tableCustomers"/>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QTabWidget" name="tabCustomerDetails">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tabPurchase">
+      <attribute name="title">
+       <string>Purchase History</string>
+      </attribute>
+      <layout class="QVBoxLayout">
+       <item>
+        <widget class="QTableWidget" name="tablePurchaseHistory"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabPayment">
+      <attribute name="title">
+       <string>Payment History</string>
+      </attribute>
+      <layout class="QVBoxLayout">
+       <item>
+        <widget class="QTableWidget" name="tablePaymentHistory"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabStatistics">
+      <attribute name="title">
+       <string>Statistics</string>
+      </attribute>
+      <layout class="QFormLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="labelTotalOrders">
+         <property name="text">
+          <string>Total Orders</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLabel" name="lblTotalOrdersValue">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
