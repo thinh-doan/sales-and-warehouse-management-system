@@ -6,127 +6,345 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>649</width>
-    <height>581</height>
+    <width>549</width>
+    <height>520</height>
    </rect>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <layout class="QHBoxLayout" name="mainLayout">
-     <item>
-      <widget class="QGroupBox" name="groupInfo">
-       <property name="title">
-        <string>Thông tin khách hàng</string>
-       </property>
-       <layout class="QFormLayout" name="formLayout">
-        <item row="0" column="0">
-         <widget class="QLabel" name="labelID">
+    <widget class="QGroupBox" name="groupInfo">
+     <property name="title">
+      <string>Thông Tin Khách Hàng</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="2" column="0">
+       <spacer name="horizontalSpacer_6">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="2" column="3">
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="1" column="3">
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="1" column="5">
+       <widget class="QLineEdit" name="lineEditCustomerID_2"/>
+      </item>
+      <item row="2" column="5">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QRadioButton" name="radioButton">
           <property name="text">
-           <string>Mã KH</string>
+           <string>Nam</string>
           </property>
          </widget>
         </item>
-        <item row="0" column="1">
-         <widget class="QLineEdit" name="lineEditCustomerID"/>
-        </item>
-        <item row="1" column="0">
-         <widget class="QLabel" name="labelName">
+        <item>
+         <widget class="QRadioButton" name="radioButton_2">
           <property name="text">
-           <string>Tên</string>
+           <string>Nữ</string>
           </property>
          </widget>
         </item>
-        <item row="1" column="1">
-         <widget class="QLineEdit" name="lineEditCustomerName"/>
-        </item>
-        <item row="2" column="0">
-         <widget class="QLabel" name="labelPhone">
-          <property name="text">
-           <string>SĐT</string>
+        <item>
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
           </property>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <widget class="QLineEdit" name="lineEditPhone"/>
-        </item>
-        <item row="3" column="0">
-         <widget class="QLabel" name="labelEmail">
-          <property name="text">
-           <string>Email</string>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
           </property>
-         </widget>
-        </item>
-        <item row="3" column="1">
-         <widget class="QLineEdit" name="lineEditEmail"/>
-        </item>
-        <item row="4" column="0">
-         <widget class="QLabel" name="label">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-        <item row="6" column="0">
-         <widget class="QLabel" name="label_3">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="0">
-         <widget class="QLabel" name="label_2">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
+         </spacer>
         </item>
        </layout>
-      </widget>
+      </item>
+      <item row="2" column="4">
+       <widget class="QLabel" name="labelName_2">
+        <property name="text">
+         <string>Giới Tính</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="5">
+       <widget class="QLineEdit" name="lineEditEmail_2"/>
+      </item>
+      <item row="4" column="4">
+       <widget class="QLabel" name="labelEmail_2">
+        <property name="text">
+         <string>Mã Số Thuế</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLabel" name="labelPhone">
+        <property name="text">
+         <string>SĐT</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2">
+       <widget class="QLineEdit" name="lineEditPhone"/>
+      </item>
+      <item row="4" column="1">
+       <widget class="QLabel" name="labelEmail">
+        <property name="text">
+         <string>Email</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLabel" name="labelName">
+        <property name="text">
+         <string>Tên KH</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QLineEdit" name="lineEditCustomerID"/>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLabel" name="labelID">
+        <property name="text">
+         <string>Mã KH</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QLineEdit" name="lineEditCustomerName"/>
+      </item>
+      <item row="4" column="2">
+       <widget class="QLineEdit" name="lineEditEmail"/>
+      </item>
+      <item row="2" column="6">
+       <spacer name="horizontalSpacer_7">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="1" column="4">
+       <widget class="QLabel" name="labelID_2">
+        <property name="text">
+         <string>Ngày Sinh</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="3">
+       <spacer name="horizontalSpacer_4">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="4" column="3">
+       <spacer name="horizontalSpacer_5">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <spacer name="horizontalSpacer_8">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
      </item>
      <item>
-      <widget class="QTableWidget" name="tableCustomers"/>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QPushButton" name="pushButton">
+         <property name="text">
+          <string>Sửa</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_2">
+         <property name="text">
+          <string>Xóa</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
     </layout>
    </item>
    <item>
     <widget class="QTabWidget" name="tabCustomerDetails">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
-     <widget class="QWidget" name="tabPurchase">
+     <widget class="QWidget" name="tabMuaHang">
       <attribute name="title">
-       <string>Purchase History</string>
+       <string>Lịch Sử Mua Hàng</string>
       </attribute>
       <layout class="QVBoxLayout">
        <item>
-        <widget class="QTableWidget" name="tablePurchaseHistory"/>
+        <widget class="QTableWidget" name="tablePurchaseHistory">
+         <column>
+          <property name="text">
+           <string>Mã Đơn Hàng</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Ngày Tạo</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Danh Sách Sản Phẩm</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Thanh Toán</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Vận Chuyển</string>
+          </property>
+         </column>
+        </widget>
        </item>
       </layout>
      </widget>
      <widget class="QWidget" name="tabPayment">
       <attribute name="title">
-       <string>Payment History</string>
+       <string>Lịch Sử Thanh Toán</string>
       </attribute>
       <layout class="QVBoxLayout">
        <item>
-        <widget class="QTableWidget" name="tablePaymentHistory"/>
+        <widget class="QTableWidget" name="tablePaymentHistory">
+         <column>
+          <property name="text">
+           <string>Mã Thanh Toán</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Ngày Thanh Toán</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Phương Thức</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Số Tiền</string>
+          </property>
+         </column>
+        </widget>
        </item>
       </layout>
      </widget>
      <widget class="QWidget" name="tabStatistics">
       <attribute name="title">
-       <string>Statistics</string>
+       <string>Thống Kê</string>
       </attribute>
-      <layout class="QFormLayout">
+      <layout class="QFormLayout" name="formLayout">
        <item row="0" column="0">
-        <widget class="QLabel" name="labelTotalOrders">
+        <widget class="QLabel" name="label">
          <property name="text">
-          <string>Total Orders</string>
+          <string>Tổng Sô ĐH</string>
          </property>
         </widget>
        </item>
        <item row="0" column="1">
+        <widget class="QLabel" name="labelTotalOrders_4">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="labelTotalOrders">
+         <property name="text">
+          <string>Tổng Số Tiền</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
         <widget class="QLabel" name="lblTotalOrdersValue">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="labelTotalOrders_2">
+         <property name="text">
+          <string>ĐH Mới Nhất</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLabel" name="labelTotalOrders_3">
          <property name="text">
           <string>0</string>
          </property>
