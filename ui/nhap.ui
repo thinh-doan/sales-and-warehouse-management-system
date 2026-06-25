@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>OrderPage</class>
+ <widget class="QWidget" name="OrderPage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>959</width>
+    <height>650</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Quản Lý Đơn Hàng</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QGroupBox" name="groupBoxSearch">
+     <property name="title">
+      <string>Tìm Kiếm &amp; Lọc</string>
+     </property>
+     <layout class="QGridLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="lblKeyword">
+        <property name="text">
+         <string>Từ khóa</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="txtKeyword"/>
+      </item>
+      <item row="0" column="2">
+       <widget class="QLabel" name="lblStatus">
+        <property name="text">
+         <string>Trạng thái</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QComboBox" name="cboOrderStatus"/>
+      </item>
+      <item row="0" column="4">
+       <widget class="QLabel" name="lblCustomer">
+        <property name="text">
+         <string>Khách hàng</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="5">
+       <widget class="QComboBox" name="cboCustomer"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="lblFromDate">
+        <property name="text">
+         <string>Từ ngày</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QDateEdit" name="dateFrom"/>
+      </item>
+      <item row="1" column="2">
+       <widget class="QLabel" name="lblToDate">
+        <property name="text">
+         <string>Đến ngày</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="QDateEdit" name="dateTo"/>
+      </item>
+      <item row="1" column="5">
+       <widget class="QPushButton" name="btnSearch">
+        <property name="text">
+         <string>Tìm kiếm</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout">
+     <item>
+      <widget class="QPushButton" name="btnAdd">
+       <property name="text">
+        <string>Thêm Đơn Hàng</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnUpdate">
+       <property name="text">
+        <string>Cập Nhật</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnDelete">
+       <property name="text">
+        <string>Xóa</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnRefresh">
+       <property name="text">
+        <string>Làm Mới</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnExport">
+       <property name="text">
+        <string>Xuất Excel</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBoxOrderList">
+     <property name="title">
+      <string>Danh Sách Đơn Hàng</string>
+     </property>
+     <layout class="QVBoxLayout">
+      <item>
+       <widget class="QTableWidget" name="tableOrders"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

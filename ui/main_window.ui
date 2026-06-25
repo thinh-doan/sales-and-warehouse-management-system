@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1200</width>
-    <height>748</height>
+    <width>1149</width>
+    <height>775</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -218,10 +218,177 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tabTongQuan"/>
-      <widget class="QWidget" name="tabDonHang"/>
+      <widget class="QWidget" name="tabDonHang">
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <widget class="QGroupBox" name="groupBoxSearch_2">
+          <property name="title">
+           <string>Tìm Kiếm</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_8">
+           <item>
+            <spacer name="horizontalSpacer_7">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_6">
+               <item>
+                <widget class="QLabel" name="lblKeyword">
+                 <property name="text">
+                  <string>Từ Khóa</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLineEdit" name="txtKeyword_2"/>
+               </item>
+               <item>
+                <widget class="QLabel" name="lblStatus">
+                 <property name="text">
+                  <string>Tìm Kiếm Theo</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QComboBox" name="cboOrderStatus"/>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_7">
+               <item>
+                <widget class="QLabel" name="lblFromDate">
+                 <property name="text">
+                  <string>Từ Ngày</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QDateEdit" name="dateFrom"/>
+               </item>
+               <item>
+                <widget class="QLabel" name="lblToDate">
+                 <property name="text">
+                  <string>Đến Ngày</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QDateEdit" name="dateTo"/>
+               </item>
+               <item>
+                <spacer name="horizontalSpacer_10">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QPushButton" name="btnSearch_2">
+                 <property name="text">
+                  <string>Tìm kiếm</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_9">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>224</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="_2">
+          <item>
+           <spacer name="horizontalSpacer_6">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnAdd_2">
+            <property name="text">
+             <string>Thêm</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnRefresh">
+            <property name="text">
+             <string>Chi Tiết</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnUpdate_2">
+            <property name="text">
+             <string>Cập Nhật</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnDelete_2">
+            <property name="text">
+             <string>Xóa</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBoxOrderList">
+          <property name="title">
+           <string>Danh Sách Đơn Hàng</string>
+          </property>
+          <layout class="QVBoxLayout" name="_4">
+           <item>
+            <widget class="QTableWidget" name="tableOrders"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
       <widget class="QWidget" name="tabKhachHang">
        <layout class="QVBoxLayout" name="verticalLayout_3" stretch="2,1,1,8">
         <item>
@@ -318,7 +485,7 @@
                </property>
                <item>
                 <property name="text">
-                 <string>Mã khách hàng</string>
+                 <string>Mã số khách hàng</string>
                 </property>
                </item>
                <item>
@@ -415,7 +582,7 @@
             <item>
              <widget class="QPushButton" name="btnUpdate">
               <property name="text">
-               <string>Cập nhật</string>
+               <string>Cập Nhật</string>
               </property>
              </widget>
             </item>
@@ -486,8 +653,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1200</width>
-     <height>26</height>
+     <width>1149</width>
+     <height>21</height>
     </rect>
    </property>
   </widget>
