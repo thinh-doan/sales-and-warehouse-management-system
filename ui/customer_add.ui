@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>318</width>
-    <height>451</height>
+    <width>485</width>
+    <height>627</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -142,6 +142,9 @@
       </item>
       <item row="0" column="1">
        <widget class="QDateEdit" name="dateEdit">
+        <property name="showGroupSeparator" stdset="0">
+         <bool>false</bool>
+        </property>
         <property name="displayFormat">
          <string>dd/MM/yyyy</string>
         </property>

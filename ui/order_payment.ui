@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PaymentTab</class>
+ <widget class="QWidget" name="PaymentTab">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>359</width>
+    <height>207</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Thanh Toán</string>
+  </property>
+  <layout class="QVBoxLayout">
+   <item>
+    <widget class="QGroupBox" name="groupPayment">
+     <property name="title">
+      <string>Thông Tin Thanh Toán</string>
+     </property>
+     <layout class="QFormLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="lblPaymentID">
+        <property name="text">
+         <string>Mã Thanh Toán</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="txtPaymentID"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="lblMethod">
+        <property name="text">
+         <string>Phương Thức</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="txtMethod"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="lblAmount">
+        <property name="text">
+         <string>Số Tiền</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="txtAmount"/>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="lblStatus">
+        <property name="text">
+         <string>Trạng Thái</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="txtStatus"/>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="lblPaymentDate">
+        <property name="text">
+         <string>Ngày Thanh Toán</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QDateEdit" name="datePayment"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

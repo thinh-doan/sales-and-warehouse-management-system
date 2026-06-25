@@ -264,7 +264,33 @@
                 </widget>
                </item>
                <item>
-                <widget class="QComboBox" name="cboOrderStatus"/>
+                <widget class="QComboBox" name="cboOrderStatus">
+                 <item>
+                  <property name="text">
+                   <string>Mã ĐH</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Trạng Thái ĐH</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Khách Hàng</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Nhân Viên</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Địa Chỉ</string>
+                  </property>
+                 </item>
+                </widget>
                </item>
               </layout>
              </item>
@@ -278,7 +304,11 @@
                 </widget>
                </item>
                <item>
-                <widget class="QDateEdit" name="dateFrom"/>
+                <widget class="QDateEdit" name="dateEdit">
+                 <property name="calendarPopup">
+                  <bool>true</bool>
+                 </property>
+                </widget>
                </item>
                <item>
                 <widget class="QLabel" name="lblToDate">
@@ -288,7 +318,11 @@
                 </widget>
                </item>
                <item>
-                <widget class="QDateEdit" name="dateTo"/>
+                <widget class="QDateEdit" name="dateTo">
+                 <property name="calendarPopup">
+                  <bool>true</bool>
+                 </property>
+                </widget>
                </item>
                <item>
                 <spacer name="horizontalSpacer_10">
@@ -353,16 +387,30 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="btnRefresh">
+           <widget class="QPushButton" name="btnUpdate_2">
             <property name="text">
-             <string>Chi Tiết</string>
+             <string>Cập Nhật</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="btnUpdate_2">
+           <widget class="QPushButton" name="pushButton_2">
             <property name="text">
-             <string>Cập Nhật</string>
+             <string>Thanh Toán</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_3">
+            <property name="text">
+             <string>Vận Chuyển</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnRefresh">
+            <property name="text">
+             <string>Chi Tiết ĐH</string>
             </property>
            </widget>
           </item>
@@ -382,7 +430,38 @@
           </property>
           <layout class="QVBoxLayout" name="_4">
            <item>
-            <widget class="QTableWidget" name="tableOrders"/>
+            <widget class="QTableWidget" name="tableOrders">
+             <column>
+              <property name="text">
+               <string>Mã ĐH</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Ngày Tạo</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Khách Hàng</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Địa Chỉ</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Tổng Tiền</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Trạng Thái</string>
+              </property>
+             </column>
+            </widget>
            </item>
           </layout>
          </widget>
@@ -654,7 +733,7 @@
      <x>0</x>
      <y>0</y>
      <width>1149</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
