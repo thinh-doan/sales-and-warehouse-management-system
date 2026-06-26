@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>745</width>
+    <width>799</width>
     <height>800</height>
    </rect>
   </property>
@@ -19,7 +19,7 @@
      <property name="title">
       <string>Thông Tin Đơn Hàng</string>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout">
+     <layout class="QHBoxLayout" name="horizontalLayout" stretch="2,2">
       <item>
        <layout class="QFormLayout" name="formLayout">
         <item row="0" column="0">
@@ -76,6 +76,19 @@
         </item>
        </layout>
       </item>
+      <item>
+       <spacer name="horizontalSpacer_6">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>412</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
      </layout>
     </widget>
    </item>
@@ -103,7 +116,7 @@
         <item>
          <widget class="QPushButton" name="btnAddItem">
           <property name="text">
-           <string>Thêm Sản Phẩm</string>
+           <string>Thêm SP</string>
           </property>
          </widget>
         </item>
@@ -124,7 +137,38 @@
        </layout>
       </item>
       <item>
-       <widget class="QTableWidget" name="tableOrderItems"/>
+       <widget class="QTableWidget" name="tableOrderItems">
+        <column>
+         <property name="text">
+          <string>Mã SP</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Tên SP</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Số Lượng</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Đơn Giá</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Thành Tiền</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Tồn Kho</string>
+         </property>
+        </column>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -134,7 +178,7 @@
      <property name="title">
       <string>Thanh Toán</string>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="3,4">
       <item>
        <layout class="QFormLayout" name="formLayout_3">
         <item row="0" column="0">
@@ -222,7 +266,7 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>343</width>
+          <width>412</width>
           <height>20</height>
          </size>
         </property>
@@ -268,7 +312,7 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>343</width>
+          <width>412</width>
           <height>20</height>
          </size>
         </property>

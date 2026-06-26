@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1149</width>
-    <height>775</height>
+    <width>1015</width>
+    <height>713</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -140,6 +140,16 @@
         </widget>
        </item>
        <item>
+        <widget class="QPushButton" name="pushButton_2">
+         <property name="text">
+          <string>Danh mục</string>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QPushButton" name="btnTonKho">
          <property name="text">
           <string>Tồn kho</string>
@@ -218,7 +228,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="tabTongQuan"/>
       <widget class="QWidget" name="tabDonHang">
@@ -387,30 +397,16 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="btnUpdate_2">
-            <property name="text">
-             <string>Cập Nhật</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButton_2">
-            <property name="text">
-             <string>Thanh Toán</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButton_3">
-            <property name="text">
-             <string>Vận Chuyển</string>
-            </property>
-           </widget>
-          </item>
-          <item>
            <widget class="QPushButton" name="btnRefresh">
             <property name="text">
              <string>Chi Tiết ĐH</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnUpdate_2">
+            <property name="text">
+             <string>Cập Nhật</string>
             </property>
            </widget>
           </item>
@@ -678,6 +674,9 @@
         </item>
         <item>
          <widget class="QTableWidget" name="tableCustomers">
+          <attribute name="horizontalHeaderDefaultSectionSize">
+           <number>220</number>
+          </attribute>
           <column>
            <property name="text">
             <string>Mã số khách hàng</string>
@@ -702,7 +701,161 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tabSanPham"/>
+      <widget class="QWidget" name="tabSanPham">
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <widget class="QGroupBox" name="grpSearch">
+          <property name="title">
+           <string>Tìm Kiếm</string>
+          </property>
+          <layout class="QGridLayout" name="_3">
+           <item row="0" column="5">
+            <widget class="QComboBox" name="cboStatus"/>
+           </item>
+           <item row="0" column="6">
+            <widget class="QPushButton" name="btnSearch_3">
+             <property name="text">
+              <string>Tìm kiếm</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLabel" name="lblCategory">
+             <property name="text">
+              <string>Danh mục</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QComboBox" name="cboCategory"/>
+           </item>
+           <item row="0" column="4">
+            <widget class="QLabel" name="lblStatus_2">
+             <property name="text">
+              <string>Trạng thái</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="txtKeyword_3">
+             <property name="placeholderText">
+              <string>Mã hoặc tên sản phẩm...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="lblKeyword_2">
+             <property name="text">
+              <string>Từ khóa</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="_5">
+          <item>
+           <spacer name="horizontalSpacer_8">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnAdd_3">
+            <property name="text">
+             <string>Thêm</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnDelete_4">
+            <property name="text">
+             <string>Chi Tiết</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnUpdate_3">
+            <property name="text">
+             <string>Cập nhật</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnDelete_3">
+            <property name="text">
+             <string>Xóa</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="tableProduct">
+          <property name="editTriggers">
+           <set>QAbstractItemView::NoEditTriggers</set>
+          </property>
+          <property name="alternatingRowColors">
+           <bool>true</bool>
+          </property>
+          <property name="selectionMode">
+           <enum>QAbstractItemView::SingleSelection</enum>
+          </property>
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectRows</enum>
+          </property>
+          <column>
+           <property name="text">
+            <string>Mã SP</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Tên Sản Phẩm</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Danh Mục</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Đơn Giá</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Tồn Kho</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Đơn Vị</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Ngày Tạo</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Trạng Thái</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+       </layout>
+      </widget>
       <widget class="QWidget" name="tabTonKho">
        <widget class="QCheckBox" name="checkBox">
         <property name="geometry">
@@ -732,7 +885,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1149</width>
+     <width>1015</width>
      <height>26</height>
     </rect>
    </property>
