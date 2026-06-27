@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <ui version="4.0">
  <class>Dialog</class>
- <widget class="QDialog" name="Dialog">
+ <widget class="QDialog" name="hopThoaiMacDinh">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -24,7 +24,7 @@
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QLineEdit" name="txtProductID">
+      <widget class="QLineEdit" name="txtSanPhamMa">
        <property name="readOnly">
         <bool>true</bool>
        </property>
@@ -38,7 +38,7 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QLineEdit" name="txtUnit">
+      <widget class="QLineEdit" name="txtDonVi">
        <property name="readOnly">
         <bool>true</bool>
        </property>
@@ -56,7 +56,7 @@
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QTextEdit" name="txtDescription">
+      <widget class="QTextEdit" name="txtVanBanMoTa">
        <property name="readOnly">
         <bool>true</bool>
        </property>
@@ -80,14 +80,14 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="btnSave">
+      <widget class="QPushButton" name="nutLuu">
        <property name="text">
         <string>Lưu</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btnCancel">
+      <widget class="QPushButton" name="nutHuy">
        <property name="text">
         <string>Hủy</string>
        </property>
@@ -97,6 +97,6 @@
    </item>
   </layout>
  </widget>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

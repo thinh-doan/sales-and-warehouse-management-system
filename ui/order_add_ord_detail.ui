@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <ui version="4.0">
  <class>OrderItemDialog</class>
- <widget class="QDialog" name="OrderItemDialog">
+ <widget class="QDialog" name="hopThoaiDonHangMuc">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -15,7 +15,7 @@
   </property>
   <layout class="QVBoxLayout">
    <item>
-    <widget class="QGroupBox" name="groupBoxProduct">
+    <widget class="QGroupBox" name="nhomSanPham">
      <property name="title">
       <string>Thông Tin Sản Phẩm</string>
      </property>
@@ -30,7 +30,7 @@
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QComboBox" name="cboProduct"/>
+         <widget class="QComboBox" name="cboSanPham" />
         </item>
         <item row="1" column="0">
          <widget class="QLabel" name="lblStock">
@@ -40,7 +40,7 @@
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QLineEdit" name="txtStock">
+         <widget class="QLineEdit" name="txtTonKho">
           <property name="readOnly">
            <bool>true</bool>
           </property>
@@ -54,7 +54,7 @@
          </widget>
         </item>
         <item row="2" column="1">
-         <widget class="QSpinBox" name="spinQuantity">
+         <widget class="QSpinBox" name="spinSpinSoLuong">
           <property name="minimum">
            <number>1</number>
           </property>
@@ -84,14 +84,14 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="btnSave">
+      <widget class="QPushButton" name="nutLuu">
        <property name="text">
         <string>Lưu</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btnCancel">
+      <widget class="QPushButton" name="nutHuy">
        <property name="text">
         <string>Hủy</string>
        </property>
@@ -101,6 +101,6 @@
    </item>
   </layout>
  </widget>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <ui version="4.0">
  <class>CustomerTab</class>
- <widget class="QWidget" name="CustomerTab">
+ <widget class="QWidget" name="khungKhachHang">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -12,7 +12,7 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QGroupBox" name="groupInfo">
+    <widget class="QGroupBox" name="nhomThongTin">
      <property name="title">
       <string>Thông Tin Khách Hàng</string>
      </property>
@@ -57,19 +57,19 @@
        </spacer>
       </item>
       <item row="1" column="5">
-       <widget class="QLineEdit" name="lineEditCustomerID_2"/>
+       <widget class="QLineEdit" name="txtKhachHangMa2" />
       </item>
       <item row="2" column="5">
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <widget class="QRadioButton" name="radioButton">
+         <widget class="QRadioButton" name="radRadio">
           <property name="text">
            <string>Nam</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QRadioButton" name="radioButton_2">
+         <widget class="QRadioButton" name="radRadio2">
           <property name="text">
            <string>Nữ</string>
           </property>
@@ -98,7 +98,7 @@
        </widget>
       </item>
       <item row="4" column="5">
-       <widget class="QLineEdit" name="lineEditEmail_2"/>
+       <widget class="QLineEdit" name="txtEmail2" />
       </item>
       <item row="4" column="4">
        <widget class="QLabel" name="labelEmail_2">
@@ -115,7 +115,7 @@
        </widget>
       </item>
       <item row="3" column="2">
-       <widget class="QLineEdit" name="lineEditPhone"/>
+       <widget class="QLineEdit" name="txtDienThoai" />
       </item>
       <item row="4" column="1">
        <widget class="QLabel" name="labelEmail">
@@ -132,7 +132,7 @@
        </widget>
       </item>
       <item row="1" column="2">
-       <widget class="QLineEdit" name="lineEditCustomerID"/>
+       <widget class="QLineEdit" name="txtKhachHangMa" />
       </item>
       <item row="1" column="1">
        <widget class="QLabel" name="labelID">
@@ -142,10 +142,10 @@
        </widget>
       </item>
       <item row="2" column="2">
-       <widget class="QLineEdit" name="lineEditCustomerName"/>
+       <widget class="QLineEdit" name="txtKhachHangTen" />
       </item>
       <item row="4" column="2">
-       <widget class="QLineEdit" name="lineEditEmail"/>
+       <widget class="QLineEdit" name="txtEmail" />
       </item>
       <item row="2" column="6">
        <spacer name="horizontalSpacer_7">
@@ -214,14 +214,14 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="nutMacDinh">
          <property name="text">
           <string>Sửa</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_2">
+        <widget class="QPushButton" name="nut2">
          <property name="text">
           <string>Xóa</string>
          </property>
@@ -232,17 +232,17 @@
     </layout>
    </item>
    <item>
-    <widget class="QTabWidget" name="tabCustomerDetails">
+    <widget class="QTabWidget" name="tabKhachHangDetails">
      <property name="currentIndex">
       <number>1</number>
      </property>
-     <widget class="QWidget" name="tabMuaHang">
+     <widget class="QWidget" name="khungMuaHang">
       <attribute name="title">
        <string>Lịch Sử Mua Hàng</string>
       </attribute>
       <layout class="QVBoxLayout">
        <item>
-        <widget class="QTableWidget" name="tablePurchaseHistory">
+        <widget class="QTableWidget" name="bangMuaHangLichSu">
          <column>
           <property name="text">
            <string>Mã Đơn Hàng</string>
@@ -272,13 +272,13 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tabPayment">
+     <widget class="QWidget" name="khungThanhToan">
       <attribute name="title">
        <string>Lịch Sử Thanh Toán</string>
       </attribute>
       <layout class="QVBoxLayout">
        <item>
-        <widget class="QTableWidget" name="tablePaymentHistory">
+        <widget class="QTableWidget" name="bangThanhToanLichSu">
          <column>
           <property name="text">
            <string>Mã Thanh Toán</string>
@@ -303,7 +303,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tabStatistics">
+     <widget class="QWidget" name="khungStatistics">
       <attribute name="title">
        <string>Thống Kê</string>
       </attribute>
@@ -356,6 +356,6 @@
    </item>
   </layout>
  </widget>
- <resources/>
- <connections/>
+ <resources />
+ <connections />
 </ui>

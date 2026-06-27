@@ -1,19 +1,19 @@
 <?xml version='1.0' encoding='utf-8'?>
 <ui version="4.0">
- <class>OrderDialog</class>
- <widget class="QDialog" name="hopThoaiDonHang">
+ <class>Form</class>
+ <widget class="QWidget" name="khungMacDinh">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>799</width>
+    <width>808</width>
     <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Thông Tin Đơn Hàng</string>
+   <string>Form</string>
   </property>
-  <layout class="QVBoxLayout">
+  <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QGroupBox" name="nhomDonHangThongTin">
      <property name="title">
@@ -64,16 +64,6 @@
           </property>
          </widget>
         </item>
-        <item row="3" column="0">
-         <widget class="QLabel" name="lblStatus">
-          <property name="text">
-           <string>Trạng Thái</string>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="1">
-         <widget class="QComboBox" name="cboTrangThai" />
-        </item>
        </layout>
       </item>
       <item>
@@ -97,9 +87,9 @@
      <property name="title">
       <string>Chi Tiết Sản Phẩm</string>
      </property>
-     <layout class="QVBoxLayout">
+     <layout class="QVBoxLayout" name="_3">
       <item>
-       <layout class="QHBoxLayout">
+       <layout class="QHBoxLayout" name="_4">
         <item>
          <spacer name="horizontalSpacer_2">
           <property name="orientation">
@@ -123,14 +113,14 @@
         <item>
          <widget class="QPushButton" name="nutCapNhatMuc">
           <property name="text">
-           <string>Cập Nhật</string>
+           <string>Cập Nhật SP</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QPushButton" name="nutXoaMuc">
           <property name="text">
-           <string>Xóa</string>
+           <string>Xóa SP</string>
           </property>
          </widget>
         </item>
@@ -178,30 +168,16 @@
      <property name="title">
       <string>Thanh Toán</string>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="3,4">
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <layout class="QFormLayout" name="formLayout_3">
-        <item row="0" column="0">
-         <widget class="QLabel" name="lblPaymentMethod">
-          <property name="text">
-           <string>Phương Thức</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QComboBox" name="cboThanhToanPhuongThuc" />
-        </item>
-        <item row="1" column="0">
-         <widget class="QLabel" name="lblPaymentStatus">
-          <property name="text">
-           <string>Trạng Thái Thanh Toán</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QComboBox" name="cboThanhToanTrangThai" />
-        </item>
-       </layout>
+       <widget class="QLabel" name="lblPaymentMethod">
+        <property name="text">
+         <string>Phương Thức</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="cboThanhToanPhuongThuc" />
       </item>
       <item>
        <spacer name="horizontalSpacer_3">
@@ -210,8 +186,8 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>471</width>
-          <height>20</height>
+          <width>596</width>
+          <height>21</height>
          </size>
         </property>
        </spacer>
@@ -226,38 +202,14 @@
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
-       <layout class="QFormLayout" name="formLayout_2">
-        <item row="0" column="0">
-         <widget class="QLabel" name="lblPartner">
-          <property name="text">
-           <string>Đối Tác Vận Chuyển</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QComboBox" name="cboDoiTac" />
-        </item>
-        <item row="1" column="0">
-         <widget class="QLabel" name="lblShipmentMethod">
-          <property name="text">
-           <string>Phương Thức Giao Hàng</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QComboBox" name="cboVanChuyenPhuongThuc" />
-        </item>
-        <item row="2" column="0">
-         <widget class="QLabel" name="lblShipmentFee">
-          <property name="text">
-           <string>Phí Vận Chuyển</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <widget class="QLineEdit" name="txtVanChuyenPhi" />
-        </item>
-       </layout>
+       <widget class="QLabel" name="lblShipmentMethod">
+        <property name="text">
+         <string>Phương Thức Vận Chuyển</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="cboVanChuyenPhuongThuc" />
       </item>
       <item>
        <spacer name="horizontalSpacer_4">
@@ -266,7 +218,7 @@
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>412</width>
+          <width>524</width>
           <height>20</height>
          </size>
         </property>
@@ -276,53 +228,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QGroupBox" name="nhomTongKet">
-     <property name="title">
-      <string>Tổng Kết</string>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_4">
-      <item>
-       <layout class="QFormLayout" name="formLayout_4">
-        <item row="0" column="0">
-         <widget class="QLabel" name="lblSubtotal">
-          <property name="text">
-           <string>Tạm Tính</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QLineEdit" name="txtTamTinh" />
-        </item>
-        <item row="1" column="0">
-         <widget class="QLabel" name="lblTotal">
-          <property name="text">
-           <string>Tổng Thanh Toán</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QLineEdit" name="txtTong" />
-        </item>
-       </layout>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer_5">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>412</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
-    <layout class="QHBoxLayout">
+    <layout class="QHBoxLayout" name="_2">
      <item>
       <spacer name="horizontalSpacer">
        <property name="orientation">
