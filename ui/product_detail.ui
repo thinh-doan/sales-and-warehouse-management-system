@@ -152,7 +152,7 @@
      <item>
       <widget class="QPushButton" name="pushButton_2">
        <property name="text">
-        <string>Xóa</string>
+        <string>Xóa SP</string>
        </property>
       </widget>
      </item>
