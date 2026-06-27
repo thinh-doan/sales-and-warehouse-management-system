@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PaymentWindow</class>
+ <widget class="QMainWindow" name="PaymentWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1400</width>
+    <height>900</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Logistics Payment Management</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QFrame" name="frameHeader">
+      <layout class="QHBoxLayout" name="headerLayout">
+       <item>
+        <widget class="QLabel" name="lblLogo">
+         <property name="text">
+          <string>LOGIPAY</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="sp1">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="txtHeaderSearch"/>
+       </item>
+       <item>
+        <widget class="QLabel" name="lblUser">
+         <property name="text">
+          <string>👤 Admin</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="statsLayout">
+      <item>
+       <widget class="QFrame" name="framePending">
+        <widget class="QGroupBox" name="groupOrderInfo">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>1071</width>
+           <height>161</height>
+          </rect>
+         </property>
+         <property name="title">
+          <string>Chi tiết đơn hàng</string>
+         </property>
+         <layout class="QFormLayout" name="formOrder">
+          <item row="0" column="0">
+           <widget class="QLabel" name="lb1">
+            <property name="text">
+             <string>Khách hàng</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLabel" name="lblCustomer">
+            <property name="text">
+             <string>Nguyễn Văn A</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="lb2">
+            <property name="text">
+             <string>Địa chỉ</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLabel" name="lblAddress">
+            <property name="text">
+             <string>Đông Hà - Quảng Trị</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="lb3">
+            <property name="text">
+             <string>Vận chuyển</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="lb4">
+            <property name="text">
+             <string>Tổng đơn</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QLabel" name="lblOrderTotal">
+            <property name="text">
+             <string>2.500.000 VNĐ</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLabel" name="lblShipping">
+            <property name="text">
+             <string>Đang vận chuyển</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupPayment_2">
+      <property name="title">
+       <string>Thông tin thanh toán</string>
+      </property>
+      <layout class="QGridLayout" name="paymentLayout_2">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label1_2">
+         <property name="text">
+          <string>Payment ID</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label2_2">
+         <property name="text">
+          <string>Order ID</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="txtPaymentID_2"/>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="txtOrderID_2"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label3_2">
+         <property name="text">
+          <string>Payment Date</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QDateEdit" name="datePayment_2"/>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label4_2">
+         <property name="text">
+          <string>Method</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label5_2">
+         <property name="text">
+          <string>Status</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QComboBox" name="cboStatus_2"/>
+       </item>
+       <item row="3" column="1">
+        <widget class="QComboBox" name="cboMethod_2"/>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label6_2">
+         <property name="text">
+          <string>Amount</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QLineEdit" name="txtAmount_2"/>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="label7_2">
+         <property name="text">
+          <string>Transaction Code</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QLineEdit" name="txtTransactionCode_2"/>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="crudLayout">
+      <item>
+       <widget class="QPushButton" name="btnAdd">
+        <property name="text">
+         <string>Thêm</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnUpdate">
+        <property name="text">
+         <string>Sửa</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnDelete">
+        <property name="text">
+         <string>Xóa</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnRefresh">
+        <property name="text">
+         <string>Làm mới</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QFrame" name="frameReport">
+      <layout class="QHBoxLayout" name="reportLayout">
+       <item>
+        <spacer name="sp2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnExportReport">
+         <property name="text">
+          <string>Quay lại</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
