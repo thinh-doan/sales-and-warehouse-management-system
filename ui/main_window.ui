@@ -706,37 +706,6 @@
       <widget class="QWidget" name="tabTonKho">
        <layout class="QVBoxLayout" name="verticalLayout_6">
         <item>
-         <layout class="QHBoxLayout" name="_5">
-          <item>
-           <widget class="QLabel" name="lblWarehouse">
-            <property name="text">
-             <string>Số kho: 0</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer2">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>0</width>
-              <height>0</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QPushButton" name="btnExport">
-            <property name="text">
-             <string>Xuất báo cáo</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
          <layout class="QHBoxLayout" name="_3">
           <item>
            <widget class="QLineEdit" name="txtSearch_2">
@@ -757,30 +726,9 @@
         <item>
          <layout class="QHBoxLayout" name="buttonLayout">
           <item>
-           <widget class="QPushButton" name="btnAdd_4">
+           <widget class="QLabel" name="lblTotal">
             <property name="text">
-             <string>➕ Thêm</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="btnUpdate_4">
-            <property name="text">
-             <string>✏️ Sửa</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="btnDelete_4">
-            <property name="text">
-             <string>🗑 Xóa</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="btnRefresh_3">
-            <property name="text">
-             <string>🔄 Làm mới</string>
+             <string>Tổng tồn kho: 0</string>
             </property>
            </widget>
           </item>
@@ -798,9 +746,9 @@
            </spacer>
           </item>
           <item>
-           <widget class="QLabel" name="lblTotal">
+           <widget class="QPushButton" name="btnUpdate_4">
             <property name="text">
-             <string>Tổng tồn kho: 0</string>
+             <string>Cập nhật</string>
             </property>
            </widget>
           </item>
@@ -830,32 +778,37 @@ border-radius:8px;
          <widget class="QTableWidget" name="tableInventory">
           <column>
            <property name="text">
-            <string>WarehouseID</string>
+            <string>Mã Kho Hàng</string>
            </property>
           </column>
           <column>
            <property name="text">
-            <string>Warehouse Name</string>
+            <string>Mã Sản Phẩm</string>
            </property>
           </column>
           <column>
            <property name="text">
-            <string>ProductID</string>
+            <string>Tên Sản Phẩm</string>
            </property>
           </column>
           <column>
            <property name="text">
-            <string>Quantity</string>
+            <string>Danh Mục</string>
            </property>
           </column>
           <column>
            <property name="text">
-            <string>Last Updated</string>
+            <string>Số Lượng</string>
            </property>
           </column>
           <column>
            <property name="text">
-            <string>Status</string>
+            <string>Tồn Kho</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Trạng Thái</string>
            </property>
           </column>
          </widget>
@@ -1085,7 +1038,7 @@ border-radius:8px;
      <x>0</x>
      <y>0</y>
      <width>1090</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
