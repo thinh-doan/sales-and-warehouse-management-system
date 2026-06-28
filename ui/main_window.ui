@@ -100,7 +100,7 @@
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="nutTongQuan">
+        <widget class="QPushButton" name="btnTongQuan">
          <property name="text">
           <string>Tổng quan</string>
          </property>
@@ -110,7 +110,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="nutDonhang">
+        <widget class="QPushButton" name="btnDonhang">
          <property name="text">
           <string>Đơn hàng</string>
          </property>
@@ -120,7 +120,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="nutKhachHang">
+        <widget class="QPushButton" name="btnKhachHang">
          <property name="text">
           <string>Khách hàng</string>
          </property>
@@ -130,7 +130,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="nutSanPham">
+        <widget class="QPushButton" name="btnSanPham">
          <property name="text">
           <string>Sản phẩm</string>
          </property>
@@ -140,7 +140,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="nut2">
+        <widget class="QPushButton" name="btnDanhMuc">
          <property name="text">
           <string>Danh mục</string>
          </property>
@@ -150,7 +150,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="nutTonKho">
+        <widget class="QPushButton" name="btnTonKho">
          <property name="text">
           <string>Tồn kho</string>
          </property>
@@ -160,7 +160,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="nutThanhToan">
+        <widget class="QPushButton" name="btnThanhToan">
          <property name="text">
           <string>Thanh toán</string>
          </property>
@@ -170,7 +170,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="nutVanChuyen">
+        <widget class="QPushButton" name="btnVanChuyen">
          <property name="text">
           <string>Vận chuyển</string>
          </property>
@@ -180,7 +180,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="nutNhanVien">
+        <widget class="QPushButton" name="btnNhanVien">
          <property name="text">
           <string>Nhân viên</string>
          </property>
@@ -190,7 +190,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="nutBaoCao">
+        <widget class="QPushButton" name="btnBaoCao">
          <property name="text">
           <string>Báo cáo</string>
          </property>
@@ -200,7 +200,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="nutDangXuat">
+        <widget class="QPushButton" name="btnDangXuat">
          <property name="text">
           <string>Đăng Xuất</string>
          </property>
@@ -228,10 +228,10 @@
     <item>
      <widget class="QStackedWidget" name="khungChuyenTrangStacked">
       <property name="currentIndex">
-       <number>7</number>
+       <number>8</number>
       </property>
-      <widget class="QWidget" name="khungTongQuan"/>
-      <widget class="QWidget" name="khungDonHang">
+      <widget class="QWidget" name="pageTongQuan"/>
+      <widget class="QWidget" name="pageDonHang">
        <layout class="QVBoxLayout" name="verticalLayout_4">
         <item>
          <widget class="QGroupBox" name="nhomTimKiem2">
@@ -446,7 +446,7 @@ border-radius:8px;
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="khungKhachHang">
+      <widget class="QWidget" name="pageKhachHang">
        <layout class="QVBoxLayout" name="verticalLayout_3" stretch="2,1,8">
         <item>
          <widget class="QGroupBox" name="nhomTimKiem">
@@ -606,7 +606,7 @@ border-radius:8px;
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="khungSanPham">
+      <widget class="QWidget" name="pageSanPham">
        <layout class="QVBoxLayout" name="verticalLayout_5">
         <item>
          <widget class="QGroupBox" name="nhomTimKiem2">
@@ -788,7 +788,7 @@ border-radius:8px;
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="khungDanhMuc">
+      <widget class="QWidget" name="pageDanhMuc">
        <layout class="QVBoxLayout" name="verticalLayout_6">
         <item>
          <layout class="QHBoxLayout" name="topLayout" stretch="10,1">
@@ -948,7 +948,7 @@ border-radius:8px;
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="khungTonKho">
+      <widget class="QWidget" name="pageTonKho">
        <layout class="QVBoxLayout" name="verticalLayout_6">
         <item>
          <layout class="QHBoxLayout" name="_3">
@@ -1067,7 +1067,7 @@ border-radius:8px;
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="khungThanhToan">
+      <widget class="QWidget" name="pageThanhToan">
        <layout class="QVBoxLayout" name="verticalLayout_7">
         <item>
          <layout class="QHBoxLayout" name="searchLayout">
@@ -1229,10 +1229,10 @@ border-radius:8px;
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="khungVanChuyen"/>
-      <widget class="QWidget" name="khungNhanVien"/>
-      <widget class="QWidget" name="khungBaoCao"/>
-      <widget class="QWidget" name="khungDangXuat"/>
+      <widget class="QWidget" name="pageVanChuyen"/>
+      <widget class="QWidget" name="pageNhanVien"/>
+      <widget class="QWidget" name="pageBaoCao"/>
+      <widget class="QWidget" name="pageDangXuat"/>
      </widget>
     </item>
    </layout>
