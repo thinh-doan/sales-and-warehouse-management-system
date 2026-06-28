@@ -1,6 +1,6 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>OrderItemDialog</class>
+ <class>hopThoaiDonHangMuc</class>
  <widget class="QDialog" name="hopThoaiDonHangMuc">
   <property name="geometry">
    <rect>
@@ -30,7 +30,7 @@
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QComboBox" name="cboSanPham" />
+         <widget class="QComboBox" name="cbbSanPham"/>
         </item>
         <item row="1" column="0">
          <widget class="QLabel" name="lblStock">
@@ -84,14 +84,14 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="nutLuu">
+      <widget class="QPushButton" name="btnLuu">
        <property name="text">
         <string>Lưu</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="nutHuy">
+      <widget class="QPushButton" name="btnHuy">
        <property name="text">
         <string>Hủy</string>
        </property>
@@ -101,6 +101,6 @@
    </item>
   </layout>
  </widget>
- <resources />
- <connections />
+ <resources/>
+ <connections/>
 </ui>

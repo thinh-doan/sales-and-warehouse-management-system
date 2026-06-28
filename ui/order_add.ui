@@ -1,6 +1,6 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
+ <class>khungMacDinh</class>
  <widget class="QWidget" name="khungMacDinh">
   <property name="geometry">
    <rect>
@@ -30,7 +30,7 @@
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QComboBox" name="cboKhachHang">
+         <widget class="QComboBox" name="cbbKhachHang">
           <property name="editable">
            <bool>true</bool>
           </property>
@@ -44,7 +44,7 @@
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QComboBox" name="cboNhanVien">
+         <widget class="QComboBox" name="cbbNhanVien">
           <property name="editable">
            <bool>true</bool>
           </property>
@@ -58,7 +58,7 @@
          </widget>
         </item>
         <item row="2" column="1">
-         <widget class="QDateEdit" name="ngayNgayDonHang">
+         <widget class="QDateEdit" name="txtNgayDatHang">
           <property name="calendarPopup">
            <bool>true</bool>
           </property>
@@ -104,21 +104,21 @@
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="nutThemMuc">
+         <widget class="QPushButton" name="btnThemSP">
           <property name="text">
            <string>Thêm SP</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="nutCapNhatMuc">
+         <widget class="QPushButton" name="btnCapNhatSP">
           <property name="text">
            <string>Cập Nhật SP</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="nutXoaMuc">
+         <widget class="QPushButton" name="btnXoaSP">
           <property name="text">
            <string>Xóa SP</string>
           </property>
@@ -127,7 +127,7 @@
        </layout>
       </item>
       <item>
-       <widget class="QTableWidget" name="bangDonHangMuc">
+       <widget class="QTableWidget" name="btnOrderDetail">
         <column>
          <property name="text">
           <string>Mã SP</string>
@@ -177,7 +177,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QComboBox" name="cboThanhToanPhuongThuc" />
+       <widget class="QComboBox" name="cboThanhToanPhuongThuc"/>
       </item>
       <item>
        <spacer name="horizontalSpacer_3">
@@ -209,7 +209,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QComboBox" name="cboVanChuyenPhuongThuc" />
+       <widget class="QComboBox" name="cboVanChuyenPhuongThuc"/>
       </item>
       <item>
        <spacer name="horizontalSpacer_4">
@@ -260,6 +260,6 @@
    </item>
   </layout>
  </widget>
- <resources />
- <connections />
+ <resources/>
+ <connections/>
 </ui>

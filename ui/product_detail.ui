@@ -1,6 +1,6 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
+ <class>khungMacDinh</class>
  <widget class="QWidget" name="khungMacDinh">
   <property name="geometry">
    <rect>
@@ -15,14 +15,14 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_2" />
+    <layout class="QHBoxLayout" name="horizontalLayout_2"/>
    </item>
    <item>
     <widget class="QGroupBox" name="nhomInformation">
      <property name="title">
       <string>Thông Tin Sản Phẩm</string>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="2,1">
+     <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="2,0">
       <item>
        <layout class="QFormLayout" name="formLayout">
         <item row="0" column="0">
@@ -33,7 +33,7 @@
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QLineEdit" name="txtSanPhamMa">
+         <widget class="QLineEdit" name="txtMaSP">
           <property name="readOnly">
            <bool>true</bool>
           </property>
@@ -47,7 +47,7 @@
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QLineEdit" name="txtSanPhamTen">
+         <widget class="QLineEdit" name="txtTenSP">
           <property name="readOnly">
            <bool>true</bool>
           </property>
@@ -75,7 +75,7 @@
          </widget>
         </item>
         <item row="3" column="1">
-         <widget class="QLineEdit" name="txtGia">
+         <widget class="QLineEdit" name="txtDonGia">
           <property name="readOnly">
            <bool>true</bool>
           </property>
@@ -89,7 +89,7 @@
          </widget>
         </item>
         <item row="4" column="1">
-         <widget class="QLineEdit" name="txtSoLuong">
+         <widget class="QLineEdit" name="txtTonKho">
           <property name="readOnly">
            <bool>true</bool>
           </property>
@@ -143,14 +143,14 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="nutMacDinh">
+      <widget class="QPushButton" name="btnCapNhatSP">
        <property name="text">
         <string>Cập Nhật</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="nut2">
+      <widget class="QPushButton" name="btnXoaSP">
        <property name="text">
         <string>Xóa SP</string>
        </property>
@@ -159,9 +159,9 @@
     </layout>
    </item>
    <item>
-    <widget class="QTabWidget" name="tabSanPham">
+    <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="khungChiTiet">
       <attribute name="title">
@@ -176,7 +176,7 @@
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QTextEdit" name="txtVanBanMoTa">
+        <widget class="QTextEdit" name="txtMoTaSP">
          <property name="readOnly">
           <bool>true</bool>
          </property>
@@ -199,7 +199,7 @@
        <item row="1" column="1">
         <layout class="QHBoxLayout" name="horizontalLayout_3">
          <item>
-          <widget class="QLineEdit" name="txtCreatedNgay">
+          <widget class="QLineEdit" name="txtNgayTaoSP">
            <property name="readOnly">
             <bool>true</bool>
            </property>
@@ -223,7 +223,7 @@
        <item row="2" column="1">
         <layout class="QHBoxLayout" name="horizontalLayout_4">
          <item>
-          <widget class="QLineEdit" name="txtTrangThai">
+          <widget class="QLineEdit" name="txtTrangThaiSP">
            <property name="readOnly">
             <bool>true</bool>
            </property>
@@ -246,13 +246,13 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="khungBanHangLichSu">
+     <widget class="QWidget" name="tabLichSuBan">
       <attribute name="title">
        <string>Lịch Sử Bán</string>
       </attribute>
       <layout class="QVBoxLayout" name="_4">
        <item>
-        <widget class="QTableWidget" name="bangBanHangLichSu">
+        <widget class="QTableWidget" name="tblLichSuBan">
          <column>
           <property name="text">
            <string>Mã Đơn</string>
@@ -288,7 +288,7 @@
       </attribute>
       <layout class="QVBoxLayout" name="_5">
        <item>
-        <widget class="QTableWidget" name="bangTonKhoLichSu">
+        <widget class="QTableWidget" name="tblLichSuTonKho">
          <column>
           <property name="text">
            <string>Ngày</string>
@@ -317,6 +317,6 @@
    </item>
   </layout>
  </widget>
- <resources />
- <connections />
+ <resources/>
+ <connections/>
 </ui>

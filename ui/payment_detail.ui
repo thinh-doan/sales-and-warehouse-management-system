@@ -1,6 +1,6 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>PaymentDetailDialog</class>
+ <class>hopThoaiThanhToanChiTiet</class>
  <widget class="QDialog" name="hopThoaiThanhToanChiTiet">
   <property name="geometry">
    <rect>
@@ -55,7 +55,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLabel" name="lblPayID">
+       <widget class="QLabel" name="lblMaTT">
         <property name="text">
          <string>PAY00000</string>
         </property>
@@ -69,7 +69,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLabel" name="lblOrderID">
+       <widget class="QLabel" name="lblMaDH">
         <property name="text">
          <string>ORD00000</string>
         </property>
@@ -83,7 +83,7 @@
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QLabel" name="lblCustomerName">
+       <widget class="QLabel" name="lblTenKH">
         <property name="text">
          <string>N/A</string>
         </property>
@@ -97,7 +97,7 @@
        </widget>
       </item>
       <item row="3" column="1">
-       <widget class="QLabel" name="lblMethod">
+       <widget class="QLabel" name="lblPhuongThucThanhToan">
         <property name="text">
          <string>Chưa xác định</string>
         </property>
@@ -111,7 +111,7 @@
        </widget>
       </item>
       <item row="4" column="1">
-       <widget class="QLabel" name="lblPaymentDate">
+       <widget class="QLabel" name="lblngayTT">
         <property name="text">
          <string>--/--/----</string>
         </property>
@@ -125,7 +125,7 @@
        </widget>
       </item>
       <item row="5" column="1">
-       <widget class="QLabel" name="lblStatus">
+       <widget class="QLabel" name="lblTrangThaiTT">
         <property name="font">
          <font>
           <weight>75</weight>
@@ -147,7 +147,7 @@
      </property>
      <layout class="QVBoxLayout" name="amountLayout">
       <item>
-       <widget class="QLabel" name="lblTotalAmount">
+       <widget class="QLabel" name="lblTongTien">
         <property name="font">
          <font>
           <pointsize>18</pointsize>
@@ -192,14 +192,14 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="nutMacDinh">
+      <widget class="QPushButton" name="btnXacNhanTT">
        <property name="text">
         <string>Xác Nhận Thanh Toán</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="nutClose">
+      <widget class="QPushButton" name="btnClose">
        <property name="text">
         <string>Đóng</string>
        </property>
@@ -209,6 +209,6 @@
    </item>
   </layout>
  </widget>
- <resources />
- <connections />
+ <resources/>
+ <connections/>
 </ui>

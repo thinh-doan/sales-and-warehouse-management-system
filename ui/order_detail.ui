@@ -1,6 +1,6 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>OrderDialog</class>
+ <class>hopThoaiDonHang</class>
  <widget class="QDialog" name="hopThoaiDonHang">
   <property name="geometry">
    <rect>
@@ -58,7 +58,7 @@
          </widget>
         </item>
         <item row="2" column="1">
-         <widget class="QDateEdit" name="ngayNgayDonHang">
+         <widget class="QDateEdit" name="txtNgayDatHang">
           <property name="calendarPopup">
            <bool>true</bool>
           </property>
@@ -72,7 +72,7 @@
          </widget>
         </item>
         <item row="3" column="1">
-         <widget class="QComboBox" name="cboTrangThai" />
+         <widget class="QComboBox" name="cboTrangThai"/>
         </item>
        </layout>
       </item>
@@ -114,21 +114,21 @@
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="nutThemMuc">
+         <widget class="QPushButton" name="btnThemSP">
           <property name="text">
            <string>Thêm SP</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="nutCapNhatMuc">
+         <widget class="QPushButton" name="btnCapNhatSP">
           <property name="text">
            <string>Cập Nhật</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="nutXoaMuc">
+         <widget class="QPushButton" name="btnXoaSP">
           <property name="text">
            <string>Xóa</string>
           </property>
@@ -137,7 +137,7 @@
        </layout>
       </item>
       <item>
-       <widget class="QTableWidget" name="bangDonHangMuc">
+       <widget class="QTableWidget" name="tblOrderDetail">
         <column>
          <property name="text">
           <string>Mã SP</string>
@@ -189,7 +189,7 @@
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QComboBox" name="cboThanhToanPhuongThuc" />
+         <widget class="QComboBox" name="cboPhuongThucTT"/>
         </item>
         <item row="1" column="0">
          <widget class="QLabel" name="lblPaymentStatus">
@@ -199,7 +199,7 @@
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QComboBox" name="cboThanhToanTrangThai" />
+         <widget class="QComboBox" name="cboTrangThaiTT"/>
         </item>
        </layout>
       </item>
@@ -235,7 +235,7 @@
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QComboBox" name="cboDoiTac" />
+         <widget class="QComboBox" name="cboDoiTac"/>
         </item>
         <item row="1" column="0">
          <widget class="QLabel" name="lblShipmentMethod">
@@ -245,7 +245,7 @@
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QComboBox" name="cboVanChuyenPhuongThuc" />
+         <widget class="QComboBox" name="cboPhuongThucVanChuyen"/>
         </item>
         <item row="2" column="0">
          <widget class="QLabel" name="lblShipmentFee">
@@ -255,7 +255,7 @@
          </widget>
         </item>
         <item row="2" column="1">
-         <widget class="QLineEdit" name="txtVanChuyenPhi" />
+         <widget class="QLineEdit" name="txtPhiVanChuyen"/>
         </item>
        </layout>
       </item>
@@ -291,7 +291,7 @@
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QLineEdit" name="txtTamTinh" />
+         <widget class="QLineEdit" name="txtTamTinh"/>
         </item>
         <item row="1" column="0">
          <widget class="QLabel" name="lblTotal">
@@ -301,7 +301,7 @@
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QLineEdit" name="txtTong" />
+         <widget class="QLineEdit" name="txtTongTT"/>
         </item>
        </layout>
       </item>
@@ -337,14 +337,14 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="nutLuu">
+      <widget class="QPushButton" name="btnLuu">
        <property name="text">
         <string>Lưu</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="nutHuy">
+      <widget class="QPushButton" name="Huy">
        <property name="text">
         <string>Hủy</string>
        </property>
@@ -354,6 +354,6 @@
    </item>
   </layout>
  </widget>
- <resources />
- <connections />
+ <resources/>
+ <connections/>
 </ui>

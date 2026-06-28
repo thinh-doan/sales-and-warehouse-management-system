@@ -1,6 +1,6 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>CustomerDialog</class>
+ <class>hopThoaiKhachHang</class>
  <widget class="QDialog" name="hopThoaiKhachHang">
   <property name="geometry">
    <rect>
@@ -21,14 +21,14 @@
      </property>
      <layout class="QHBoxLayout">
       <item>
-       <widget class="QRadioButton" name="radRadioCaNhan">
+       <widget class="QRadioButton" name="rdCaNhan">
         <property name="text">
          <string>KH cá nhân</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QRadioButton" name="radRadioDoanhNghiep">
+       <widget class="QRadioButton" name="rdDoanhNghiep">
         <property name="text">
          <string>KH doanh nghiệp</string>
         </property>
@@ -51,7 +51,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="txtKhachHangTen" />
+       <widget class="QLineEdit" name="txtTenKH"/>
       </item>
       <item row="1" column="0">
        <widget class="QLabel" name="lblPhone">
@@ -61,7 +61,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="txtDienThoai" />
+       <widget class="QLineEdit" name="txtSDT_KH"/>
       </item>
       <item row="2" column="0">
        <widget class="QLabel" name="lblEmail">
@@ -71,7 +71,7 @@
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QLineEdit" name="txtEmail" />
+       <widget class="QLineEdit" name="txtEmailKH"/>
       </item>
       <item row="3" column="0">
        <widget class="QLabel" name="label">
@@ -81,7 +81,7 @@
        </widget>
       </item>
       <item row="3" column="1">
-       <widget class="QLineEdit" name="txtMacDinh" />
+       <widget class="QLineEdit" name="txtDiaChiKH"/>
       </item>
      </layout>
     </widget>
@@ -89,7 +89,7 @@
    <item>
     <widget class="QGroupBox" name="nhomCaNhan">
      <property name="locale">
-      <locale language="Vietnamese" country="Vietnam" />
+      <locale language="Vietnamese" country="Vietnam"/>
      </property>
      <property name="title">
       <string>Thông tin cá nhân</string>
@@ -112,14 +112,14 @@
       <item row="1" column="1">
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <widget class="QRadioButton" name="radRadio">
+         <widget class="QRadioButton" name="rdNam">
           <property name="text">
            <string>Nam</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QRadioButton" name="radRadio2">
+         <widget class="QRadioButton" name="rdNu">
           <property name="text">
            <string>Nữ</string>
           </property>
@@ -141,7 +141,7 @@
        </layout>
       </item>
       <item row="0" column="1">
-       <widget class="QDateEdit" name="ngayNgay">
+       <widget class="QDateEdit" name="txtNgaySinh">
         <property name="showGroupSeparator" stdset="0">
          <bool>false</bool>
         </property>
@@ -170,7 +170,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="txtCongTyTen" />
+       <widget class="QLineEdit" name="txtMaSoThue"/>
       </item>
      </layout>
     </widget>
@@ -178,14 +178,14 @@
    <item>
     <layout class="QHBoxLayout">
      <item>
-      <widget class="QPushButton" name="nutLuu">
+      <widget class="QPushButton" name="btnLuu">
        <property name="text">
         <string>Lưu</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="nutHuy">
+      <widget class="QPushButton" name="btnHuy">
        <property name="text">
         <string>Hủy</string>
        </property>
@@ -195,6 +195,6 @@
    </item>
   </layout>
  </widget>
- <resources />
- <connections />
+ <resources/>
+ <connections/>
 </ui>
