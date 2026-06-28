@@ -228,7 +228,7 @@
     <item>
      <widget class="QStackedWidget" name="khungChuyenTrangStacked">
       <property name="currentIndex">
-       <number>8</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="pageTongQuan"/>
       <widget class="QWidget" name="pageDonHang">
@@ -377,13 +377,6 @@ border-radius:8px;
            <widget class="QPushButton" name="btnThemDH">
             <property name="text">
              <string>Thêm</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="btnChiTietDH">
-            <property name="text">
-             <string>Chi Tiết ĐH</string>
             </property>
            </widget>
           </item>
