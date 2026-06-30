@@ -238,7 +238,7 @@
     <item>
      <widget class="QStackedWidget" name="khungChuyenTrangStacked">
       <property name="currentIndex">
-       <number>5</number>
+       <number>6</number>
       </property>
       <widget class="QWidget" name="pageTongQuan"/>
       <widget class="QWidget" name="pageDonHang">
