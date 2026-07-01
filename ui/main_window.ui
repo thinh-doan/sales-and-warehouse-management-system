@@ -238,7 +238,7 @@
     <item>
      <widget class="QStackedWidget" name="khungChuyenTrangStacked">
       <property name="currentIndex">
-       <number>6</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="pageTongQuan"/>
       <widget class="QWidget" name="pageDonHang">
@@ -597,7 +597,7 @@ border-radius:8px;
           </column>
           <column>
            <property name="text">
-            <string>Kiểu khách hàng</string>
+            <string>Nhóm khách hàng</string>
            </property>
           </column>
           <column>
@@ -770,16 +770,6 @@ border-radius:8px;
           <column>
            <property name="text">
             <string>Tồn Kho</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Đơn Vị</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Ngày Tạo</string>
            </property>
           </column>
           <column>
@@ -1181,16 +1171,23 @@ border-radius:8px;
            </spacer>
           </item>
           <item>
+           <widget class="QPushButton" name="btnChiTietTT">
+            <property name="text">
+             <string>Chi Tiết</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QPushButton" name="btnXacNhanTT">
             <property name="text">
-             <string>Xác nhận đã thu tiền</string>
+             <string>Xác Nhận Thanh Toán</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QPushButton" name="btnXoaTT">
             <property name="text">
-             <string>Xóa Thanh Toán</string>
+             <string>Xóa</string>
             </property>
            </widget>
           </item>
@@ -1525,6 +1522,11 @@ border-radius:8px;
           <column>
            <property name="text">
             <string>Email</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Phương Thức VC</string>
            </property>
           </column>
          </widget>
