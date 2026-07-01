@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1015</width>
-    <height>696</height>
+    <height>654</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -238,7 +238,7 @@
     <item>
      <widget class="QStackedWidget" name="khungChuyenTrangStacked">
       <property name="currentIndex">
-       <number>0</number>
+       <number>9</number>
       </property>
       <widget class="QWidget" name="pageTongQuan"/>
       <widget class="QWidget" name="pageDonHang">
@@ -248,102 +248,51 @@
           <property name="title">
            <string>Tìm Kiếm</string>
           </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_8">
+          <layout class="QHBoxLayout" name="horizontalLayout_6">
            <item>
-            <spacer name="horizontalSpacer_7">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
+            <widget class="QLineEdit" name="txtTimKiemDH">
+             <property name="text">
+              <string/>
              </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
+             <property name="placeholderText">
+              <string>Nhập mã đơn hàng</string>
              </property>
-            </spacer>
+            </widget>
            </item>
            <item>
-            <layout class="QVBoxLayout" name="verticalLayout">
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_6">
-               <item>
-                <widget class="QLineEdit" name="txtTimKiemDH">
-                 <property name="text">
-                  <string/>
-                 </property>
-                 <property name="placeholderText">
-                  <string>Nhập mã đơn hàng</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <spacer name="horizontalSpacer_14">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item>
-                <widget class="QPushButton" name="btnTimKiemDH">
-                 <property name="text">
-                  <string>Tìm kiếm</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_7">
-               <item>
-                <widget class="QLabel" name="lblFromDate">
-                 <property name="text">
-                  <string>Từ Ngày</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QDateEdit" name="txtTuNgayDH">
-                 <property name="calendarPopup">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="lblToDate">
-                 <property name="text">
-                  <string>Đến Ngày</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QDateEdit" name="txtDenNgayDH">
-                 <property name="calendarPopup">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-            </layout>
+            <widget class="QDateEdit" name="txtTuNgayDH">
+             <property name="calendarPopup">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
            <item>
-            <spacer name="horizontalSpacer_9">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
+            <widget class="QLabel" name="lblFromDate">
+             <property name="text">
+              <string>Từ Ngày</string>
              </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>224</width>
-               <height>20</height>
-              </size>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDateEdit" name="txtDenNgayDH">
+             <property name="calendarPopup">
+              <bool>true</bool>
              </property>
-            </spacer>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="lblToDate">
+             <property name="text">
+              <string>Đến Ngày</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btnTimKiemDH">
+             <property name="text">
+              <string>Tìm kiếm</string>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>
@@ -450,61 +399,34 @@ border-radius:8px;
        </layout>
       </widget>
       <widget class="QWidget" name="pageKhachHang">
-       <layout class="QVBoxLayout" name="verticalLayout_3" stretch="2,1,8">
+       <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
          <widget class="QGroupBox" name="nhomTimKiem">
           <property name="title">
            <string>Tìm kiếm</string>
           </property>
-          <layout class="QVBoxLayout" name="verticalLayout_2">
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
            <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_4">
-             <item>
-              <spacer name="horizontalSpacer_5">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item>
-              <widget class="QLineEdit" name="txtTimKiemKH">
-               <property name="placeholderText">
-                <string>Nhập tên hoặc mã số khách hàng</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="btnTimKiemKH">
-               <property name="text">
-                <string>Tìm kiếm</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <spacer name="horizontalSpacer_2">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-            </layout>
+            <widget class="QLineEdit" name="txtTimKiemKH">
+             <property name="placeholderText">
+              <string>Nhập tên hoặc mã số khách hàng</string>
+             </property>
+            </widget>
            </item>
            <item>
-            <widget class="QLabel" name="lblTitle_3">
-             <property name="styleSheet">
-              <string>
+            <widget class="QPushButton" name="btnTimKiemKH">
+             <property name="text">
+              <string>Tìm kiếm</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="lblTitle_3">
+          <property name="styleSheet">
+           <string>
 font: 18pt &quot;Arial&quot;;
 font-weight:bold;
 color:white;
@@ -512,16 +434,13 @@ background:#1976D2;
 padding:15px;
 border-radius:8px;
        </string>
-             </property>
-             <property name="text">
-              <string>QUẢN LÝ KHÁCH HÀNG</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-          </layout>
+          </property>
+          <property name="text">
+           <string>QUẢN LÝ KHÁCH HÀNG</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
          </widget>
         </item>
         <item>
@@ -540,43 +459,39 @@ border-radius:8px;
            </spacer>
           </item>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayoutButtons">
-            <item>
-             <widget class="QPushButton" name="btnThemKH">
-              <property name="text">
-               <string>Thêm</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="btnChiTietKH">
-              <property name="text">
-               <string>Chi tiết</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="btnCapNhatKH">
-              <property name="text">
-               <string>Cập Nhật</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="btnXoaKH">
-              <property name="text">
-               <string>Xóa</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="btnRefreshKH">
-              <property name="text">
-               <string>Làm Mới</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
+           <widget class="QPushButton" name="btnThemKH">
+            <property name="text">
+             <string>Thêm</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnChiTietKH">
+            <property name="text">
+             <string>Chi tiết</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnCapNhatKH">
+            <property name="text">
+             <string>Cập Nhật</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnXoaKH">
+            <property name="text">
+             <string>Xóa</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnRefreshKH">
+            <property name="text">
+             <string>Làm Mới</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -617,10 +532,10 @@ border-radius:8px;
            <string>Tìm Kiếm</string>
           </property>
           <layout class="QGridLayout" name="_3">
-           <item row="0" column="5">
+           <item row="0" column="4">
             <widget class="QComboBox" name="cbbTrangThai"/>
            </item>
-           <item row="0" column="6">
+           <item row="0" column="5">
             <widget class="QPushButton" name="btnTimKiemSP">
              <property name="text">
               <string>Tìm kiếm</string>
@@ -628,16 +543,9 @@ border-radius:8px;
             </widget>
            </item>
            <item row="0" column="2">
-            <widget class="QLabel" name="lblCategory">
-             <property name="text">
-              <string>Danh mục</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="3">
             <widget class="QComboBox" name="cbbDanhMuc"/>
            </item>
-           <item row="0" column="4">
+           <item row="0" column="3">
             <widget class="QLabel" name="lblStatus_2">
              <property name="text">
               <string>Trạng thái</string>
@@ -645,16 +553,16 @@ border-radius:8px;
             </widget>
            </item>
            <item row="0" column="1">
-            <widget class="QLineEdit" name="txtTimKiemSP">
-             <property name="placeholderText">
-              <string>Mã hoặc tên sản phẩm...</string>
+            <widget class="QLabel" name="lblCategory">
+             <property name="text">
+              <string>Danh mục</string>
              </property>
             </widget>
            </item>
            <item row="0" column="0">
-            <widget class="QLabel" name="lblKeyword_2">
-             <property name="text">
-              <string>Từ khóa</string>
+            <widget class="QLineEdit" name="txtTimKiemSP">
+             <property name="placeholderText">
+              <string>Mã hoặc tên sản phẩm...</string>
              </property>
             </widget>
            </item>
@@ -782,27 +690,54 @@ border-radius:8px;
        </layout>
       </widget>
       <widget class="QWidget" name="pageDanhMuc">
-       <layout class="QVBoxLayout" name="verticalLayout_6">
+       <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <layout class="QHBoxLayout" name="topLayout" stretch="10,1">
-          <item>
-           <widget class="QComboBox" name="cbbTimKiemDM">
-            <property name="editable">
-             <bool>true</bool>
-            </property>
-            <property name="currentText">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="btnTimKiemDM">
-            <property name="text">
-             <string>Tìm kiếm</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
+         <widget class="QGroupBox" name="groupBox">
+          <property name="title">
+           <string>Tìm Kiếm</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_7">
+           <item>
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>Chọn Danh Mục</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="cbbTimKiemDM">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>550</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="editable">
+              <bool>true</bool>
+             </property>
+             <property name="currentText">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btnTimKiemDM">
+             <property name="text">
+              <string>Tìm kiếm</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
         </item>
         <item>
          <widget class="QLabel" name="lblTitle_6">
@@ -843,8 +778,8 @@ border-radius:8px;
            <widget class="QPushButton" name="btnThemDM">
             <property name="minimumSize">
              <size>
-              <width>90</width>
-              <height>35</height>
+              <width>0</width>
+              <height>0</height>
              </size>
             </property>
             <property name="text">
@@ -856,8 +791,8 @@ border-radius:8px;
            <widget class="QPushButton" name="btnChiTietDM">
             <property name="minimumSize">
              <size>
-              <width>90</width>
-              <height>35</height>
+              <width>0</width>
+              <height>0</height>
              </size>
             </property>
             <property name="text">
@@ -869,8 +804,8 @@ border-radius:8px;
            <widget class="QPushButton" name="btnCapNhatDM">
             <property name="minimumSize">
              <size>
-              <width>90</width>
-              <height>35</height>
+              <width>0</width>
+              <height>0</height>
              </size>
             </property>
             <property name="text">
@@ -882,8 +817,8 @@ border-radius:8px;
            <widget class="QPushButton" name="btnXoaDM">
             <property name="minimumSize">
              <size>
-              <width>90</width>
-              <height>35</height>
+              <width>0</width>
+              <height>0</height>
              </size>
             </property>
             <property name="text">
@@ -944,22 +879,27 @@ border-radius:8px;
       <widget class="QWidget" name="pageTonKho">
        <layout class="QVBoxLayout" name="verticalLayout_6">
         <item>
-         <layout class="QHBoxLayout" name="_3">
-          <item>
-           <widget class="QLineEdit" name="txtTimKiemTK">
-            <property name="placeholderText">
-             <string>Tìm WarehouseID hoặc ProductID...</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="btnTimKiemTK">
-            <property name="text">
-             <string>Tìm kiếm</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
+         <widget class="QGroupBox" name="groupBox_2">
+          <property name="title">
+           <string>Tìm Kiếm</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_8">
+           <item>
+            <widget class="QLineEdit" name="txtTimKiemTK">
+             <property name="placeholderText">
+              <string>Tìm WarehouseID hoặc ProductID...</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btnTimKiemTK">
+             <property name="text">
+              <string>Tìm kiếm</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
         </item>
         <item>
          <widget class="QLabel" name="lblTitle">
@@ -1068,72 +1008,60 @@ border-radius:8px;
        </layout>
       </widget>
       <widget class="QWidget" name="pageThanhToan">
-       <layout class="QVBoxLayout" name="verticalLayout_7">
+       <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
-         <layout class="QHBoxLayout" name="searchLayout">
-          <item>
-           <widget class="QLineEdit" name="txtTimKiemTT">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="placeholderText">
-             <string>Nhạp mã thanh toán</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="btnTimKiemTT">
-            <property name="text">
-             <string>Tìm kiếm</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_10">
-          <item>
-           <spacer name="horizontalSpacer_13">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QLabel" name="lblFromDate_2">
-            <property name="text">
-             <string>Từ Ngày</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QDateEdit" name="txtTuNgayTT">
-            <property name="calendarPopup">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLabel" name="lblToDate_2">
-            <property name="text">
-             <string>Đến Ngày</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QDateEdit" name="txtDenNgayTT">
-            <property name="calendarPopup">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-         </layout>
+         <widget class="QGroupBox" name="groupBox_3">
+          <property name="title">
+           <string>GroupBox</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_11">
+           <item>
+            <widget class="QLineEdit" name="txtTimKiemTT">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="placeholderText">
+              <string>Nhạp mã thanh toán</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="lblFromDate_2">
+             <property name="text">
+              <string>Từ Ngày</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDateEdit" name="txtTuNgayTT">
+             <property name="calendarPopup">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="lblToDate_2">
+             <property name="text">
+              <string>Đến Ngày</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDateEdit" name="txtDenNgayTT">
+             <property name="calendarPopup">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btnTimKiemTT">
+             <property name="text">
+              <string>Tìm kiếm</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
         </item>
         <item>
          <widget class="QLabel" name="lblTitle_2">
@@ -1533,7 +1461,161 @@ border-radius:8px;
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="pageBaoCao"/>
+      <widget class="QWidget" name="pageBaoCao">
+       <layout class="QVBoxLayout" name="verticalLayout_7">
+        <item>
+         <widget class="QGroupBox" name="grpSearch_3">
+          <property name="title">
+           <string>Tìm kiếm</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_2">
+           <item row="0" column="3">
+            <widget class="QComboBox" name="cbPosition">
+             <item>
+              <property name="text">
+               <string>Tất cả</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="lblEmployeeID">
+             <property name="text">
+              <string>Mã nhân viên</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="txtEmployeeID"/>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLabel" name="lblPosition">
+             <property name="text">
+              <string>Chức vụ</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="4">
+            <widget class="QPushButton" name="pushButton_5">
+             <property name="text">
+              <string>Tìm Kiếm</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="lblTitle_9">
+          <property name="styleSheet">
+           <string>
+font: 18pt &quot;Arial&quot;;
+font-weight:bold;
+color:white;
+background:#1976D2;
+padding:15px;
+border-radius:8px;
+       </string>
+          </property>
+          <property name="text">
+           <string>QUẢN LÝ NHÂN VIÊN</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="toolbarLayout_3">
+          <item>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnAdd_2">
+            <property name="text">
+             <string>Thêm</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnViewDetail_3">
+            <property name="text">
+             <string>Chi tiết</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnEdit_2">
+            <property name="text">
+             <string>Cập nhật</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnDelete_2">
+            <property name="text">
+             <string>Xóa</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnRefresh_3">
+            <property name="text">
+             <string>Làm mới</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="tblEmployee">
+          <property name="columnCount">
+           <number>6</number>
+          </property>
+          <column>
+           <property name="text">
+            <string>Mã NV</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Họ tên</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>SĐT</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Chức vụ</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Phòng ban</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Trạng thái</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+       </layout>
+      </widget>
       <widget class="QWidget" name="pageDangXuat"/>
      </widget>
     </item>
@@ -1545,7 +1627,7 @@ border-radius:8px;
      <x>0</x>
      <y>0</y>
      <width>1015</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
