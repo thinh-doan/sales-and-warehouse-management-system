@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1015</width>
-    <height>696</height>
+    <width>817</width>
+    <height>533</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -238,7 +238,7 @@
     <item>
      <widget class="QStackedWidget" name="khungChuyenTrangStacked">
       <property name="currentIndex">
-       <number>0</number>
+       <number>5</number>
       </property>
       <widget class="QWidget" name="pageTongQuan"/>
       <widget class="QWidget" name="pageDonHang">
@@ -1544,8 +1544,8 @@ border-radius:8px;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1015</width>
-     <height>26</height>
+     <width>817</width>
+     <height>22</height>
     </rect>
    </property>
   </widget>
