@@ -28,7 +28,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="txtPartnerID">
+       <widget class="QLineEdit" name="txtMaDT">
         <property name="readOnly">
          <bool>true</bool>
         </property>
@@ -52,7 +52,7 @@
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QLineEdit" name="txtPhone"/>
+       <widget class="QLineEdit" name="txtSDT_DT"/>
       </item>
       <item row="3" column="0">
        <widget class="QLabel" name="lblEmail">
@@ -62,7 +62,7 @@
        </widget>
       </item>
       <item row="3" column="1">
-       <widget class="QLineEdit" name="txtEmail"/>
+       <widget class="QLineEdit" name="txtEmai_DT"/>
       </item>
       <item row="5" column="0">
        <widget class="QLabel" name="label">
@@ -72,7 +72,7 @@
        </widget>
       </item>
       <item row="5" column="1">
-       <widget class="QRadioButton" name="radioButton">
+       <widget class="QRadioButton" name="rbP">
         <property name="text">
          <string>Tên PT</string>
         </property>
@@ -114,7 +114,7 @@
        </widget>
       </item>
       <item row="4" column="1">
-       <widget class="QLineEdit" name="lineEdit"/>
+       <widget class="QLineEdit" name="txtDiaChiDT"/>
       </item>
      </layout>
     </widget>
@@ -135,14 +135,14 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="btnSave">
+      <widget class="QPushButton" name="btnLuu">
        <property name="text">
         <string>Lưu</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btnCancel">
+      <widget class="QPushButton" name="btnHuy">
        <property name="text">
         <string>Hủy</string>
        </property>
