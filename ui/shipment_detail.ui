@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>900</width>
-    <height>700</height>
+    <width>722</width>
+    <height>850</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -90,20 +90,6 @@
         </property>
        </widget>
       </item>
-      <item row="5" column="0">
-       <widget class="QLabel" name="lblCarrier">
-        <property name="text">
-         <string>Đơn vị VC</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="1">
-       <widget class="QLineEdit" name="txtCarrier">
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
       <item row="6" column="0">
        <widget class="QLabel" name="lblMethod">
         <property name="text">
@@ -140,9 +126,9 @@
        </widget>
       </item>
       <item row="8" column="1">
-       <widget class="QDateEdit" name="dtCreated">
-        <property name="enabled">
-         <bool>false</bool>
+       <widget class="QDateEdit" name="dateEdit">
+        <property name="calendarPopup">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -153,24 +139,10 @@
         </property>
        </widget>
       </item>
-      <item row="9" column="1">
-       <widget class="QDateEdit" name="dtExpected">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
       <item row="10" column="0">
        <widget class="QLabel" name="lblActual">
         <property name="text">
          <string>Ngày giao thực tế</string>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="1">
-       <widget class="QDateEdit" name="dtActual">
-        <property name="enabled">
-         <bool>false</bool>
         </property>
        </widget>
       </item>
@@ -202,6 +174,34 @@
         </property>
        </widget>
       </item>
+      <item row="5" column="1">
+       <widget class="QLineEdit" name="txtCarrier">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="1">
+       <widget class="QDateEdit" name="dateEdit_2">
+        <property name="calendarPopup">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="1">
+       <widget class="QDateEdit" name="dateEdit_3">
+        <property name="calendarPopup">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="lblCarrier">
+        <property name="text">
+         <string>Đơn vị VC</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>
@@ -212,7 +212,38 @@
      </property>
      <layout class="QVBoxLayout">
       <item>
-       <widget class="QTableWidget" name="tblOrderItems"/>
+       <widget class="QTableWidget" name="tblOrderItems">
+        <column>
+         <property name="text">
+          <string>Mã SP</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Tên SP</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Đơn Vị</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Số Lượng</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Đơn Giá</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Thành Tiền</string>
+         </property>
+        </column>
+       </widget>
       </item>
      </layout>
     </widget>
