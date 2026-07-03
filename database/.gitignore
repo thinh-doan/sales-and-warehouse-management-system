@@ -1,0 +1,20 @@
+# Environment files
+.env
+
+# SQL Server backup and log files
+*.bak
+*.log
+*.trn
+
+# Python cache
+__pycache__/
+*.pyc
+
+# IDE files
+.vscode/
+.idea/
+.vs/
+
+# OS files
+.DS_Store
+Thumbs.db
