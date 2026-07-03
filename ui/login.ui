@@ -89,7 +89,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btnThoat">
+      <widget class="QPushButton" name="btnThoatDangNhap">
        <property name="minimumSize">
         <size>
          <width>90</width>

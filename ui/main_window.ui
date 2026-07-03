@@ -172,7 +172,7 @@
        <item>
         <widget class="QPushButton" name="btnVanChuyen">
          <property name="text">
-          <string>Vận chuyển</string>
+          <string>Vận Chuyển</string>
          </property>
          <property name="flat">
           <bool>true</bool>
@@ -238,7 +238,7 @@
     <item>
      <widget class="QStackedWidget" name="khungChuyenTrangStacked">
       <property name="currentIndex">
-       <number>1</number>
+       <number>7</number>
       </property>
       <widget class="QWidget" name="pageTongQuan">
        <layout class="QVBoxLayout" name="verticalLayout_11">
@@ -653,7 +653,7 @@ border-radius:8px;
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="btnRefreshDashboard">
+           <widget class="QPushButton" name="btnRefreshDB">
             <property name="minimumSize">
              <size>
               <width>120</width>
@@ -1018,6 +1018,52 @@ border-radius:8px;
          </widget>
         </item>
         <item>
+         <widget class="QTableWidget" name="bangSanPham">
+          <property name="editTriggers">
+           <set>QAbstractItemView::NoEditTriggers</set>
+          </property>
+          <property name="alternatingRowColors">
+           <bool>true</bool>
+          </property>
+          <property name="selectionMode">
+           <enum>QAbstractItemView::SingleSelection</enum>
+          </property>
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectRows</enum>
+          </property>
+          <column>
+           <property name="text">
+            <string>Mã SP</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Tên Sản Phẩm</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Danh Mục</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Đơn Giá</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Tồn Kho</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Trạng Thái</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+        <item>
          <layout class="QHBoxLayout" name="_5">
           <item>
            <spacer name="horizontalSpacer_8">
@@ -1068,52 +1114,6 @@ border-radius:8px;
            </widget>
           </item>
          </layout>
-        </item>
-        <item>
-         <widget class="QTableWidget" name="bangSanPham">
-          <property name="editTriggers">
-           <set>QAbstractItemView::NoEditTriggers</set>
-          </property>
-          <property name="alternatingRowColors">
-           <bool>true</bool>
-          </property>
-          <property name="selectionMode">
-           <enum>QAbstractItemView::SingleSelection</enum>
-          </property>
-          <property name="selectionBehavior">
-           <enum>QAbstractItemView::SelectRows</enum>
-          </property>
-          <column>
-           <property name="text">
-            <string>Mã SP</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Tên Sản Phẩm</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Danh Mục</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Đơn Giá</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Tồn Kho</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Trạng Thái</string>
-           </property>
-          </column>
-         </widget>
         </item>
        </layout>
       </widget>
@@ -1342,7 +1342,7 @@ border-radius:8px;
        </string>
           </property>
           <property name="text">
-           <string>QUẢN LÝ KHO VÀ TỒN KHO</string>
+           <string>QUẢN LÝ TỒN KHO</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -1560,11 +1560,6 @@ border-radius:8px;
          <widget class="QTableWidget" name="tblThanhToan">
           <column>
            <property name="text">
-            <string>Mã Thanh Toán</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
             <string>Mã Đơn Hàng</string>
            </property>
           </column>
@@ -1581,6 +1576,16 @@ border-radius:8px;
           <column>
            <property name="text">
             <string>Trạng Thái</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Mã Thanh Toán</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Ngày Thanh Toán</string>
            </property>
           </column>
          </widget>
@@ -1924,7 +1929,7 @@ border-radius:8px;
             </widget>
            </item>
            <item row="0" column="4">
-            <widget class="QPushButton" name="btnTimKiem">
+            <widget class="QPushButton" name="btnTimKiemNV">
              <property name="text">
               <string>Tìm Kiếm</string>
              </property>

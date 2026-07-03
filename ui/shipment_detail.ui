@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ShipmentDetailDialog</class>
- <widget class="QDialog" name="ShipmentDetailDialog">
+ <class>txtNote</class>
+ <widget class="QDialog" name="txtNote">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>722</width>
-    <height>850</height>
+    <width>538</width>
+    <height>668</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -167,13 +167,6 @@
         </property>
        </widget>
       </item>
-      <item row="12" column="1">
-       <widget class="QPlainTextEdit" name="txtNote">
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
       <item row="5" column="1">
        <widget class="QLineEdit" name="txtDonViVC">
         <property name="readOnly">
@@ -201,6 +194,9 @@
          <string>Đơn vị VC</string>
         </property>
        </widget>
+      </item>
+      <item row="12" column="1">
+       <widget class="QLineEdit" name="lineEdit"/>
       </item>
      </layout>
     </widget>
@@ -264,14 +260,14 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="btnCapNhatTrangThai">
+      <widget class="QPushButton" name="btnCapNhatVC">
        <property name="text">
         <string>Cập Nhật Trạng Thái</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btnClose">
+      <widget class="QPushButton" name="btnCloseVC">
        <property name="text">
         <string>Đóng</string>
        </property>

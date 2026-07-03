@@ -6,47 +6,18 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>544</width>
-    <height>520</height>
+    <width>623</width>
+    <height>641</height>
    </rect>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
+  <layout class="QVBoxLayout" name="verticalLayout" stretch="1,1,9">
    <item>
     <widget class="QGroupBox" name="nhomThongTin">
      <property name="title">
       <string>Thông Tin Khách Hàng</string>
      </property>
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="2" column="3">
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="1" column="3">
-       <spacer name="horizontalSpacer_3">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="1" column="5">
-       <widget class="QLineEdit" name="txtNgaySinh"/>
-      </item>
-      <item row="2" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
        <spacer name="horizontalSpacer_6">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
@@ -59,20 +30,174 @@
         </property>
        </spacer>
       </item>
-      <item row="3" column="3">
-       <spacer name="horizontalSpacer_4">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+      <item>
+       <layout class="QGridLayout" name="gridLayout" rowstretch="1,1,1,1,1" rowminimumheight="1,1,1,1,0">
+        <property name="sizeConstraint">
+         <enum>QLayout::SetDefaultConstraint</enum>
         </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
+        <item row="2" column="2">
+         <spacer name="horizontalSpacer_4">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>13</width>
+            <height>17</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="txtSDT_KH"/>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="txtMaKH"/>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="labelName">
+          <property name="text">
+           <string>Tên KH</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="txtTenKH"/>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="labelID">
+          <property name="text">
+           <string>Mã KH</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="3">
+         <widget class="QLabel" name="labelName_2">
+          <property name="text">
+           <string>Giới Tính</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="labelEmail">
+          <property name="text">
+           <string>Email</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QPlainTextEdit" name="txtDiaChiKH"/>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="labelPhone">
+          <property name="text">
+           <string>SĐT</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QLineEdit" name="txtEmailKH"/>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>Địa Chỉ</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="4">
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QRadioButton" name="rdNam">
+            <property name="text">
+             <string>Nam</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="rdNu">
+            <property name="text">
+             <string>Nữ</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item row="3" column="2">
+         <spacer name="horizontalSpacer_5">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>13</width>
+            <height>17</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="2">
+         <spacer name="horizontalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>13</width>
+            <height>17</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="4">
+         <widget class="QLineEdit" name="txtNgaySinh"/>
+        </item>
+        <item row="1" column="2">
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>13</width>
+            <height>17</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="3">
+         <widget class="QLabel" name="labelID_2">
+          <property name="text">
+           <string>Ngày Sinh</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="3">
+         <widget class="QLabel" name="labelEmail_2">
+          <property name="text">
+           <string>Mã Số Thuế</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="4">
+         <widget class="QLineEdit" name="txtMaSoThue"/>
+        </item>
+       </layout>
       </item>
-      <item row="2" column="6">
+      <item>
        <spacer name="horizontalSpacer_7">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
@@ -85,119 +210,11 @@
         </property>
        </spacer>
       </item>
-      <item row="4" column="2">
-       <widget class="QLineEdit" name="txtEmailKH"/>
-      </item>
-      <item row="1" column="4">
-       <widget class="QLabel" name="labelID_2">
-        <property name="text">
-         <string>Ngày Sinh</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="3">
-       <spacer name="horizontalSpacer_5">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="2" column="5">
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <widget class="QRadioButton" name="rdNam">
-          <property name="text">
-           <string>Nam</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QRadioButton" name="rdNu">
-          <property name="text">
-           <string>Nữ</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </item>
-      <item row="2" column="4">
-       <widget class="QLabel" name="labelName_2">
-        <property name="text">
-         <string>Giới Tính</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="5">
-       <widget class="QLineEdit" name="txtMaSoThue"/>
-      </item>
-      <item row="3" column="1">
-       <widget class="QLabel" name="labelPhone">
-        <property name="text">
-         <string>SĐT</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="4">
-       <widget class="QLabel" name="labelEmail_2">
-        <property name="text">
-         <string>Mã Số Thuế</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="2">
-       <widget class="QLineEdit" name="txtSDT_KH"/>
-      </item>
-      <item row="2" column="2">
-       <widget class="QLineEdit" name="txtTenKH"/>
-      </item>
-      <item row="2" column="1">
-       <widget class="QLabel" name="labelName">
-        <property name="text">
-         <string>Tên KH</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QLabel" name="labelID">
-        <property name="text">
-         <string>Mã KH</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="1">
-       <widget class="QLabel" name="labelEmail">
-        <property name="text">
-         <string>Email</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="2">
-       <widget class="QLineEdit" name="txtMaKH"/>
-      </item>
      </layout>
     </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_3">
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <spacer name="horizontalSpacer_8">
        <property name="orientation">
@@ -212,29 +229,25 @@
       </spacer>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <item>
-        <widget class="QPushButton" name="btnCapNhatKH">
-         <property name="text">
-          <string>Cập Nhật</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="btnXoaKh">
-         <property name="text">
-          <string>Xóa</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      <widget class="QPushButton" name="btnCapNhatKH">
+       <property name="text">
+        <string>Cập Nhật</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnXoaKh">
+       <property name="text">
+        <string>Xóa</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
    <item>
     <widget class="QTabWidget" name="tblThongKe">
      <property name="currentIndex">
-      <number>1</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="khungMuaHang">
       <attribute name="title">

@@ -103,14 +103,14 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="btnCapNhat">
+      <widget class="QPushButton" name="btnCapNhatDT">
        <property name="text">
         <string>Cập Nhật</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btnXoa">
+      <widget class="QPushButton" name="btnXoaDT">
        <property name="text">
         <string>Xóa</string>
        </property>
@@ -254,7 +254,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="btnDong">
+      <widget class="QPushButton" name="btnCloseDT">
        <property name="text">
         <string>Đóng</string>
        </property>

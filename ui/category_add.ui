@@ -80,14 +80,14 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="btnLuu">
+      <widget class="QPushButton" name="btnLuuDM">
        <property name="text">
         <string>Lưu</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btnHuy">
+      <widget class="QPushButton" name="btnHuyDM">
        <property name="text">
         <string>Hủy</string>
        </property>
