@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>900</width>
-    <height>700</height>
+    <width>722</width>
+    <height>850</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -28,7 +28,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="txtShipmentID">
+       <widget class="QLineEdit" name="txtMaGH">
         <property name="readOnly">
          <bool>true</bool>
         </property>
@@ -42,7 +42,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="txtOrderID">
+       <widget class="QLineEdit" name="txtMaDonHang">
         <property name="readOnly">
          <bool>true</bool>
         </property>
@@ -56,7 +56,7 @@
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QLineEdit" name="txtCustomerName">
+       <widget class="QLineEdit" name="txtTenKH">
         <property name="readOnly">
          <bool>true</bool>
         </property>
@@ -70,7 +70,7 @@
        </widget>
       </item>
       <item row="3" column="1">
-       <widget class="QLineEdit" name="txtAddress">
+       <widget class="QLineEdit" name="txtDiaChi">
         <property name="readOnly">
          <bool>true</bool>
         </property>
@@ -84,21 +84,7 @@
        </widget>
       </item>
       <item row="4" column="1">
-       <widget class="QLineEdit" name="txtPhone">
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="0">
-       <widget class="QLabel" name="lblCarrier">
-        <property name="text">
-         <string>Đơn vị VC</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="1">
-       <widget class="QLineEdit" name="txtCarrier">
+       <widget class="QLineEdit" name="txtSDT_KH">
         <property name="readOnly">
          <bool>true</bool>
         </property>
@@ -112,7 +98,7 @@
        </widget>
       </item>
       <item row="6" column="1">
-       <widget class="QLineEdit" name="txtMethod">
+       <widget class="QLineEdit" name="txtPhuongThucVC">
         <property name="readOnly">
          <bool>true</bool>
         </property>
@@ -126,7 +112,7 @@
        </widget>
       </item>
       <item row="7" column="1">
-       <widget class="QLineEdit" name="txtShippingFee">
+       <widget class="QLineEdit" name="txtPhiVC">
         <property name="readOnly">
          <bool>true</bool>
         </property>
@@ -140,9 +126,9 @@
        </widget>
       </item>
       <item row="8" column="1">
-       <widget class="QDateEdit" name="dtCreated">
-        <property name="enabled">
-         <bool>false</bool>
+       <widget class="QDateEdit" name="txtNgayTao">
+        <property name="calendarPopup">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -153,24 +139,10 @@
         </property>
        </widget>
       </item>
-      <item row="9" column="1">
-       <widget class="QDateEdit" name="dtExpected">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
       <item row="10" column="0">
        <widget class="QLabel" name="lblActual">
         <property name="text">
          <string>Ngày giao thực tế</string>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="1">
-       <widget class="QDateEdit" name="dtActual">
-        <property name="enabled">
-         <bool>false</bool>
         </property>
        </widget>
       </item>
@@ -182,7 +154,7 @@
        </widget>
       </item>
       <item row="11" column="1">
-       <widget class="QLineEdit" name="txtStatus">
+       <widget class="QLineEdit" name="txtTrangThai">
         <property name="readOnly">
          <bool>true</bool>
         </property>
@@ -202,6 +174,34 @@
         </property>
        </widget>
       </item>
+      <item row="5" column="1">
+       <widget class="QLineEdit" name="txtDonViVC">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="1">
+       <widget class="QDateEdit" name="txtNgayDuKien">
+        <property name="calendarPopup">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="1">
+       <widget class="QDateEdit" name="txtNgayThucTe">
+        <property name="calendarPopup">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="lblCarrier">
+        <property name="text">
+         <string>Đơn vị VC</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>
@@ -212,7 +212,38 @@
      </property>
      <layout class="QVBoxLayout">
       <item>
-       <widget class="QTableWidget" name="tblOrderItems"/>
+       <widget class="QTableWidget" name="tblSanPham">
+        <column>
+         <property name="text">
+          <string>Mã SP</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Tên SP</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Đơn Vị</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Số Lượng</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Đơn Giá</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Thành Tiền</string>
+         </property>
+        </column>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -233,7 +264,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="btnCapNhatTrangThai">
        <property name="text">
         <string>Cập Nhật Trạng Thái</string>
        </property>
