@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Thông tin chi tiết thanh toán</string>
+   <string>Thanh toán</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>C:/Users/Admin/Downloads/payroll-check.png</normaloff>C:/Users/Admin/Downloads/payroll-check.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="mainVerticalLayout">
    <item>

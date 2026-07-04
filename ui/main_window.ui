@@ -68,15 +68,27 @@
          <layout class="QHBoxLayout" name="horizontalLayout_2">
           <item>
            <widget class="QLabel" name="label_2">
+            <property name="maximumSize">
+             <size>
+              <width>50</width>
+              <height>50</height>
+             </size>
+            </property>
             <property name="text">
-             <string>LOGO</string>
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap>C:/Users/Admin/Downloads/dolly-flatbed-alt.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QLabel" name="label">
             <property name="text">
-             <string>Tên doanh nghiệp</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt; font-weight:600;&quot;&gt;SPEED CHAIN&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
            </widget>
           </item>
@@ -102,7 +114,11 @@
        <item>
         <widget class="QPushButton" name="btnTongQuan">
          <property name="text">
-          <string>Tổng Quan</string>
+          <string>Tổng quan</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>C:/Users/Admin/Downloads/home.png</normaloff>C:/Users/Admin/Downloads/home.png</iconset>
          </property>
          <property name="flat">
           <bool>true</bool>
@@ -114,6 +130,10 @@
          <property name="text">
           <string>Đơn hàng</string>
          </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>C:/Users/Admin/Downloads/order-history.png</normaloff>C:/Users/Admin/Downloads/order-history.png</iconset>
+         </property>
          <property name="flat">
           <bool>true</bool>
          </property>
@@ -123,6 +143,10 @@
         <widget class="QPushButton" name="btnKhachHang">
          <property name="text">
           <string>Khách hàng</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>C:/Users/Admin/Downloads/user-bag.png</normaloff>C:/Users/Admin/Downloads/user-bag.png</iconset>
          </property>
          <property name="flat">
           <bool>true</bool>
@@ -134,6 +158,10 @@
          <property name="text">
           <string>Sản phẩm</string>
          </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>C:/Users/Admin/Downloads/boxes.png</normaloff>C:/Users/Admin/Downloads/boxes.png</iconset>
+         </property>
          <property name="flat">
           <bool>true</bool>
          </property>
@@ -143,6 +171,10 @@
         <widget class="QPushButton" name="btnDanhMuc">
          <property name="text">
           <string>Danh mục</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>C:/Users/Admin/Downloads/list.png</normaloff>C:/Users/Admin/Downloads/list.png</iconset>
          </property>
          <property name="flat">
           <bool>true</bool>
@@ -154,6 +186,10 @@
          <property name="text">
           <string>Tồn kho</string>
          </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>C:/Users/Admin/Downloads/box-open.png</normaloff>C:/Users/Admin/Downloads/box-open.png</iconset>
+         </property>
          <property name="flat">
           <bool>true</bool>
          </property>
@@ -163,6 +199,10 @@
         <widget class="QPushButton" name="btnThanhToan">
          <property name="text">
           <string>Thanh toán</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>C:/Users/Admin/Downloads/payroll-check.png</normaloff>C:/Users/Admin/Downloads/payroll-check.png</iconset>
          </property>
          <property name="flat">
           <bool>true</bool>
@@ -174,6 +214,10 @@
          <property name="text">
           <string>Vận Chuyển</string>
          </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>C:/Users/Admin/Downloads/truck-side.png</normaloff>C:/Users/Admin/Downloads/truck-side.png</iconset>
+         </property>
          <property name="flat">
           <bool>true</bool>
          </property>
@@ -182,7 +226,11 @@
        <item>
         <widget class="QPushButton" name="pushButton_2">
          <property name="text">
-          <string>Đối Tác</string>
+          <string>Đối tác</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>C:/Users/Admin/Downloads/employee-man-alt.png</normaloff>C:/Users/Admin/Downloads/employee-man-alt.png</iconset>
          </property>
          <property name="flat">
           <bool>true</bool>
@@ -194,6 +242,10 @@
          <property name="text">
           <string>Nhân viên</string>
          </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>C:/Users/Admin/Downloads/employee-man-alt.png</normaloff>C:/Users/Admin/Downloads/employee-man-alt.png</iconset>
+         </property>
          <property name="flat">
           <bool>true</bool>
          </property>
@@ -204,6 +256,10 @@
          <property name="text">
           <string>Báo cáo</string>
          </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>C:/Users/Admin/Downloads/big-data-analytics.png</normaloff>C:/Users/Admin/Downloads/big-data-analytics.png</iconset>
+         </property>
          <property name="flat">
           <bool>true</bool>
          </property>
@@ -212,7 +268,11 @@
        <item>
         <widget class="QPushButton" name="btnDangXuat">
          <property name="text">
-          <string>Đăng Xuất</string>
+          <string>Đăng xuất</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>C:/Users/Admin/Downloads/exit.png</normaloff>C:/Users/Admin/Downloads/exit.png</iconset>
          </property>
          <property name="flat">
           <bool>true</bool>
@@ -238,7 +298,7 @@
     <item>
      <widget class="QStackedWidget" name="khungChuyenTrangStacked">
       <property name="currentIndex">
-       <number>7</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="pageTongQuan">
        <layout class="QVBoxLayout" name="verticalLayout_11">
@@ -1660,7 +1720,7 @@ border-radius:8px;
            <item>
             <widget class="QPushButton" name="btnTimKiemVC">
              <property name="text">
-              <string>Tìm Kiếm</string>
+              <string>Tìm kiếm</string>
              </property>
             </widget>
            </item>
@@ -1697,7 +1757,7 @@ border-radius:8px;
             <property name="sizeHint" stdset="0">
              <size>
               <width>0</width>
-              <height>0</height>
+              <height>50</height>
              </size>
             </property>
            </spacer>
@@ -1712,14 +1772,14 @@ border-radius:8px;
           <item>
            <widget class="QPushButton" name="btnCapNhatVC">
             <property name="text">
-             <string>Cập Nhật Trạng Thái</string>
+             <string>Cập nhật trạng thái</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QPushButton" name="btnRefreshVC">
             <property name="text">
-             <string>Làm Mới</string>
+             <string>Làm mới</string>
             </property>
            </widget>
           </item>
@@ -1836,14 +1896,14 @@ border-radius:8px;
           <item>
            <widget class="QPushButton" name="btnChiTietDT">
             <property name="text">
-             <string>Chi Tiiết</string>
+             <string>Chi tiết</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QPushButton" name="btnCapNhatDT">
             <property name="text">
-             <string>Cập Nhật</string>
+             <string>Cập nhật</string>
             </property>
            </widget>
           </item>
@@ -1857,7 +1917,7 @@ border-radius:8px;
           <item>
            <widget class="QPushButton" name="btnRefreshDT">
             <property name="text">
-             <string>Làm Mới</string>
+             <string>Làm mới</string>
             </property>
            </widget>
           </item>

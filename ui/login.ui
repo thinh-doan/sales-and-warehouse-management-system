@@ -6,21 +6,35 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>488</width>
-    <height>291</height>
+    <width>581</width>
+    <height>346</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Đăng Nhập</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>C:/Users/Admin/Downloads/entrance.png</normaloff>C:/Users/Admin/Downloads/entrance.png</iconset>
+  </property>
   <property name="modal">
    <bool>true</bool>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout" stretch="1,0,1">
+  <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QLabel" name="lblTitle">
+    <widget class="QLabel" name="lblTitle_7">
+     <property name="styleSheet">
+      <string>
+font: 18pt &quot;Arial&quot;;
+font-weight:bold;
+color:white;
+background:#1976D2;
+padding:15px;
+border-radius:8px;
+       </string>
+     </property>
      <property name="text">
-      <string>HỆ THỐNG QUẢN LÝ CỬA HÀNG</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;HỆ THỐNG QUẢN LÝ CỬA HÀNG&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -61,7 +75,7 @@
     </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayoutButtons">
+    <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <spacer name="horizontalSpacer">
        <property name="orientation">
@@ -100,6 +114,19 @@
         <string>Thoát</string>
        </property>
       </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
      </item>
     </layout>
    </item>

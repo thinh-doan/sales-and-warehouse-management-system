@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Chi tiết nhân viên</string>
+   <string>Nhân viên</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>C:/Users/Admin/Downloads/employee-man-alt.png</normaloff>C:/Users/Admin/Downloads/employee-man-alt.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>

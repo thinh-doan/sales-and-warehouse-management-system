@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Sản phẩm</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>C:/Users/Admin/Downloads/boxes.png</normaloff>C:/Users/Admin/Downloads/boxes.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -142,14 +146,14 @@
      <item>
       <widget class="QPushButton" name="btnCapNhatSP">
        <property name="text">
-        <string>Cập Nhật</string>
+        <string>Cập nhật</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="btnXoaSP">
        <property name="text">
-        <string>Xóa SP</string>
+        <string>Xóa sản phẩm</string>
        </property>
       </widget>
      </item>
@@ -158,7 +162,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="khungChiTiet">
       <attribute name="title">

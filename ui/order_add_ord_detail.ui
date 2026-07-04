@@ -6,12 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>297</width>
-    <height>189</height>
+    <width>468</width>
+    <height>298</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Thêm Sản Phẩm Vào Đơn Hàng</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>C:/Users/Admin/Downloads/square-plus.png</normaloff>C:/Users/Admin/Downloads/square-plus.png</iconset>
   </property>
   <layout class="QVBoxLayout">
    <item>
@@ -22,6 +26,12 @@
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <layout class="QFormLayout" name="formLayout">
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
         <item row="0" column="0">
          <widget class="QLabel" name="lblProduct">
           <property name="text">

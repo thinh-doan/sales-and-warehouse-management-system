@@ -6,12 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>702</width>
-    <height>800</height>
+    <width>816</width>
+    <height>953</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Thông Tin Đơn Hàng</string>
+   <string>Đơn Hàng</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>C:/Users/Admin/Downloads/order-history.png</normaloff>C:/Users/Admin/Downloads/order-history.png</iconset>
   </property>
   <layout class="QVBoxLayout">
    <item>
