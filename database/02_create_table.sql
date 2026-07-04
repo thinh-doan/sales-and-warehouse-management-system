@@ -145,7 +145,7 @@ create table Delivery_Partner
 create table Prt_Shipping_Methods
 (
 	PartnerID int not null,
-	Prt_Shipping_Methods nvarchar (50) not null
+	ShippingMethodName nvarchar (50) not null
 )
 
 ---TẠO BẢNG SHIPMENT

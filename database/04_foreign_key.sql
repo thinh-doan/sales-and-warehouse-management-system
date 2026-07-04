@@ -4,7 +4,7 @@ ADD CONSTRAINT fk_Individual_Customer_Customer
 FOREIGN KEY (ICustomerID) REFERENCES Customer(CustomerID)
 
 ---RÀNG BUỘC KHÓA NGOẠI CHO BẢNG BUSINESS_CUSTOMER
-ALTER TABLE Business_customer
+ALTER TABLE Business_Customer
 ADD CONSTRAINT fk_Business_Customer_Customer
 FOREIGN KEY (BCustomerID) REFERENCES Customer(CustomerID)
 
@@ -34,12 +34,12 @@ ADD CONSTRAINT fk_Account_Role
 FOREIGN KEY (RoleID) REFERENCES [Role](RoleID)
 
 ---RÀNG BUỘC KHÓA NGOẠI CHO BẢNG ORDER - CUSTOMER
-ALTER TABLE Order
+ALTER TABLE [Order]
 ADD CONSTRAINT fk_Order_Customer
 FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
 
 ---RÀNG BUỘC KHÓA NGOẠI CHO BẢNG ORDER - EMPLOYEE
-ALTER TABLE Order
+ALTER TABLE [Order]
 ADD CONSTRAINT fk_Order_Employee
 FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)
 
