@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>C:/Users/Admin/Downloads/payroll-check.png</normaloff>C:/Users/Admin/Downloads/payroll-check.png</iconset>
+    <normaloff>../resources/icons/payroll-check.png</normaloff>../resources/icons/payroll-check.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="mainVerticalLayout">
    <item>
@@ -198,7 +198,7 @@
      <item>
       <widget class="QPushButton" name="btnXacNhanTT">
        <property name="text">
-        <string>Xác Nhận Thanh Toán</string>
+        <string>Xác nhận thanh toán</string>
        </property>
       </widget>
      </item>

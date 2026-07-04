@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>C:/Users/Admin/Downloads/boxes.png</normaloff>C:/Users/Admin/Downloads/boxes.png</iconset>
+    <normaloff>../resources/icons/boxes.png</normaloff>../resources/icons/boxes.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -256,27 +256,27 @@
         <widget class="QTableWidget" name="tblLichSuBan">
          <column>
           <property name="text">
-           <string>Mã Đơn</string>
+           <string>Mã đơn</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>Ngày Bán</string>
+           <string>Ngày bán</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>Khách Hàng</string>
+           <string>Khách hàng</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>Số Lượng</string>
+           <string>Số lượng</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>Thành Tiền</string>
+           <string>Thành tiền</string>
           </property>
          </column>
         </widget>
@@ -302,12 +302,12 @@
          </column>
          <column>
           <property name="text">
-           <string>Số Lượng</string>
+           <string>Số lượng</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>Ghi Chú</string>
+           <string>Ghi chú</string>
           </property>
          </column>
         </widget>

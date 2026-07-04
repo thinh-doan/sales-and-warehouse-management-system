@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>C:/Users/Admin/Downloads/entrance.png</normaloff>C:/Users/Admin/Downloads/entrance.png</iconset>
+    <normaloff>../resources/icons/entrance.png</normaloff>../resources/icons/entrance.png</iconset>
   </property>
   <property name="modal">
    <bool>true</bool>
@@ -44,7 +44,7 @@ border-radius:8px;
    <item>
     <widget class="QGroupBox" name="grpLogin">
      <property name="title">
-      <string>Thông Tin Đăng Nhập</string>
+      <string>Thông tin đăng nhập</string>
      </property>
      <layout class="QFormLayout" name="formLayout">
       <item row="0" column="0">
@@ -98,7 +98,7 @@ border-radius:8px;
         </size>
        </property>
        <property name="text">
-        <string>Đăng Nhập</string>
+        <string>Đăng nhập</string>
        </property>
       </widget>
      </item>
