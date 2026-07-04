@@ -1,3 +1,5 @@
+use [QL_BANHANG_KHOHANG]
+
 ---RÀNG BUỘC CHECK CHO BẢNG Customer
 ---ĐẢM BẢO LOẠI KHÁCH HÀNG HỢP LỆ
 ALTER TABLE Customer ADD CONSTRAINT CK_Customer_Type
@@ -6,7 +8,7 @@ CHECK (CusType IN (N'Cá nhân', N'Doanh nghiệp'))
 ---RÀNG BUỘC CHECK CHO BẢNG Employee
 ---ĐẢM BẢO GIỚI TÍNH NHÂN VIÊN HỢP LỆ
 ALTER TABLE Employee ADD CONSTRAINT CK_Employee_Gender
-CHECK (EmpGender IN (N'Nam', N'Nữ', N'Khác') OR EmpGender IS NULL)
+CHECK (EmpGender IN (N'Nam', N'Nữ') OR EmpGender IS NULL)
 
 ---RÀNG BUỘC CHECK CHO BẢNG Employee
 ---ĐẢM BẢO NGÀY SINH NHÂN VIÊN NHỎ HƠN NGÀY VÀO LÀM NẾU CÓ NHẬP NGÀY SINH

@@ -1,5 +1,5 @@
 
----RÀNG BUỘC UNIQUE CHO BẢNG Customer
+--RÀNG BUỘC UNIQUE CHO BẢNG Customer
 ---ĐẢM BẢO SĐT KHÁCH HÀNG KHÔNG BỊ TRÙNG
 ALTER TABLE Customer ADD CONSTRAINT UQ_Customer_Phone UNIQUE (CusPhone);
 
@@ -38,3 +38,4 @@ ALTER TABLE Payment ADD CONSTRAINT UQ_Payment_OrderID UNIQUE (OrderID)
 ---RÀNG BUỘC UNIQUE CHO BẢNG Shipment
 ---ĐẢM BẢO 01 ĐƠN HÀNG CHỈ CÓ TỐI ĐA 01 SHIPMENT
 ALTER TABLE Shipment ADD CONSTRAINT UQ_Shipment_OrderID UNIQUE (OrderID)
+

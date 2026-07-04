@@ -1,3 +1,5 @@
+USE QL_BANHANG_KHOHANG;
+
 ---NHẬP DỮ LIỆU BẢNG Customer
 INSERT INTO Customer (CustomerID, CusPhone, CusEmail, CusAddress, CusCreatedDate, CusType)
 VALUES
