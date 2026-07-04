@@ -6,12 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>474</width>
-    <height>524</height>
+    <width>1041</width>
+    <height>753</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
-   <string>Chi tiết nhân viên</string>
+   <string>Nhân viên</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>C:/Users/Admin/Downloads/employee-man-alt.png</normaloff>C:/Users/Admin/Downloads/employee-man-alt.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>

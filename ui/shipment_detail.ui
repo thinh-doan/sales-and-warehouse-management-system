@@ -6,12 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>538</width>
+    <width>794</width>
     <height>668</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
-   <string>Chi tiết giao hàng</string>
+   <string>Giao hàng</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>C:/Users/Admin/Downloads/truck-side.png</normaloff>C:/Users/Admin/Downloads/truck-side.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -206,42 +215,46 @@
      <property name="title">
       <string>Sản phẩm</string>
      </property>
-     <layout class="QVBoxLayout">
-      <item>
-       <widget class="QTableWidget" name="tblSanPham">
-        <column>
-         <property name="text">
-          <string>Mã SP</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Tên SP</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Đơn Vị</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Số Lượng</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Đơn Giá</string>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Thành Tiền</string>
-         </property>
-        </column>
-       </widget>
-      </item>
-     </layout>
+     <widget class="QTableWidget" name="tblSanPham">
+      <property name="geometry">
+       <rect>
+        <x>12</x>
+        <y>28</y>
+        <width>751</width>
+        <height>152</height>
+       </rect>
+      </property>
+      <column>
+       <property name="text">
+        <string>Mã SP</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Tên SP</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Đơn Vị</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Số Lượng</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Đơn Giá</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Thành Tiền</string>
+       </property>
+      </column>
+     </widget>
     </widget>
    </item>
    <item>

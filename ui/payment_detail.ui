@@ -6,19 +6,28 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>450</width>
-    <height>550</height>
+    <width>1041</width>
+    <height>753</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
-   <string>Thông tin chi tiết thanh toán</string>
+   <string>Thanh toán</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>C:/Users/Admin/Downloads/payroll-check.png</normaloff>C:/Users/Admin/Downloads/payroll-check.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="mainVerticalLayout">
    <item>
     <widget class="QLabel" name="lblHeader">
      <property name="font">
       <font>
-       <pointsize>14</pointsize>
+       <pointsize>19</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
