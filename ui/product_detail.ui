@@ -15,9 +15,6 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_2"/>
-   </item>
-   <item>
     <widget class="QGroupBox" name="nhomInformation">
      <property name="title">
       <string>Thông Tin Sản Phẩm</string>

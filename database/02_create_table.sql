@@ -2,6 +2,7 @@
 create table Customer
 (
 	CustomerID int not null,
+	CusName nvarchar(30) not null,
 	CusPhone varchar(15) not null,
 	CusEmail varchar(100),
 	CusAddress nvarchar(200) not null,
