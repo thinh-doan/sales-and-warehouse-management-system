@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>C:/Users/Admin/Downloads/settings-sliders.png</normaloff>C:/Users/Admin/Downloads/settings-sliders.png</iconset>
+    <normaloff>../resources/icons/square-plus.png</normaloff>../resources/icons/square-plus.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout" stretch="2,4,3,3,1">
    <item>

@@ -15,13 +15,13 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>C:/Users/Admin/Downloads/box-open.png</normaloff>C:/Users/Admin/Downloads/box-open.png</iconset>
+    <normaloff>../resources/icons/box-open.png</normaloff>../resources/icons/box-open.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
     <widget class="QGroupBox" name="nhomMacDinh">
      <property name="title">
-      <string>Thông Tin Tồn Kho</string>
+      <string>Thông tin tồn kho</string>
      </property>
      <layout class="QFormLayout" name="formLayout">
       <item row="0" column="0">
@@ -137,7 +137,7 @@
    <item>
     <widget class="QGroupBox" name="nhom2">
      <property name="title">
-      <string>Lịch Sử Biến Động</string>
+      <string>Lịch sử biến động</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
@@ -154,17 +154,17 @@
         </column>
         <column>
          <property name="text">
-          <string>Số Lượng</string>
+          <string>Số lượng</string>
          </property>
         </column>
         <column>
          <property name="text">
-          <string>Nhân Viên</string>
+          <string>Nhân viên</string>
          </property>
         </column>
         <column>
          <property name="text">
-          <string>Ghi Chú</string>
+          <string>Ghi chú</string>
          </property>
         </column>
        </widget>

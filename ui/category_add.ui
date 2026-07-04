@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>C:/Users/Admin/Downloads/settings-sliders.png</normaloff>C:/Users/Admin/Downloads/settings-sliders.png</iconset>
+    <normaloff>../resources/icons/settings-sliders.png</normaloff>../resources/icons/settings-sliders.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -23,7 +23,7 @@
      <item row="0" column="0">
       <widget class="QLabel" name="labelID">
        <property name="text">
-        <string>Mã Danh Mục</string>
+        <string>Mã danh mục</string>
        </property>
       </widget>
      </item>
@@ -37,7 +37,7 @@
      <item row="1" column="0">
       <widget class="QLabel" name="labelName">
        <property name="text">
-        <string>Tên Danh Mục</string>
+        <string>Tên danh mục</string>
        </property>
       </widget>
      </item>
@@ -55,7 +55,7 @@
      <item row="0" column="0">
       <widget class="QLabel" name="labelCategory">
        <property name="text">
-        <string>Mô Tả</string>
+        <string>Mô tả</string>
        </property>
       </widget>
      </item>

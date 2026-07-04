@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>C:/Users/Admin/Downloads/user-bag.png</normaloff>C:/Users/Admin/Downloads/user-bag.png</iconset>
+    <normaloff>../resources/icons/user-bag.png</normaloff>../resources/icons/user-bag.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout" stretch="1,1,9">
    <item>
@@ -81,7 +81,7 @@
         <item row="1" column="3">
          <widget class="QLabel" name="labelName_2">
           <property name="text">
-           <string>Giới Tính</string>
+           <string>Giới tính</string>
           </property>
          </widget>
         </item>
@@ -108,7 +108,7 @@
         <item row="4" column="0">
          <widget class="QLabel" name="label_2">
           <property name="text">
-           <string>Địa Chỉ</string>
+           <string>Địa chỉ</string>
           </property>
          </widget>
         </item>
@@ -188,14 +188,14 @@
         <item row="0" column="3">
          <widget class="QLabel" name="labelID_2">
           <property name="text">
-           <string>Ngày Sinh</string>
+           <string>Ngày sinh</string>
           </property>
          </widget>
         </item>
         <item row="3" column="3">
          <widget class="QLabel" name="labelEmail_2">
           <property name="text">
-           <string>Mã Số Thuế</string>
+           <string>Mã số thuế</string>
           </property>
          </widget>
         </item>
@@ -265,27 +265,27 @@
         <widget class="QTableWidget" name="tblLichSuMuahang">
          <column>
           <property name="text">
-           <string>Mã Đơn Hàng</string>
+           <string>Mã đơn hàng</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>Ngày Tạo</string>
+           <string>Ngày tạo</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>Danh Sách SP</string>
+           <string>Danh sách SP</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>Thanh Toán</string>
+           <string>Thanh toán</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>Vận Chuyển</string>
+           <string>Vận chuyển</string>
           </property>
          </column>
         </widget>
@@ -301,22 +301,22 @@
         <widget class="QTableWidget" name="bangThanhToanLichSu">
          <column>
           <property name="text">
-           <string>Mã Thanh Toán</string>
+           <string>Mã thanh toán</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>Ngày Thanh Toán</string>
+           <string>Ngày thanh toán</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>Phương Thức</string>
+           <string>Phương thức</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>Số Tiền</string>
+           <string>Số tiền</string>
           </property>
          </column>
         </widget>
@@ -331,7 +331,7 @@
        <item row="0" column="0">
         <widget class="QLabel" name="label">
          <property name="text">
-          <string>Tổng Sô Đơn Hàng</string>
+          <string>Tổng sô đơn hàng</string>
          </property>
         </widget>
        </item>
@@ -345,7 +345,7 @@
        <item row="1" column="0">
         <widget class="QLabel" name="labelTotalOrders">
          <property name="text">
-          <string>Tổng Số Tiền</string>
+          <string>Tổng số tiền</string>
          </property>
         </widget>
        </item>
@@ -359,7 +359,7 @@
        <item row="2" column="0">
         <widget class="QLabel" name="labelTotalOrders_2">
          <property name="text">
-          <string>Đơn Hàng Mới Nhất</string>
+          <string>Đơn hàng mới nhất</string>
          </property>
         </widget>
        </item>

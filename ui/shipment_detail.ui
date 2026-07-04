@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>C:/Users/Admin/Downloads/truck-side.png</normaloff>C:/Users/Admin/Downloads/truck-side.png</iconset>
+    <normaloff>../resources/icons/truck-side.png</normaloff>../resources/icons/truck-side.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -231,22 +231,22 @@
       </column>
       <column>
        <property name="text">
-        <string>Đơn Vị</string>
+        <string>Đơn vị</string>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>Số Lượng</string>
+        <string>Số lượng</string>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>Đơn Giá</string>
+        <string>Đơn giá</string>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>Thành Tiền</string>
+        <string>Thành tiền</string>
        </property>
       </column>
      </widget>
@@ -270,7 +270,7 @@
      <item>
       <widget class="QPushButton" name="btnCapNhatVC">
        <property name="text">
-        <string>Cập Nhật Trạng Thái</string>
+        <string>Cập nhật trạng thái</string>
        </property>
       </widget>
      </item>

@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>C:/Users/Admin/Downloads/square-plus.png</normaloff>C:/Users/Admin/Downloads/square-plus.png</iconset>
+    <normaloff>../resources/icons/square-plus.png</normaloff>../resources/icons/square-plus.png</iconset>
   </property>
   <layout class="QVBoxLayout">
    <item>
@@ -35,7 +35,7 @@
         <item row="0" column="0">
          <widget class="QLabel" name="lblProduct">
           <property name="text">
-           <string>Sản Phẩm</string>
+           <string>Sản phẩm</string>
           </property>
          </widget>
         </item>
@@ -63,7 +63,7 @@
         <item row="2" column="0">
          <widget class="QLabel" name="lblQuantity">
           <property name="text">
-           <string>Số Lượng</string>
+           <string>Số lượng</string>
           </property>
          </widget>
         </item>

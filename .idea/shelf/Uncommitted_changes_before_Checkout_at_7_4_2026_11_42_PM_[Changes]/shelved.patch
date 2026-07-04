@@ -1,0 +1,1623 @@
+Index: ui/main_window.ui
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<ui version=\"4.0\">\r\n <class>phanTuChinhWindow</class>\r\n <widget class=\"QMainWindow\" name=\"phanTuChinhWindow\">\r\n  <property name=\"geometry\">\r\n   <rect>\r\n    <x>0</x>\r\n    <y>0</y>\r\n    <width>1041</width>\r\n    <height>753</height>\r\n   </rect>\r\n  </property>\r\n  <property name=\"font\">\r\n   <font>\r\n    <pointsize>10</pointsize>\r\n   </font>\r\n  </property>\r\n  <property name=\"windowTitle\">\r\n   <string>10-Tab Sidebar UI</string>\r\n  </property>\r\n  <widget class=\"QWidget\" name=\"khungCentralwidget\">\r\n   <layout class=\"QHBoxLayout\" name=\"horizontalLayout_5\">\r\n    <item>\r\n     <widget class=\"QFrame\" name=\"khungSidebar\">\r\n      <property name=\"minimumSize\">\r\n       <size>\r\n        <width>220</width>\r\n        <height>0</height>\r\n       </size>\r\n      </property>\r\n      <property name=\"maximumSize\">\r\n       <size>\r\n        <width>220</width>\r\n        <height>16777215</height>\r\n       </size>\r\n      </property>\r\n      <property name=\"font\">\r\n       <font>\r\n        <pointsize>10</pointsize>\r\n       </font>\r\n      </property>\r\n      <property name=\"frameShape\">\r\n       <enum>QFrame::StyledPanel</enum>\r\n      </property>\r\n      <property name=\"frameShadow\">\r\n       <enum>QFrame::Raised</enum>\r\n      </property>\r\n      <layout class=\"QVBoxLayout\" name=\"verticalLayout_sidebar\">\r\n       <property name=\"spacing\">\r\n        <number>8</number>\r\n       </property>\r\n       <property name=\"leftMargin\">\r\n        <number>12</number>\r\n       </property>\r\n       <property name=\"topMargin\">\r\n        <number>16</number>\r\n       </property>\r\n       <property name=\"rightMargin\">\r\n        <number>12</number>\r\n       </property>\r\n       <property name=\"bottomMargin\">\r\n        <number>16</number>\r\n       </property>\r\n       <item>\r\n        <widget class=\"QFrame\" name=\"khungFrame\">\r\n         <property name=\"minimumSize\">\r\n          <size>\r\n           <width>20</width>\r\n           <height>40</height>\r\n          </size>\r\n         </property>\r\n         <property name=\"frameShape\">\r\n          <enum>QFrame::StyledPanel</enum>\r\n         </property>\r\n         <property name=\"frameShadow\">\r\n          <enum>QFrame::Raised</enum>\r\n         </property>\r\n         <layout class=\"QHBoxLayout\" name=\"horizontalLayout_2\">\r\n          <item>\r\n           <widget class=\"QLabel\" name=\"label_2\">\r\n            <property name=\"text\">\r\n             <string>LOGO</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n         </layout>\r\n        </widget>\r\n       </item>\r\n       <item>\r\n        <spacer name=\"verticalSpacer_2\">\r\n         <property name=\"orientation\">\r\n          <enum>Qt::Vertical</enum>\r\n         </property>\r\n         <property name=\"sizeType\">\r\n          <enum>QSizePolicy::Minimum</enum>\r\n         </property>\r\n         <property name=\"sizeHint\" stdset=\"0\">\r\n          <size>\r\n           <width>20</width>\r\n           <height>10</height>\r\n          </size>\r\n         </property>\r\n        </spacer>\r\n       </item>\r\n       <item>\r\n        <widget class=\"QPushButton\" name=\"btnTongQuan\">\r\n         <property name=\"text\">\r\n          <string>Tổng Quan</string>\r\n         </property>\r\n         <property name=\"flat\">\r\n          <bool>true</bool>\r\n         </property>\r\n        </widget>\r\n       </item>\r\n       <item>\r\n        <widget class=\"QPushButton\" name=\"btnDonhang\">\r\n         <property name=\"text\">\r\n          <string>Đơn hàng</string>\r\n         </property>\r\n         <property name=\"flat\">\r\n          <bool>true</bool>\r\n         </property>\r\n        </widget>\r\n       </item>\r\n       <item>\r\n        <widget class=\"QPushButton\" name=\"btnKhachHang\">\r\n         <property name=\"text\">\r\n          <string>Khách hàng</string>\r\n         </property>\r\n         <property name=\"flat\">\r\n          <bool>true</bool>\r\n         </property>\r\n        </widget>\r\n       </item>\r\n       <item>\r\n        <widget class=\"QPushButton\" name=\"btnSanPham\">\r\n         <property name=\"text\">\r\n          <string>Sản phẩm</string>\r\n         </property>\r\n         <property name=\"flat\">\r\n          <bool>true</bool>\r\n         </property>\r\n        </widget>\r\n       </item>\r\n       <item>\r\n        <widget class=\"QPushButton\" name=\"btnDanhMuc\">\r\n         <property name=\"text\">\r\n          <string>Danh mục</string>\r\n         </property>\r\n         <property name=\"flat\">\r\n          <bool>true</bool>\r\n         </property>\r\n        </widget>\r\n       </item>\r\n       <item>\r\n        <widget class=\"QPushButton\" name=\"btnTonKho\">\r\n         <property name=\"text\">\r\n          <string>Tồn kho</string>\r\n         </property>\r\n         <property name=\"flat\">\r\n          <bool>true</bool>\r\n         </property>\r\n        </widget>\r\n       </item>\r\n       <item>\r\n        <widget class=\"QPushButton\" name=\"btnThanhToan\">\r\n         <property name=\"text\">\r\n          <string>Thanh toán</string>\r\n         </property>\r\n         <property name=\"flat\">\r\n          <bool>true</bool>\r\n         </property>\r\n        </widget>\r\n       </item>\r\n       <item>\r\n        <widget class=\"QPushButton\" name=\"btnVanChuyen\">\r\n         <property name=\"text\">\r\n          <string>Vận Chuyển</string>\r\n         </property>\r\n         <property name=\"flat\">\r\n          <bool>true</bool>\r\n         </property>\r\n        </widget>\r\n       </item>\r\n       <item>\r\n        <widget class=\"QPushButton\" name=\"pushButton_2\">\r\n         <property name=\"text\">\r\n          <string>Đối Tác</string>\r\n         </property>\r\n         <property name=\"flat\">\r\n          <bool>true</bool>\r\n         </property>\r\n        </widget>\r\n       </item>\r\n       <item>\r\n        <widget class=\"QPushButton\" name=\"btnNhanVien\">\r\n         <property name=\"text\">\r\n          <string>Nhân viên</string>\r\n         </property>\r\n         <property name=\"flat\">\r\n          <bool>true</bool>\r\n         </property>\r\n        </widget>\r\n       </item>\r\n       <item>\r\n        <widget class=\"QPushButton\" name=\"btnBaoCao\">\r\n         <property name=\"text\">\r\n          <string>Báo cáo</string>\r\n         </property>\r\n         <property name=\"flat\">\r\n          <bool>true</bool>\r\n         </property>\r\n        </widget>\r\n       </item>\r\n       <item>\r\n        <widget class=\"QPushButton\" name=\"btnDangXuat\">\r\n         <property name=\"text\">\r\n          <string>Đăng Xuất</string>\r\n         </property>\r\n         <property name=\"flat\">\r\n          <bool>true</bool>\r\n         </property>\r\n        </widget>\r\n       </item>\r\n       <item>\r\n        <spacer name=\"verticalSpacer\">\r\n         <property name=\"orientation\">\r\n          <enum>Qt::Vertical</enum>\r\n         </property>\r\n         <property name=\"sizeHint\" stdset=\"0\">\r\n          <size>\r\n           <width>20</width>\r\n           <height>40</height>\r\n          </size>\r\n         </property>\r\n        </spacer>\r\n       </item>\r\n      </layout>\r\n     </widget>\r\n    </item>\r\n    <item>\r\n     <widget class=\"QStackedWidget\" name=\"khungChuyenTrangStacked\">\r\n      <property name=\"currentIndex\">\r\n       <number>5</number>\r\n      </property>\r\n      <widget class=\"QWidget\" name=\"pageTongQuan\">\r\n       <layout class=\"QVBoxLayout\" name=\"verticalLayout_11\">\r\n        <item>\r\n         <widget class=\"QLabel\" name=\"lblTitle_11\">\r\n          <property name=\"styleSheet\">\r\n           <string>\r\nfont: 18pt &quot;Arial&quot;;\r\nfont-weight:bold;\r\ncolor:white;\r\nbackground:#1976D2;\r\npadding:15px;\r\nborder-radius:8px;\r\n       </string>\r\n          </property>\r\n          <property name=\"text\">\r\n           <string>DASHBOARD</string>\r\n          </property>\r\n          <property name=\"alignment\">\r\n           <set>Qt::AlignCenter</set>\r\n          </property>\r\n         </widget>\r\n        </item>\r\n        <item>\r\n         <layout class=\"QGridLayout\" name=\"gridKPI\">\r\n          <item row=\"0\" column=\"0\">\r\n           <widget class=\"QFrame\" name=\"frmTotalOrder\">\r\n            <property name=\"frameShape\">\r\n             <enum>QFrame::StyledPanel</enum>\r\n            </property>\r\n            <layout class=\"QVBoxLayout\" name=\"_12\">\r\n             <item>\r\n              <widget class=\"QLabel\" name=\"lblTongDonHang\">\r\n               <property name=\"text\">\r\n                <string>1256</string>\r\n               </property>\r\n               <property name=\"alignment\">\r\n                <set>Qt::AlignCenter</set>\r\n               </property>\r\n              </widget>\r\n             </item>\r\n             <item>\r\n              <widget class=\"QLabel\" name=\"lblTotalOrder\">\r\n               <property name=\"text\">\r\n                <string>Tổng đơn hàng</string>\r\n               </property>\r\n               <property name=\"alignment\">\r\n                <set>Qt::AlignCenter</set>\r\n               </property>\r\n              </widget>\r\n             </item>\r\n            </layout>\r\n           </widget>\r\n          </item>\r\n          <item row=\"0\" column=\"1\">\r\n           <widget class=\"QFrame\" name=\"frmRevenue\">\r\n            <property name=\"frameShape\">\r\n             <enum>QFrame::StyledPanel</enum>\r\n            </property>\r\n            <layout class=\"QVBoxLayout\" name=\"_13\">\r\n             <item>\r\n              <widget class=\"QLabel\" name=\"lblDoanhThuThang\">\r\n               <property name=\"text\">\r\n                <string>520.000.000</string>\r\n               </property>\r\n               <property name=\"alignment\">\r\n                <set>Qt::AlignCenter</set>\r\n               </property>\r\n              </widget>\r\n             </item>\r\n             <item>\r\n              <widget class=\"QLabel\" name=\"lblRevenue\">\r\n               <property name=\"text\">\r\n                <string>Doanh thu tháng</string>\r\n               </property>\r\n               <property name=\"alignment\">\r\n                <set>Qt::AlignCenter</set>\r\n               </property>\r\n              </widget>\r\n             </item>\r\n            </layout>\r\n           </widget>\r\n          </item>\r\n          <item row=\"0\" column=\"2\">\r\n           <widget class=\"QFrame\" name=\"frmCustomer\">\r\n            <property name=\"frameShape\">\r\n             <enum>QFrame::StyledPanel</enum>\r\n            </property>\r\n            <layout class=\"QVBoxLayout\" name=\"_14\">\r\n             <item>\r\n              <widget class=\"QLabel\" name=\"lblKhachHang\">\r\n               <property name=\"text\">\r\n                <string>530</string>\r\n               </property>\r\n               <property name=\"alignment\">\r\n                <set>Qt::AlignCenter</set>\r\n               </property>\r\n              </widget>\r\n             </item>\r\n             <item>\r\n              <widget class=\"QLabel\" name=\"lblCustomer\">\r\n               <property name=\"text\">\r\n                <string>Khách hàng</string>\r\n               </property>\r\n               <property name=\"alignment\">\r\n                <set>Qt::AlignCenter</set>\r\n               </property>\r\n              </widget>\r\n             </item>\r\n            </layout>\r\n           </widget>\r\n          </item>\r\n          <item row=\"0\" column=\"3\">\r\n           <widget class=\"QFrame\" name=\"frmProduct\">\r\n            <property name=\"frameShape\">\r\n             <enum>QFrame::StyledPanel</enum>\r\n            </property>\r\n            <layout class=\"QVBoxLayout\" name=\"_15\">\r\n             <item>\r\n              <widget class=\"QLabel\" name=\"lblSanPham\">\r\n               <property name=\"text\">\r\n                <string>215</string>\r\n               </property>\r\n               <property name=\"alignment\">\r\n                <set>Qt::AlignCenter</set>\r\n               </property>\r\n              </widget>\r\n             </item>\r\n             <item>\r\n              <widget class=\"QLabel\" name=\"lblProduct\">\r\n               <property name=\"text\">\r\n                <string>Sản phẩm</string>\r\n               </property>\r\n               <property name=\"alignment\">\r\n                <set>Qt::AlignCenter</set>\r\n               </property>\r\n              </widget>\r\n             </item>\r\n            </layout>\r\n           </widget>\r\n          </item>\r\n         </layout>\r\n        </item>\r\n        <item>\r\n         <layout class=\"QGridLayout\" name=\"gridKPI2\">\r\n          <item row=\"0\" column=\"0\">\r\n           <widget class=\"QFrame\" name=\"frmShipment\">\r\n            <property name=\"frameShape\">\r\n             <enum>QFrame::StyledPanel</enum>\r\n            </property>\r\n            <layout class=\"QVBoxLayout\" name=\"_8\">\r\n             <item>\r\n              <widget class=\"QLabel\" name=\"lblDangGiao\">\r\n               <property name=\"text\">\r\n                <string>32</string>\r\n               </property>\r\n               <property name=\"alignment\">\r\n                <set>Qt::AlignCenter</set>\r\n               </property>\r\n              </widget>\r\n             </item>\r\n             <item>\r\n              <widget class=\"QLabel\" name=\"lblShipment\">\r\n               <property name=\"text\">\r\n                <string>Đang giao</string>\r\n               </property>\r\n               <property name=\"alignment\">\r\n                <set>Qt::AlignCenter</set>\r\n               </property>\r\n              </widget>\r\n             </item>\r\n            </layout>\r\n           </widget>\r\n          </item>\r\n          <item row=\"0\" column=\"1\">\r\n           <widget class=\"QFrame\" name=\"frmCompleted\">\r\n            <property name=\"frameShape\">\r\n             <enum>QFrame::StyledPanel</enum>\r\n            </property>\r\n            <layout class=\"QVBoxLayout\" name=\"_9\">\r\n             <item>\r\n              <widget class=\"QLabel\" name=\"lblDonHoanThanh\">\r\n               <property name=\"text\">\r\n                <string>1185</string>\r\n               </property>\r\n               <property name=\"alignment\">\r\n                <set>Qt::AlignCenter</set>\r\n               </property>\r\n              </widget>\r\n             </item>\r\n             <item>\r\n              <widget class=\"QLabel\" name=\"lblCompleted_2\">\r\n               <property name=\"text\">\r\n                <string>Đơn hoàn thành</string>\r\n               </property>\r\n               <property name=\"alignment\">\r\n                <set>Qt::AlignCenter</set>\r\n               </property>\r\n              </widget>\r\n             </item>\r\n            </layout>\r\n           </widget>\r\n          </item>\r\n          <item row=\"0\" column=\"2\">\r\n           <widget class=\"QFrame\" name=\"frmLowStock\">\r\n            <property name=\"frameShape\">\r\n             <enum>QFrame::StyledPanel</enum>\r\n            </property>\r\n            <layout class=\"QVBoxLayout\" name=\"_10\">\r\n             <item>\r\n              <widget class=\"QLabel\" name=\"lblSapHetHang\">\r\n               <property name=\"text\">\r\n                <string>8</string>\r\n               </property>\r\n               <property name=\"alignment\">\r\n                <set>Qt::AlignCenter</set>\r\n               </property>\r\n              </widget>\r\n             </item>\r\n             <item>\r\n              <widget class=\"QLabel\" name=\"lblLowStock\">\r\n               <property name=\"text\">\r\n                <string>Sắp hết hàng</string>\r\n               </property>\r\n               <property name=\"alignment\">\r\n                <set>Qt::AlignCenter</set>\r\n               </property>\r\n              </widget>\r\n             </item>\r\n            </layout>\r\n           </widget>\r\n          </item>\r\n          <item row=\"0\" column=\"3\">\r\n           <widget class=\"QFrame\" name=\"frmPartner\">\r\n            <property name=\"frameShape\">\r\n             <enum>QFrame::StyledPanel</enum>\r\n            </property>\r\n            <layout class=\"QVBoxLayout\" name=\"_11\">\r\n             <item>\r\n              <widget class=\"QLabel\" name=\"lblDoiTacVC\">\r\n               <property name=\"text\">\r\n                <string>4</string>\r\n               </property>\r\n               <property name=\"alignment\">\r\n                <set>Qt::AlignCenter</set>\r\n               </property>\r\n              </widget>\r\n             </item>\r\n             <item>\r\n              <widget class=\"QLabel\" name=\"lblPartner\">\r\n               <property name=\"text\">\r\n                <string>Đối tác vận chuyển</string>\r\n               </property>\r\n               <property name=\"alignment\">\r\n                <set>Qt::AlignCenter</set>\r\n               </property>\r\n              </widget>\r\n             </item>\r\n            </layout>\r\n           </widget>\r\n          </item>\r\n         </layout>\r\n        </item>\r\n        <item>\r\n         <widget class=\"QGroupBox\" name=\"grpRevenueChart\">\r\n          <property name=\"title\">\r\n           <string>Doanh thu theo tháng</string>\r\n          </property>\r\n          <layout class=\"QVBoxLayout\" name=\"_16\">\r\n           <item>\r\n            <widget class=\"QChartView\" name=\"chartDoanhThu\"/>\r\n           </item>\r\n          </layout>\r\n         </widget>\r\n        </item>\r\n        <item>\r\n         <layout class=\"QHBoxLayout\" name=\"horizontalLayoutStatistic\">\r\n          <item>\r\n           <widget class=\"QGroupBox\" name=\"grpTopProduct\">\r\n            <property name=\"title\">\r\n             <string>Top 5 sản phẩm bán chạy</string>\r\n            </property>\r\n            <layout class=\"QVBoxLayout\" name=\"verticalLayoutTopProduct\">\r\n             <item>\r\n              <widget class=\"QTableWidget\" name=\"tblTopProduct\">\r\n               <property name=\"editTriggers\">\r\n                <set>QAbstractItemView::NoEditTriggers</set>\r\n               </property>\r\n               <property name=\"alternatingRowColors\">\r\n                <bool>true</bool>\r\n               </property>\r\n               <property name=\"selectionBehavior\">\r\n                <enum>QAbstractItemView::SelectRows</enum>\r\n               </property>\r\n               <property name=\"columnCount\">\r\n                <number>3</number>\r\n               </property>\r\n               <column>\r\n                <property name=\"text\">\r\n                 <string>Mã SP</string>\r\n                </property>\r\n               </column>\r\n               <column>\r\n                <property name=\"text\">\r\n                 <string>Tên sản phẩm</string>\r\n                </property>\r\n               </column>\r\n               <column>\r\n                <property name=\"text\">\r\n                 <string>Đã bán</string>\r\n                </property>\r\n               </column>\r\n              </widget>\r\n             </item>\r\n            </layout>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QGroupBox\" name=\"grpOrderStatus\">\r\n            <property name=\"title\">\r\n             <string>Trạng thái đơn hàng</string>\r\n            </property>\r\n            <layout class=\"QVBoxLayout\" name=\"verticalLayoutStatus\">\r\n             <item>\r\n              <widget class=\"QChartView\" name=\"chartTrangThaiGiaoHang\"/>\r\n             </item>\r\n            </layout>\r\n           </widget>\r\n          </item>\r\n         </layout>\r\n        </item>\r\n        <item>\r\n         <widget class=\"QGroupBox\" name=\"grpRecentOrder\">\r\n          <property name=\"title\">\r\n           <string>Đơn hàng gần đây</string>\r\n          </property>\r\n          <layout class=\"QVBoxLayout\" name=\"verticalLayoutRecentOrder\">\r\n           <item>\r\n            <widget class=\"QTableWidget\" name=\"tblRecentOrder\">\r\n             <property name=\"editTriggers\">\r\n              <set>QAbstractItemView::NoEditTriggers</set>\r\n             </property>\r\n             <property name=\"alternatingRowColors\">\r\n              <bool>true</bool>\r\n             </property>\r\n             <property name=\"selectionBehavior\">\r\n              <enum>QAbstractItemView::SelectRows</enum>\r\n             </property>\r\n             <property name=\"columnCount\">\r\n              <number>5</number>\r\n             </property>\r\n             <column>\r\n              <property name=\"text\">\r\n               <string>Mã đơn</string>\r\n              </property>\r\n             </column>\r\n             <column>\r\n              <property name=\"text\">\r\n               <string>Khách hàng</string>\r\n              </property>\r\n             </column>\r\n             <column>\r\n              <property name=\"text\">\r\n               <string>Ngày tạo</string>\r\n              </property>\r\n             </column>\r\n             <column>\r\n              <property name=\"text\">\r\n               <string>Tổng tiền</string>\r\n              </property>\r\n             </column>\r\n             <column>\r\n              <property name=\"text\">\r\n               <string>Trạng thái</string>\r\n              </property>\r\n             </column>\r\n            </widget>\r\n           </item>\r\n          </layout>\r\n         </widget>\r\n        </item>\r\n        <item>\r\n         <layout class=\"QHBoxLayout\" name=\"horizontalLayoutFooter\">\r\n          <item>\r\n           <widget class=\"QLabel\" name=\"lblLastUpdateTitle\">\r\n            <property name=\"text\">\r\n             <string>Cập nhật lần cuối:</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QLineEdit\" name=\"txtLastUpdate\">\r\n            <property name=\"readOnly\">\r\n             <bool>true</bool>\r\n            </property>\r\n            <property name=\"placeholderText\">\r\n             <string>--/--/---- --:--</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <spacer name=\"horizontalSpacerFooter\">\r\n            <property name=\"orientation\">\r\n             <enum>Qt::Horizontal</enum>\r\n            </property>\r\n            <property name=\"sizeHint\" stdset=\"0\">\r\n             <size>\r\n              <width>40</width>\r\n              <height>20</height>\r\n             </size>\r\n            </property>\r\n           </spacer>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnRefreshDB\">\r\n            <property name=\"minimumSize\">\r\n             <size>\r\n              <width>120</width>\r\n              <height>36</height>\r\n             </size>\r\n            </property>\r\n            <property name=\"text\">\r\n             <string>Làm mới</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n         </layout>\r\n        </item>\r\n       </layout>\r\n      </widget>\r\n      <widget class=\"QWidget\" name=\"pageDonHang\">\r\n       <layout class=\"QVBoxLayout\" name=\"verticalLayout_4\">\r\n        <item>\r\n         <widget class=\"QGroupBox\" name=\"nhomTimKiem2\">\r\n          <property name=\"title\">\r\n           <string>Tìm Kiếm</string>\r\n          </property>\r\n          <layout class=\"QHBoxLayout\" name=\"horizontalLayout_6\">\r\n           <item>\r\n            <widget class=\"QLineEdit\" name=\"txtTimKiemDH\">\r\n             <property name=\"text\">\r\n              <string/>\r\n             </property>\r\n             <property name=\"placeholderText\">\r\n              <string>Nhập mã đơn hàng</string>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item>\r\n            <widget class=\"QDateEdit\" name=\"txtTuNgayDH\">\r\n             <property name=\"calendarPopup\">\r\n              <bool>true</bool>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item>\r\n            <widget class=\"QLabel\" name=\"lblFromDate\">\r\n             <property name=\"text\">\r\n              <string>Từ Ngày</string>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item>\r\n            <widget class=\"QDateEdit\" name=\"txtDenNgayDH\">\r\n             <property name=\"calendarPopup\">\r\n              <bool>true</bool>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item>\r\n            <widget class=\"QLabel\" name=\"lblToDate\">\r\n             <property name=\"text\">\r\n              <string>Đến Ngày</string>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item>\r\n            <widget class=\"QPushButton\" name=\"btnTimKiemDH\">\r\n             <property name=\"text\">\r\n              <string>Tìm kiếm</string>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n          </layout>\r\n         </widget>\r\n        </item>\r\n        <item>\r\n         <widget class=\"QLabel\" name=\"lblTitle_5\">\r\n          <property name=\"styleSheet\">\r\n           <string>\r\nfont: 18pt &quot;Arial&quot;;\r\nfont-weight:bold;\r\ncolor:white;\r\nbackground:#1976D2;\r\npadding:15px;\r\nborder-radius:8px;\r\n       </string>\r\n          </property>\r\n          <property name=\"text\">\r\n           <string>QUẢN LÝ ĐƠN HÀNG</string>\r\n          </property>\r\n          <property name=\"alignment\">\r\n           <set>Qt::AlignCenter</set>\r\n          </property>\r\n         </widget>\r\n        </item>\r\n        <item>\r\n         <layout class=\"QHBoxLayout\" name=\"_2\">\r\n          <item>\r\n           <spacer name=\"horizontalSpacer_6\">\r\n            <property name=\"orientation\">\r\n             <enum>Qt::Horizontal</enum>\r\n            </property>\r\n            <property name=\"sizeHint\" stdset=\"0\">\r\n             <size>\r\n              <width>40</width>\r\n              <height>20</height>\r\n             </size>\r\n            </property>\r\n           </spacer>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnThemDH\">\r\n            <property name=\"text\">\r\n             <string>Thêm</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnCapNhatDH\">\r\n            <property name=\"text\">\r\n             <string>Cập Nhật</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnXoaDH\">\r\n            <property name=\"text\">\r\n             <string>Xóa</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnRefreshDH\">\r\n            <property name=\"text\">\r\n             <string>Làm Mới</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n         </layout>\r\n        </item>\r\n        <item>\r\n         <widget class=\"QTableWidget\" name=\"tblDonHang\">\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Mã ĐH</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Ngày Tạo</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Khách Hàng</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Địa Chỉ</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Tổng Tiền</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Trạng Thái</string>\r\n           </property>\r\n          </column>\r\n         </widget>\r\n        </item>\r\n       </layout>\r\n      </widget>\r\n      <widget class=\"QWidget\" name=\"pageKhachHang\">\r\n       <layout class=\"QVBoxLayout\" name=\"verticalLayout_2\">\r\n        <item>\r\n         <widget class=\"QGroupBox\" name=\"nhomTimKiem\">\r\n          <property name=\"title\">\r\n           <string>Tìm kiếm</string>\r\n          </property>\r\n          <layout class=\"QHBoxLayout\" name=\"horizontalLayout_4\">\r\n           <item>\r\n            <widget class=\"QLineEdit\" name=\"txtTimKiemKH\">\r\n             <property name=\"placeholderText\">\r\n              <string>Nhập tên hoặc mã số khách hàng</string>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item>\r\n            <widget class=\"QPushButton\" name=\"btnTimKiemKH\">\r\n             <property name=\"text\">\r\n              <string>Tìm kiếm</string>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n          </layout>\r\n         </widget>\r\n        </item>\r\n        <item>\r\n         <widget class=\"QLabel\" name=\"lblTitle_3\">\r\n          <property name=\"styleSheet\">\r\n           <string>\r\nfont: 18pt &quot;Arial&quot;;\r\nfont-weight:bold;\r\ncolor:white;\r\nbackground:#1976D2;\r\npadding:15px;\r\nborder-radius:8px;\r\n       </string>\r\n          </property>\r\n          <property name=\"text\">\r\n           <string>QUẢN LÝ KHÁCH HÀNG</string>\r\n          </property>\r\n          <property name=\"alignment\">\r\n           <set>Qt::AlignCenter</set>\r\n          </property>\r\n         </widget>\r\n        </item>\r\n        <item>\r\n         <layout class=\"QHBoxLayout\" name=\"horizontalLayout\">\r\n          <item>\r\n           <spacer name=\"horizontalSpacer\">\r\n            <property name=\"orientation\">\r\n             <enum>Qt::Horizontal</enum>\r\n            </property>\r\n            <property name=\"sizeHint\" stdset=\"0\">\r\n             <size>\r\n              <width>40</width>\r\n              <height>20</height>\r\n             </size>\r\n            </property>\r\n           </spacer>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnThemKH\">\r\n            <property name=\"text\">\r\n             <string>Thêm</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnChiTietKH\">\r\n            <property name=\"text\">\r\n             <string>Chi tiết</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnCapNhatKH\">\r\n            <property name=\"text\">\r\n             <string>Cập Nhật</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnXoaKH\">\r\n            <property name=\"text\">\r\n             <string>Xóa</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnRefreshKH\">\r\n            <property name=\"text\">\r\n             <string>Làm Mới</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n         </layout>\r\n        </item>\r\n        <item>\r\n         <widget class=\"QTableWidget\" name=\"tblKhachHang\">\r\n          <attribute name=\"horizontalHeaderDefaultSectionSize\">\r\n           <number>220</number>\r\n          </attribute>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Mã số khách hàng</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Tên khách hàng</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Nhóm khách hàng</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Số điện thoại</string>\r\n           </property>\r\n          </column>\r\n         </widget>\r\n        </item>\r\n       </layout>\r\n      </widget>\r\n      <widget class=\"QWidget\" name=\"pageSanPham\">\r\n       <layout class=\"QVBoxLayout\" name=\"verticalLayout_5\">\r\n        <item>\r\n         <widget class=\"QGroupBox\" name=\"nhomTimKiem2\">\r\n          <property name=\"title\">\r\n           <string>Tìm Kiếm</string>\r\n          </property>\r\n          <layout class=\"QGridLayout\" name=\"_3\">\r\n           <item row=\"0\" column=\"4\">\r\n            <widget class=\"QComboBox\" name=\"cbbTrangThai\"/>\r\n           </item>\r\n           <item row=\"0\" column=\"5\">\r\n            <widget class=\"QPushButton\" name=\"btnTimKiemSP\">\r\n             <property name=\"text\">\r\n              <string>Tìm kiếm</string>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item row=\"0\" column=\"2\">\r\n            <widget class=\"QComboBox\" name=\"cbbDanhMuc\"/>\r\n           </item>\r\n           <item row=\"0\" column=\"3\">\r\n            <widget class=\"QLabel\" name=\"lblStatus_2\">\r\n             <property name=\"text\">\r\n              <string>Trạng thái</string>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item row=\"0\" column=\"1\">\r\n            <widget class=\"QLabel\" name=\"lblCategory\">\r\n             <property name=\"text\">\r\n              <string>Danh mục</string>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item row=\"0\" column=\"0\">\r\n            <widget class=\"QLineEdit\" name=\"txtTimKiemSP\">\r\n             <property name=\"placeholderText\">\r\n              <string>Mã hoặc tên sản phẩm...</string>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n          </layout>\r\n         </widget>\r\n        </item>\r\n        <item>\r\n         <widget class=\"QLabel\" name=\"lblTitle_4\">\r\n          <property name=\"styleSheet\">\r\n           <string>\r\nfont: 18pt &quot;Arial&quot;;\r\nfont-weight:bold;\r\ncolor:white;\r\nbackground:#1976D2;\r\npadding:15px;\r\nborder-radius:8px;\r\n       </string>\r\n          </property>\r\n          <property name=\"text\">\r\n           <string>QUẢN LÝ SẢN PHẨM</string>\r\n          </property>\r\n          <property name=\"alignment\">\r\n           <set>Qt::AlignCenter</set>\r\n          </property>\r\n         </widget>\r\n        </item>\r\n        <item>\r\n         <widget class=\"QTableWidget\" name=\"bangSanPham\">\r\n          <property name=\"editTriggers\">\r\n           <set>QAbstractItemView::NoEditTriggers</set>\r\n          </property>\r\n          <property name=\"alternatingRowColors\">\r\n           <bool>true</bool>\r\n          </property>\r\n          <property name=\"selectionMode\">\r\n           <enum>QAbstractItemView::SingleSelection</enum>\r\n          </property>\r\n          <property name=\"selectionBehavior\">\r\n           <enum>QAbstractItemView::SelectRows</enum>\r\n          </property>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Mã SP</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Tên Sản Phẩm</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Danh Mục</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Đơn Giá</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Tồn Kho</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Trạng Thái</string>\r\n           </property>\r\n          </column>\r\n         </widget>\r\n        </item>\r\n        <item>\r\n         <layout class=\"QHBoxLayout\" name=\"_5\">\r\n          <item>\r\n           <spacer name=\"horizontalSpacer_8\">\r\n            <property name=\"orientation\">\r\n             <enum>Qt::Horizontal</enum>\r\n            </property>\r\n            <property name=\"sizeHint\" stdset=\"0\">\r\n             <size>\r\n              <width>0</width>\r\n              <height>0</height>\r\n             </size>\r\n            </property>\r\n           </spacer>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnThemSP\">\r\n            <property name=\"text\">\r\n             <string>Thêm</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnChiTietSP\">\r\n            <property name=\"text\">\r\n             <string>Chi Tiết</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnCapNhatSP\">\r\n            <property name=\"text\">\r\n             <string>Cập nhật</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnXoaSP\">\r\n            <property name=\"text\">\r\n             <string>Xóa</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnRefreshSP\">\r\n            <property name=\"text\">\r\n             <string>Làm Mới</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n         </layout>\r\n        </item>\r\n       </layout>\r\n      </widget>\r\n      <widget class=\"QWidget\" name=\"pageDanhMuc\">\r\n       <layout class=\"QVBoxLayout\" name=\"verticalLayout\">\r\n        <item>\r\n         <widget class=\"QGroupBox\" name=\"groupBox\">\r\n          <property name=\"font\">\r\n           <font>\r\n            <pointsize>10</pointsize>\r\n           </font>\r\n          </property>\r\n          <property name=\"title\">\r\n           <string>Tìm Kiếm</string>\r\n          </property>\r\n          <layout class=\"QHBoxLayout\" name=\"horizontalLayout_7\">\r\n           <item>\r\n            <widget class=\"QLabel\" name=\"label_3\">\r\n             <property name=\"text\">\r\n              <string>Chọn Danh Mục</string>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item>\r\n            <widget class=\"QComboBox\" name=\"cbbTimKiemDM\">\r\n             <property name=\"enabled\">\r\n              <bool>true</bool>\r\n             </property>\r\n             <property name=\"sizePolicy\">\r\n              <sizepolicy hsizetype=\"Expanding\" vsizetype=\"Fixed\">\r\n               <horstretch>0</horstretch>\r\n               <verstretch>0</verstretch>\r\n              </sizepolicy>\r\n             </property>\r\n             <property name=\"minimumSize\">\r\n              <size>\r\n               <width>550</width>\r\n               <height>0</height>\r\n              </size>\r\n             </property>\r\n             <property name=\"editable\">\r\n              <bool>true</bool>\r\n             </property>\r\n             <property name=\"currentText\">\r\n              <string/>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item>\r\n            <widget class=\"QPushButton\" name=\"btnTimKiemDM\">\r\n             <property name=\"text\">\r\n              <string>Tìm kiếm</string>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n          </layout>\r\n         </widget>\r\n        </item>\r\n        <item>\r\n         <widget class=\"QLabel\" name=\"lblTitle_6\">\r\n          <property name=\"styleSheet\">\r\n           <string>\r\nfont: 18pt &quot;Arial&quot;;\r\nfont-weight:bold;\r\ncolor:white;\r\nbackground:#1976D2;\r\npadding:15px;\r\nborder-radius:8px;\r\n       </string>\r\n          </property>\r\n          <property name=\"text\">\r\n           <string>QUẢN LÝ DANH MỤC</string>\r\n          </property>\r\n          <property name=\"alignment\">\r\n           <set>Qt::AlignCenter</set>\r\n          </property>\r\n         </widget>\r\n        </item>\r\n        <item>\r\n         <layout class=\"QHBoxLayout\" name=\"horizontalLayout_9\">\r\n          <item>\r\n           <spacer name=\"horizontalSpacer_11\">\r\n            <property name=\"orientation\">\r\n             <enum>Qt::Horizontal</enum>\r\n            </property>\r\n            <property name=\"sizeHint\" stdset=\"0\">\r\n             <size>\r\n              <width>40</width>\r\n              <height>20</height>\r\n             </size>\r\n            </property>\r\n           </spacer>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnThemDM\">\r\n            <property name=\"minimumSize\">\r\n             <size>\r\n              <width>0</width>\r\n              <height>0</height>\r\n             </size>\r\n            </property>\r\n            <property name=\"text\">\r\n             <string>Thêm</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnChiTietDM\">\r\n            <property name=\"minimumSize\">\r\n             <size>\r\n              <width>0</width>\r\n              <height>0</height>\r\n             </size>\r\n            </property>\r\n            <property name=\"text\">\r\n             <string>Chi tiết</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnCapNhatDM\">\r\n            <property name=\"minimumSize\">\r\n             <size>\r\n              <width>0</width>\r\n              <height>0</height>\r\n             </size>\r\n            </property>\r\n            <property name=\"text\">\r\n             <string>Cập nhật</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnXoaDM\">\r\n            <property name=\"minimumSize\">\r\n             <size>\r\n              <width>0</width>\r\n              <height>0</height>\r\n             </size>\r\n            </property>\r\n            <property name=\"text\">\r\n             <string>Xóa</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnRefreshDM\">\r\n            <property name=\"text\">\r\n             <string>Làm Mới</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n         </layout>\r\n        </item>\r\n        <item>\r\n         <widget class=\"QTableWidget\" name=\"tblDM\">\r\n          <property name=\"editTriggers\">\r\n           <set>QAbstractItemView::NoEditTriggers</set>\r\n          </property>\r\n          <property name=\"alternatingRowColors\">\r\n           <bool>true</bool>\r\n          </property>\r\n          <property name=\"selectionMode\">\r\n           <enum>QAbstractItemView::NoSelection</enum>\r\n          </property>\r\n          <property name=\"selectionBehavior\">\r\n           <enum>QAbstractItemView::SelectItems</enum>\r\n          </property>\r\n          <property name=\"sortingEnabled\">\r\n           <bool>true</bool>\r\n          </property>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Mã Danh Mục</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Tên Danh Mục</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Mô Tả</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Số lượng</string>\r\n           </property>\r\n          </column>\r\n         </widget>\r\n        </item>\r\n       </layout>\r\n      </widget>\r\n      <widget class=\"QWidget\" name=\"pageTonKho\">\r\n       <layout class=\"QVBoxLayout\" name=\"verticalLayout_6\">\r\n        <item>\r\n         <widget class=\"QGroupBox\" name=\"groupBox_2\">\r\n          <property name=\"font\">\r\n           <font>\r\n            <pointsize>10</pointsize>\r\n           </font>\r\n          </property>\r\n          <property name=\"title\">\r\n           <string>Tìm Kiếm</string>\r\n          </property>\r\n          <layout class=\"QHBoxLayout\" name=\"horizontalLayout_8\">\r\n           <item>\r\n            <widget class=\"QLineEdit\" name=\"txtTimKiemTK\">\r\n             <property name=\"placeholderText\">\r\n              <string>Tìm WarehouseID hoặc ProductID...</string>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item>\r\n            <widget class=\"QPushButton\" name=\"btnTimKiemTK\">\r\n             <property name=\"text\">\r\n              <string>Tìm kiếm</string>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n          </layout>\r\n         </widget>\r\n        </item>\r\n        <item>\r\n         <widget class=\"QLabel\" name=\"lblTitle\">\r\n          <property name=\"styleSheet\">\r\n           <string>\r\nfont: 18pt &quot;Arial&quot;;\r\nfont-weight:bold;\r\ncolor:white;\r\nbackground:#1976D2;\r\npadding:15px;\r\nborder-radius:8px;\r\n       </string>\r\n          </property>\r\n          <property name=\"text\">\r\n           <string>QUẢN LÝ TỒN KHO</string>\r\n          </property>\r\n          <property name=\"alignment\">\r\n           <set>Qt::AlignCenter</set>\r\n          </property>\r\n         </widget>\r\n        </item>\r\n        <item>\r\n         <layout class=\"QHBoxLayout\" name=\"buttonLayout\">\r\n          <item>\r\n           <widget class=\"QLabel\" name=\"lblTongTK\">\r\n            <property name=\"text\">\r\n             <string>Tổng tồn kho: 0</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <spacer name=\"horizontalSpacer_8\">\r\n            <property name=\"orientation\">\r\n             <enum>Qt::Horizontal</enum>\r\n            </property>\r\n            <property name=\"sizeHint\" stdset=\"0\">\r\n             <size>\r\n              <width>0</width>\r\n              <height>0</height>\r\n             </size>\r\n            </property>\r\n           </spacer>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnChiTietTK\">\r\n            <property name=\"text\">\r\n             <string>Chi Tiết</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnCapNhatTK\">\r\n            <property name=\"text\">\r\n             <string>Cập Nhật</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnRefreshTK\">\r\n            <property name=\"text\">\r\n             <string>Làm Mới</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n         </layout>\r\n        </item>\r\n        <item>\r\n         <widget class=\"QTableWidget\" name=\"tblTonKho\">\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Mã Kho Hàng</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Mã Sản Phẩm</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Tên Sản Phẩm</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Danh Mục</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Số Lượng</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Tồn Kho</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Trạng Thái</string>\r\n           </property>\r\n          </column>\r\n         </widget>\r\n        </item>\r\n       </layout>\r\n      </widget>\r\n      <widget class=\"QWidget\" name=\"pageThanhToan\">\r\n       <layout class=\"QVBoxLayout\" name=\"verticalLayout_3\">\r\n        <item>\r\n         <widget class=\"QGroupBox\" name=\"groupBox_3\">\r\n          <property name=\"title\">\r\n           <string>GroupBox</string>\r\n          </property>\r\n          <layout class=\"QHBoxLayout\" name=\"horizontalLayout_11\">\r\n           <item>\r\n            <widget class=\"QLineEdit\" name=\"txtTimKiemTT\">\r\n             <property name=\"text\">\r\n              <string/>\r\n             </property>\r\n             <property name=\"placeholderText\">\r\n              <string>Nhạp mã thanh toán</string>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item>\r\n            <widget class=\"QLabel\" name=\"lblFromDate_2\">\r\n             <property name=\"text\">\r\n              <string>Từ Ngày</string>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item>\r\n            <widget class=\"QDateEdit\" name=\"txtTuNgayTT\">\r\n             <property name=\"calendarPopup\">\r\n              <bool>true</bool>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item>\r\n            <widget class=\"QLabel\" name=\"lblToDate_2\">\r\n             <property name=\"text\">\r\n              <string>Đến Ngày</string>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item>\r\n            <widget class=\"QDateEdit\" name=\"txtDenNgayTT\">\r\n             <property name=\"calendarPopup\">\r\n              <bool>true</bool>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item>\r\n            <widget class=\"QPushButton\" name=\"btnTimKiemTT\">\r\n             <property name=\"text\">\r\n              <string>Tìm kiếm</string>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n          </layout>\r\n         </widget>\r\n        </item>\r\n        <item>\r\n         <widget class=\"QLabel\" name=\"lblTitle_2\">\r\n          <property name=\"styleSheet\">\r\n           <string>\r\nfont: 18pt &quot;Arial&quot;;\r\nfont-weight:bold;\r\ncolor:white;\r\nbackground:#1976D2;\r\npadding:15px;\r\nborder-radius:8px;\r\n       </string>\r\n          </property>\r\n          <property name=\"text\">\r\n           <string>QUẢN LÝ THANH TOÁN</string>\r\n          </property>\r\n          <property name=\"alignment\">\r\n           <set>Qt::AlignCenter</set>\r\n          </property>\r\n         </widget>\r\n        </item>\r\n        <item>\r\n         <layout class=\"QHBoxLayout\" name=\"crudLayout\">\r\n          <item>\r\n           <spacer name=\"horizontalSpacer_12\">\r\n            <property name=\"orientation\">\r\n             <enum>Qt::Horizontal</enum>\r\n            </property>\r\n            <property name=\"sizeHint\" stdset=\"0\">\r\n             <size>\r\n              <width>40</width>\r\n              <height>20</height>\r\n             </size>\r\n            </property>\r\n           </spacer>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnChiTietTT\">\r\n            <property name=\"text\">\r\n             <string>Chi Tiết</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnXacNhanTT\">\r\n            <property name=\"text\">\r\n             <string>Xác Nhận Thanh Toán</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnXoaTT\">\r\n            <property name=\"text\">\r\n             <string>Xóa</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnRefreshTT\">\r\n            <property name=\"text\">\r\n             <string>Làm Mới</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n         </layout>\r\n        </item>\r\n        <item>\r\n         <widget class=\"QTableWidget\" name=\"tblThanhToan\">\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Mã Đơn Hàng</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Tổng Tiền</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Phương Thức</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Trạng Thái</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Mã Thanh Toán</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Ngày Thanh Toán</string>\r\n           </property>\r\n          </column>\r\n         </widget>\r\n        </item>\r\n        <item>\r\n         <widget class=\"QFrame\" name=\"khungFrameBanner\">\r\n          <layout class=\"QVBoxLayout\" name=\"bannerLayout\"/>\r\n         </widget>\r\n        </item>\r\n       </layout>\r\n      </widget>\r\n      <widget class=\"QWidget\" name=\"pageVanChuyen\">\r\n       <layout class=\"QVBoxLayout\" name=\"verticalLayout_9\">\r\n        <item>\r\n         <widget class=\"QGroupBox\" name=\"grpSearch\">\r\n          <property name=\"font\">\r\n           <font>\r\n            <pointsize>10</pointsize>\r\n           </font>\r\n          </property>\r\n          <property name=\"title\">\r\n           <string>Tìm kiếm</string>\r\n          </property>\r\n          <layout class=\"QHBoxLayout\" name=\"horizontalLayout_3\">\r\n           <item>\r\n            <widget class=\"QLabel\" name=\"lblShipmentID\">\r\n             <property name=\"text\">\r\n              <string/>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item>\r\n            <widget class=\"QLineEdit\" name=\"txtTimKiemVC\">\r\n             <property name=\"placeholderText\">\r\n              <string>Nhập mã giao  hàng hoặc mã đơn hàng</string>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item>\r\n            <widget class=\"QLabel\" name=\"lblStatus\">\r\n             <property name=\"text\">\r\n              <string>Trạng thái</string>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item>\r\n            <widget class=\"QComboBox\" name=\"cbbTimKiemVC\"/>\r\n           </item>\r\n           <item>\r\n            <widget class=\"QLabel\" name=\"lblFrom\">\r\n             <property name=\"text\">\r\n              <string>Từ ngày</string>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item>\r\n            <widget class=\"QDateEdit\" name=\"txtTuNgayVC\">\r\n             <property name=\"calendarPopup\">\r\n              <bool>true</bool>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item>\r\n            <widget class=\"QLabel\" name=\"lblTo\">\r\n             <property name=\"text\">\r\n              <string>Đến ngày</string>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item>\r\n            <widget class=\"QDateEdit\" name=\"txtDenNgayVC\">\r\n             <property name=\"calendarPopup\">\r\n              <bool>true</bool>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item>\r\n            <widget class=\"QPushButton\" name=\"btnTimKiemVC\">\r\n             <property name=\"text\">\r\n              <string>Tìm Kiếm</string>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n          </layout>\r\n         </widget>\r\n        </item>\r\n        <item>\r\n         <widget class=\"QLabel\" name=\"lblTitle_7\">\r\n          <property name=\"styleSheet\">\r\n           <string>\r\nfont: 18pt &quot;Arial&quot;;\r\nfont-weight:bold;\r\ncolor:white;\r\nbackground:#1976D2;\r\npadding:15px;\r\nborder-radius:8px;\r\n       </string>\r\n          </property>\r\n          <property name=\"text\">\r\n           <string>QUẢN LÝ VẬN CHUYỂN</string>\r\n          </property>\r\n          <property name=\"alignment\">\r\n           <set>Qt::AlignCenter</set>\r\n          </property>\r\n         </widget>\r\n        </item>\r\n        <item>\r\n         <layout class=\"QHBoxLayout\" name=\"toolbarLayout\">\r\n          <item>\r\n           <spacer name=\"sp\">\r\n            <property name=\"orientation\">\r\n             <enum>Qt::Horizontal</enum>\r\n            </property>\r\n            <property name=\"sizeHint\" stdset=\"0\">\r\n             <size>\r\n              <width>0</width>\r\n              <height>0</height>\r\n             </size>\r\n            </property>\r\n           </spacer>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnChiTietVC\">\r\n            <property name=\"text\">\r\n             <string>Chi tiết</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnCapNhatVC\">\r\n            <property name=\"text\">\r\n             <string>Cập Nhật Trạng Thái</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnRefreshVC\">\r\n            <property name=\"text\">\r\n             <string>Làm Mới</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n         </layout>\r\n        </item>\r\n        <item>\r\n         <widget class=\"QTableWidget\" name=\"tblVanChuyen\">\r\n          <property name=\"font\">\r\n           <font>\r\n            <pointsize>10</pointsize>\r\n           </font>\r\n          </property>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Mã GH</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Mã ĐH</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Khách hàng</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Đơn vị VC</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Phương thức</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Ngày giao</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Trạng thái</string>\r\n           </property>\r\n          </column>\r\n         </widget>\r\n        </item>\r\n       </layout>\r\n      </widget>\r\n      <widget class=\"QWidget\" name=\"pageNhanVien\">\r\n       <layout class=\"QVBoxLayout\" name=\"verticalLayout_8\">\r\n        <item>\r\n         <widget class=\"QGroupBox\" name=\"grpSearch_2\">\r\n          <property name=\"title\">\r\n           <string>Tìm kiếm</string>\r\n          </property>\r\n          <layout class=\"QGridLayout\" name=\"gridLayout\">\r\n           <item row=\"0\" column=\"1\">\r\n            <widget class=\"QPushButton\" name=\"btnTimKiemDT\">\r\n             <property name=\"text\">\r\n              <string>Tìm Kiếm</string>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item row=\"0\" column=\"0\">\r\n            <widget class=\"QLineEdit\" name=\"txtTimKiemDT\">\r\n             <property name=\"placeholderText\">\r\n              <string>Nhập mã đối tác hoặc tên đối tác...</string>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n          </layout>\r\n         </widget>\r\n        </item>\r\n        <item>\r\n         <widget class=\"QLabel\" name=\"lblTitle_8\">\r\n          <property name=\"styleSheet\">\r\n           <string>\r\nfont: 18pt &quot;Arial&quot;;\r\nfont-weight:bold;\r\ncolor:white;\r\nbackground:#1976D2;\r\npadding:15px;\r\nborder-radius:8px;\r\n       </string>\r\n          </property>\r\n          <property name=\"text\">\r\n           <string>QUẢN LÝ ĐỐI TÁC VẬN CHUYỂN</string>\r\n          </property>\r\n          <property name=\"alignment\">\r\n           <set>Qt::AlignCenter</set>\r\n          </property>\r\n         </widget>\r\n        </item>\r\n        <item>\r\n         <layout class=\"QHBoxLayout\" name=\"toolbarLayout_2\">\r\n          <item>\r\n           <spacer name=\"horizontalSpacer_3\">\r\n            <property name=\"orientation\">\r\n             <enum>Qt::Horizontal</enum>\r\n            </property>\r\n            <property name=\"sizeHint\" stdset=\"0\">\r\n             <size>\r\n              <width>40</width>\r\n              <height>20</height>\r\n             </size>\r\n            </property>\r\n           </spacer>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnThemDT\">\r\n            <property name=\"text\">\r\n             <string>Thêm</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnChiTietDT\">\r\n            <property name=\"text\">\r\n             <string>Chi Tiiết</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnCapNhatDT\">\r\n            <property name=\"text\">\r\n             <string>Cập Nhật</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnXoaDT\">\r\n            <property name=\"text\">\r\n             <string>Xóa</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnRefreshDT\">\r\n            <property name=\"text\">\r\n             <string>Làm Mới</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n         </layout>\r\n        </item>\r\n        <item>\r\n         <widget class=\"QTableWidget\" name=\"tblDoiTac\">\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Mã ĐT</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Tên ĐT</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>SĐT</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Email</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Phương Thức VC</string>\r\n           </property>\r\n          </column>\r\n         </widget>\r\n        </item>\r\n       </layout>\r\n      </widget>\r\n      <widget class=\"QWidget\" name=\"pageBaoCao\">\r\n       <layout class=\"QVBoxLayout\" name=\"verticalLayout_7\">\r\n        <item>\r\n         <widget class=\"QGroupBox\" name=\"grpSearch_3\">\r\n          <property name=\"title\">\r\n           <string>Tìm kiếm</string>\r\n          </property>\r\n          <layout class=\"QGridLayout\" name=\"gridLayout_2\">\r\n           <item row=\"0\" column=\"3\">\r\n            <widget class=\"QComboBox\" name=\"cbbChucVu\">\r\n             <item>\r\n              <property name=\"text\">\r\n               <string>Tất cả</string>\r\n              </property>\r\n             </item>\r\n            </widget>\r\n           </item>\r\n           <item row=\"0\" column=\"0\">\r\n            <widget class=\"QLabel\" name=\"lblEmployeeID\">\r\n             <property name=\"text\">\r\n              <string>Mã nhân viên</string>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item row=\"0\" column=\"1\">\r\n            <widget class=\"QLineEdit\" name=\"txtMaNV\"/>\r\n           </item>\r\n           <item row=\"0\" column=\"2\">\r\n            <widget class=\"QLabel\" name=\"lblPosition\">\r\n             <property name=\"text\">\r\n              <string>Chức vụ</string>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item row=\"0\" column=\"4\">\r\n            <widget class=\"QPushButton\" name=\"btnTimKiemNV\">\r\n             <property name=\"text\">\r\n              <string>Tìm Kiếm</string>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n          </layout>\r\n         </widget>\r\n        </item>\r\n        <item>\r\n         <widget class=\"QLabel\" name=\"lblTitle_9\">\r\n          <property name=\"styleSheet\">\r\n           <string>\r\nfont: 18pt &quot;Arial&quot;;\r\nfont-weight:bold;\r\ncolor:white;\r\nbackground:#1976D2;\r\npadding:15px;\r\nborder-radius:8px;\r\n       </string>\r\n          </property>\r\n          <property name=\"text\">\r\n           <string>QUẢN LÝ NHÂN VIÊN</string>\r\n          </property>\r\n          <property name=\"alignment\">\r\n           <set>Qt::AlignCenter</set>\r\n          </property>\r\n         </widget>\r\n        </item>\r\n        <item>\r\n         <layout class=\"QHBoxLayout\" name=\"toolbarLayout_3\">\r\n          <item>\r\n           <spacer name=\"horizontalSpacer_2\">\r\n            <property name=\"orientation\">\r\n             <enum>Qt::Horizontal</enum>\r\n            </property>\r\n            <property name=\"sizeHint\" stdset=\"0\">\r\n             <size>\r\n              <width>40</width>\r\n              <height>20</height>\r\n             </size>\r\n            </property>\r\n           </spacer>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnThemNV\">\r\n            <property name=\"text\">\r\n             <string>Thêm</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnChiTietNV\">\r\n            <property name=\"text\">\r\n             <string>Chi tiết</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnCapNhatNV\">\r\n            <property name=\"text\">\r\n             <string>Cập nhật</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnXoaNV\">\r\n            <property name=\"text\">\r\n             <string>Xóa</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n          <item>\r\n           <widget class=\"QPushButton\" name=\"btnRefreshNV\">\r\n            <property name=\"text\">\r\n             <string>Làm mới</string>\r\n            </property>\r\n           </widget>\r\n          </item>\r\n         </layout>\r\n        </item>\r\n        <item>\r\n         <widget class=\"QTableWidget\" name=\"tblNhanVien\">\r\n          <property name=\"columnCount\">\r\n           <number>6</number>\r\n          </property>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Mã NV</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Họ tên</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>SĐT</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Chức vụ</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Phòng ban</string>\r\n           </property>\r\n          </column>\r\n          <column>\r\n           <property name=\"text\">\r\n            <string>Trạng thái</string>\r\n           </property>\r\n          </column>\r\n         </widget>\r\n        </item>\r\n       </layout>\r\n      </widget>\r\n      <widget class=\"QWidget\" name=\"pageDangXuat\">\r\n       <layout class=\"QVBoxLayout\" name=\"verticalLayout_10\">\r\n        <item>\r\n         <widget class=\"QGroupBox\" name=\"grpFilter\">\r\n          <property name=\"title\">\r\n           <string>Tìm Kiếm</string>\r\n          </property>\r\n          <layout class=\"QGridLayout\" name=\"gridLayout_3\">\r\n           <item row=\"0\" column=\"5\">\r\n            <widget class=\"QDateEdit\" name=\"txtDenNgayBC\">\r\n             <property name=\"calendarPopup\">\r\n              <bool>true</bool>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item row=\"0\" column=\"2\">\r\n            <widget class=\"QLabel\" name=\"lblFromDate_3\">\r\n             <property name=\"text\">\r\n              <string>Từ ngày</string>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item row=\"0\" column=\"3\">\r\n            <widget class=\"QDateEdit\" name=\"txtTuNgayBC\">\r\n             <property name=\"calendarPopup\">\r\n              <bool>true</bool>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item row=\"0\" column=\"4\">\r\n            <widget class=\"QLabel\" name=\"lblToDate_3\">\r\n             <property name=\"text\">\r\n              <string>Đến ngày</string>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item row=\"0\" column=\"1\">\r\n            <widget class=\"QComboBox\" name=\"cbbLoaiBaoCao\">\r\n             <item>\r\n              <property name=\"text\">\r\n               <string>Doanh thu</string>\r\n              </property>\r\n             </item>\r\n             <item>\r\n              <property name=\"text\">\r\n               <string>Đơn hàng</string>\r\n              </property>\r\n             </item>\r\n             <item>\r\n              <property name=\"text\">\r\n               <string>Thanh toán</string>\r\n              </property>\r\n             </item>\r\n             <item>\r\n              <property name=\"text\">\r\n               <string>Giao hàng</string>\r\n              </property>\r\n             </item>\r\n             <item>\r\n              <property name=\"text\">\r\n               <string>Kho</string>\r\n              </property>\r\n             </item>\r\n             <item>\r\n              <property name=\"text\">\r\n               <string>Khách hàng</string>\r\n              </property>\r\n             </item>\r\n            </widget>\r\n           </item>\r\n           <item row=\"0\" column=\"0\">\r\n            <widget class=\"QLabel\" name=\"lblReportType\">\r\n             <property name=\"text\">\r\n              <string>Loại báo cáo</string>\r\n             </property>\r\n            </widget>\r\n           </item>\r\n           <item row=\"1\" column=\"0\" colspan=\"6\">\r\n            <layout class=\"QHBoxLayout\" name=\"buttonLayout_2\">\r\n             <item>\r\n              <spacer name=\"horizontalSpacer_4\">\r\n               <property name=\"orientation\">\r\n                <enum>Qt::Horizontal</enum>\r\n               </property>\r\n               <property name=\"sizeHint\" stdset=\"0\">\r\n                <size>\r\n                 <width>0</width>\r\n                 <height>0</height>\r\n                </size>\r\n               </property>\r\n              </spacer>\r\n             </item>\r\n             <item>\r\n              <widget class=\"QPushButton\" name=\"btnXemBaoCao\">\r\n               <property name=\"text\">\r\n                <string>Xem báo cáo</string>\r\n               </property>\r\n              </widget>\r\n             </item>\r\n             <item>\r\n              <widget class=\"QPushButton\" name=\"btnRefreshBC\">\r\n               <property name=\"text\">\r\n                <string>Làm mới</string>\r\n               </property>\r\n              </widget>\r\n             </item>\r\n            </layout>\r\n           </item>\r\n          </layout>\r\n         </widget>\r\n        </item>\r\n        <item>\r\n         <widget class=\"QLabel\" name=\"lblTitle_10\">\r\n          <property name=\"styleSheet\">\r\n           <string>\r\nfont: 18pt &quot;Arial&quot;;\r\nfont-weight:bold;\r\ncolor:white;\r\nbackground:#1976D2;\r\npadding:15px;\r\nborder-radius:8px;\r\n       </string>\r\n          </property>\r\n          <property name=\"text\">\r\n           <string>BÁO CÁO KẾT QUẢ KINH DOANH</string>\r\n          </property>\r\n          <property name=\"alignment\">\r\n           <set>Qt::AlignCenter</set>\r\n          </property>\r\n         </widget>\r\n        </item>\r\n        <item>\r\n         <widget class=\"QGroupBox\" name=\"grpSummary\">\r\n          <property name=\"title\">\r\n           <string>Tổng quan</string>\r\n          </property>\r\n          <layout class=\"QGridLayout\" name=\"gridSummary\">\r\n           <item row=\"0\" column=\"0\">\r\n            <widget class=\"QGroupBox\" name=\"grpTotalRecord\">\r\n             <property name=\"title\">\r\n              <string>Tổng bản ghi</string>\r\n             </property>\r\n             <layout class=\"QVBoxLayout\" name=\"verticalLayoutRecord\">\r\n              <item>\r\n               <widget class=\"QLabel\" name=\"lblTongBanGhi\">\r\n                <property name=\"styleSheet\">\r\n                 <string notr=\"true\">font-size:24px;\r\nfont-weight:bold;</string>\r\n                </property>\r\n                <property name=\"text\">\r\n                 <string>0</string>\r\n                </property>\r\n                <property name=\"alignment\">\r\n                 <set>Qt::AlignCenter</set>\r\n                </property>\r\n               </widget>\r\n              </item>\r\n             </layout>\r\n            </widget>\r\n           </item>\r\n           <item row=\"0\" column=\"1\">\r\n            <widget class=\"QGroupBox\" name=\"grpTotalAmount\">\r\n             <property name=\"title\">\r\n              <string>Tổng giá trị</string>\r\n             </property>\r\n             <layout class=\"QVBoxLayout\" name=\"_4\">\r\n              <item>\r\n               <widget class=\"QLabel\" name=\"lblTongGiaTri\">\r\n                <property name=\"styleSheet\">\r\n                 <string notr=\"true\">font-size:24px;\r\nfont-weight:bold;</string>\r\n                </property>\r\n                <property name=\"text\">\r\n                 <string>0 VNĐ</string>\r\n                </property>\r\n                <property name=\"alignment\">\r\n                 <set>Qt::AlignCenter</set>\r\n                </property>\r\n               </widget>\r\n              </item>\r\n             </layout>\r\n            </widget>\r\n           </item>\r\n           <item row=\"0\" column=\"2\">\r\n            <widget class=\"QGroupBox\" name=\"groupBox_4\">\r\n             <property name=\"title\">\r\n              <string>Hoàn thành</string>\r\n             </property>\r\n             <layout class=\"QVBoxLayout\" name=\"_6\">\r\n              <item>\r\n               <widget class=\"QLabel\" name=\"lblHoanThanh\">\r\n                <property name=\"styleSheet\">\r\n                 <string notr=\"true\">font-size:24px;\r\nfont-weight:bold;</string>\r\n                </property>\r\n                <property name=\"text\">\r\n                 <string>0</string>\r\n                </property>\r\n                <property name=\"alignment\">\r\n                 <set>Qt::AlignCenter</set>\r\n                </property>\r\n               </widget>\r\n              </item>\r\n             </layout>\r\n            </widget>\r\n           </item>\r\n           <item row=\"0\" column=\"3\">\r\n            <widget class=\"QGroupBox\" name=\"grpFailed\">\r\n             <property name=\"title\">\r\n              <string>Thất bại</string>\r\n             </property>\r\n             <layout class=\"QVBoxLayout\" name=\"_7\">\r\n              <item>\r\n               <widget class=\"QLabel\" name=\"lblThatBai\">\r\n                <property name=\"styleSheet\">\r\n                 <string notr=\"true\">font-size:24px;\r\nfont-weight:bold;</string>\r\n                </property>\r\n                <property name=\"text\">\r\n                 <string>0</string>\r\n                </property>\r\n                <property name=\"alignment\">\r\n                 <set>Qt::AlignCenter</set>\r\n                </property>\r\n               </widget>\r\n              </item>\r\n             </layout>\r\n            </widget>\r\n           </item>\r\n          </layout>\r\n         </widget>\r\n        </item>\r\n        <item>\r\n         <widget class=\"QGroupBox\" name=\"grpResult\">\r\n          <property name=\"title\">\r\n           <string>Kết quả báo cáo</string>\r\n          </property>\r\n          <layout class=\"QVBoxLayout\" name=\"verticalLayoutResult\">\r\n           <item>\r\n            <widget class=\"QTableWidget\" name=\"tblBaoCao\">\r\n             <property name=\"editTriggers\">\r\n              <set>QAbstractItemView::NoEditTriggers</set>\r\n             </property>\r\n             <property name=\"alternatingRowColors\">\r\n              <bool>true</bool>\r\n             </property>\r\n             <property name=\"selectionMode\">\r\n              <enum>QAbstractItemView::SingleSelection</enum>\r\n             </property>\r\n             <property name=\"selectionBehavior\">\r\n              <enum>QAbstractItemView::SelectRows</enum>\r\n             </property>\r\n             <property name=\"sortingEnabled\">\r\n              <bool>true</bool>\r\n             </property>\r\n             <property name=\"columnCount\">\r\n              <number>5</number>\r\n             </property>\r\n             <column>\r\n              <property name=\"text\">\r\n               <string>Cột 1</string>\r\n              </property>\r\n             </column>\r\n             <column>\r\n              <property name=\"text\">\r\n               <string>Cột 2</string>\r\n              </property>\r\n             </column>\r\n             <column>\r\n              <property name=\"text\">\r\n               <string>Cột 3</string>\r\n              </property>\r\n             </column>\r\n             <column>\r\n              <property name=\"text\">\r\n               <string>Cột 4</string>\r\n              </property>\r\n             </column>\r\n             <column>\r\n              <property name=\"text\">\r\n               <string>Cột 5</string>\r\n              </property>\r\n             </column>\r\n            </widget>\r\n           </item>\r\n          </layout>\r\n         </widget>\r\n        </item>\r\n       </layout>\r\n      </widget>\r\n     </widget>\r\n    </item>\r\n   </layout>\r\n  </widget>\r\n  <widget class=\"QMenuBar\" name=\"phanTuMenubar\">\r\n   <property name=\"geometry\">\r\n    <rect>\r\n     <x>0</x>\r\n     <y>0</y>\r\n     <width>1041</width>\r\n     <height>29</height>\r\n    </rect>\r\n   </property>\r\n  </widget>\r\n  <widget class=\"QStatusBar\" name=\"phanTuStatusbar\"/>\r\n </widget>\r\n <customwidgets>\r\n  <customwidget>\r\n   <class>QChartView</class>\r\n   <extends>QGraphicsView</extends>\r\n   <header>QtCharts/QChartView</header>\r\n  </customwidget>\r\n </customwidgets>\r\n <resources/>\r\n <connections/>\r\n</ui>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ui/main_window.ui b/ui/main_window.ui
+--- a/ui/main_window.ui	(revision 360f19d22b49805d10ec80573e65529175bac968)
++++ b/ui/main_window.ui	(date 1783183313312)
+@@ -10,11 +10,6 @@
+     <height>753</height>
+    </rect>
+   </property>
+-  <property name="font">
+-   <font>
+-    <pointsize>10</pointsize>
+-   </font>
+-  </property>
+   <property name="windowTitle">
+    <string>10-Tab Sidebar UI</string>
+   </property>
+@@ -34,11 +29,6 @@
+         <height>16777215</height>
+        </size>
+       </property>
+-      <property name="font">
+-       <font>
+-        <pointsize>10</pointsize>
+-       </font>
+-      </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+@@ -78,8 +68,27 @@
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <widget class="QLabel" name="label_2">
++            <property name="maximumSize">
++             <size>
++              <width>50</width>
++              <height>50</height>
++             </size>
++            </property>
+             <property name="text">
+-             <string>LOGO</string>
++             <string/>
++            </property>
++            <property name="pixmap">
++             <pixmap>../resources/icons/dolly-flatbed-alt.png</pixmap>
++            </property>
++            <property name="scaledContents">
++             <bool>true</bool>
++            </property>
++           </widget>
++          </item>
++          <item>
++           <widget class="QLabel" name="label">
++            <property name="text">
++             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:9pt; font-weight:600;&quot;&gt;SPEED CHAIN&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+@@ -105,7 +114,11 @@
+        <item>
+         <widget class="QPushButton" name="btnTongQuan">
+          <property name="text">
+-          <string>Tổng Quan</string>
++          <string>Tổng quan</string>
++         </property>
++         <property name="icon">
++          <iconset>
++           <normaloff>../resources/icons/home.png</normaloff>../resources/icons/home.png</iconset>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
+@@ -116,6 +129,10 @@
+         <widget class="QPushButton" name="btnDonhang">
+          <property name="text">
+           <string>Đơn hàng</string>
++         </property>
++         <property name="icon">
++          <iconset>
++           <normaloff>../resources/icons/order-history.png</normaloff>../resources/icons/order-history.png</iconset>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
+@@ -126,6 +143,10 @@
+         <widget class="QPushButton" name="btnKhachHang">
+          <property name="text">
+           <string>Khách hàng</string>
++         </property>
++         <property name="icon">
++          <iconset>
++           <normaloff>../resources/icons/user-bag.png</normaloff>../resources/icons/user-bag.png</iconset>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
+@@ -136,6 +157,10 @@
+         <widget class="QPushButton" name="btnSanPham">
+          <property name="text">
+           <string>Sản phẩm</string>
++         </property>
++         <property name="icon">
++          <iconset>
++           <normaloff>../resources/icons/boxes.png</normaloff>../resources/icons/boxes.png</iconset>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
+@@ -147,6 +172,10 @@
+          <property name="text">
+           <string>Danh mục</string>
+          </property>
++         <property name="icon">
++          <iconset>
++           <normaloff>../resources/icons/list.png</normaloff>../resources/icons/list.png</iconset>
++         </property>
+          <property name="flat">
+           <bool>true</bool>
+          </property>
+@@ -157,6 +186,10 @@
+          <property name="text">
+           <string>Tồn kho</string>
+          </property>
++         <property name="icon">
++          <iconset>
++           <normaloff>../resources/icons/box-open.png</normaloff>../resources/icons/box-open.png</iconset>
++         </property>
+          <property name="flat">
+           <bool>true</bool>
+          </property>
+@@ -167,6 +200,10 @@
+          <property name="text">
+           <string>Thanh toán</string>
+          </property>
++         <property name="icon">
++          <iconset>
++           <normaloff>../resources/icons/payroll-check.png</normaloff>../resources/icons/payroll-check.png</iconset>
++         </property>
+          <property name="flat">
+           <bool>true</bool>
+          </property>
+@@ -176,6 +213,10 @@
+         <widget class="QPushButton" name="btnVanChuyen">
+          <property name="text">
+           <string>Vận Chuyển</string>
++         </property>
++         <property name="icon">
++          <iconset>
++           <normaloff>../resources/icons/truck-side.png</normaloff>../resources/icons/truck-side.png</iconset>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
+@@ -185,7 +226,11 @@
+        <item>
+         <widget class="QPushButton" name="pushButton_2">
+          <property name="text">
+-          <string>Đối Tác</string>
++          <string>Đối tác</string>
++         </property>
++         <property name="icon">
++          <iconset>
++           <normaloff>../resources/icons/people-network-partner.png</normaloff>../resources/icons/people-network-partner.png</iconset>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
+@@ -197,6 +242,10 @@
+          <property name="text">
+           <string>Nhân viên</string>
+          </property>
++         <property name="icon">
++          <iconset>
++           <normaloff>../resources/icons/employee-man-alt.png</normaloff>../resources/icons/employee-man-alt.png</iconset>
++         </property>
+          <property name="flat">
+           <bool>true</bool>
+          </property>
+@@ -207,6 +256,10 @@
+          <property name="text">
+           <string>Báo cáo</string>
+          </property>
++         <property name="icon">
++          <iconset>
++           <normaloff>../resources/icons/big-data-analytics.png</normaloff>../resources/icons/big-data-analytics.png</iconset>
++         </property>
+          <property name="flat">
+           <bool>true</bool>
+          </property>
+@@ -215,7 +268,11 @@
+        <item>
+         <widget class="QPushButton" name="btnDangXuat">
+          <property name="text">
+-          <string>Đăng Xuất</string>
++          <string>Đăng xuất</string>
++         </property>
++         <property name="icon">
++          <iconset>
++           <normaloff>../resources/icons/exit.png</normaloff>../resources/icons/exit.png</iconset>
+          </property>
+          <property name="flat">
+           <bool>true</bool>
+@@ -241,7 +298,7 @@
+     <item>
+      <widget class="QStackedWidget" name="khungChuyenTrangStacked">
+       <property name="currentIndex">
+-       <number>5</number>
++       <number>7</number>
+       </property>
+       <widget class="QWidget" name="pageTongQuan">
+        <layout class="QVBoxLayout" name="verticalLayout_11">
+@@ -773,7 +830,7 @@
+           <item>
+            <widget class="QPushButton" name="btnCapNhatDH">
+             <property name="text">
+-             <string>Cập Nhật</string>
++             <string>Cập nhật</string>
+             </property>
+            </widget>
+           </item>
+@@ -787,7 +844,7 @@
+           <item>
+            <widget class="QPushButton" name="btnRefreshDH">
+             <property name="text">
+-             <string>Làm Mới</string>
++             <string>Làm mới</string>
+             </property>
+            </widget>
+           </item>
+@@ -802,27 +859,27 @@
+           </column>
+           <column>
+            <property name="text">
+-            <string>Ngày Tạo</string>
++            <string>Ngày tạo</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+-            <string>Khách Hàng</string>
++            <string>Khách hàng</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+-            <string>Địa Chỉ</string>
++            <string>Địa chỉ</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+-            <string>Tổng Tiền</string>
++            <string>Tổng tiền</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+-            <string>Trạng Thái</string>
++            <string>Trạng thái</string>
+            </property>
+           </column>
+          </widget>
+@@ -906,7 +963,7 @@
+           <item>
+            <widget class="QPushButton" name="btnCapNhatKH">
+             <property name="text">
+-             <string>Cập Nhật</string>
++             <string>Cập nhật</string>
+             </property>
+            </widget>
+           </item>
+@@ -920,7 +977,7 @@
+           <item>
+            <widget class="QPushButton" name="btnRefreshKH">
+             <property name="text">
+-             <string>Làm Mới</string>
++             <string>Làm mới</string>
+             </property>
+            </widget>
+           </item>
+@@ -1041,27 +1098,27 @@
+           </column>
+           <column>
+            <property name="text">
+-            <string>Tên Sản Phẩm</string>
++            <string>Tên sản phẩm</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+-            <string>Danh Mục</string>
++            <string>Danh mục</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+-            <string>Đơn Giá</string>
++            <string>Đơn giá</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+-            <string>Tồn Kho</string>
++            <string>Tồn kho</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+-            <string>Trạng Thái</string>
++            <string>Trạng thái</string>
+            </property>
+           </column>
+          </widget>
+@@ -1124,11 +1181,6 @@
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QGroupBox" name="groupBox">
+-          <property name="font">
+-           <font>
+-            <pointsize>10</pointsize>
+-           </font>
+-          </property>
+           <property name="title">
+            <string>Tìm Kiếm</string>
+           </property>
+@@ -1265,7 +1317,7 @@
+           <item>
+            <widget class="QPushButton" name="btnRefreshDM">
+             <property name="text">
+-             <string>Làm Mới</string>
++             <string>Làm mới</string>
+             </property>
+            </widget>
+           </item>
+@@ -1290,17 +1342,17 @@
+           </property>
+           <column>
+            <property name="text">
+-            <string>Mã Danh Mục</string>
++            <string>Mã danh mục</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+-            <string>Tên Danh Mục</string>
++            <string>Tên danh mục</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+-            <string>Mô Tả</string>
++            <string>Mô tả</string>
+            </property>
+           </column>
+           <column>
+@@ -1316,11 +1368,6 @@
+        <layout class="QVBoxLayout" name="verticalLayout_6">
+         <item>
+          <widget class="QGroupBox" name="groupBox_2">
+-          <property name="font">
+-           <font>
+-            <pointsize>10</pointsize>
+-           </font>
+-          </property>
+           <property name="title">
+            <string>Tìm Kiếm</string>
+           </property>
+@@ -1387,21 +1434,21 @@
+           <item>
+            <widget class="QPushButton" name="btnChiTietTK">
+             <property name="text">
+-             <string>Chi Tiết</string>
++             <string>Chi tiết</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btnCapNhatTK">
+             <property name="text">
+-             <string>Cập Nhật</string>
++             <string>Cập nhật</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btnRefreshTK">
+             <property name="text">
+-             <string>Làm Mới</string>
++             <string>Làm mới</string>
+             </property>
+            </widget>
+           </item>
+@@ -1411,37 +1458,37 @@
+          <widget class="QTableWidget" name="tblTonKho">
+           <column>
+            <property name="text">
+-            <string>Mã Kho Hàng</string>
++            <string>Mã kho hàng</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+-            <string>Mã Sản Phẩm</string>
++            <string>Mã sản phẩm</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+-            <string>Tên Sản Phẩm</string>
++            <string>Tên sản phẩm</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+-            <string>Danh Mục</string>
++            <string>Danh mục</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+-            <string>Số Lượng</string>
++            <string>Số lượng</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+-            <string>Tồn Kho</string>
++            <string>Tồn kho</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+-            <string>Trạng Thái</string>
++            <string>Trạng thái</string>
+            </property>
+           </column>
+          </widget>
+@@ -1542,14 +1589,14 @@
+           <item>
+            <widget class="QPushButton" name="btnChiTietTT">
+             <property name="text">
+-             <string>Chi Tiết</string>
++             <string>Chi tiết</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btnXacNhanTT">
+             <property name="text">
+-             <string>Xác Nhận Thanh Toán</string>
++             <string>Xác nhận thanh toán</string>
+             </property>
+            </widget>
+           </item>
+@@ -1563,7 +1610,7 @@
+           <item>
+            <widget class="QPushButton" name="btnRefreshTT">
+             <property name="text">
+-             <string>Làm Mới</string>
++             <string>Làm mới</string>
+             </property>
+            </widget>
+           </item>
+@@ -1573,32 +1620,32 @@
+          <widget class="QTableWidget" name="tblThanhToan">
+           <column>
+            <property name="text">
+-            <string>Mã Đơn Hàng</string>
++            <string>Mã đơn hàng</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+-            <string>Tổng Tiền</string>
++            <string>Tổng tiền</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+-            <string>Phương Thức</string>
++            <string>Phương thức</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+-            <string>Trạng Thái</string>
++            <string>Trạng thái</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+-            <string>Mã Thanh Toán</string>
++            <string>Mã thanh toán</string>
+            </property>
+           </column>
+           <column>
+            <property name="text">
+-            <string>Ngày Thanh Toán</string>
++            <string>Ngày thanh toán</string>
+            </property>
+           </column>
+          </widget>
+@@ -1614,11 +1661,6 @@
+        <layout class="QVBoxLayout" name="verticalLayout_9">
+         <item>
+          <widget class="QGroupBox" name="grpSearch">
+-          <property name="font">
+-           <font>
+-            <pointsize>10</pointsize>
+-           </font>
+-          </property>
+           <property name="title">
+            <string>Tìm kiếm</string>
+           </property>
+@@ -1678,7 +1720,7 @@
+            <item>
+             <widget class="QPushButton" name="btnTimKiemVC">
+              <property name="text">
+-              <string>Tìm Kiếm</string>
++              <string>Tìm kiếm</string>
+              </property>
+             </widget>
+            </item>
+@@ -1715,7 +1757,7 @@
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>0</width>
+-              <height>0</height>
++              <height>50</height>
+              </size>
+             </property>
+            </spacer>
+@@ -1730,14 +1772,14 @@
+           <item>
+            <widget class="QPushButton" name="btnCapNhatVC">
+             <property name="text">
+-             <string>Cập Nhật Trạng Thái</string>
++             <string>Cập nhật trạng thái</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btnRefreshVC">
+             <property name="text">
+-             <string>Làm Mới</string>
++             <string>Làm mới</string>
+             </property>
+            </widget>
+           </item>
+@@ -1745,11 +1787,6 @@
+         </item>
+         <item>
+          <widget class="QTableWidget" name="tblVanChuyen">
+-          <property name="font">
+-           <font>
+-            <pointsize>10</pointsize>
+-           </font>
+-          </property>
+           <column>
+            <property name="text">
+             <string>Mã GH</string>
+@@ -1859,14 +1896,14 @@
+           <item>
+            <widget class="QPushButton" name="btnChiTietDT">
+             <property name="text">
+-             <string>Chi Tiiết</string>
++             <string>Chi tiết</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="btnCapNhatDT">
+             <property name="text">
+-             <string>Cập Nhật</string>
++             <string>Cập nhật</string>
+             </property>
+            </widget>
+           </item>
+@@ -1880,7 +1917,7 @@
+           <item>
+            <widget class="QPushButton" name="btnRefreshDT">
+             <property name="text">
+-             <string>Làm Mới</string>
++             <string>Làm mới</string>
+             </property>
+            </widget>
+           </item>
+@@ -1910,7 +1947,7 @@
+           </column>
+           <column>
+            <property name="text">
+-            <string>Phương Thức VC</string>
++            <string>Phương thức VC</string>
+            </property>
+           </column>
+          </widget>
+@@ -2372,7 +2409,7 @@
+      <x>0</x>
+      <y>0</y>
+      <width>1041</width>
+-     <height>29</height>
++     <height>26</height>
+     </rect>
+    </property>
+   </widget>
+Index: ui/nmlh.txt
+===================================================================
+diff --git a/ui/nmlh.txt b/ui/nmlh.txt
+deleted file mode 100644
+--- a/ui/nmlh.txt	(revision 360f19d22b49805d10ec80573e65529175bac968)
++++ /dev/null	(revision 360f19d22b49805d10ec80573e65529175bac968)
+@@ -1,1011 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="vi">
+-<head>
+-    <meta charset="UTF-8">
+-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-    <title>Trắc Nghiệm Pháp Luật Đại Cương & Bộ Máy Nhà Nước (40 Câu)</title>
+-    <!-- Tailwind CSS CDN -->
+-    <script src="https://cdn.tailwindcss.com"></script>
+-    <!-- Google Fonts -->
+-    <link rel="preconnect" href="https://fonts.googleapis.com">
+-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+-    <!-- Font Awesome Icons -->
+-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+-
+-    <style>
+-        body {
+-            font-family: 'Inter', sans-serif;
+-            background-color: #f8fafc;
+-        }
+-        /* Thanh cuộn tùy chỉnh cho bảng điều hướng */
+-        ::-webkit-scrollbar {
+-            width: 6px;
+-            height: 6px;
+-        }
+-        ::-webkit-scrollbar-track {
+-            background: #f1f5f9;
+-        }
+-        ::-webkit-scrollbar-thumb {
+-            background: #cbd5e1;
+-            border-radius: 4px;
+-        }
+-        ::-webkit-scrollbar-thumb:hover {
+-            background: #94a3b8;
+-        }
+-        /* Hiệu ứng chuyển động mượt mà cho các thẻ lựa chọn */
+-        .option-card {
+-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+-        }
+-        .option-card:hover {
+-            transform: translateY(-1px);
+-        }
+-    </style>
+-</head>
+-<body class="min-h-screen flex flex-col justify-between text-slate-800">
+-
+-    <!-- HEADER -->
+-    <header class="bg-gradient-to-r from-blue-900 via-indigo-950 to-slate-900 text-white shadow-md py-4 px-6 sticky top-0 z-50">
+-        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+-            <div class="flex items-center gap-3">
+-                <div class="bg-amber-500 text-slate-950 p-2.5 rounded-xl shadow-inner font-bold text-xl">
+-                    <i class="fa-solid fa-scale-balanced animate-pulse"></i>
+-                </div>
+-                <div>
+-                    <h1 class="text-lg md:text-xl font-extrabold tracking-wide">PHÁP LUẬT ĐẠI CƯƠNG</h1>
+-                    <p class="text-xs text-blue-200 font-medium">Hệ thống ôn luyện trắc nghiệm 40 câu hỏi chuẩn hóa</p>
+-                </div>
+-            </div>
+-            
+-            <div class="flex items-center gap-3">
+-                <!-- Nút bật/tắt âm thanh -->
+-                <button id="soundBtn" onclick="toggleSound()" class="bg-blue-800/60 hover:bg-blue-800 text-white px-3 py-2 rounded-lg text-sm flex items-center gap-2 border border-blue-700/50 transition">
+-                    <i id="soundIcon" class="fa-solid fa-volume-high"></i>
+-                    <span class="hidden sm:inline">Âm thanh</span>
+-                </button>
+-                
+-                <!-- Nút làm lại -->
+-                <button onclick="resetQuiz(false)" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-4 py-2 rounded-lg text-sm flex items-center gap-2 shadow transition transform active:scale-95">
+-                    <i class="fa-solid fa-rotate-left"></i>
+-                    <span>Làm lại (Câu 1)</span>
+-                </button>
+-            </div>
+-        </div>
+-    </header>
+-
+-    <!-- MAIN BODY -->
+-    <main class="flex-grow max-w-5xl w-full mx-auto p-4 md:p-6 flex flex-col justify-start gap-6">
+-        
+-        <!-- SETTINGS PANEL & STATS OVERVIEW -->
+-        <div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+-            <!-- Toggles cấu hình xáo trộn -->
+-            <div class="flex flex-wrap gap-4">
+-                <label class="inline-flex items-center cursor-pointer">
+-                    <input type="checkbox" id="shuffleQuestions" onchange="handleShuffleSetting()" class="sr-only peer">
+-                    <div class="relative w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600"></div>
+-                    <span class="ms-2.5 text-sm font-semibold text-slate-700 select-none">Xáo trộn câu hỏi</span>
+-                </label>
+-                
+-                <label class="inline-flex items-center cursor-pointer">
+-                    <input type="checkbox" id="shuffleOptions" class="sr-only peer" checked>
+-                    <div class="relative w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-indigo-600"></div>
+-                    <span class="ms-2.5 text-sm font-semibold text-slate-700 select-none">Xáo trộn đáp án</span>
+-                </label>
+-            </div>
+-
+-            <!-- Thanh tiến trình / Chỉ số điểm -->
+-            <div class="flex items-center gap-4 w-full sm:w-auto justify-between sm:justify-end border-t sm:border-t-0 pt-3 sm:pt-0 border-slate-100">
+-                <div class="text-sm">
+-                    <span class="text-slate-500 font-medium">Đúng:</span>
+-                    <span id="scoreCorrect" class="font-bold text-emerald-600 text-base">0</span><span class="text-slate-400 font-bold">/</span><span id="scoreTotal" class="text-slate-600 font-bold">40</span>
+-                </div>
+-                <div class="text-sm">
+-                    <span class="text-slate-500 font-medium">Tiến độ:</span>
+-                    <span id="progressPercent" class="font-bold text-blue-600 text-base">0%</span>
+-                </div>
+-            </div>
+-        </div>
+-
+-        <!-- PROGRESS BAR -->
+-        <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+-            <div id="progressBarFill" class="bg-gradient-to-r from-blue-600 to-indigo-600 h-full w-0 transition-all duration-300"></div>
+-        </div>
+-
+-        <!-- QUIZ CARD CONTAINER -->
+-        <div id="quizBox" class="bg-white rounded-3xl shadow-sm border border-slate-200/80 p-6 md:p-8 flex flex-col justify-between gap-6 min-h-[380px]">
+-            <!-- Nội dung câu hỏi sẽ tự động tải vào đây thông qua Javascript -->
+-        </div>
+-
+-        <!-- NAVIGATION GRID AT FOOTER -->
+-        <div class="bg-white rounded-2xl shadow-sm border border-slate-200/80 p-5">
+-            <h3 class="text-sm font-bold text-slate-700 mb-3 flex items-center gap-2">
+-                <i class="fa-solid fa-layer-group text-blue-600"></i>
+-                Bản đồ câu hỏi (Nhấn để chuyển câu nhanh):
+-            </h3>
+-            <div id="navGrid" class="grid grid-cols-5 sm:grid-cols-10 gap-2">
+-                <!-- 40 nút chuyển câu sẽ render tại đây -->
+-            </div>
+-        </div>
+-
+-    </main>
+-
+-    <!-- FOOTER DESIGN -->
+-    <footer class="bg-slate-900 text-slate-400 text-center py-5 text-sm border-t border-slate-800">
+-        <p class="font-medium text-slate-500">© 2026 Học và ôn thi hiệu quả. Chúc bạn ôn tập tốt và thi đạt điểm tuyệt đối!</p>
+-    </footer>
+-
+-    <!-- INTERACTIVE SOUND & CORE LOGIC -->
+-    <script>
+-        // Thiết lập bộ tổng hợp âm thanh (Web Audio API)
+-        let soundEnabled = true;
+-        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+-
+-        function playSound(type) {
+-            if (!soundEnabled) return;
+-            try {
+-                const osc = audioCtx.createOscillator();
+-                const gain = audioCtx.createGain();
+-                osc.connect(gain);
+-                gain.connect(audioCtx.destination);
+-
+-                if (type === 'correct') {
+-                    const now = audioCtx.currentTime;
+-                    osc.type = 'triangle';
+-                    osc.frequency.setValueAtTime(523.25, now); // C5
+-                    gain.gain.setValueAtTime(0.15, now);
+-                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.4);
+-                    osc.start(now);
+-                    
+-                    const osc2 = audioCtx.createOscillator();
+-                    const gain2 = audioCtx.createGain();
+-                    osc2.connect(gain2);
+-                    gain2.connect(audioCtx.destination);
+-                    osc2.type = 'triangle';
+-                    osc2.frequency.setValueAtTime(659.25, now + 0.1); // E5
+-                    gain2.gain.setValueAtTime(0.15, now + 0.1);
+-                    gain2.gain.exponentialRampToValueAtTime(0.01, now + 0.5);
+-                    osc2.start(now + 0.1);
+-                    osc.stop(now + 0.4);
+-                    osc2.stop(now + 0.5);
+-                } else if (type === 'incorrect') {
+-                    const now = audioCtx.currentTime;
+-                    osc.type = 'sawtooth';
+-                    osc.frequency.setValueAtTime(180, now); // Buzzy low frequency
+-                    gain.gain.setValueAtTime(0.12, now);
+-                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
+-                    osc.start(now);
+-                    osc.stop(now + 0.3);
+-                } else if (type === 'complete') {
+-                    const now = audioCtx.currentTime;
+-                    const notes = [261.63, 329.63, 392.00, 523.25]; // C4-E4-G4-C5
+-                    notes.forEach((freq, idx) => {
+-                        const noteOsc = audioCtx.createOscillator();
+-                        const noteGain = audioCtx.createGain();
+-                        noteOsc.connect(noteGain);
+-                        noteGain.connect(audioCtx.destination);
+-                        noteOsc.type = 'sine';
+-                        noteOsc.frequency.setValueAtTime(freq, now + idx * 0.12);
+-                        noteGain.gain.setValueAtTime(0.15, now + idx * 0.12);
+-                        noteGain.gain.exponentialRampToValueAtTime(0.01, now + idx * 0.12 + 0.4);
+-                        noteOsc.start(now + idx * 0.12);
+-                        noteOsc.stop(now + idx * 0.12 + 0.4);
+-                    });
+-                }
+-            } catch (e) {
+-                console.log("Audio API issue: ", e);
+-            }
+-        }
+-
+-        function toggleSound() {
+-            soundEnabled = !soundEnabled;
+-            const icon = document.getElementById('soundIcon');
+-            if (soundEnabled) {
+-                icon.className = "fa-solid fa-volume-high";
+-                if (audioCtx.state === 'suspended') audioCtx.resume();
+-                playSound('correct');
+-            } else {
+-                icon.className = "fa-solid fa-volume-xmark";
+-            }
+-        }
+-
+-        // FULL 40 QUESTIONS DATASET
+-        const originalQuestions = [
+-            {
+-                question: "Tính xã hội của pháp luật thể hiện ở chỗ nào sau đây?",
+-                options: [
+-                    "Pháp luật bảo vệ lợi ích của giai cấp thống trị",
+-                    "Pháp luật là công cụ để truyền tải nội dung chính trị",
+-                    "Pháp luật loại bỏ các quan hệ xã hội lạc hậu, lỗi thời",
+-                    "Pháp luật được đảm bảo bằng quyền lực công cộng đặc biệt"
+-                ],
+-                correctAnswer: "Pháp luật loại bỏ các quan hệ xã hội lạc hậu, lỗi thời",
+-                explanation: "Tính xã hội thể hiện ở việc pháp luật là phương tiện điều chỉnh quan hệ xã hội phục vụ lợi ích chung của cộng đồng, loại bỏ các phong tục cũ kỹ lạc hậu để thúc đẩy xã hội phát triển văn minh hơn."
+-            },
+-            {
+-                question: "Cơ quan nào sau đây trực thuộc cơ cấu tổ chức của Quốc hội?",
+-                options: [
+-                    "Ủy ban dân tộc",
+-                    "Hội đồng dân tộc",
+-                    "Ngân hàng nhà nước Việt Nam",
+-                    "Bộ quốc phòng"
+-                ],
+-                correctAnswer: "Hội đồng dân tộc",
+-                explanation: "Hội đồng Dân tộc là cơ quan trực thuộc cơ cấu tổ chức của Quốc hội. Ủy ban Dân tộc, Bộ Quốc phòng và Ngân hàng Nhà nước thuộc khối hành chính trực thuộc Chính phủ."
+-            },
+-            {
+-                question: "Nhận định nào sau đây đúng khi nói về nguồn pháp luật?",
+-                options: [
+-                    "Tất cả các tập quán đều là nguồn của pháp luật",
+-                    "Tiền lệ pháp là nguồn quan trọng nhất của pháp luật ở Việt Nam",
+-                    "Lẽ công bằng là một nguồn của pháp luật",
+-                    "Văn bản quy phạm pháp luật là nguồn thứ cấp của pháp luật"
+-                ],
+-                correctAnswer: "Lẽ công bằng là một nguồn của pháp luật",
+-                explanation: "Theo Bộ luật Dân sự, lẽ công bằng được chính thức thừa nhận là một nguồn bổ sung (thứ cấp) của pháp luật khi không có luật, tập quán hoặc tương tự luật áp dụng."
+-            },
+-            {
+-                question: "Trong các cơ quan sau đây, cơ quan nào không thuộc bộ máy nhà nước Cộng hòa Xã hội Chủ nghĩa Việt Nam?",
+-                options: [
+-                    "Đài truyền hình Việt Nam",
+-                    "Ngân hàng nhà nước Việt Nam",
+-                    "Bộ chính trị",
+-                    "Bảo hiểm Xã hội Việt Nam"
+-                ],
+-                correctAnswer: "Bộ chính trị",
+-                explanation: "Bộ Chính trị là cơ quan lãnh đạo trực thuộc Ban Chấp hành Trung ương Đảng Cộng sản Việt Nam, không nằm trong cơ cấu tổ chức bộ máy nhà nước."
+-            },
+-            {
+-                question: "Các nguồn thứ cấp của pháp luật chỉ được sử dụng khi nào?",
+-                options: [
+-                    "Không có quy định pháp luật",
+-                    "Quy định pháp luật không rõ ràng",
+-                    "Các bên có thỏa thuận và không vi phạm điều cấm",
+-                    "Tất cả đều đúng"
+-                ],
+-                correctAnswer: "Tất cả đều đúng",
+-                explanation: "Nguồn thứ cấp (tập quán pháp, tiền lệ pháp, lẽ công bằng) chỉ được kích hoạt áp dụng khi luật thành văn (nguồn sơ cấp) bị khuyết thiếu, mập mờ hoặc khi các bên tự nguyện thỏa thuận không trái pháp luật."
+-            },
+-            {
+-                question: "Trường phái pháp luật nào sau đây giải thích pháp luật theo luân lý và nhấn mạnh vào nhân trị?",
+-                options: [
+-                    "Nho gia",
+-                    "Pháp gia",
+-                    "Luật tự nhiên",
+-                    "Luật thực định"
+-                ],
+-                correctAnswer: "Nho gia",
+-                explanation: "Trường phái Nho gia đề cao 'nhân trị' và 'đức trị', định hướng ứng xử con người bằng luân lý đạo đức gia đình và xã hội."
+-            },
+-            {
+-                question: "Chức vụ nào sau đây không bắt buộc phải là Đại biểu Quốc hội?",
+-                options: [
+-                    "Thủ tướng chính phủ và Chủ tịch nước",
+-                    "Thủ tướng chính phủ và Phó thủ tướng chính phủ",
+-                    "Phó thủ tướng chính phủ và các bộ trưởng",
+-                    "Phó thủ tướng chính phủ và chủ tịch nước"
+-                ],
+-                correctAnswer: "Phó thủ tướng chính phủ và các bộ trưởng",
+-                explanation: "Theo Hiến pháp Việt Nam, chỉ có Thủ tướng Chính phủ bắt buộc phải là Đại biểu Quốc hội. Các chức danh Phó Thủ tướng hay Bộ trưởng không bắt buộc phải là Đại biểu Quốc hội."
+-            },
+-            {
+-                question: "Nhận định 'Ủy ban Thường vụ Quốc hội là cơ quan chuyên môn của Quốc hội' đúng hay sai?",
+-                options: [
+-                    "Đúng",
+-                    "Sai (Ủy ban Thường vụ Quốc hội là cơ quan thường trực)",
+-                    "Hên xui",
+-                    "Không biết"
+-                ],
+-                correctAnswer: "Sai (Ủy ban Thường vụ Quốc hội là cơ quan thường trực)",
+-                explanation: "Ủy ban Thường vụ Quốc hội là cơ quan thường trực của Quốc hội thực hiện các nhiệm vụ thường nhật giữa các kỳ họp chứ không phải cơ quan chuyên môn đơn thuần."
+-            },
+-            {
+-                question: "Nguồn sơ cấp (cơ bản nhất) của pháp luật ở Việt Nam là gì?",
+-                options: [
+-                    "Tập quán pháp",
+-                    "Tiền lệ pháp",
+-                    "Văn bản quy phạm pháp luật",
+-                    "Lẽ công bằng"
+-                ],
+-                correctAnswer: "Văn bản quy phạm pháp luật",
+-                explanation: "Việt Nam theo hệ thống pháp luật Civil Law (dòng họ luật thành văn), ưu tiên cao nhất cho Văn bản quy phạm pháp luật làm nguồn sơ cấp, cơ bản nhất."
+-            },
+-            {
+-                question: "Nhiệm kỳ tiêu chuẩn của mỗi khóa Quốc hội Việt Nam là bao lâu?",
+-                options: [
+-                    "Là 5 năm",
+-                    "Thường là 5 năm (có thể kéo dài hoặc rút ngắn trong trường hợp đặc biệt)",
+-                    "Phụ thuộc vào quyết định của chủ tịch quốc hội",
+-                    "Phụ thuộc vào quyết định của nhân dân"
+-                ],
+-                correctAnswer: "Thường là 5 năm (có thể kéo dài hoặc rút ngắn trong trường hợp đặc biệt)",
+-                explanation: "Hiến pháp quy định nhiệm kỳ tiêu chuẩn của Quốc hội là 5 năm, tuy nhiên trong điều kiện đặc biệt (như chiến tranh), Quốc hội có thể quyết định rút ngắn hoặc kéo dài nhiệm kỳ."
+-            },
+-            {
+-                question: "Pháp luật khác các quy tắc xử sự thông thường khác (như đạo đức, tập quán) ở đặc điểm nào?",
+-                options: [
+-                    "Có tính quy phạm",
+-                    "Có tính quy phạm phổ biến và bắt buộc chung",
+-                    "Được đảm bảo thực hiện bằng quyền lực mềm",
+-                    "Phải là luật thành văn không bao giờ sửa đổi"
+-                ],
+-                correctAnswer: "Có tính quy phạm phổ biến và bắt buộc chung",
+-                explanation: "Tính bắt buộc chung cho mọi chủ thể và được bảo đảm thực hiện bằng sức mạnh cưỡng chế của Nhà nước là đặc tính độc tôn của pháp luật."
+-            },
+-            {
+-                question: "Nhận định nào sau đây chính xác nhất về các yếu tố nguồn luật?",
+-                options: [
+-                    "Tất cả các bản án được xét xử đều sẽ trở thành án lệ",
+-                    "Lẽ công bằng là cảm nhận chủ quan về lẽ phải",
+-                    "Lẽ công bằng là cảm nhận khách quan về lẽ phải",
+-                    "Nhà nước ban hành pháp luật để loại bỏ các tập quán ra khỏi xã hội"
+-                ],
+-                correctAnswer: "Lẽ công bằng là cảm nhận khách quan về lẽ phải",
+-                explanation: "Lẽ công bằng không phải ý chí tùy tiện chủ quan của cá nhân, mà là cảm nhận khách quan, mang tính đồng thuận của xã hội về đạo lý và sự đúng đắn."
+-            },
+-            {
+-                question: "Có tất cả bao nhiêu bộ và cơ quan ngang bộ trực thuộc Chính phủ Việt Nam hiện nay?",
+-                options: [
+-                    "18",
+-                    "4",
+-                    "22 (gồm 18 bộ và 4 cơ quan ngang bộ)",
+-                    "25"
+-                ],
+-                correctAnswer: "22 (gồm 18 bộ và 4 cơ quan ngang bộ)",
+-                explanation: "Chính phủ Việt Nam gồm có 18 bộ chuyên ngành và 4 cơ quan ngang bộ (Văn phòng Chính phủ, Thanh tra Chính phủ, Ngân hàng Nhà nước, Ủy ban Dân tộc)."
+-            },
+-            {
+-                question: "Bản chất của quan hệ giữa kinh tế và pháp luật tương ứng với mối quan hệ nào trong triết học?",
+-                options: [
+-                    "Cơ sở hạ tầng và kiến trúc thượng tầng",
+-                    "Hai thành tố của thượng tầng kiến trúc",
+-                    "Nội dung và hình thức",
+-                    "Tác động qua lại lẫn nhau tự do"
+-                ],
+-                correctAnswer: "Cơ sở hạ tầng và kiến trúc thượng tầng",
+-                explanation: "Kinh tế thuộc về Cơ sở hạ tầng có tính chất quyết định sự hình thành và nội dung của pháp luật (thuộc Kiến trúc thượng tầng); pháp luật có tác động điều chỉnh ngược lại nền kinh tế."
+-            },
+-            {
+-                question: "Trong mối quan hệ nào dưới đây, pháp luật giữ vai trò quyết định, chủ động?",
+-                options: [
+-                    "Pháp luật với nhà nước",
+-                    "Pháp luật với kinh tế",
+-                    "Pháp luật với chính trị",
+-                    "Pháp luật với các hiện tượng xã hội (tập quán, đạo đức lạc hậu...)"
+-                ],
+-                correctAnswer: "Pháp luật với các hiện tượng xã hội (tập quán, đạo đức lạc hậu...)",
+-                explanation: "Pháp luật có vai trò trực tiếp quyết định trong việc bãi bỏ các tập tục xấu, cải tạo quan hệ đạo đức lạc hậu thông qua cơ chế cấm đoán và cưỡng chế."
+-            },
+-            {
+-                question: "Án lệ ở Việt Nam do cơ quan nào có thẩm quyền ban hành?",
+-                options: [
+-                    "Quốc hội",
+-                    "Chính phủ",
+-                    "Hội đồng thẩm phán TAND tối cao",
+-                    "Viện trưởng VKSND tối cao"
+-                ],
+-                correctAnswer: "Hội đồng thẩm phán TAND tối cao",
+-                explanation: "Hội đồng Thẩm phán Tòa án nhân dân tối cao là cơ quan duy nhất có thẩm quyền lựa chọn và công bố quyết định giám đốc thẩm để làm Án lệ chính thức."
+-            },
+-            {
+-                question: "Trường phái Mác-Lênin giải thích nguồn gốc của pháp luật là gì?",
+-                options: [
+-                    "Pháp luật là các quy tắc tự nhiên muôn đời bất biến",
+-                    "Pháp luật là các nội dung thành văn được quy định ở các văn bản nhất định",
+-                    "Pháp luật là công cụ cai trị của nhà nước, hướng đến ổn định trật tự xã hội",
+-                    "Pháp luật là đạo lý ở đời"
+-                ],
+-                correctAnswer: "Pháp luật là công cụ cai trị của nhà nước, hướng đến ổn định trật tự xã hội",
+-                explanation: "Chủ nghĩa Mác-Lênin chỉ ra pháp luật có bản chất giai cấp sâu sắc, ra đời cùng nhà nước nhằm bảo vệ quyền lợi giai cấp thống trị và giữ vững trật tự xã hội."
+-            },
+-            {
+-                question: "Tại Việt Nam, các cơ quan Chính phủ - Quốc hội - TAND tương ứng thực hiện những quyền lực nào?",
+-                options: [
+-                    "Hành pháp - Tư pháp - Lập pháp",
+-                    "Lập pháp - Hành pháp - Tư pháp",
+-                    "Tư pháp - Hành pháp - Lập pháp",
+-                    "Hành pháp - Lập pháp - Tư pháp"
+-                ],
+-                correctAnswer: "Hành pháp - Lập pháp - Tư pháp",
+-                explanation: "Quyền lực nhà nước được phân công cụ thể: Chính phủ thực hiện quyền Hành pháp; Quốc hội thực hiện quyền Lập pháp; Tòa án nhân dân thực hiện quyền Tư pháp."
+-            },
+-            {
+-                question: "Theo Hiến pháp 2013, cơ quan nào ở Việt Nam thực hiện quyền tư pháp?",
+-                options: [
+-                    "Tòa án",
+-                    "Viện kiểm sát",
+-                    "Tòa án và Viện kiểm sát",
+-                    "Tòa án và UBND"
+-                ],
+-                correctAnswer: "Tòa án",
+-                explanation: "Điều 102 Hiến pháp 2013 khẳng định: 'Tòa án nhân dân là cơ quan xét xử của nước Cộng hòa xã hội chủ nghĩa Việt Nam, thực hiện quyền tư pháp'."
+-            },
+-            {
+-                question: "Nguyên tắc áp dụng pháp luật 'Nội nho ngoại pháp' biểu thị điều gì?",
+-                options: [
+-                    "Dùng nho giáo ở trong nước để điều chỉnh người dân, dùng pháp luật ở bên ngoài để ứng xử với các quốc gia khác",
+-                    "Dùng Nho giáo để răn dạy con người tự điều chỉnh bản thân, đề cao nhân trị, lấy luân thường đạo lý làm nền móng tiết chế con người. Nhà nước đồng thời bảo vệ các nền tảng đạo đức và ứng xử của Nho giáo.",
+-                    "Trong gia đình cha mẹ dùng nho giáo để răng dạy con cái. Trong xã hội nhà nước sẽ sử dụng pháp luật để trừng trị hành động sai trái",
+-                    "Trường phái nho gia và pháp gia là hai trường phái đối lập nhau, chỉ chọn một trong hai để áp dụng"
+-                ],
+-                correctAnswer: "Dùng Nho giáo để răn dạy con người tự điều chỉnh bản thân, đề cao nhân trị, lấy luân thường đạo lý làm nền móng tiết chế con người. Nhà nước đồng thời bảo vệ các nền tảng đạo đức và ứng xử của Nho giáo.",
+-                explanation: "Nghệ thuật cai trị kết hợp nhuần nhuyễn giữa đức trị (đạo đức Nho giáo rèn giũa bên trong) và pháp trị (luật pháp nghiêm minh bảo vệ bên ngoài) thời kỳ phong kiến."
+-            },
+-            {
+-                question: "Nhận định: 'Mọi công dân Việt Nam đều có thể tham gia bầu cử Đại biểu Quốc hội và Đại biểu HĐND các cấp' đúng hay sai?",
+-                options: [
+-                    "Sai (Phải từ đủ 18 tuổi và không thuộc trường hợp bị tước quyền theo luật)",
+-                    "Đúng"
+-                ],
+-                correctAnswer: "Sai (Phải từ đủ 18 tuổi và không thuộc trường hợp bị tước quyền theo luật)",
+-                explanation: "Quyền bầu cử chỉ dành cho công dân từ đủ 18 tuổi trở lên và không nằm trong các diện bị hạn chế như mất năng lực hành vi dân sự hoặc đang bị tước quyền bầu cử."
+-            },
+-            {
+-                question: "Yêu cầu về độ tuổi tối thiểu để thực hiện quyền Bầu cử và Ứng cử Đại biểu Quốc hội lần lượt là:",
+-                options: [
+-                    "18 và 21",
+-                    "21 và 18",
+-                    "18 và 18",
+-                    "20 và 18"
+-                ],
+-                correctAnswer: "18 và 21",
+-                explanation: "Theo Luật bầu cử, công dân Việt Nam có quyền bầu cử khi từ đủ 18 tuổi và có quyền tự ứng cử khi đạt từ đủ 21 tuổi trở lên."
+-            },
+-            {
+-                question: "Nhận định nào sau đây mô tả chính xác nhất về thuộc tính cốt lõi của pháp luật?",
+-                options: [
+-                    "Pháp luật vừa mang tính kinh tế vừa mang tính xã hội",
+-                    "Pháp luật là các quy tắc xử sự mang tính bắt buộc chung",
+-                    "Pháp luật không cần phải có hình thức xác định",
+-                    "Có 3 con đường để hình thành nên pháp luật"
+-                ],
+-                correctAnswer: "Pháp luật là các quy tắc xử sự mang tính bắt buộc chung",
+-                explanation: "Đặc trưng lớn nhất phân biệt pháp luật với quy ước hội nhóm hay chuẩn mực đạo đức chính là tính bắt buộc thực thi chung áp dụng rộng rãi cho mọi đối tượng."
+-            },
+-            {
+-                question: "Tính quy phạm phổ biến là đặc trưng cơ bản đại diện cho phạm trù nào?",
+-                options: [
+-                    "Nhà nước",
+-                    "Cơ quan nhà nước",
+-                    "Pháp luật",
+-                    "Quy phạm pháp luật"
+-                ],
+-                correctAnswer: "Pháp luật",
+-                explanation: "Tính quy phạm phổ biến là một trong những thuộc tính cơ bản của pháp luật, tạo ra mô hình hành vi chuẩn mực được đo lường áp dụng chung."
+-            },
+-            {
+-                question: "Ở Việt Nam, pháp luật được hình thành thông qua các con đường nào?",
+-                options: [
+-                    "Dân cử, Dân lập",
+-                    "Nhà nước công nhận",
+-                    "Nhà nước ban hành",
+-                    "Nhà nước ban hành và công nhận"
+-                ],
+-                correctAnswer: "Nhà nước ban hành và công nhận",
+-                explanation: "Nhà nước xác lập pháp luật bằng hai phương thức chính: ban hành văn bản pháp quy mới hoặc chính thức công nhận các tiền lệ, tập quán ứng xử có sẵn."
+-            },
+-            {
+-                question: "Ở Việt Nam, Chủ tịch nước nắm quyền gì theo quy định hiến định?",
+-                options: [
+-                    "Lập pháp",
+-                    "Hành pháp",
+-                    "Tư pháp",
+-                    "Không đáp án nào đúng (Chủ tịch nước là Nguyên thủ quốc gia)"
+-                ],
+-                correctAnswer: "Không đáp án nào đúng (Chủ tịch nước là Nguyên thủ quốc gia)",
+-                explanation: "Chủ tịch nước không trực tiếp nắm các quyền lập pháp (Quốc hội), hành pháp (Chính phủ) hay tư pháp (Tòa án) mà giữ vai trò Nguyên thủ đại diện tối cao của quốc gia."
+-            },
+-            {
+-                question: "Có phải tất cả các địa phương ở Việt Nam đều tổ chức HĐND và UBND các cấp?",
+-                options: [
+-                    "Đúng",
+-                    "Sai (Một số đô thị thí điểm tổ chức chính quyền đô thị không có HĐND phường/quận)"
+-                ],
+-                correctAnswer: "Sai (Một số đô thị thí điểm tổ chức chính quyền đô thị không có HĐND phường/quận)",
+-                explanation: "Các thành phố lớn như Hà Nội, TP.HCM và Đà Nẵng đang thí điểm các mô hình chính quyền đô thị, trong đó tinh gọn bằng việc không tổ chức HĐND ở một số quận, phường."
+-            },
+-            {
+-                question: "Chức danh Nguyên thủ quốc gia đại diện cao nhất của nước CHXHCN Việt Nam là ai?",
+-                options: [
+-                    "Chủ tịch quốc hội",
+-                    "Chủ tịch nước",
+-                    "Thủ tướng chính phủ",
+-                    "Chánh án TAND tối cao"
+-                ],
+-                correctAnswer: "Chủ tịch nước",
+-                explanation: "Hiến pháp ghi nhận: Chủ tịch nước là người đứng đầu Nhà nước, thay mặt nước Cộng hòa xã hội chủ nghĩa Việt Nam về đối nội và đối ngoại."
+-            },
+-            {
+-                question: "Phương thức bầu cử ra Nguyên thủ quốc gia (Chủ tịch nước) của Việt Nam:",
+-                options: [
+-                    "Do nhân dân bầu ra trực tiếp toàn quốc",
+-                    "Do quốc hội bầu ra trong số đại biểu Quốc hội",
+-                    "Do chính phủ bầu ra và bổ nhiệm",
+-                    "Do thừa tự, kế nghiệp truyền thống"
+-                ],
+-                correctAnswer: "Do quốc hội bầu ra trong số đại biểu Quốc hội",
+-                explanation: "Chủ tịch nước do Quốc hội bầu ra trong số các đại biểu Quốc hội theo đề nghị của Ủy ban Thường vụ Quốc hội."
+-            },
+-            {
+-                question: "Có phải tất cả các cơ quan dân cử (do nhân dân bầu ra) ở Việt Nam đều có quyền lập pháp?",
+-                options: [
+-                    "Đúng",
+-                    "Sai (Chỉ có Quốc hội mới có quyền lập pháp, HĐND là cơ quan quyền lực nhà nước ở địa phương)",
+-                    "Chưa rõ",
+-                    "Hên xui"
+-                ],
+-                correctAnswer: "Sai (Chỉ có Quốc hội mới có quyền lập pháp, HĐND là cơ quan quyền lực nhà nước ở địa phương)",
+-                explanation: "Quốc hội và HĐND đều là cơ quan dân cử, tuy nhiên quyền Lập hiến và Lập pháp là đặc quyền tối cao duy nhất của Quốc hội ở trung ương."
+-            },
+-            {
+-                question: "Cơ quan nào sau đây không phải là cơ quan dân cử ở Việt Nam?",
+-                options: [
+-                    "Quốc hội",
+-                    "Tòa án",
+-                    "HDND",
+-                    "Quốc hội và HDND"
+-                ],
+-                correctAnswer: "Tòa án",
+-                explanation: "Quốc hội và HĐND các cấp do cử tri bỏ phiếu bầu trực tiếp (dân cử). Thành viên Tòa án (Thẩm phán) được hình thành qua cơ chế bổ nhiệm."
+-            },
+-            {
+-                question: "Ở Việt Nam, vai trò và vị trí pháp lý của Ủy ban nhân dân (UBND) được xác định là gì?",
+-                options: [
+-                    "Nguyên thủ quốc gia đại diện",
+-                    "Cơ quan hành pháp trung ương",
+-                    "Cơ quan hành chính nhà nước ở địa phương, cơ quan chấp hành của HĐND cùng cấp",
+-                    "Bổ nhiệm thẩm phán tòa tối cao"
+-                ],
+-                correctAnswer: "Cơ quan hành chính nhà nước ở địa phương, cơ quan chấp hành của HĐND cùng cấp",
+-                explanation: "UBND là cơ quan hành chính nhà nước ở địa phương, chịu trách nhiệm thi hành pháp luật tại địa bàn và thực hiện các nghị quyết của HĐND cùng cấp."
+-            },
+-            {
+-                question: "Hệ thống Chính quyền địa phương tại Việt Nam bao gồm những cơ quan nào?",
+-                options: [
+-                    "TAND và VKSND",
+-                    "TAND và cơ quan điều tra",
+-                    "HĐND và UBND",
+-                    "HĐND và VKSND"
+-                ],
+-                correctAnswer: "HĐND và UBND",
+-                explanation: "Chính quyền địa phương tại các đơn vị hành chính của nước Việt Nam được hợp thành bởi hai cơ quan trọng yếu: Hội đồng nhân dân và Ủy ban nhân dân."
+-            },
+-            {
+-                question: "Ở Việt Nam, cơ quan quyền lực nhà nước cao nhất đại diện cho ý chí nhân dân cả nước là:",
+-                options: [
+-                    "Quốc hội",
+-                    "Chính phủ",
+-                    "TAND",
+-                    "VKSND"
+-                ],
+-                correctAnswer: "Quốc hội",
+-                explanation: "Quốc hội là cơ quan đại biểu cao nhất của nhân dân, cơ quan quyền lực nhà nước cao nhất của nước Cộng hòa xã hội chủ nghĩa Việt Nam."
+-            },
+-            {
+-                question: "Cơ quan nào sau đây thực sự thuộc cơ cấu bộ máy quản lý Nhà nước Việt Nam?",
+-                options: [
+-                    "Đàng cộng sản Việt Nam",
+-                    "Bộ Chính trị",
+-                    "Mặt Trận tổ quốc Việt Nam",
+-                    "Đài Tiếng nói Việt Nam (Cơ quan thuộc Chính phủ)"
+-                ],
+-                correctAnswer: "Đài Tiếng nói Việt Nam (Cơ quan thuộc Chính phủ)",
+-                explanation: "Đảng và Bộ Chính trị là tổ chức Đảng; Mặt trận Tổ quốc là tổ chức chính trị - xã hội. Đài Tiếng nói Việt Nam thuộc bộ máy hành chính nhà nước trực thuộc Chính phủ."
+-            },
+-            {
+-                question: "Ủy ban nhân dân (UBND) có nghĩa vụ phải chịu trách nhiệm báo cáo công tác trước những cơ quan nào?",
+-                options: [
+-                    "Quốc hội và HĐND các cấp",
+-                    "Chính phủ và HĐND cùng cấp",
+-                    "Chính phủ, HĐND cùng cấp và HĐND cấp trên",
+-                    "Nhân dân địa phương, HĐND cùng cấp và cơ quan hành chính nhà nước cấp trên (Chính phủ/UBND cấp trên)"
+-                ],
+-                correctAnswer: "Nhân dân địa phương, HĐND cùng cấp và cơ quan hành chính nhà nước cấp trên (Chính phủ/UBND cấp trên)",
+-                explanation: "UBND chịu trách nhiệm trước nhân dân địa phương, trước HĐND cùng cấp và hệ thống cơ quan hành chính nhà nước cấp trên (Chính phủ/UBND cấp trên trực tiếp)."
+-            },
+-            {
+-                question: "Ở Việt Nam, các cơ quan nào trực tiếp hợp thành nhánh hành pháp (hành chính nhà nước)?",
+-                options: [
+-                    "UBND và HĐND",
+-                    "Chính phủ và HĐND",
+-                    "Chính phủ và UBND",
+-                    "Quốc hội và HĐND"
+-                ],
+-                correctAnswer: "Chính phủ và UBND",
+-                explanation: "Nhánh hành pháp (quản lý điều hành đất nước) được tổ chức thông suốt từ Chính phủ (ở trung ương) đến Ủy ban nhân dân các cấp (ở địa phương)."
+-            },
+-            {
+-                question: "Pháp gia đề cao việc cai trị bằng pháp luật hà khắc là trường phái đặc trưng của triết học cổ đại phương nào?",
+-                options: [
+-                    "Phương tây",
+-                    "Phương đông (đặc trưng là Trung Quốc cổ đại)",
+-                    "Cả phương tây và Phương Đông"
+-                ],
+-                correctAnswer: "Phương đông (đặc trưng là Trung Quốc cổ đại)",
+-                explanation: "Trường phái Pháp gia khởi nguồn mạnh mẽ nhất tại Trung Quốc cổ đại dưới sự phát triển của các nhà tư tưởng xuất sắc như Thương Ưởng và Hàn Phi Tử."
+-            },
+-            {
+-                question: "Các cơ quan dân cử (do nhân dân bầu ra trực tiếp đại diện) ở Việt Nam bao gồm những gì?",
+-                options: [
+-                    "HĐND và UBND",
+-                    "Chính phủ và UBND",
+-                    "Quốc hội và UBND",
+-                    "Quốc hội và HĐND"
+-                ],
+-                correctAnswer: "Quốc hội và HĐND",
+-                explanation: "Chỉ có đại biểu Quốc hội (ở trung ương) và đại biểu Hội đồng nhân dân các cấp (ở địa phương) là do cử tri trực tiếp thực hiện bầu cử."
+-            },
+-            {
+-                question: "Cơ quan nào sau đây có cơ quan thường trực hoạt động liên tục giữa các kỳ họp?",
+-                options: [
+-                    "Quốc hội (có Ủy ban Thường vụ Quốc hội)",
+-                    "Chính phủ",
+-                    "Tòa Án",
+-                    "Viện kiểm sát"
+-                ],
+-                correctAnswer: "Quốc hội (có Ủy ban Thường vụ Quốc hội)",
+-                explanation: "Quốc hội họp theo kỳ (thường 2 kỳ/năm), nên cần có Ủy ban Thường vụ Quốc hội là cơ quan thường trực chuyên trách xử lý công việc phát sinh liên tục giữa các kỳ họp."
+-            }
+-        ];
+-
+-        let questions = JSON.parse(JSON.stringify(originalQuestions));
+-        let currentIdx = 0;
+-        let selectedAnswers = {}; 
+-        let showExplanations = {}; 
+-
+-        // Khởi tạo ứng dụng sau khi tải trang
+-        window.addEventListener('load', () => {
+-            resetQuiz(false); // Luôn khởi động trực tiếp tại câu 1 khi tải trang
+-        });
+-
+-        // Xử lý khi thay đổi cài đặt xáo trộn câu hỏi
+-        function handleShuffleSetting() {
+-            const isShuffleOn = document.getElementById('shuffleQuestions').checked;
+-            resetQuiz(isShuffleOn);
+-        }
+-
+-        function shuffleArray(array) {
+-            for (let i = array.length - 1; i > 0; i--) {
+-                const j = Math.floor(Math.random() * (i + 1));
+-                [array[i], array[j]] = [array[j], array[i]];
+-            }
+-            return array;
+-        }
+-
+-        function resetQuiz(shouldShuffle = false) {
+-            // Đảm bảo audio hoạt động sau tương tác
+-            if (audioCtx.state === 'suspended') {
+-                audioCtx.resume();
+-            }
+-
+-            // Đồng bộ trạng thái checkbox
+-            const shuffleCheckbox = document.getElementById('shuffleQuestions');
+-            shuffleCheckbox.checked = shouldShuffle;
+-
+-            if (shouldShuffle) {
+-                questions = shuffleArray(JSON.parse(JSON.stringify(originalQuestions)));
+-            } else {
+-                questions = JSON.parse(JSON.stringify(originalQuestions));
+-            }
+-
+-            // Xáo trộn đáp án của từng câu hỏi nếu được chọn
+-            const shouldShuffleOptions = document.getElementById('shuffleOptions').checked;
+-            if (shouldShuffleOptions) {
+-                questions.forEach(q => {
+-                    q.options = shuffleArray([...q.options]);
+-                });
+-            }
+-
+-            // Reset toàn bộ biến trạng thái về mặc định
+-            currentIdx = 0;
+-            selectedAnswers = {};
+-            showExplanations = {};
+-
+-            // Render lại giao diện
+-            renderQuizBox();
+-            renderNavigationGrid();
+-            updateProgress();
+-            
+-            // Âm thanh báo reset thành công
+-            playSound('correct');
+-        }
+-
+-        function updateProgress() {
+-            let answeredCount = Object.keys(selectedAnswers).length;
+-            let correctCount = 0;
+-
+-            questions.forEach((q, idx) => {
+-                if (selectedAnswers[idx] === q.correctAnswer) {
+-                    correctCount++;
+-                }
+-            });
+-
+-            document.getElementById('scoreCorrect').innerText = correctCount;
+-            document.getElementById('scoreTotal').innerText = questions.length;
+-            
+-            const percentage = Math.round((answeredCount / questions.length) * 100);
+-            document.getElementById('progressPercent').innerText = percentage + "%";
+-            document.getElementById('progressBarFill').style.width = percentage + "%";
+-
+-            renderNavigationGrid();
+-        }
+-
+-        // Chuyển nhanh đến câu hỏi chỉ định
+-        function goToQuestion(idx) {
+-            if (idx >= 0 && idx < questions.length) {
+-                currentIdx = idx;
+-                renderQuizBox();
+-                renderNavigationGrid();
+-            }
+-        }
+-
+-        function selectOption(chosenText) {
+-            if (selectedAnswers[currentIdx] !== undefined) return; // Khóa câu hỏi sau khi đã trả lời
+-
+-            selectedAnswers[currentIdx] = chosenText;
+-            showExplanations[currentIdx] = true;
+-
+-            const isCorrect = (chosenText === questions[currentIdx].correctAnswer);
+-            
+-            if (isCorrect) {
+-                playSound('correct');
+-            } else {
+-                playSound('incorrect');
+-            }
+-
+-            renderQuizBox();
+-            updateProgress();
+-        }
+-
+-        // Quay lại câu trước
+-        function prevQuestion() {
+-            if (currentIdx > 0) {
+-                currentIdx--;
+-                renderQuizBox();
+-            }
+-        }
+-
+-        // Chuyển sang câu tiếp theo hoặc kết thúc
+-        function nextQuestion() {
+-            if (currentIdx < questions.length - 1) {
+-                currentIdx++;
+-                renderQuizBox();
+-            } else {
+-                showResultsDashboard();
+-            }
+-        }
+-
+-        function renderQuizBox() {
+-            const quizBox = document.getElementById('quizBox');
+-            const q = questions[currentIdx];
+-            const answeredValue = selectedAnswers[currentIdx];
+-            const isAnswered = answeredValue !== undefined;
+-
+-            let optionsHtml = '';
+-            q.options.forEach((opt, idx) => {
+-                let borderClass = 'border-slate-200 hover:border-blue-400 hover:bg-blue-50/30';
+-                let bgClass = 'bg-slate-50/50';
+-                let iconHtml = '<div class="w-6 h-6 rounded-full border-2 border-slate-300 flex items-center justify-center font-bold text-xs text-slate-400">' + String.fromCharCode(65 + idx) + '</div>';
+-
+-                if (isAnswered) {
+-                    if (opt === q.correctAnswer) {
+-                        borderClass = 'border-emerald-500 bg-emerald-50/50 ring-2 ring-emerald-500/20';
+-                        bgClass = 'bg-emerald-50/20';
+-                        iconHtml = '<div class="w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs shadow-sm"><i class="fa-solid fa-check"></i></div>';
+-                    } else if (opt === answeredValue) {
+-                        borderClass = 'border-rose-500 bg-rose-50/50 ring-2 ring-rose-500/20';
+-                        bgClass = 'bg-rose-50/20';
+-                        iconHtml = '<div class="w-6 h-6 rounded-full bg-rose-500 text-white flex items-center justify-center text-xs shadow-sm"><i class="fa-solid fa-xmark"></i></div>';
+-                    } else {
+-                        borderClass = 'border-slate-200 opacity-50';
+-                    }
+-                }
+-
+-                // Tránh lỗi phân tích chuỗi khi truyền tham số hàm selectOption
+-                const escapedOpt = opt.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+-
+-                optionsHtml += `
+-                    <div onclick="selectOption('${escapedOpt}')" 
+-                         class="option-card p-4 rounded-xl border ${borderClass} ${bgClass} cursor-pointer flex items-center gap-4 shadow-sm">
+-                        ${iconHtml}
+-                        <span class="font-medium text-slate-700 text-sm md:text-base">${opt}</span>
+-                    </div>
+-                `;
+-            });
+-
+-            let explanationHtml = '';
+-            if (isAnswered && showExplanations[currentIdx]) {
+-                const isUserCorrect = answeredValue === q.correctAnswer;
+-                explanationHtml = `
+-                    <div class="mt-4 p-5 rounded-2xl ${isUserCorrect ? 'bg-emerald-50/80 border border-emerald-200/60' : 'bg-slate-100/90 border border-slate-200'}">
+-                        <h4 class="text-xs font-bold uppercase tracking-widest ${isUserCorrect ? 'text-emerald-700' : 'text-slate-600'} mb-2">
+-                            <i class="fa-solid fa-circle-info mr-1"></i> Giải thích chi tiết:
+-                        </h4>
+-                        <p class="text-sm leading-relaxed text-slate-600 font-medium">${q.explanation}</p>
+-                    </div>
+-                `;
+-            }
+-
+-            const isLastQuestion = currentIdx === questions.length - 1;
+-            const nextBtnText = isLastQuestion ? 'Xem kết quả chung cuộc' : 'Câu tiếp theo <i class="fa-solid fa-arrow-right"></i>';
+-
+-            quizBox.innerHTML = `
+-                <div class="flex justify-between items-start gap-4">
+-                    <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
+-                        <i class="fa-solid fa-circle-question"></i>
+-                        Câu Hỏi ${currentIdx + 1}/${questions.length}
+-                    </span>
+-                    
+-                    ${isAnswered ? 
+-                        (answeredValue === q.correctAnswer ? 
+-                            '<span class="text-emerald-600 font-bold text-sm flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-base"></i> Chính xác!</span>' : 
+-                            '<span class="text-rose-500 font-bold text-sm flex items-center gap-1.5"><i class="fa-solid fa-circle-xmark text-base"></i> Sai rồi</span>'
+-                        ) : '<span class="text-slate-400 font-semibold text-xs italic"><i class="fa-regular fa-clock"></i> Đang chờ bạn chọn...</span>'
+-                    }
+-                </div>
+-
+-                <div class="my-2">
+-                    <h2 class="text-base md:text-lg font-bold text-slate-800 leading-relaxed">${q.question}</h2>
+-                </div>
+-
+-                <div class="grid grid-cols-1 gap-3">
+-                    ${optionsHtml}
+-                </div>
+-
+-                ${explanationHtml}
+-
+-                <div class="flex justify-between items-center border-t border-slate-100 pt-4 mt-2">
+-                    <button onclick="prevQuestion()" 
+-                            class="px-4 py-2.5 rounded-xl border border-slate-300 text-slate-600 font-bold hover:bg-slate-50 active:scale-95 transition flex items-center gap-2 text-sm ${currentIdx === 0 ? 'opacity-40 pointer-events-none' : ''}">
+-                        <i class="fa-solid fa-arrow-left"></i>
+-                        Quay lại
+-                    </button>
+-                    
+-                    <button onclick="nextQuestion()" 
+-                            class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-blue-700 to-indigo-700 text-white font-extrabold shadow-md hover:from-blue-800 hover:to-indigo-800 active:scale-95 transition flex items-center gap-2 text-sm ${!isAnswered ? 'opacity-40 pointer-events-none' : ''}">
+-                        ${nextBtnText}
+-                    </button>
+-                </div>
+-            `;
+-        }
+-
+-        function renderNavigationGrid() {
+-            const navGrid = document.getElementById('navGrid');
+-            navGrid.innerHTML = '';
+-
+-            questions.forEach((q, idx) => {
+-                const answer = selectedAnswers[idx];
+-                const isCurrent = idx === currentIdx;
+-
+-                let btnClass = 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-200';
+-                let icon = '';
+-
+-                if (answer !== undefined) {
+-                    if (answer === q.correctAnswer) {
+-                        btnClass = 'bg-emerald-500 text-white border-emerald-600 shadow-sm';
+-                        icon = '<i class="fa-solid fa-check text-[9px] block"></i>';
+-                    } else {
+-                        btnClass = 'bg-rose-500 text-white border-rose-600 shadow-sm';
+-                        icon = '<i class="fa-solid fa-xmark text-[9px] block"></i>';
+-                    }
+-                }
+-
+-                if (isCurrent) {
+-                    btnClass += ' ring-4 ring-blue-500/30 font-extrabold border-blue-600 scale-105';
+-                }
+-
+-                const btn = document.createElement('button');
+-                btn.className = `p-2 rounded-xl text-xs font-bold border flex flex-col items-center justify-center gap-0.5 transition duration-150 ${btnClass}`;
+-                btn.innerHTML = `<span>${idx + 1}</span>${icon}`;
+-                btn.onclick = () => goToQuestion(idx);
+-
+-                navGrid.appendChild(btn);
+-            });
+-        }
+-
+-        function showResultsDashboard() {
+-            playSound('complete');
+-            
+-            let correctCount = 0;
+-            let missedHtml = '';
+-
+-            questions.forEach((q, idx) => {
+-                const isCorrect = selectedAnswers[idx] === q.correctAnswer;
+-                if (isCorrect) {
+-                    correctCount++;
+-                } else {
+-                    missedHtml += `
+-                        <div class="p-4 rounded-xl border border-rose-100 bg-rose-50/30 flex flex-col gap-2">
+-                            <span class="text-xs font-bold text-rose-600 uppercase">Câu hỏi ${idx + 1}</span>
+-                            <p class="font-bold text-slate-800 text-sm">${q.question}</p>
+-                            <div class="text-xs">
+-                                <span class="text-slate-500">Bạn đã chọn:</span>
+-                                <span class="text-rose-600 font-bold ml-1">${selectedAnswers[idx] || "Bỏ qua câu này"}</span>
+-                            </div>
+-                            <div class="text-xs">
+-                                <span class="text-emerald-700 font-bold flex items-center gap-1">
+-                                    <i class="fa-solid fa-circle-check"></i>
+-                                    Đáp án chính xác: ${q.correctAnswer}
+-                                </span>
+-                            </div>
+-                        </div>
+-                    `;
+-                }
+-            });
+-
+-            const scorePercent = Math.round((correctCount / questions.length) * 100);
+-            
+-            let ratingTitle = '';
+-            let ratingDesc = '';
+-            let ratingColor = '';
+-
+-            if (scorePercent === 100) {
+-                ratingTitle = "Xuất sắc tuyệt đối! 🎉";
+-                ratingDesc = "Bạn đã trả lời đúng hoàn toàn 40 câu hỏi. Kiến thức bộ máy nhà nước cực kỳ vững vàng!";
+-                ratingColor = "text-amber-500";
+-            } else if (scorePercent >= 80) {
+-                ratingTitle = "Kết quả rất tốt! 🌟";
+-                ratingDesc = "Bạn nắm rất chắc kiến thức nền tảng. Hãy xem lại các câu sai để tự tin đạt điểm 10 tuyệt đối nhé!";
+-                ratingColor = "text-emerald-600";
+-            } else if (scorePercent >= 50) {
+-                ratingTitle = "Đã đạt yêu cầu! 👍";
+-                ratingDesc = "Điểm của bạn ở mức trung bình khá, cần luyện tập thêm nhiều lần để không bị phân vân khi đi thi.";
+-                ratingColor = "text-blue-600";
+-            } else {
+-                ratingTitle = "Cần ôn luyện kỹ hơn 📚";
+-                ratingDesc = "Số điểm hiện tại chưa an toàn. Hãy kiên trì ôn tập lại lý thuyết và giải đề nhiều lần nhé.";
+-                ratingColor = "text-rose-500";
+-            }
+-
+-            const quizBox = document.getElementById('quizBox');
+-            quizBox.innerHTML = `
+-                <div class="text-center py-6 flex flex-col items-center gap-6">
+-                    <div class="relative flex items-center justify-center">
+-                        <div class="w-32 h-32 rounded-full bg-slate-50 border-8 border-slate-100 flex flex-col justify-center items-center shadow-inner">
+-                            <span class="text-4xl font-extrabold text-slate-800">${correctCount}</span>
+-                            <span class="text-xs font-bold text-slate-400 mt-0.5">/ ${questions.length} CÂU</span>
+-                        </div>
+-                        <div class="absolute -bottom-2 bg-gradient-to-r from-indigo-600 to-blue-600 text-white font-extrabold text-xs px-3 py-1 rounded-full shadow-md">
+-                            Tỉ lệ: ${scorePercent}%
+-                        </div>
+-                    </div>
+-
+-                    <div class="max-w-md">
+-                        <h2 class="text-xl md:text-2xl font-extrabold ${ratingColor} mb-2">${ratingTitle}</h2>
+-                        <p class="text-slate-600 text-sm leading-relaxed">${ratingDesc}</p>
+-                    </div>
+-
+-                    <!-- Các nút điều hướng nhanh ở cuối -->
+-                    <div class="flex flex-col sm:flex-row gap-3 w-full justify-center max-w-sm">
+-                        <button onclick="resetQuiz(false)" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold py-3 px-6 rounded-xl shadow transition duration-150 transform active:scale-95 flex items-center justify-center gap-2">
+-                            <i class="fa-solid fa-arrow-rotate-left"></i>
+-                            Làm lại (Theo thứ tự gốc)
+-                        </button>
+-                        
+-                        <button onclick="resetQuiz(true)" class="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold py-3 px-6 rounded-xl shadow transition duration-150 transform active:scale-95 flex items-center justify-center gap-2">
+-                            <i class="fa-solid fa-shuffle"></i>
+-                            Làm lại (Xáo trộn mới)
+-                        </button>
+-                    </div>
+-
+-                    <!-- Hiển thị chi tiết câu sai để khắc phục kiến thức -->
+-                    ${missedHtml !== '' ? `
+-                        <div class="w-full text-left mt-6 border-t border-slate-100 pt-6">
+-                            <h3 class="text-sm font-extrabold text-slate-700 mb-4 flex items-center gap-2">
+-                                <i class="fa-solid fa-triangle-exclamation text-rose-500"></i>
+-                                Các câu bạn trả lời sai:
+-                            </h3>
+-                            <div class="flex flex-col gap-3 max-h-[350px] overflow-y-auto pr-2">
+-                                ${missedHtml}
+-                            </div>
+-                        </div>
+-                    ` : `
+-                        <div class="p-6 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-bold flex items-center gap-2">
+-                            <i class="fa-solid fa-circle-check text-xl animate-bounce"></i> Chúc mừng! Bạn không làm sai bất kỳ câu hỏi nào. Bạn là một chuyên gia thực thụ!
+-                        </div>
+-                    `}
+-                </div>
+-            `;
+-        }
+-    </script>
+-</body>
+-</html>
+\ No newline at end of file
