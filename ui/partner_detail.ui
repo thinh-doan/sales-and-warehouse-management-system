@@ -7,11 +7,20 @@
     <x>0</x>
     <y>0</y>
     <width>544</width>
-    <height>535</height>
+    <height>579</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
-   <string>Thông tin đối tác vận chuyển</string>
+   <string>Đối tác vận chuyển</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>C:/Users/Admin/Downloads/people-network-partner.png</normaloff>C:/Users/Admin/Downloads/people-network-partner.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -23,7 +32,7 @@
       <item row="0" column="0">
        <widget class="QLabel" name="lblPartnerID">
         <property name="text">
-         <string>Mã Đối Tác</string>
+         <string>Mã đối tác</string>
         </property>
        </widget>
       </item>
@@ -90,19 +99,6 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <spacer name="horizontalSpacer_2">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
       <widget class="QPushButton" name="btnCapNhatDT">
        <property name="text">
         <string>Cập Nhật</string>
@@ -131,7 +127,7 @@
        <item row="0" column="0">
         <widget class="QLabel" name="label">
          <property name="text">
-          <string>Tổng Số Đơn</string>
+          <string>Tổng số đơn</string>
          </property>
         </widget>
        </item>
@@ -145,7 +141,7 @@
        <item row="1" column="0">
         <widget class="QLabel" name="label_2">
          <property name="text">
-          <string>Đơn Thành Công</string>
+          <string>Đơn thành công</string>
          </property>
         </widget>
        </item>
@@ -159,7 +155,7 @@
        <item row="2" column="0">
         <widget class="QLabel" name="label_3">
          <property name="text">
-          <string>Đơn Thất Bại</string>
+          <string>Đơn thất bại</string>
          </property>
         </widget>
        </item>
@@ -173,7 +169,7 @@
        <item row="3" column="0">
         <widget class="QLabel" name="label_4">
          <property name="text">
-          <string>Tỉ Lệ Thành Công</string>
+          <string>Tỉ lệ thành công</string>
          </property>
         </widget>
        </item>
@@ -187,7 +183,7 @@
        <item row="4" column="0">
         <widget class="QLabel" name="label_5">
          <property name="text">
-          <string>Tổng Phí Vận Chuyển</string>
+          <string>Tổng phí vận chuyển</string>
          </property>
         </widget>
        </item>
@@ -248,7 +244,7 @@
        <property name="sizeHint" stdset="0">
         <size>
          <width>0</width>
-         <height>0</height>
+         <height>50</height>
         </size>
        </property>
       </spacer>
