@@ -13,7 +13,7 @@ class MainWindow(QMainWindow, Ui_phanTuChinhWindow):
 
 app = QApplication(sys.argv)
 
-with open("styles.qss", "r", encoding="utf-8") as f:
+with open("resources/styles.qss", "r", encoding="utf-8") as f:
     app.setStyleSheet(f.read())
 
 window = MainWindow()
