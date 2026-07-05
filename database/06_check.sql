@@ -13,7 +13,7 @@ CHECK (Gender IN (N'Nam', N'Nữ', N'Khác'))
 ---RÀNG BUỘC CHECK CHO BẢNG Employee
 ---ĐẢM BẢO GIỚI TÍNH NHÂN VIÊN HỢP LỆ
 ALTER TABLE Employee ADD CONSTRAINT CK_Employee_Gender
-CHECK (EmpGender IN (N'Nam', N'Nữ', N'Khác') OR EmpGender IS NULL)
+CHECK (EmpGender IN (N'Nam', N'Nữ') OR EmpGender IS NULL)
 
 ---RÀNG BUỘC CHECK CHO BẢNG Employee
 ---ĐẢM BẢO NGÀY SINH NHÂN VIÊN NHỎ HƠN NGÀY VÀO LÀM NẾU CÓ NHẬP NGÀY SINH

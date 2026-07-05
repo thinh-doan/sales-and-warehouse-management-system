@@ -22,6 +22,10 @@
    <iconset>
     <normaloff>C:/Users/Admin/Downloads/entrance.png</normaloff>C:/Users/Admin/Downloads/entrance.png</iconset>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../resources/icons/entrance.png</normaloff>../resources/icons/entrance.png</iconset>
+  </property>
   <property name="modal">
    <bool>true</bool>
   </property>
@@ -54,7 +58,7 @@ border-radius:8px;
       </font>
      </property>
      <property name="title">
-      <string>Thông Tin Đăng Nhập</string>
+      <string>Thông tin đăng nhập</string>
      </property>
      <layout class="QFormLayout" name="formLayout">
       <item row="0" column="0">
@@ -87,6 +91,19 @@ border-radius:8px;
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
       <widget class="QPushButton" name="btnDangNhap">
        <property name="minimumSize">
         <size>
@@ -95,7 +112,7 @@ border-radius:8px;
         </size>
        </property>
        <property name="text">
-        <string>Đăng Nhập</string>
+        <string>Đăng nhập</string>
        </property>
       </widget>
      </item>

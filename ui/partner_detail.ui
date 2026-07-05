@@ -20,7 +20,11 @@
   </property>
   <property name="windowIcon">
    <iconset>
+<<<<<<< HEAD
     <normaloff>C:/Users/Admin/Downloads/people-network-partner.png</normaloff>C:/Users/Admin/Downloads/people-network-partner.png</iconset>
+=======
+    <normaloff>../resources/icons/people-network-partner.png</normaloff>../resources/icons/people-network-partner.png</iconset>
+>>>>>>> giao-dien-1
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -101,7 +105,7 @@
      <item>
       <widget class="QPushButton" name="btnCapNhatDT">
        <property name="text">
-        <string>Cập Nhật</string>
+        <string>Cập nhật</string>
        </property>
       </widget>
      </item>
@@ -117,7 +121,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
@@ -205,12 +209,12 @@
         <widget class="QTableWidget" name="tableWidget">
          <column>
           <property name="text">
-           <string>Mã Giao Hàng</string>
+           <string>Mã giao hàng</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>Mã Đơn Hàng</string>
+           <string>Mã đơn hàng</string>
           </property>
          </column>
          <column>
@@ -225,7 +229,7 @@
          </column>
          <column>
           <property name="text">
-           <string>Trạng Thái</string>
+           <string>Trạng thái</string>
           </property>
          </column>
         </widget>

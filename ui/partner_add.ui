@@ -6,12 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>337</width>
-    <height>372</height>
+    <width>495</width>
+    <height>420</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Thông tin đối tác vận chuyển</string>
+   <string>Đối tác vận chuyển</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../resources/icons/square-plus.png</normaloff>../resources/icons/square-plus.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -23,7 +27,7 @@
       <item row="0" column="0">
        <widget class="QLabel" name="lblPartnerID">
         <property name="text">
-         <string>Mã Đối Tác</string>
+         <string>Mã đối tác</string>
         </property>
        </widget>
       </item>
@@ -37,7 +41,7 @@
       <item row="1" column="0">
        <widget class="QLabel" name="lblPartnerName">
         <property name="text">
-         <string>Tên Đối Tác</string>
+         <string>Tên đối tác</string>
         </property>
        </widget>
       </item>
@@ -67,7 +71,7 @@
       <item row="5" column="0">
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>Phương Thức VC</string>
+         <string>Phương thức vận chuyển</string>
         </property>
        </widget>
       </item>
@@ -121,6 +125,12 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="buttonLayout">
+     <property name="topMargin">
+      <number>25</number>
+     </property>
+     <property name="bottomMargin">
+      <number>25</number>
+     </property>
      <item>
       <spacer name="horizontalSpacer">
        <property name="orientation">

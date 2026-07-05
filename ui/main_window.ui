@@ -2469,7 +2469,11 @@ font-weight:bold;</string>
      <x>0</x>
      <y>0</y>
      <width>1068</width>
+<<<<<<< HEAD
      <height>26</height>
+=======
+     <height>23</height>
+>>>>>>> giao-dien-1
     </rect>
    </property>
   </widget>

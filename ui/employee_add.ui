@@ -7,9 +7,12 @@
     <x>0</x>
     <y>0</y>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <width>1041</width>
     <height>753</height>
 =======
+=======
+>>>>>>> giao-dien-1
     <width>650</width>
     <height>476</height>
 >>>>>>> b76e3f2d37ae8d5cd6c0afd3cd1339245d9baa61
@@ -25,7 +28,11 @@
   </property>
   <property name="windowIcon">
    <iconset>
+<<<<<<< HEAD
     <normaloff>C:/Users/Admin/Downloads/employee-man-alt.png</normaloff>C:/Users/Admin/Downloads/employee-man-alt.png</iconset>
+=======
+    <normaloff>../resources/icons/employee-man-alt.png</normaloff>../resources/icons/employee-man-alt.png</iconset>
+>>>>>>> giao-dien-1
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
