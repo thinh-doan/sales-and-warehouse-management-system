@@ -1,10 +1,12 @@
+USE QL_BANHANG_KHOHANG
+
 ---RÀNG BUỘC KHÓA NGOẠI CHO BẢNG INDIVIDUAL_CUSTOMER
 ALTER TABLE Individual_Customer
 ADD CONSTRAINT fk_Individual_Customer_Customer
 FOREIGN KEY (ICustomerID) REFERENCES Customer(CustomerID)
 
 ---RÀNG BUỘC KHÓA NGOẠI CHO BẢNG BUSINESS_CUSTOMER
-ALTER TABLE Business_customer
+ALTER TABLE Business_Customer
 ADD CONSTRAINT fk_Business_Customer_Customer
 FOREIGN KEY (BCustomerID) REFERENCES Customer(CustomerID)
 
@@ -34,12 +36,12 @@ ADD CONSTRAINT fk_Account_Role
 FOREIGN KEY (RoleID) REFERENCES [Role](RoleID)
 
 ---RÀNG BUỘC KHÓA NGOẠI CHO BẢNG ORDER - CUSTOMER
-ALTER TABLE Order
+ALTER TABLE [Order]
 ADD CONSTRAINT fk_Order_Customer
 FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
 
 ---RÀNG BUỘC KHÓA NGOẠI CHO BẢNG ORDER - EMPLOYEE
-ALTER TABLE Order
+ALTER TABLE [Order]
 ADD CONSTRAINT fk_Order_Employee
 FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)
 
@@ -72,3 +74,8 @@ FOREIGN KEY (PartnerID) REFERENCES Delivery_Partner(PartnerID)
 ALTER TABLE Shipment
 ADD CONSTRAINT fk_Shipment_Employee
 FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)
+
+--RÀNG BUỘC KHÓA NGOẠI CHO BẢNG PRT_SHIPPING_METHODS
+ALTER TABLE Prt_Shipping_Methods
+ADD CONSTRAINT fk_Prt_Shipping_Methods
+FOREIGN KEY (PartnerID) REFERENCES Delivery_Partner(PartnerID)

@@ -1,11 +1,10 @@
-
----RÀNG BUỘC UNIQUE CHO BẢNG Customer
+------RÀNG BUỘC UNIQUE CHO BẢNG Customer
 ---ĐẢM BẢO SĐT KHÁCH HÀNG KHÔNG BỊ TRÙNG
-ALTER TABLE Customer ADD CONSTRAINT UQ_Customer_Phone UNIQUE (CusPhone);
+ALTER TABLE Customer ADD CONSTRAINT UQ_Customer_Phone UNIQUE (CusPhone)
 
 ---RÀNG BUỘC UNIQUE CHO BẢNG Business_Customer
 ---ĐẢM BẢO MÃ SỐ THUẾ DOANH NGHIỆP KHÔNG BỊ TRÙNG
-ALTER TABLE Business_Customer ADD CONSTRAINT UQ_Business_Customer_TaxCode UNIQUE (TaxCode);
+ALTER TABLE Business_Customer ADD CONSTRAINT UQ_Business_Customer_TaxCode UNIQUE (TaxCode)
 
 ---RÀNG BUỘC UNIQUE CHO BẢNG Category
 ---ĐẢM BẢO TÊN DANH MỤC KHÔNG BỊ TRÙNG

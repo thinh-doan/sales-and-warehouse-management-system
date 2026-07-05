@@ -1,7 +1,11 @@
+USE QL_BANHANG_KHOHANG;
+
+
 ---TẠO BẢNG CUSTOMER
 create table Customer
 (
 	CustomerID int not null,
+	CusName nvarchar(50) not null,
 	CusPhone varchar(15) not null,
 	CusEmail varchar(100),
 	CusAddress nvarchar(200) not null,
@@ -13,7 +17,7 @@ create table Customer
 create table Individual_Customer
 (
 	ICustomerID int not null,
-	FullName nvarchar(100) not null,
+	Gender nvarchar(3) not null,
 	CusDateOfBirth date
 )
 
@@ -21,7 +25,6 @@ create table Individual_Customer
 create table Business_Customer
 (
 	BCustomerID int not null,
-	CompanyName nvarchar(150) not null,
 	TaxCode varchar(20) not null
 )
 
@@ -51,7 +54,7 @@ create table Warehouse
 	WarehouseID int not null,
 	WarehouseName nvarchar(100) not null,
 	Address nvarchar(200) not null,
-	Capacity int
+	Capacity int not null
 )
 
 ---TẠO BẢNG INVENTORY
@@ -68,8 +71,8 @@ create table Employee
 (
 	EmployeeID int not null,
 	EmpName nvarchar(100) not null,
-	EmpGender nvarchar(10),
-	EmpDateOfBirth date,
+	EmpGender nvarchar(10) not null,
+	EmpDateOfBirth date not null,
 	EmpPhone varchar(15) not null,
 	EmpEmail varchar(100),
 	Department nvarchar(100),
@@ -138,6 +141,13 @@ create table Delivery_Partner
 	PrtAddress nvarchar(200)
 )
 
+--TẠO BẢNG PRT_SHIPPING_METHODS
+create table Prt_Shipping_Methods
+(
+	PartnerID int not null,
+	ShippingMethodName nvarchar (50) not null
+)
+
 ---TẠO BẢNG SHIPMENT
 create table Shipment
 (
@@ -151,4 +161,3 @@ create table Shipment
 	OrderID int not null,
 	PartnerID int not null,
 	EmployeeID int not null
-)

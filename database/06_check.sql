@@ -1,12 +1,19 @@
+use [QL_BANHANG_KHOHANG]
+
 ---RÀNG BUỘC CHECK CHO BẢNG Customer
 ---ĐẢM BẢO LOẠI KHÁCH HÀNG HỢP LỆ
 ALTER TABLE Customer ADD CONSTRAINT CK_Customer_Type
 CHECK (CusType IN (N'Cá nhân', N'Doanh nghiệp'))
 
+---RÀNG BUỘC CHECK CHO BẢNG Individual_Customer
+---ĐẢM BẢO GIỚI TÍNH KHÁCH HÀNG HỢP LỆ
+ALTER TABLE Individual_Customer ADD CONSTRAINT CK_Individual_Customer_Gender
+CHECK (Gender IN (N'Nam', N'Nữ', N'Khác'))
+
 ---RÀNG BUỘC CHECK CHO BẢNG Employee
 ---ĐẢM BẢO GIỚI TÍNH NHÂN VIÊN HỢP LỆ
 ALTER TABLE Employee ADD CONSTRAINT CK_Employee_Gender
-CHECK (EmpGender IN (N'Nam', N'Nữ', N'Khác') OR EmpGender IS NULL)
+CHECK (EmpGender IN (N'Nam', N'Nữ') OR EmpGender IS NULL)
 
 ---RÀNG BUỘC CHECK CHO BẢNG Employee
 ---ĐẢM BẢO NGÀY SINH NHÂN VIÊN NHỎ HƠN NGÀY VÀO LÀM NẾU CÓ NHẬP NGÀY SINH
@@ -84,9 +91,9 @@ ALTER TABLE Shipment ADD CONSTRAINT CK_Shipment_ExpectedDate
 CHECK (ExpectedDeliveryDate IS NULL OR ExpectedDeliveryDate >= ShipmentDate)
 
 ---RÀNG BUỘC CHECK CHO BẢNG Shipment
----ĐẢM BẢO NGÀY GIAO THỰC TẾ KHÔNG NHỎ HƠN NGÀY TẠO SHIPMENT NẾU CÓ NHẬP
-ALTER TABLE Shipment ADD CONSTRAINT CK_Shipment_ActualDate
-CHECK (ActualDeliveryDate IS NULL OR ActualDeliveryDate >= ShipmentDate)
+---ĐẢM BẢO NGÀY GIAO THỰC TẾ KHÔNG TRƯỚC NGÀY DỰ KIẾN (NẾU CÓ ĐIỀN CẢ HAI)
+ALTER TABLE Shipment ADD CONSTRAINT CK_Shipment_DeliveryDates
+CHECK (ActualDeliveryDate IS NULL OR ExpectedDeliveryDate IS NULL OR ActualDeliveryDate >= ExpectedDeliveryDate)
 
 ---RÀNG BUỘC CHECK CHO BẢNG Account
 ---ĐẢM BẢO TRẠNG THÁI TÀI KHOẢN HỢP LỆ
