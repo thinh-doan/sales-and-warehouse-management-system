@@ -338,7 +338,7 @@
        </font>
       </property>
       <property name="currentIndex">
-       <number>7</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="pageTongQuan">
        <layout class="QVBoxLayout" name="verticalLayout_11">
@@ -1362,7 +1362,7 @@ border-radius:8px;
           <item>
            <widget class="QPushButton" name="btnRefreshDM">
             <property name="text">
-             <string>Làm Mới</string>
+             <string>Làm mới</string>
             </property>
            </widget>
           </item>
@@ -2469,7 +2469,7 @@ font-weight:bold;</string>
      <x>0</x>
      <y>0</y>
      <width>1068</width>
-     <height>23</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
