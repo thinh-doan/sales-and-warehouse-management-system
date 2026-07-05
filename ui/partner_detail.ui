@@ -10,21 +10,12 @@
     <height>579</height>
    </rect>
   </property>
-  <property name="font">
-   <font>
-    <pointsize>10</pointsize>
-   </font>
-  </property>
   <property name="windowTitle">
    <string>Đối tác vận chuyển</string>
   </property>
   <property name="windowIcon">
    <iconset>
-<<<<<<< HEAD
-    <normaloff>C:/Users/Admin/Downloads/people-network-partner.png</normaloff>C:/Users/Admin/Downloads/people-network-partner.png</iconset>
-=======
     <normaloff>../resources/icons/people-network-partner.png</normaloff>../resources/icons/people-network-partner.png</iconset>
->>>>>>> giao-dien-1
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>

@@ -10,21 +10,12 @@
     <height>668</height>
    </rect>
   </property>
-  <property name="font">
-   <font>
-    <pointsize>10</pointsize>
-   </font>
-  </property>
   <property name="windowTitle">
    <string>Giao hàng</string>
   </property>
   <property name="windowIcon">
    <iconset>
-<<<<<<< HEAD
-    <normaloff>C:/Users/Admin/Downloads/truck-side.png</normaloff>C:/Users/Admin/Downloads/truck-side.png</iconset>
-=======
     <normaloff>../resources/icons/truck-side.png</normaloff>../resources/icons/truck-side.png</iconset>
->>>>>>> giao-dien-1
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -240,38 +231,22 @@
       </column>
       <column>
        <property name="text">
-<<<<<<< HEAD
-        <string>Đơn Vị</string>
-=======
         <string>Đơn vị</string>
->>>>>>> giao-dien-1
        </property>
       </column>
       <column>
        <property name="text">
-<<<<<<< HEAD
-        <string>Số Lượng</string>
-=======
         <string>Số lượng</string>
->>>>>>> giao-dien-1
        </property>
       </column>
       <column>
        <property name="text">
-<<<<<<< HEAD
-        <string>Đơn Giá</string>
-=======
         <string>Đơn giá</string>
->>>>>>> giao-dien-1
        </property>
       </column>
       <column>
        <property name="text">
-<<<<<<< HEAD
-        <string>Thành Tiền</string>
-=======
         <string>Thành tiền</string>
->>>>>>> giao-dien-1
        </property>
       </column>
      </widget>

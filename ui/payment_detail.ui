@@ -6,32 +6,23 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1041</width>
-    <height>753</height>
+    <width>450</width>
+    <height>550</height>
    </rect>
-  </property>
-  <property name="font">
-   <font>
-    <pointsize>10</pointsize>
-   </font>
   </property>
   <property name="windowTitle">
    <string>Thanh toán</string>
   </property>
   <property name="windowIcon">
    <iconset>
-<<<<<<< HEAD
-    <normaloff>C:/Users/Admin/Downloads/payroll-check.png</normaloff>C:/Users/Admin/Downloads/payroll-check.png</iconset>
-=======
     <normaloff>../resources/icons/payroll-check.png</normaloff>../resources/icons/payroll-check.png</iconset>
->>>>>>> giao-dien-1
   </property>
   <layout class="QVBoxLayout" name="mainVerticalLayout">
    <item>
     <widget class="QLabel" name="lblHeader">
      <property name="font">
       <font>
-       <pointsize>19</pointsize>
+       <pointsize>14</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
