@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4dcf29f2-04e0-4b8e-988e-3bfd98a5d0d8" name="Changes" comment="" />
+    <list default="true" id="4dcf29f2-04e0-4b8e-988e-3bfd98a5d0d8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/database.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/sales_warehouse.db" beforeDir="false" afterPath="$PROJECT_DIR$/database/sales_warehouse.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/category/category_add.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/category/category_add_ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/category/category_add_ui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/category/category_detail.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/inventory/inventory_detail.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/inventory/inventory_update.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/payment/payment_detail.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/category_add.ui" beforeDir="false" afterPath="$PROJECT_DIR$/ui/category_add.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/main_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/main_window.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,7 +43,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "xu-ly",
     "last_opened_file_path": "C:/Users/sang/Documents/sales-and-warehouse-management-system",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -55,7 +68,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1782750670072</updated>
-      <workItem from="1782750671348" duration="8547000" />
+      <workItem from="1782750671348" duration="11541000" />
     </task>
     <servers />
   </component>

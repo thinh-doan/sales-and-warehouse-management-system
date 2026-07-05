@@ -39,9 +39,6 @@
      </item>
      <item row="1" column="1">
       <widget class="QLineEdit" name="txtTenDM">
-       <property name="readOnly">
-        <bool>true</bool>
-       </property>
       </widget>
      </item>
     </layout>
@@ -57,9 +54,6 @@
      </item>
      <item row="0" column="1">
       <widget class="QTextEdit" name="txtMoTaSP">
-       <property name="readOnly">
-        <bool>true</bool>
-       </property>
       </widget>
      </item>
     </layout>
