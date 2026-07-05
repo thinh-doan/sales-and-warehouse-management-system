@@ -338,7 +338,7 @@
        </font>
       </property>
       <property name="currentIndex">
-       <number>10</number>
+       <number>9</number>
       </property>
       <widget class="QWidget" name="pageTongQuan">
        <layout class="QVBoxLayout" name="verticalLayout_11">
@@ -2029,6 +2029,26 @@ border-radius:8px;
                <string>Tất cả</string>
               </property>
              </item>
+             <item>
+              <property name="text">
+               <string>Nv bán hàng</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Nv quản lý sản phẩm</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Nv kế toán</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Nv kho</string>
+              </property>
+             </item>
             </widget>
            </item>
            <item row="0" column="0">
@@ -2246,39 +2266,39 @@ border-radius:8px;
              </property>
             </widget>
            </item>
-           <item row="1" column="0" colspan="6">
-            <layout class="QHBoxLayout" name="buttonLayout_2">
-             <item>
-              <spacer name="horizontalSpacer_4">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>0</width>
-                 <height>0</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item>
-              <widget class="QPushButton" name="btnXemBaoCao">
-               <property name="text">
-                <string>Xem báo cáo</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="btnRefreshBC">
-               <property name="text">
-                <string>Làm mới</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
           </layout>
          </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="buttonLayout_2">
+          <item>
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnXemBaoCao">
+            <property name="text">
+             <string>Xem báo cáo</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnRefreshBC">
+            <property name="text">
+             <string>Làm mới</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
         <item>
          <widget class="QLabel" name="lblTitle_10">
