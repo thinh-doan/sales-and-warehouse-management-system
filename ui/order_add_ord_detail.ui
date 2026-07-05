@@ -10,21 +10,12 @@
     <height>298</height>
    </rect>
   </property>
-  <property name="font">
-   <font>
-    <pointsize>10</pointsize>
-   </font>
-  </property>
   <property name="windowTitle">
    <string>Thêm Sản Phẩm Vào Đơn Hàng</string>
   </property>
   <property name="windowIcon">
    <iconset>
-<<<<<<< HEAD
-    <normaloff>C:/Users/Admin/Downloads/square-plus.png</normaloff>C:/Users/Admin/Downloads/square-plus.png</iconset>
-=======
     <normaloff>../resources/icons/square-plus.png</normaloff>../resources/icons/square-plus.png</iconset>
->>>>>>> giao-dien-1
   </property>
   <layout class="QVBoxLayout">
    <item>
@@ -93,6 +84,19 @@
    </item>
    <item>
     <layout class="QHBoxLayout">
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
      <item>
       <widget class="QPushButton" name="btnLuu_Order_detail">
        <property name="text">
