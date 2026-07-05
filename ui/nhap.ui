@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ReportPage</class>
+ <widget class="QWidget" name="ReportPage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>785</width>
+    <height>360</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Báo cáo</string>
+  </property>
+  <widget class="QGroupBox" name="grpFilter">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>525</width>
+     <height>128</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Bộ lọc báo cáo</string>
+   </property>
+   <widget class="QLabel" name="lblReportType">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>28</y>
+      <width>72</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Loại báo cáo</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cbReportType">
+    <property name="geometry">
+     <rect>
+      <x>91</x>
+      <y>28</y>
+      <width>96</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Doanh thu</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Đơn hàng</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Thanh toán</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Giao hàng</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Kho</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Khách hàng</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="lblFromDate">
+    <property name="geometry">
+     <rect>
+      <x>194</x>
+      <y>28</y>
+      <width>47</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Từ ngày</string>
+    </property>
+   </widget>
+   <widget class="QDateEdit" name="dtFromDate">
+    <property name="geometry">
+     <rect>
+      <x>261</x>
+      <y>28</y>
+      <width>92</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="calendarPopup">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblToDate">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>28</y>
+      <width>54</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Đến ngày</string>
+    </property>
+   </widget>
+   <widget class="QDateEdit" name="dtToDate">
+    <property name="geometry">
+     <rect>
+      <x>421</x>
+      <y>28</y>
+      <width>92</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="calendarPopup">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblStatus">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>57</y>
+      <width>59</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Trạng thái</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cbStatus">
+    <property name="geometry">
+     <rect>
+      <x>91</x>
+      <y>57</y>
+      <width>66</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Tất cả</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="lblPartner">
+    <property name="geometry">
+     <rect>
+      <x>194</x>
+      <y>57</y>
+      <width>60</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Đối tác VC</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cbPartner">
+    <property name="geometry">
+     <rect>
+      <x>261</x>
+      <y>57</y>
+      <width>66</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Tất cả</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QPushButton" name="btnViewReport">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>87</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Xem báo cáo</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnRefresh">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>87</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Làm mới</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="grpSummary">
+   <property name="geometry">
+    <rect>
+     <x>11</x>
+     <y>146</y>
+     <width>392</width>
+     <height>109</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Tổng quan</string>
+   </property>
+   <widget class="QGroupBox" name="grpTotalRecord">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>28</y>
+      <width>39</width>
+      <height>69</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Tổng bản ghi</string>
+    </property>
+    <widget class="QLabel" name="lblTotalRecord">
+     <property name="geometry">
+      <rect>
+       <x>12</x>
+       <y>28</y>
+       <width>16</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size:24px;
+font-weight:bold;</string>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="grpTotalAmount">
+    <property name="geometry">
+     <rect>
+      <x>114</x>
+      <y>28</y>
+      <width>100</width>
+      <height>69</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Tổng giá trị</string>
+    </property>
+    <widget class="QLabel" name="lblTotalAmount">
+     <property name="geometry">
+      <rect>
+       <x>12</x>
+       <y>28</y>
+       <width>76</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size:24px;
+font-weight:bold;</string>
+     </property>
+     <property name="text">
+      <string>0 VNĐ</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="grpCompleted">
+    <property name="geometry">
+     <rect>
+      <x>221</x>
+      <y>28</y>
+      <width>85</width>
+      <height>69</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Hoàn thành</string>
+    </property>
+    <widget class="QLabel" name="lblCompleted">
+     <property name="geometry">
+      <rect>
+       <x>12</x>
+       <y>28</y>
+       <width>16</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size:24px;
+font-weight:bold;</string>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="grpFailed">
+    <property name="geometry">
+     <rect>
+      <x>313</x>
+      <y>28</y>
+      <width>39</width>
+      <height>69</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Thất bại</string>
+    </property>
+    <widget class="QLabel" name="lblFailed">
+     <property name="geometry">
+      <rect>
+       <x>12</x>
+       <y>28</y>
+       <width>16</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size:24px;
+font-weight:bold;</string>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="grpResult">
+   <property name="geometry">
+    <rect>
+     <x>11</x>
+     <y>262</y>
+     <width>479</width>
+     <height>263</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Kết quả báo cáo</string>
+   </property>
+   <widget class="QTableWidget" name="tblReport">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>28</y>
+      <width>256</width>
+      <height>192</height>
+     </rect>
+    </property>
+    <property name="editTriggers">
+     <set>QAbstractItemView::NoEditTriggers</set>
+    </property>
+    <property name="alternatingRowColors">
+     <bool>true</bool>
+    </property>
+    <property name="selectionMode">
+     <enum>QAbstractItemView::SingleSelection</enum>
+    </property>
+    <property name="selectionBehavior">
+     <enum>QAbstractItemView::SelectRows</enum>
+    </property>
+    <property name="sortingEnabled">
+     <bool>true</bool>
+    </property>
+    <property name="columnCount">
+     <number>5</number>
+    </property>
+    <column>
+     <property name="text">
+      <string>Cột 1</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Cột 2</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Cột 3</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Cột 4</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Cột 5</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QLineEdit" name="txtTotalAmount">
+    <property name="geometry">
+     <rect>
+      <x>322</x>
+      <y>228</y>
+      <width>137</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblRecordTitle">
+    <property name="geometry">
+     <rect>
+      <x>13</x>
+      <y>228</y>
+      <width>80</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Tổng bản ghi:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txtTotalRecord">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>228</y>
+      <width>137</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblAmountTitle">
+    <property name="geometry">
+     <rect>
+      <x>244</x>
+      <y>228</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Tổng giá trị:</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QLineEdit" name="txtGeneratedTime">
+   <property name="geometry">
+    <rect>
+     <x>148</x>
+     <y>568</y>
+     <width>137</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lblGeneratedTime">
+   <property name="geometry">
+    <rect>
+     <x>12</x>
+     <y>568</y>
+     <width>129</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Thời gian tạo báo cáo:</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
