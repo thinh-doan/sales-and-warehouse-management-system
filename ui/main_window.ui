@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1068</width>
-    <height>789</height>
+    <width>1058</width>
+    <height>753</height>
    </rect>
   </property>
   <property name="font">
@@ -338,7 +338,7 @@
        </font>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>10</number>
       </property>
       <widget class="QWidget" name="pageTongQuan">
        <layout class="QVBoxLayout" name="verticalLayout_11">
@@ -1118,52 +1118,6 @@ border-radius:8px;
          </widget>
         </item>
         <item>
-         <widget class="QTableWidget" name="bangSanPham">
-          <property name="editTriggers">
-           <set>QAbstractItemView::NoEditTriggers</set>
-          </property>
-          <property name="alternatingRowColors">
-           <bool>true</bool>
-          </property>
-          <property name="selectionMode">
-           <enum>QAbstractItemView::SingleSelection</enum>
-          </property>
-          <property name="selectionBehavior">
-           <enum>QAbstractItemView::SelectRows</enum>
-          </property>
-          <column>
-           <property name="text">
-            <string>Mã SP</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Tên sản phẩm</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Danh mục</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Đơn giá</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Tồn kho</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Trạng thái</string>
-           </property>
-          </column>
-         </widget>
-        </item>
-        <item>
          <layout class="QHBoxLayout" name="_5">
           <item>
            <spacer name="horizontalSpacer_8">
@@ -1214,6 +1168,52 @@ border-radius:8px;
            </widget>
           </item>
          </layout>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="bangSanPham">
+          <property name="editTriggers">
+           <set>QAbstractItemView::NoEditTriggers</set>
+          </property>
+          <property name="alternatingRowColors">
+           <bool>true</bool>
+          </property>
+          <property name="selectionMode">
+           <enum>QAbstractItemView::SingleSelection</enum>
+          </property>
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectRows</enum>
+          </property>
+          <column>
+           <property name="text">
+            <string>Mã SP</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Tên sản phẩm</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Danh mục</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Đơn giá</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Tồn kho</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Trạng thái</string>
+           </property>
+          </column>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -1886,7 +1886,7 @@ border-radius:8px;
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="pageNhanVien">
+      <widget class="QWidget" name="pageDoiTacVC">
        <layout class="QVBoxLayout" name="verticalLayout_8">
         <item>
          <widget class="QGroupBox" name="grpSearch_2">
@@ -2014,7 +2014,7 @@ border-radius:8px;
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="pageBaoCao">
+      <widget class="QWidget" name="pageNhanVien">
        <layout class="QVBoxLayout" name="verticalLayout_7">
         <item>
          <widget class="QGroupBox" name="grpSearch_3">
@@ -2169,7 +2169,7 @@ border-radius:8px;
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="pageDangXuat">
+      <widget class="QWidget" name="pageBaoCao">
        <layout class="QVBoxLayout" name="verticalLayout_10">
         <item>
          <widget class="QGroupBox" name="grpFilter">
@@ -2229,7 +2229,7 @@ border-radius:8px;
              </item>
              <item>
               <property name="text">
-               <string>Kho</string>
+               <string>Sản Phẩm</string>
               </property>
              </item>
              <item>
@@ -2468,7 +2468,7 @@ font-weight:bold;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1068</width>
+     <width>1058</width>
      <height>26</height>
     </rect>
    </property>
