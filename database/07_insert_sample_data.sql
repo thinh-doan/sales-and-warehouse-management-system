@@ -201,3 +201,139 @@ VALUES
 (7, '2026-06-18', '2026-06-20', '2026-06-20', 30000, N'Giao thành công', N'Tiêu chuẩn', 9, 3, 4);
 GO
 
+USE [QL_BANHANG_KHOHANG]
+GO
+
+
+
+
+--------------------------BỔ SUNG SAMPLE------------------------------
+--- 1. BỔ SUNG BẢNG CUSTOMER (ID từ 9 đến 14)
+INSERT INTO Customer (CustomerID, CusName, CusPhone, CusEmail, CusAddress, CusCreatedDate, CusType)
+VALUES
+(9, N'Trần Thị Hoàng Yến', '0901000009', 'yen.tran@gmail.com', N'Quận 5, TP.HCM', '2026-06-20', N'Cá nhân'),
+(10, N'Phan Văn Tài', '0901000010', 'tai.phan@gmail.com', N'Phú Nhuận, TP.HCM', '2026-06-21', N'Cá nhân'),
+(11, N'Bùi Minh Tuấn', '0901000011', 'tuan.bui@gmail.com', N'Quận 11, TP.HCM', '2026-06-22', N'Cá nhân'),
+(12, N'Công ty Bách Hóa Xanh', '0902000012', 'contact@bhx.com', N'Bình Thạnh, TP.HCM', '2026-06-23', N'Doanh nghiệp'),
+(13, N'Tổng Công ty Việt Tiến', '0902000013', 'info@viettien.com.vn', N'Tân Phú, TP.HCM', '2026-06-24', N'Doanh nghiệp'),
+(14, N'Công ty Điện máy Chợ Lớn', '0902000014', 'online@dmcl.com.vn', N'Quận 4, TP.HCM', '2026-06-25', N'Doanh nghiệp')
+GO
+
+--- 2. BỔ SUNG BẢNG INDIVIDUAL_CUSTOMER
+INSERT INTO Individual_Customer (ICustomerID, Gender, CusDateOfBirth)
+VALUES
+(9, N'Nữ', '1993-10-15'),
+(10, N'Nam', '1991-04-25'),
+(11, N'Nam', '1988-12-30')
+GO
+
+--- 3. BỔ SUNG BẢNG BUSINESS_CUSTOMER
+INSERT INTO Business_Customer (BCustomerID, TaxCode)
+VALUES
+(12, '0310000012'),
+(13, '0310000013'),
+(14, '0310000014')
+GO
+
+--- 4. BỔ SUNG BẢNG CATEGORY (Mở rộng thêm ngành hàng điện tử gia dụng)
+INSERT INTO Category (CategoryID, CategoryName, CategoryDescription)
+VALUES
+(7, N'Lò vi sóng', N'Lò vi sóng, lò nướng thùng'),
+(8, N'Máy lọc nước', N'Thiết bị lọc nước uống gia đình')
+GO
+
+--- 5. BỔ SUNG BẢNG PRODUCT (ID từ 11 đến 15)
+INSERT INTO Product (ProductID, ProductName, ProductUnitPrice, Unit, ProductDescription, ProductStatus, CategoryID)
+VALUES
+(11, N'Lò vi sóng Sharp 20L', 1850000, N'Cái', N'Lò vi sóng có nướng cơ bản', N'Đang bán', 7),
+(12, N'Lò vi sóng Panasonic 23L', 3200000, N'Cái', N'Lò vi sóng inverter tiết kiệm điện', N'Đang bán', 7),
+(13, N'Máy lọc nước Karofi 9 lõi', 4800000, N'Cái', N'Máy lọc nước RO khoáng chất', N'Đang bán', 8),
+(14, N'Máy lọc nước Sunhouse 10 lõi', 5200000, N'Cái', N'Máy lọc nước nóng lạnh RO', N'Đang bán', 8),
+(15, N'Quạt lửng Asia A16001', 380000, N'Cái', N'Quạt lửng nhựa cao cấp', N'Ngừng bán', 3)
+GO
+
+--- 6. BỔ SUNG BẢNG WAREHOUSE
+INSERT INTO Warehouse (WarehouseID, WarehouseName, Address, Capacity)
+VALUES
+(4, N'Kho Tổng Củ Chi', N'Củ Chi, TP.HCM', 15000)
+GO
+
+--- 7. BỔ SUNG BẢNG INVENTORY (Nạp tồn kho cho sản phẩm mới và kho mới)
+INSERT INTO Inventory (WarehouseID, ProductID, QuantityInStock, LastUpdated)
+VALUES
+(1, 11, 15, '2026-07-01'),
+(1, 12, 8, '2026-07-01'),
+(2, 13, 12, '2026-07-01'),
+(3, 14, 10, '2026-07-01'),
+(4, 1, 100, '2026-07-01'),
+(4, 7, 50, '2026-07-01'),
+(4, 11, 40, '2026-07-01'),
+(4, 13, 30, '2026-07-01')
+GO
+
+--- 8. BỔ SUNG BẢNG EMPLOYEE (Nhân sự mới bổ sung cho Kho 4 và vận hành đơn)
+INSERT INTO Employee (EmployeeID, EmpName, EmpGender, EmpDateOfBirth, EmpPhone, EmpEmail, Department, Position, HireDate)
+VALUES
+(7, N'Trịnh Đình Quang', N'Nam', '1993-11-20', '0911000007', 'quang@company.com', N'Kho vận', N'Thủ kho Củ Chi', '2026-01-15'),
+(8, N'Nguyễn Thu Thủy', N'Nữ', '1999-02-14', '0911000008', 'thuy@company.com', N'Kinh doanh', N'Nhân viên xử lý đơn hàng', '2026-02-01')
+GO
+
+--- 9. BỔ SUNG BẢNG ROLE (Không cần vì hệ thống phân quyền đã đủ 6 phòng ban)
+
+--- 10. BỔ SUNG BẢNG ACCOUNT
+INSERT INTO Account (AccountID, Username, PasswordHash, AccountStatus, EmployeeID, RoleID)
+VALUES
+(7, 'warehouse02', 'hash_warehouse_456', N'Đang hoạt động', 7, 3),
+(8, 'order02', 'hash_order_456', N'Đang hoạt động', 8, 2)
+GO
+
+--- 11. BỔ SUNG BẢNG ORDER (Đơn hàng từ ID 11 đến 15)
+INSERT INTO [Order] (OrderID, OrderDate, TotalAmount, OrderStatus, ShippingAddress, CustomerID, EmployeeID)
+VALUES
+(11, '2026-06-25', 1850000, N'Hoàn thành', N'Quận 5, TP.HCM', 9, 8),
+(12, '2026-06-26', 9600000, N'Hoàn thành', N'Bình Thạnh, TP.HCM', 12, 8),
+(13, '2026-06-27', 3200000, N'Đang xử lý', N'Phú Nhuận, TP.HCM', 10, 2),
+(14, '2026-06-28', 5200000, N'Chờ xác nhận', N'Quận 4, TP.HCM', 14, 8),
+(15, '2026-06-29', 2450000, N'Hoàn thành', N'Quận 11, TP.HCM', 11, 2)
+GO
+
+--- 12. BỔ SUNG BẢNG ORDER_DETAIL
+INSERT INTO Order_Detail (OrderID, ProductID, Quantity, OrderDetailUnitPrice)
+VALUES
+(11, 11, 1, 1850000),
+(12, 13, 2, 4800000), -- Tổng đơn 12: 9,600,000
+(13, 12, 1, 3200000),
+(14, 14, 1, 5200000),
+(15, 10, 1, 2450000)
+GO
+
+--- 13. BỔ SUNG BẢNG PAYMENT
+INSERT INTO Payment (PaymentID, PaymentDate, Amount, PaymentMethod, PaymentStatus, OrderID)
+VALUES
+(10, '2026-06-25', 1850000, N'Thanh toán điện tử', N'Đã thanh toán', 11),
+(11, '2026-06-26', 9600000, N'Chuyển khoản', N'Đã thanh toán', 12),
+(12, NULL, 3200000, N'Chuyển khoản', N'Chưa thanh toán', 13),
+(13, '2026-06-29', 2450000, N'Thanh toán khi nhận hàng', N'Đã thanh toán', 15)
+GO
+
+--- 14. BỔ SUNG BẢNG DELIVERY_PARTNER
+INSERT INTO Delivery_Partner (PartnerID, PrtName, PrtPhone, PrtEmail, PrtAddress)
+VALUES
+(4, N'Ninja Van', '19006118', 'support@ninjavan.co', N'TP.HCM')
+GO
+
+--- 15. BỔ SUNG BẢNG PRT_SHIPPING_METHODS (Thêm phương thức cho đối tác mới)
+INSERT INTO Prt_Shipping_Methods (PartnerID, Prt_Shipping_Methods)
+VALUES
+(4, N'Tiêu chuẩn'),
+(4, N'Đồng giá')
+GO
+
+--- 16. BỔ SUNG BẢNG SHIPMENT (ShipmentID từ 8 đến 11)
+INSERT INTO Shipment (ShipmentID, ShipmentDate, ExpectedDeliveryDate, ActualDeliveryDate, ShippingFee, ShipmentStatus, ShipmentMethod, OrderID, PartnerID, EmployeeID)
+VALUES
+(8, '2026-06-25', '2026-06-27', '2026-06-27', 22000, N'Giao thành công', N'Tiêu chuẩn', 11, 1, 4),
+(9, '2026-06-26', '2026-06-28', '2026-06-28', 0, N'Giao thành công', N'Tiêu chuẩn', 12, 4, 4), -- Đối tác 4 giao
+(10, '2026-06-28', '2026-06-30', NULL, 45000, N'Chờ lấy hàng', N'Tiêu chuẩn', 13, 2, 4),
+(11, '2026-06-29', '2026-07-01', '2026-07-01', 18000, N'Giao thành công', N'Đồng giá', 15, 4, 4)
+GO
