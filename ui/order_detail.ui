@@ -10,43 +10,19 @@
     <height>953</height>
    </rect>
   </property>
-  <property name="font">
-   <font>
-    <pointsize>10</pointsize>
-   </font>
-  </property>
   <property name="windowTitle">
    <string>Đơn Hàng</string>
   </property>
   <property name="windowIcon">
    <iconset>
-<<<<<<< HEAD
-    <normaloff>C:/Users/Admin/Downloads/order-history.png</normaloff>C:/Users/Admin/Downloads/order-history.png</iconset>
-=======
     <normaloff>../resources/icons/order-history.png</normaloff>../resources/icons/order-history.png</iconset>
->>>>>>> giao-dien-1
   </property>
   <layout class="QVBoxLayout">
    <item>
     <widget class="QGroupBox" name="nhomDonHangThongTin">
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>180</height>
-      </size>
-     </property>
      <property name="title">
       <string>Thông tin đơn hàng</string>
      </property>
-<<<<<<< HEAD
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="1">
-       <widget class="QComboBox" name="cboKhachHang">
-        <property name="editable">
-         <bool>true</bool>
-        </property>
-       </widget>
-=======
      <layout class="QHBoxLayout" name="horizontalLayout" stretch="2,2">
       <item>
        <layout class="QFormLayout" name="formLayout">
@@ -113,62 +89,19 @@
          <widget class="QLineEdit" name="txtDiaChiGH"/>
         </item>
        </layout>
->>>>>>> giao-dien-1
       </item>
-      <item row="2" column="1">
-       <widget class="QDateEdit" name="txtNgayDatHang">
-        <property name="calendarPopup">
-         <bool>true</bool>
+      <item>
+       <spacer name="horizontalSpacer_6">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
         </property>
-       </widget>
-      </item>
-      <item row="3" column="0">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Địa Chỉ GH</string>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>412</width>
+          <height>20</height>
+         </size>
         </property>
-       </widget>
-      </item>
-      <item row="4" column="0">
-       <widget class="QLabel" name="lblStatus">
-        <property name="text">
-         <string>Trạng Thái</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QComboBox" name="cboNhanVien">
-        <property name="editable">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="lblOrderDate">
-        <property name="text">
-         <string>Ngày Đặt Hàng</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="lblCustomer">
-        <property name="text">
-         <string>Khách Hàng</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="lblEmployee">
-        <property name="text">
-         <string>Nhân Viên</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="1">
-       <widget class="QLineEdit" name="txtDiaChiGH"/>
-      </item>
-      <item row="4" column="1">
-       <widget class="QComboBox" name="cboTrangThai"/>
+       </spacer>
       </item>
      </layout>
     </widget>
@@ -256,12 +189,6 @@
    </item>
    <item>
     <widget class="QGroupBox" name="nhomThanhToan">
-     <property name="maximumSize">
-      <size>
-       <width>16777215</width>
-       <height>90</height>
-      </size>
-     </property>
      <property name="title">
       <string>Thanh Toán</string>
      </property>
@@ -308,12 +235,6 @@
    </item>
    <item>
     <widget class="QGroupBox" name="nhomVanChuyen">
-     <property name="maximumSize">
-      <size>
-       <width>16777215</width>
-       <height>130</height>
-      </size>
-     </property>
      <property name="title">
       <string>Vận chuyển</string>
      </property>
