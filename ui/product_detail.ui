@@ -6,17 +6,18 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>698</width>
+    <width>629</width>
     <height>602</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Sản phẩm</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../resources/icons/boxes.png</normaloff>../resources/icons/boxes.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
-   <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_2"/>
-   </item>
    <item>
     <widget class="QGroupBox" name="nhomInformation">
      <property name="title">
@@ -145,14 +146,14 @@
      <item>
       <widget class="QPushButton" name="btnCapNhatSP">
        <property name="text">
-        <string>Cập Nhật</string>
+        <string>Cập nhật</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="btnXoaSP">
        <property name="text">
-        <string>Xóa SP</string>
+        <string>Xóa sản phẩm</string>
        </property>
       </widget>
      </item>
@@ -161,7 +162,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>1</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="khungChiTiet">
       <attribute name="title">
@@ -255,27 +256,27 @@
         <widget class="QTableWidget" name="tblLichSuBan">
          <column>
           <property name="text">
-           <string>Mã Đơn</string>
+           <string>Mã đơn</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>Ngày Bán</string>
+           <string>Ngày bán</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>Khách Hàng</string>
+           <string>Khách hàng</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>Số Lượng</string>
+           <string>Số lượng</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>Thành Tiền</string>
+           <string>Thành tiền</string>
           </property>
          </column>
         </widget>
@@ -301,12 +302,12 @@
          </column>
          <column>
           <property name="text">
-           <string>Số Lượng</string>
+           <string>Số lượng</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>Ghi Chú</string>
+           <string>Ghi chú</string>
           </property>
          </column>
         </widget>

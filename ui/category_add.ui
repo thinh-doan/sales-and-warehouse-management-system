@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Danh mục</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../resources/icons/settings-sliders.png</normaloff>../resources/icons/settings-sliders.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -19,7 +23,7 @@
      <item row="0" column="0">
       <widget class="QLabel" name="labelID">
        <property name="text">
-        <string>Mã Danh Mục</string>
+        <string>Mã danh mục</string>
        </property>
       </widget>
      </item>
@@ -33,7 +37,7 @@
      <item row="1" column="0">
       <widget class="QLabel" name="labelName">
        <property name="text">
-        <string>Tên Danh Mục</string>
+        <string>Tên danh mục</string>
        </property>
       </widget>
      </item>
@@ -51,7 +55,7 @@
      <item row="0" column="0">
       <widget class="QLabel" name="labelCategory">
        <property name="text">
-        <string>Mô Tả</string>
+        <string>Mô tả</string>
        </property>
       </widget>
      </item>
@@ -80,14 +84,14 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="btnLuu">
+      <widget class="QPushButton" name="btnLuuDM">
        <property name="text">
         <string>Lưu</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btnHuy">
+      <widget class="QPushButton" name="btnHuyDM">
        <property name="text">
         <string>Hủy</string>
        </property>

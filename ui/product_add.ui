@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Thêm sản phẩm</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../resources/icons/square-plus.png</normaloff>../resources/icons/square-plus.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -100,10 +104,23 @@
        </property>
       </widget>
      </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Mô tả</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QLineEdit" name="txtMoTaSP"/>
+     </item>
     </layout>
    </item>
    <item>
     <layout class="QHBoxLayout">
+     <property name="topMargin">
+      <number>11</number>
+     </property>
      <item>
       <spacer name="horizontalSpacer">
        <property name="orientation">
@@ -111,21 +128,21 @@
        </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>13</width>
-         <height>13</height>
+         <width>5</width>
+         <height>5</height>
         </size>
        </property>
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="btnLuu">
+      <widget class="QPushButton" name="btnLuuSP">
        <property name="text">
         <string>Lưu</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btnHuy">
+      <widget class="QPushButton" name="btnHuySP">
        <property name="text">
         <string>Hủy</string>
        </property>
