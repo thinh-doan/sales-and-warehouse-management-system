@@ -1362,7 +1362,7 @@ border-radius:8px;
           <item>
            <widget class="QPushButton" name="btnRefreshDM">
             <property name="text">
-             <string>Làm Mới</string>
+             <string>Làm mới</string>
             </property>
            </widget>
           </item>
@@ -2469,11 +2469,7 @@ font-weight:bold;</string>
      <x>0</x>
      <y>0</y>
      <width>1068</width>
-<<<<<<< HEAD
-     <height>26</height>
-=======
      <height>23</height>
->>>>>>> giao-dien-1
     </rect>
    </property>
   </widget>
