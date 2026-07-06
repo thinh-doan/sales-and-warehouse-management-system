@@ -44,7 +44,7 @@ ALTER TABLE Payment ADD CONSTRAINT pk_Payments PRIMARY KEY (PaymentID)
 ALTER TABLE Delivery_Partner ADD CONSTRAINT pk_Delivery_Partner PRIMARY KEY (PartnerID)
 
 ---RÀNG BUỘC KHÓA CHÍNH CHO BẢNG PRT_SHIPPING_METHODS
-ALTER TABLE Prt_Shipping_Methods ADD CONSTRAINT pk_Prt_Shipping_Methods PRIMARY KEY(PartnerID, Prt_Shipping_Methods)
+ALTER TABLE Prt_Shipping_Methods ADD CONSTRAINT pk_Prt_Shipping_Methods PRIMARY KEY(PartnerID, ShippingMethodName)
 
 ---RÀNG BUỘC KHÓA CHÍNH CHO BẢNG SHIPMENT
 ALTER TABLE Shipment ADD CONSTRAINT pk_Shipment PRIMARY KEY (ShipmentID)

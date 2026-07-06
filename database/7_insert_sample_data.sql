@@ -1,32 +1,32 @@
 ---NHẬP DỮ LIỆU BẢNG Customer
-INSERT INTO Customer (CustomerID, CusPhone, CusEmail, CusAddress, CusCreatedDate, CusType)
+INSERT INTO Customer (CustomerID, CusName, CusPhone, CusEmail, CusAddress, CusCreatedDate, CusType)
 VALUES
-(1, '0901000001', 'khach1@gmail.com', N'Quận 1, TP.HCM', '2026-06-01', N'Cá nhân'),
-(2, '0901000002', 'khach2@gmail.com', N'Quận 3, TP.HCM', '2026-06-02', N'Cá nhân'),
-(3, '0901000003', 'khach3@gmail.com', N'Quận 7, TP.HCM', '2026-06-03', N'Cá nhân'),
-(4, '0901000004', 'khach4@gmail.com', N'Thủ Đức, TP.HCM', '2026-06-04', N'Cá nhân'),
-(5, '0901000005', 'khach5@gmail.com', N'Bình Tân, TP.HCM', '2026-06-05', N'Cá nhân'),
-(6, '0902000001', 'ctyminhphat@gmail.com', N'Tân Bình, TP.HCM', '2026-06-06', N'Doanh nghiệp'),
-(7, '0902000002', 'ctyanphu@gmail.com', N'Gò Vấp, TP.HCM', '2026-06-07', N'Doanh nghiệp'),
-(8, '0902000003', 'ctygiahung@gmail.com', N'Quận 10, TP.HCM', '2026-06-08', N'Doanh nghiệp');
+(1, N'Nguyễn Văn An', '0901000001', 'khach1@gmail.com', N'Quận 1, TP.HCM', '2026-06-01', N'Cá nhân'),
+(2, N'Lê Thị Bình', '0901000002', 'khach2@gmail.com', N'Quận 3, TP.HCM', '2026-06-02', N'Cá nhân'),
+(3, N'Trần Minh Khang', '0901000003', 'khach3@gmail.com', N'Quận 7, TP.HCM', '2026-06-03', N'Cá nhân'),
+(4, N'Phạm Hoàng Nam', '0901000004', 'khach4@gmail.com', N'Thủ Đức, TP.HCM', '2026-06-04', N'Cá nhân'),
+(5, N'Võ Ngọc Lan', '0901000005', 'khach5@gmail.com', N'Bình Tân, TP.HCM', '2026-06-05', N'Cá nhân'),
+(6, N'Công ty Minh Phát', '0902000001', 'ctyminhphat@gmail.com', N'Tân Bình, TP.HCM', '2026-06-06', N'Doanh nghiệp'),
+(7, N'Công ty An Phú', '0902000002', 'ctyanphu@gmail.com', N'Gò Vấp, TP.HCM', '2026-06-07', N'Doanh nghiệp'),
+(8, N'Công ty Gia Hưng', '0902000003', 'ctygiahung@gmail.com', N'Quận 10, TP.HCM', '2026-06-08', N'Doanh nghiệp');
 GO
 
 ---NHẬP DỮ LIỆU BẢNG Individual_Customer
-INSERT INTO Individual_Customer (ICustomerID, FullName, CusDateOfBirth)
+INSERT INTO Individual_Customer (ICustomerID, Gender, CusDateOfBirth)
 VALUES
-(1, N'Nguyễn Văn An', '1998-03-12'),
-(2, N'Lê Thị Bình', '1999-07-20'),
-(3, N'Trần Minh Khang', '1995-11-05'),
-(4, N'Phạm Hoàng Nam', '2000-01-15'),
-(5, N'Võ Ngọc Lan', '1997-09-22');
+(1, N'Nam', '1998-03-12'),
+(2, N'Nữ', '1999-07-20'),
+(3, N'Nam', '1995-11-05'),
+(4, N'Nam', '2000-01-15'),
+(5, N'Nữ', '1997-09-22');
 GO
 
 ---NHẬP DỮ LIỆU BẢNG Business_Customer
-INSERT INTO Business_Customer (BCustomerID, CompanyName, TaxCode)
+INSERT INTO Business_Customer (BCustomerID, TaxCode)
 VALUES
-(6, N'Công ty Minh Phát', '0310000001'),
-(7, N'Công ty An Phú', '0310000002'),
-(8, N'Công ty Gia Hưng', '0310000003');
+(6, '0310000001'),
+(7, '0310000002'),
+(8, '0310000003');
 GO
 
 ---NHẬP DỮ LIỆU BẢNG Category
