@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>544</width>
-    <height>579</height>
+    <width>597</width>
+    <height>673</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -94,6 +94,19 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
       <widget class="QPushButton" name="btnCapNhatDT">
        <property name="text">
         <string>Cập nhật</string>
@@ -114,7 +127,7 @@
      <property name="currentIndex">
       <number>1</number>
      </property>
-     <widget class="QWidget" name="tab">
+     <widget class="QWidget" name="tabTongQuanDT">
       <attribute name="title">
        <string>Tổng Quan</string>
       </attribute>
@@ -191,7 +204,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tab_2">
+     <widget class="QWidget" name="tabLichSuGiaoHang">
       <attribute name="title">
        <string>Lịch Sử Giao Hàng</string>
       </attribute>

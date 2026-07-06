@@ -12,7 +12,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_EmployeeDetailDialog(object):
     def setupUi(self, EmployeeDetailDialog):
         EmployeeDetailDialog.setObjectName("EmployeeDetailDialog")
-        EmployeeDetailDialog.resize(1041, 753)
+        EmployeeDetailDialog.resize(692, 753)
         font = QtGui.QFont()
         font.setPointSize(10)
         EmployeeDetailDialog.setFont(font)
@@ -105,9 +105,9 @@ class Ui_EmployeeDetailDialog(object):
         self.label = QtWidgets.QLabel(parent=EmployeeDetailDialog)
         self.label.setObjectName("label")
         self.verticalLayout.addWidget(self.label)
-        self.tableView = QtWidgets.QTableView(parent=EmployeeDetailDialog)
-        self.tableView.setObjectName("tableView")
-        self.verticalLayout.addWidget(self.tableView)
+        self.tblHoatDongNV = QtWidgets.QTableView(parent=EmployeeDetailDialog)
+        self.tblHoatDongNV.setObjectName("tblHoatDongNV")
+        self.verticalLayout.addWidget(self.tblHoatDongNV)
         self.hboxlayout = QtWidgets.QHBoxLayout()
         self.hboxlayout.setObjectName("hboxlayout")
         spacerItem1 = QtWidgets.QSpacerItem(0, 0, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)

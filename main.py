@@ -3,10 +3,8 @@ from PyQt6.QtWidgets import QApplication, QMainWindow
 
 from modules.main_window import Ui_phanTuChinhWindow
 from modules.report.report import ReportPageController
-# Import thêm EmployeePageController (bạn hãy sửa lại đường dẫn module cho đúng với project của mình)
-from modules.employee.employee import EmployeePageController 
-
-
+from modules.employee.employee import EmployeePageController
+from modules.partner.partner import PartnerPageController
 class MainWindow(QMainWindow, Ui_phanTuChinhWindow):
     def __init__(self):
         super().__init__()
@@ -15,6 +13,7 @@ class MainWindow(QMainWindow, Ui_phanTuChinhWindow):
         # 1. Khởi tạo các Controller quản lý từng trang 
         # Khi khởi tạo, các Controller này sẽ tự kết nối nút bấm và tự chuyển trang thông qua hàm __init__ của chúng
         self.employee_controller = EmployeePageController(self)
+        self.partner_controller = PartnerPageController(self)
         self.report_controller = ReportPageController(self)
         
         # 2. Kết nối nút bấm cho những trang chưa có Controller riêng (nếu có)

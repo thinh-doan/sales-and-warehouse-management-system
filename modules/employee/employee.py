@@ -1,7 +1,7 @@
 import pyodbc
 from datetime import date
 
-from PyQt6 import QtCore, QtWidgets
+from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtWidgets import QAbstractItemView, QDialog, QMessageBox, QTableWidgetItem
 
 from connect import Database
@@ -36,18 +36,17 @@ class EmployeeFormDialog(QDialog, Ui_EmployeeFormDialog):
         departments = [
             "Quản trị",
             "Kinh doanh",
+            "Quản lý sản phẩm",
             "Kho vận",
-            "Giao hàng",
             "Kế toán",
-            "Chăm sóc khách hàng",
         ]
         positions = [
             "Quản lý hệ thống",
-            "Nhân viên xử lý đơn hàng",
+            "Nhân viên bán hàng",
+            "Nhân viên quản lý sản phẩm",
             "Nhân viên kho",
             "Điều phối giao hàng",
             "Kế toán thanh toán",
-            "Nhân viên CSKH",
         ]
 
         self.cbbPhongBan.clear()
@@ -145,16 +144,15 @@ class EmployeeDetailDialog(QDialog, Ui_EmployeeDetailDialog):
         super().__init__(parent)
         self.setupUi(self)
         self.employee = employee
-        self.action_requested = None  # Cờ để lưu hành động tiếp theo ("update" hoặc "delete")
-        
+        self.action_requested = None
+
         self.btnDongNV.clicked.connect(self.close)
-        
-        # Kết nối sự kiện cho 2 nút mới
         self.btnCapNhatNV.clicked.connect(self._request_update)
         self.btnXoaNV.clicked.connect(self._request_delete)
-        
+
         if employee:
             self._fill_detail(employee)
+            self._load_activity_table(employee[0])
 
     def _fill_detail(self, employee):
         self.txtMaNV.setText(str(employee[0]))
@@ -169,13 +167,51 @@ class EmployeeDetailDialog(QDialog, Ui_EmployeeDetailDialog):
         if isinstance(employee[8], date):
             self.txtNgayTuyenDung.setDate(QtCore.QDate(employee[8].year, employee[8].month, employee[8].day))
 
+    def _load_activity_table(self, employee_id):
+        db = Database()
+        try:
+            self.tableView.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
+            self.tableView.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectionBehavior.SelectRows)
+            self.tableView.setSelectionMode(QtWidgets.QAbstractItemView.SelectionMode.SingleSelection)
+            self.tableView.setAlternatingRowColors(True)
+            self.tableView.setColumnCount(4)
+            self.tableView.setHorizontalHeaderLabels(["Loại hoạt động", "Mã liên quan", "Ngày", "Chi tiết"])
+
+            query = """
+                SELECT 'Đơn hàng' AS LoaiHoatDong, CAST(o.OrderID AS VARCHAR) AS MaLienQuan,
+                       CAST(o.OrderDate AS DATE) AS Ngay,
+                       CONCAT('Tổng tiền: ', FORMAT(o.TotalAmount, 'N0')) AS ChiTiet
+                FROM [Order] o
+                WHERE o.EmployeeID = ?
+                UNION ALL
+                SELECT 'Giao hàng' AS LoaiHoatDong, CAST(s.ShipmentID AS VARCHAR) AS MaLienQuan,
+                       CAST(s.ShipmentDate AS DATE) AS Ngay,
+                       CONCAT('Trạng thái: ', s.ShipmentStatus) AS ChiTiet
+                FROM Shipment s
+                WHERE s.EmployeeID = ?
+                ORDER BY Ngay DESC
+            """
+            cursor = db.execute(query, (employee_id, employee_id))
+            rows = cursor.fetchall()
+
+            self.tableView.setRowCount(len(rows))
+            for row_idx, row in enumerate(rows):
+                for col_idx, value in enumerate(row):
+                    item = QTableWidgetItem(str(value) if value is not None else "")
+                    self.tableView.setItem(row_idx, col_idx, item)
+            self.tableView.resizeColumnsToContents()
+        except Exception as exc:
+            QMessageBox.warning(self, "Thông báo", f"Không thể tải hoạt động nhân viên.\n{exc}")
+        finally:
+            db.close()
+
     def _request_update(self):
         self.action_requested = "update"
-        self.accept()  # Đóng dialog và trả về QDialog.DialogCode.Accepted
+        self.accept()
 
     def _request_delete(self):
         self.action_requested = "delete"
-        self.accept()  # Đóng dialog và trả về QDialog.DialogCode.Accepted
+        self.accept()
 
 class EmployeePageController:
     def __init__(self, window):
@@ -202,13 +238,13 @@ class EmployeePageController:
 
     def _create_db(self):
         return Database()
-
+ 
     def _build_position_filter(self, position_text):
         if not position_text or position_text == "Tất cả":
             return None
         mapping = {
-            "Nv bán hàng": "Nhân viên xử lý đơn hàng",
-            "Nv quản lý sản phẩm": "Quản lý hệ thống",
+            "Nv bán hàng": "Nhân viên bán hàng",
+            "Nv quản lý sản phẩm": "Nhân viên quản lý sản phẩm",
             "Nv kế toán": "Kế toán thanh toán",
             "Nv kho": "Nhân viên kho",
         }
