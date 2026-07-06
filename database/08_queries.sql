@@ -18,7 +18,7 @@ GO
 
 /* 2. Nhân viên chăm sóc khách hàng cần liệt kê danh sách khách hàng cá nhân để phục vụ chăm sóc khách hàng.
    Thông tin gồm: CustomerID, FullName, CusDateOfBirth, CusPhone, CusEmail, CusAddress. */
-SELECT c.CustomerID, i.FullName, i.CusDateOfBirth, c.CusPhone, c.CusEmail, c.CusAddress
+SELECT c.CustomerID, c.CusName, i.CusDateOfBirth, c.CusPhone, c.CusEmail, c.CusAddress
 FROM Customer c JOIN Individual_Customer i ON c.CustomerID = i.ICustomerID;
 GO
 

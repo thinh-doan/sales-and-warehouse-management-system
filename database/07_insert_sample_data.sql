@@ -100,12 +100,11 @@ GO
 INSERT INTO [Role] (RoleID, RoleName, RoleDescription)
 VALUES
 (1, N'Quản trị hệ thống', N'Quản lý toàn bộ hệ thống'),
-(2, N'Nhân viên xử lý đơn hàng', N'Tạo và cập nhật đơn hàng'),
-(3, N'Nhân viên kho', N'Quản lý sản phẩm và tồn kho'),
-(4, N'Nhân viên điều phối giao hàng', N'Tạo và theo dõi shipment'),
-(5, N'Kế toán', N'Quản lý thanh toán'),
-(6, N'Chăm sóc khách hàng', N'Tra cứu đơn hàng và hỗ trợ khách hàng');
+(2, N'Nhân viên bán hàng', N'Tạo thông tin khách hàng, Tạo đơn hàng'),
+(3, N'Nhân viên kho', N'Cập nhật tồn kho khi nhập kho, Đóng gói hàng, Thêm đối tác vận chuyển'),
+(4, N'Kế toán', N'Quản lý thanh toán')
 GO
+
 
 ---NHẬP DỮ LIỆU BẢNG Account
 INSERT INTO Account (AccountID, Username, PasswordHash, AccountStatus, EmployeeID, RoleID)
@@ -323,7 +322,7 @@ VALUES
 GO
 
 --- 15. BỔ SUNG BẢNG PRT_SHIPPING_METHODS (Thêm phương thức cho đối tác mới)
-INSERT INTO Prt_Shipping_Methods (PartnerID, Prt_Shipping_Methods)
+INSERT INTO Prt_Shipping_Methods (PartnerID, [ShippingMethodName])
 VALUES
 (4, N'Tiêu chuẩn'),
 (4, N'Đồng giá')
