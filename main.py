@@ -1,61 +1,75 @@
 import sys
+
 from PyQt6.QtWidgets import QApplication, QMainWindow
 
-# Import các giao diện từ các module của bạn
-from modules.main_window import Ui_phanTuChinhWindow
-from modules.report.report import ReportPageController
+from modules.Authentification.login import LoginDialog
+from modules.Authentification.role import RolePermissionManager
 from modules.employee.employee import EmployeePageController
+from modules.main_window import Ui_phanTuChinhWindow
 from modules.partner.partner import PartnerPageController
-
-# Import LoginDialog từ file login vừa tách ở trên
-from modules.Authentification.login import LoginDialog 
+from modules.report.report import ReportPageController
 
 
 class MainWindow(QMainWindow, Ui_phanTuChinhWindow):
     def __init__(self, user_info=None):
         super().__init__()
         self.setupUi(self)
-        self.current_user = user_info # Lưu thông tin user để phân quyền nếu cần
+        self.current_user = user_info or {}
+        self.permission_manager = RolePermissionManager()
 
-        # 1. Khởi tạo các Controller quản lý từng trang 
+        self._connect_navigation()
+
+        # Các controller hiện có vẫn được khởi tạo như trước.
         self.employee_controller = EmployeePageController(self)
         self.partner_controller = PartnerPageController(self)
         self.report_controller = ReportPageController(self)
-        
-        # 2. Kết nối nút bấm chuyển trang
-        self.btnBaoCao.clicked.connect(self.show_report_page)
+
+        self.current_role_key = self.permission_manager.apply(self, self.current_user)
+        self._show_default_page()
+
+    def _connect_navigation(self):
+        self.btnTongQuan.clicked.connect(lambda: self._show_page(self.pageTongQuan))
+        self.btnDonhang.clicked.connect(lambda: self._show_page(self.pageDonHang))
+        self.btnKhachHang.clicked.connect(lambda: self._show_page(self.pageKhachHang))
+        self.btnSanPham.clicked.connect(lambda: self._show_page(self.pageSanPham))
+        self.btnDanhMuc.clicked.connect(lambda: self._show_page(self.pageDanhMuc))
+        self.btnTonKho.clicked.connect(lambda: self._show_page(self.pageTonKho))
+        self.btnThanhToan.clicked.connect(lambda: self._show_page(self.pageThanhToan))
+        self.btnVanChuyen.clicked.connect(lambda: self._show_page(self.pageVanChuyen))
+        self.btnBaoCao.clicked.connect(lambda: self._show_page(self.pageBaoCao))
+        self.btnDangXuat.clicked.connect(self.logout)
+
+    def _show_page(self, page_widget):
+        if page_widget is not None and page_widget.isEnabled():
+            self.khungChuyenTrangStacked.setCurrentWidget(page_widget)
+
+    def _show_default_page(self):
+        self._show_page(self.pageTongQuan)
 
     def show_report_page(self):
-        self.khungChuyenTrangStacked.setCurrentWidget(self.pageBaoCao)
+        self._show_page(self.pageBaoCao)
+
+    def logout(self):
+        QApplication.instance().quit()
 
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
 
-    # Đọc file giao diện CSS (QSS)
     try:
         with open("resources/styles.qss", "r", encoding="utf-8") as f:
             app.setStyleSheet(f.read())
     except FileNotFoundError:
         print("Cảnh báo: Không tìm thấy file styles.qss")
 
-    # BƯỚC 1: Khởi chạy cửa sổ đăng nhập trước
     login_dialog = LoginDialog()
-    
-    # exec() giúp biến login thành cửa sổ ưu tiên, chặn code chạy tiếp cho đến khi có kết quả
     if login_dialog.exec() == LoginDialog.DialogCode.Accepted:
-        
-        # BƯỚC 2: Đăng nhập thành công -> Lấy thông tin user
         user_data = login_dialog.get_user_info()
-        print(f"Chào mừng {user_data['employee_name']} đăng nhập thành công!")
-        
-        # BƯỚC 3: Mở cửa sổ chính và truyền data user vào
+        print(f"Chào mừng {user_data.get('employee_name', 'người dùng')} đăng nhập thành công!")
+
         window = MainWindow(user_info=user_data)
         window.show()
-        
-        # Duy trì ứng dụng chạy
         sys.exit(app.exec())
-    else:
-        # Người dùng tắt form login hoặc bấm Thoát
-        print("Ứng dụng kết thúc do hủy đăng nhập.")
-        sys.exit(0)
+
+    print("Ứng dụng kết thúc do hủy đăng nhập.")
+    sys.exit(0)

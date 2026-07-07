@@ -1,5 +1,4 @@
 import hashlib
-import pyodbc
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtWidgets import QDialog, QMessageBox
 
@@ -54,7 +53,7 @@ class LoginDialog(QDialog, Ui_LoginDialog):
             query = """
             SELECT 
                 a.AccountID, a.Username, a.PasswordHash, a.AccountStatus,
-                a.EmployeeID, a.RoleID, e.EmpName, r.RoleName
+                a.EmployeeID, a.RoleID, e.EmpName, e.Department, e.Position, r.RoleName
             FROM Account a
             INNER JOIN Employee e ON a.EmployeeID = e.EmployeeID
             INNER JOIN Role r ON a.RoleID = r.RoleID
@@ -67,7 +66,7 @@ class LoginDialog(QDialog, Ui_LoginDialog):
             if row is None:
                 return None
             
-            account_id, db_username, password_hash, status, emp_id, role_id, emp_name, role_name = row
+            account_id, db_username, password_hash, status, emp_id, role_id, emp_name, department, position, role_name = row
             
             if status != "Đang hoạt động":
                 QMessageBox.warning(self, "Cảnh báo", "Tài khoản của bạn đang bị khóa!")
@@ -81,6 +80,8 @@ class LoginDialog(QDialog, Ui_LoginDialog):
                 "username": db_username,
                 "employee_id": emp_id,
                 "employee_name": emp_name,
+                "department": department,
+                "position": position,
                 "role_id": role_id,
                 "role_name": role_name,
                 "status": status
@@ -92,13 +93,16 @@ class LoginDialog(QDialog, Ui_LoginDialog):
     
 
     def _verify_password(self, password: str, password_hash: str) -> bool:
-    # So sánh trực tiếp không qua mã hóa hóa SHA-256 nữa
-        return password == password_hash
+        """Xác thực mật khẩu theo dữ liệu hiện có trong database."""
+        if password_hash is None:
+            return False
 
-    # def _verify_password(self, password: str, password_hash: str) -> bool:
-    #     """Mã hóa và kiểm tra mật khẩu"""
-    #     password_hash_input = hashlib.sha256(password.encode()).hexdigest()
-    #     return password_hash_input == password_hash or password_hash == f"hash_{password.lower()}_123"
+        password_hash = str(password_hash).strip()
+        password = password.strip()
+        sha256_hash = hashlib.sha256(password.encode("utf-8")).hexdigest()
+        demo_hash = f"hash_{password.lower()}_123"
+
+        return password == password_hash or password_hash == sha256_hash or password_hash == demo_hash
     
     def get_user_info(self) -> dict:
         """Trả về thông tin user cho Main sử dụng nếu cần"""
