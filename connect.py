@@ -1,5 +1,6 @@
-# Kết nối với database  
+# Kết nối với database
 import pyodbc
+
 
 class Database:
     def __init__(self):

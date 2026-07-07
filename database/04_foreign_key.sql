@@ -78,4 +78,8 @@ FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)
 --RÀNG BUỘC KHÓA NGOẠI CHO BẢNG PRT_SHIPPING_METHODS
 ALTER TABLE Prt_Shipping_Methods
 ADD CONSTRAINT fk_Prt_Shipping_Methods
+<<<<<<< HEAD
 FOREIGN KEY (PartnerID) REFERENCES Delivery_Partner(PartnerID)
+=======
+FOREIGN KEY (PartnerID) REFERENCES Delivery_Partner(PartnerID)
+>>>>>>> origin/main

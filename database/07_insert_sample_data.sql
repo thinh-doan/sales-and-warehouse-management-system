@@ -10,11 +10,7 @@ VALUES
 (5, N'Võ Ngọc Lan', '0901000005', 'khach5@gmail.com', N'Bình Tân, TP.HCM', '2026-06-05', N'Cá nhân'),
 (6, N'Công ty Minh Phát', '0902000001', 'ctyminhphat@gmail.com', N'Tân Bình, TP.HCM', '2026-06-06', N'Doanh nghiệp'),
 (7, N'Công ty An Phú', '0902000002', 'ctyanphu@gmail.com', N'Gò Vấp, TP.HCM', '2026-06-07', N'Doanh nghiệp'),
-<<<<<<< HEAD:database/7_insert_sample_data.sql
-(8, N'Công ty Gia Hưng', '0902000003', 'ctygiahung@gmail.com', N'Quận 10, TP.HCM', '2026-06-08', N'Doanh nghiệp');
-=======
 (8, N'Công ty Gia Hưng', '0902000003', 'ctygiahung@gmail.com', N'Quận 10, TP.HCM', '2026-06-08', N'Doanh nghiệp')
->>>>>>> origin/main:database/07_insert_sample_data.sql
 GO
 
 ---NHẬP DỮ LIỆU BẢNG Individual_Customer
@@ -32,11 +28,7 @@ INSERT INTO Business_Customer (BCustomerID, TaxCode)
 VALUES
 (6, '0310000001'),
 (7, '0310000002'),
-<<<<<<< HEAD:database/7_insert_sample_data.sql
-(8, '0310000003');
-=======
 (8,'0310000003');
->>>>>>> origin/main:database/07_insert_sample_data.sql
 GO
 
 ---NHẬP DỮ LIỆU BẢNG Category

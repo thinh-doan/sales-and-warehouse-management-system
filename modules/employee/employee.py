@@ -216,9 +216,39 @@ class EmployeeDetailDialog(QDialog, Ui_EmployeeDetailDialog):
 class EmployeePageController:
     def __init__(self, window):
         self.window = window
+        self._ensure_core_page_controllers()
+        self._ensure_core_navigation()
         self._connect_signals()
         self._prepare_table()
         self.load_employee_table()
+
+    def _ensure_core_page_controllers(self):
+        if not hasattr(self.window, "category_controller"):
+            from modules.category.category import CategoryTabController
+
+            self.window.category_controller = CategoryTabController(self.window)
+
+        if not hasattr(self.window, "inventory_controller"):
+            from modules.inventory.inventory import InventoryTabController
+
+            self.window.inventory_controller = InventoryTabController(self.window)
+
+        if not hasattr(self.window, "payment_controller"):
+            from modules.payment.payment import PaymentTabController
+
+            self.window.payment_controller = PaymentTabController(self.window)
+
+    def _ensure_core_navigation(self):
+        mapping = [
+            ("btnDanhMuc", "pageDanhMuc"),
+            ("btnTonKho", "pageTonKho"),
+            ("btnThanhToan", "pageThanhToan"),
+        ]
+        for button_name, page_name in mapping:
+            if hasattr(self.window, button_name) and hasattr(self.window, page_name):
+                button = getattr(self.window, button_name)
+                page = getattr(self.window, page_name)
+                button.clicked.connect(lambda _=False, p=page: self.window.khungChuyenTrangStacked.setCurrentWidget(p))
 
     def _connect_signals(self):
         self.window.btnNhanVien.clicked.connect(self.show_employee_page)

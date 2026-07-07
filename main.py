@@ -68,9 +68,13 @@ if __name__ == "__main__":
         user_data = login_dialog.get_user_info()
         print(f"Chào mừng {user_data.get('employee_name', 'người dùng')} đăng nhập thành công!")
 
+<<<<<<< HEAD
         window = MainWindow(user_info=user_data)
         window.show()
         sys.exit(app.exec())
 
     print("Ứng dụng kết thúc do hủy đăng nhập.")
     sys.exit(0)
+=======
+    sys.exit(app.exec())
+>>>>>>> xu-ly

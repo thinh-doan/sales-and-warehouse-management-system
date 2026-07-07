@@ -161,4 +161,3 @@ create table Shipment
 	OrderID int not null,
 	PartnerID int not null,
 	EmployeeID int not null
-)
