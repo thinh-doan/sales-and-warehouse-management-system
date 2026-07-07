@@ -6,13 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4dcf29f2-04e0-4b8e-988e-3bfd98a5d0d8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/sales_warehouse.db" beforeDir="false" afterPath="$PROJECT_DIR$/database/sales_warehouse.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/category/category_handler.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/inventory/inventory_handler.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/main/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/main/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/main/main_controller.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/payment/payment_handler.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/main_app.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
