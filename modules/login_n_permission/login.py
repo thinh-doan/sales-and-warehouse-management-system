@@ -3,7 +3,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtWidgets import QDialog, QMessageBox
 
 from connect import Database
-from modules.Authentification.login_ui import Ui_LoginDialog
+from modules.login_n_permission.login_ui import Ui_LoginDialog
 
 class LoginDialog(QDialog, Ui_LoginDialog):
     """Dialog xử lý logic đăng nhập và xác thực"""

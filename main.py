@@ -2,8 +2,9 @@ import sys
 
 from PyQt6.QtWidgets import QApplication, QMainWindow
 
-from modules.Authentification.login import LoginDialog
-from modules.Authentification.role import RolePermissionManager
+from modules.login_n_permission.role import RolePermissionManager
+from modules.login_n_permission.login import LoginDialog
+
 from modules.employee.employee import EmployeePageController
 from modules.main_window import Ui_phanTuChinhWindow
 from modules.partner.partner import PartnerPageController

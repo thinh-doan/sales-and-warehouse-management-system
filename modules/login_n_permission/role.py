@@ -84,6 +84,7 @@ ROLE_POLICIES = {
         view_only_pages=("pageTongQuan", "pageTonKho", "pageDoiTacVC", "pageNhanVien", "pageBaoCao"),
         blocked_pages=("pageDonHang", "pageKhachHang", "pageThanhToan", "pageVanChuyen"),
     ),
+
     "warehouse": RolePolicy(
         visible_sidebar_buttons=(
             "btnTongQuan",
@@ -91,12 +92,28 @@ ROLE_POLICIES = {
             "btnSanPham",
             "btnTonKho",
             "btnVanChuyen",
+            "btnDoiTac",
             "btnDangXuat",
         ),
-        managed_pages=("pageTonKho", "pageVanChuyen"),
-        view_only_pages=("pageTongQuan", "pageDonHang", "pageSanPham"),
-        blocked_pages=("pageKhachHang", "pageDanhMuc", "pageThanhToan", "pageDoiTacVC", "pageNhanVien", "pageBaoCao"),
+        managed_pages=(
+            "pageTonKho",
+            "pageVanChuyen",
+            "pageDoiTacVC",
+        ),
+        view_only_pages=(
+            "pageTongQuan",
+            "pageDonHang",
+            "pageSanPham",
+        ),
+        blocked_pages=(
+            "pageKhachHang",
+            "pageDanhMuc",
+            "pageThanhToan",
+            "pageNhanVien",
+            "pageBaoCao",
+        ),
     ),
+
     "shipping": RolePolicy(
         visible_sidebar_buttons=("btnTongQuan", "btnDonhang", "btnVanChuyen", "btnDangXuat"),
         managed_pages=("pageVanChuyen",),
