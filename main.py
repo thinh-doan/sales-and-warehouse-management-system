@@ -8,7 +8,7 @@ from modules.employee.employee import EmployeePageController
 from modules.partner.partner import PartnerPageController
 
 # Import LoginDialog từ file login vừa tách ở trên
-from modules.login.login import LoginDialog 
+from modules.Authentification.login import LoginDialog 
 
 
 class MainWindow(QMainWindow, Ui_phanTuChinhWindow):

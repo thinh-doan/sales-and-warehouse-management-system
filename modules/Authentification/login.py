@@ -4,7 +4,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtWidgets import QDialog, QMessageBox
 
 from connect import Database
-from modules.login.login_ui import Ui_LoginDialog
+from modules.Authentification.login_ui import Ui_LoginDialog
 
 class LoginDialog(QDialog, Ui_LoginDialog):
     """Dialog xử lý logic đăng nhập và xác thực"""
@@ -90,10 +90,15 @@ class LoginDialog(QDialog, Ui_LoginDialog):
             print(f"Lỗi xác thực database: {e}")
             return None
     
+
     def _verify_password(self, password: str, password_hash: str) -> bool:
-        """Mã hóa và kiểm tra mật khẩu"""
-        password_hash_input = hashlib.sha256(password.encode()).hexdigest()
-        return password_hash_input == password_hash or password_hash == f"hash_{password.lower()}_123"
+    # So sánh trực tiếp không qua mã hóa hóa SHA-256 nữa
+        return password == password_hash
+
+    # def _verify_password(self, password: str, password_hash: str) -> bool:
+    #     """Mã hóa và kiểm tra mật khẩu"""
+    #     password_hash_input = hashlib.sha256(password.encode()).hexdigest()
+    #     return password_hash_input == password_hash or password_hash == f"hash_{password.lower()}_123"
     
     def get_user_info(self) -> dict:
         """Trả về thông tin user cho Main sử dụng nếu cần"""
