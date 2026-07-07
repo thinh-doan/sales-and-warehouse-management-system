@@ -98,12 +98,6 @@ VALUES
 (6, N'Đặng Ngọc Mai', N'Nữ', '1998-04-09', '0911000006', 'mai@company.com', N'Kinh doanh', N'Nhân viên bán hàng', '2024-07-01');
 GO
 
-delete from [Order_Detail]
-delete from Payment
-delete from [Order]
-delete from [Shipment]
-delete from Employee
-delete from Account
 
 ---NHẬP DỮ LIỆU BẢNG Role
 INSERT INTO [Role] (RoleID, RoleName, RoleDescription)

@@ -10,21 +10,22 @@ GO
    - Bảng Role được viết là [Role] để tránh lỗi cú pháp.
 ========================================================= */
 
+
 /* 1. Nhân viên chăm sóc khách hàng cần xem danh sách khách hàng trong hệ thống để hỗ trợ tra cứu thông tin liên hệ.
-   Thông tin gồm: CustomerID, CusPhone, CusEmail, CusAddress, CusType. */
-SELECT CustomerID, CusPhone, CusEmail, CusAddress, CusType
+   Thông tin gồm: CustomerID, CusName, CusPhone, CusEmail, CusAddress, CusType. */
+SELECT CustomerID, CusName, CusPhone, CusEmail, CusAddress, CusType
 FROM Customer;
 GO
 
 /* 2. Nhân viên chăm sóc khách hàng cần liệt kê danh sách khách hàng cá nhân để phục vụ chăm sóc khách hàng.
-   Thông tin gồm: CustomerID, FullName, CusDateOfBirth, CusPhone, CusEmail, CusAddress. */
+   Thông tin gồm: CustomerID, Cusname, CusDateOfBirth, CusPhone, CusEmail, CusAddress. */
 SELECT c.CustomerID, c.CusName, i.CusDateOfBirth, c.CusPhone, c.CusEmail, c.CusAddress
 FROM Customer c JOIN Individual_Customer i ON c.CustomerID = i.ICustomerID;
 GO
 
 /* 3. Nhân viên kinh doanh cần liệt kê danh sách khách hàng doanh nghiệp để phục vụ giao dịch số lượng lớn.
-   Thông tin gồm: CustomerID, CompanyName, TaxCode, CusPhone, CusEmail, CusAddress. */
-SELECT c.CustomerID, b.CompanyName, b.TaxCode, c.CusPhone, c.CusEmail, c.CusAddress
+   Thông tin gồm: CustomerID, CusName, TaxCode, CusPhone, CusEmail, CusAddress. */
+SELECT c.CustomerID, c.CusName, b.TaxCode, c.CusPhone, c.CusEmail, c.CusAddress
 FROM Customer c JOIN Business_Customer b ON c.CustomerID = b.BCustomerID;
 GO
 
@@ -39,14 +40,15 @@ GO
    Thông tin gồm: ProductID, ProductName, CategoryName, ProductUnitPrice, ProductStatus. */
 SELECT p.ProductID, p.ProductName, c.CategoryName, p.ProductUnitPrice, p.ProductStatus
 FROM Product p JOIN Category c ON p.CategoryID = c.CategoryID
-ORDER BY c.CategoryName, p.ProductName;
+ORDER BY c.CategoryName, p.ProductName
 GO
 
 /* 6. Nhân viên bán hàng cần liệt kê các sản phẩm có giá từ 1.000.000 trở lên để tư vấn nhóm hàng có giá trị cao.
    Thông tin gồm: ProductID, ProductName, ProductUnitPrice, ProductStatus. */
 SELECT ProductID, ProductName, ProductUnitPrice, ProductStatus
 FROM Product
-WHERE ProductUnitPrice >= 1000000;
+WHERE ProductUnitPrice >= 1000000
+ORDER BY ProductUnitPrice;
 GO
 
 /* 7. Nhân viên kho cần kiểm tra tồn kho của từng sản phẩm tại từng kho để phục vụ xử lý đơn hàng.
@@ -78,11 +80,11 @@ GO
 /* 10. Nhân viên kho cần phân loại tình trạng tồn kho của từng sản phẩm để ưu tiên nhập hàng.
    Thông tin gồm: ProductID, ProductName, TongTonKho, TinhTrangTonKho. */
 SELECT p.ProductID, p.ProductName, TongTonKho = SUM(i.QuantityInStock),
-       CASE
+       TinhTrangTonKho = CASE
            WHEN SUM(i.QuantityInStock) = 0 THEN N'Hết hàng'
            WHEN SUM(i.QuantityInStock) < 20 THEN N'Sắp hết'
            ELSE N'Còn hàng'
-       END AS TinhTrangTonKho
+       END
 FROM Product p JOIN Inventory i ON p.ProductID = i.ProductID
 GROUP BY p.ProductID, p.ProductName;
 GO
