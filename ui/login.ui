@@ -6,21 +6,44 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>488</width>
-    <height>291</height>
+    <width>581</width>
+    <height>346</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
-   <string>Đăng Nhập</string>
+   <string>đăng nhập</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>C:/Users/Admin/Downloads/entrance.png</normaloff>C:/Users/Admin/Downloads/entrance.png</iconset>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../resources/icons/entrance.png</normaloff>../resources/icons/entrance.png</iconset>
   </property>
   <property name="modal">
    <bool>true</bool>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout" stretch="1,3,1">
+  <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QLabel" name="lblTitle">
+    <widget class="QLabel" name="lblTitle_7">
+     <property name="styleSheet">
+      <string>
+font: 18pt &quot;Arial&quot;;
+font-weight:bold;
+color:white;
+background:#1976D2;
+padding:15px;
+border-radius:8px;
+       </string>
+     </property>
      <property name="text">
-      <string>HỆ THỐNG QUẢN LÝ CỬA HÀNG</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;HỆ THỐNG QUẢN LÝ CỬA HÀNG&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -29,8 +52,13 @@
    </item>
    <item>
     <widget class="QGroupBox" name="grpLogin">
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
      <property name="title">
-      <string>Thông Tin Đăng Nhập</string>
+      <string>Thông tin đăng nhập</string>
      </property>
      <layout class="QFormLayout" name="formLayout">
       <item row="0" column="0">
@@ -41,7 +69,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="txtUsername"/>
+       <widget class="QLineEdit" name="txtTenDangNhap"/>
       </item>
       <item row="1" column="0">
        <widget class="QLabel" name="lblPassword">
@@ -51,7 +79,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="txtPassword">
+       <widget class="QLineEdit" name="txtPMatKhau">
         <property name="echoMode">
          <enum>QLineEdit::Password</enum>
         </property>
@@ -61,7 +89,7 @@
     </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayoutButtons">
+    <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <spacer name="horizontalSpacer">
        <property name="orientation">
@@ -76,7 +104,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="btnLogin">
+      <widget class="QPushButton" name="btnDangNhap">
        <property name="minimumSize">
         <size>
          <width>90</width>
@@ -84,12 +112,12 @@
         </size>
        </property>
        <property name="text">
-        <string>Đăng Nhập</string>
+        <string>Đăng nhập</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btnExit">
+      <widget class="QPushButton" name="btnThoatDangNhap">
        <property name="minimumSize">
         <size>
          <width>90</width>
@@ -100,6 +128,19 @@
         <string>Thoát</string>
        </property>
       </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
      </item>
     </layout>
    </item>

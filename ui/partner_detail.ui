@@ -7,11 +7,15 @@
     <x>0</x>
     <y>0</y>
     <width>544</width>
-    <height>470</height>
+    <height>579</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Thông tin đối tác vận chuyển</string>
+   <string>Đối tác vận chuyển</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../resources/icons/people-network-partner.png</normaloff>../resources/icons/people-network-partner.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -23,12 +27,12 @@
       <item row="0" column="0">
        <widget class="QLabel" name="lblPartnerID">
         <property name="text">
-         <string>Mã Đối Tác</string>
+         <string>Mã đối tác</string>
         </property>
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="txtPartnerID">
+       <widget class="QLineEdit" name="txtMaDT">
         <property name="readOnly">
          <bool>true</bool>
         </property>
@@ -42,7 +46,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="txtPartnerName"/>
+       <widget class="QLineEdit" name="txtTenDT"/>
       </item>
       <item row="2" column="0">
        <widget class="QLabel" name="lblPhone">
@@ -52,7 +56,7 @@
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QLineEdit" name="txtPhone"/>
+       <widget class="QLineEdit" name="txtSDT_DT"/>
       </item>
       <item row="3" column="0">
        <widget class="QLabel" name="lblEmail">
@@ -62,7 +66,7 @@
        </widget>
       </item>
       <item row="3" column="1">
-       <widget class="QLineEdit" name="txtEmail"/>
+       <widget class="QLineEdit" name="txtEmail_DT"/>
       </item>
       <item row="4" column="0">
        <widget class="QLabel" name="lblAddress">
@@ -79,10 +83,10 @@
        </widget>
       </item>
       <item row="5" column="1">
-       <widget class="QLineEdit" name="txtContactPerson"/>
+       <widget class="QLineEdit" name="txtPhuongThucVC"/>
       </item>
       <item row="4" column="1">
-       <widget class="QTextEdit" name="textEdit"/>
+       <widget class="QTextEdit" name="txtDiaChiDT"/>
       </item>
      </layout>
     </widget>
@@ -90,27 +94,14 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <spacer name="horizontalSpacer_2">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="btnCapNhatDT">
        <property name="text">
-        <string>Cập Nhật</string>
+        <string>Cập nhật</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="btnXoaDT">
        <property name="text">
         <string>Xóa</string>
        </property>
@@ -131,12 +122,12 @@
        <item row="0" column="0">
         <widget class="QLabel" name="label">
          <property name="text">
-          <string>Tổng Số Đơn</string>
+          <string>Tổng số đơn</string>
          </property>
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QLabel" name="label_6">
+        <widget class="QLabel" name="lblTongSoDon">
          <property name="text">
           <string>0</string>
          </property>
@@ -145,12 +136,12 @@
        <item row="1" column="0">
         <widget class="QLabel" name="label_2">
          <property name="text">
-          <string>Đơn Thành Công</string>
+          <string>Đơn thành công</string>
          </property>
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QLabel" name="label_7">
+        <widget class="QLabel" name="lblDonThanhCong">
          <property name="text">
           <string>0</string>
          </property>
@@ -159,12 +150,12 @@
        <item row="2" column="0">
         <widget class="QLabel" name="label_3">
          <property name="text">
-          <string>Đơn Thất Bại</string>
+          <string>Đơn thất bại</string>
          </property>
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QLabel" name="label_8">
+        <widget class="QLabel" name="lblDonThatBai">
          <property name="text">
           <string>0</string>
          </property>
@@ -173,12 +164,12 @@
        <item row="3" column="0">
         <widget class="QLabel" name="label_4">
          <property name="text">
-          <string>Tỉ Lệ Thành Công</string>
+          <string>Tỉ lệ thành công</string>
          </property>
         </widget>
        </item>
        <item row="3" column="1">
-        <widget class="QLabel" name="label_9">
+        <widget class="QLabel" name="lblTiLeThanhCong">
          <property name="text">
           <string>0</string>
          </property>
@@ -187,12 +178,12 @@
        <item row="4" column="0">
         <widget class="QLabel" name="label_5">
          <property name="text">
-          <string>Tổng Phí Vận Chuyển</string>
+          <string>Tổng phí vận chuyển</string>
          </property>
         </widget>
        </item>
        <item row="4" column="1">
-        <widget class="QLabel" name="label_10">
+        <widget class="QLabel" name="lblTongPhiVC">
          <property name="text">
           <string>0</string>
          </property>
@@ -209,12 +200,12 @@
         <widget class="QTableWidget" name="tableWidget">
          <column>
           <property name="text">
-           <string>Mã Giao Hàng</string>
+           <string>Mã giao hàng</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>Mã Đơn Hàng</string>
+           <string>Mã đơn hàng</string>
           </property>
          </column>
          <column>
@@ -229,7 +220,7 @@
          </column>
          <column>
           <property name="text">
-           <string>Trạng Thái</string>
+           <string>Trạng thái</string>
           </property>
          </column>
         </widget>
@@ -248,13 +239,13 @@
        <property name="sizeHint" stdset="0">
         <size>
          <width>0</width>
-         <height>0</height>
+         <height>50</height>
         </size>
        </property>
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="btnCancel">
+      <widget class="QPushButton" name="btnCloseDT">
        <property name="text">
         <string>Đóng</string>
        </property>

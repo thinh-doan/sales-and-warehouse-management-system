@@ -6,12 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>474</width>
-    <height>524</height>
+    <width>1041</width>
+    <height>753</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
-   <string>Chi tiết nhân viên</string>
+   <string>Nhân viên</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../resources/icons/employee-man-alt.png</normaloff>../resources/icons/employee-man-alt.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -28,7 +37,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="txtEmployeeID">
+       <widget class="QLineEdit" name="txtMaNV">
         <property name="readOnly">
          <bool>true</bool>
         </property>
@@ -42,7 +51,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="txtEmployeeName">
+       <widget class="QLineEdit" name="txtHoTenNV">
         <property name="readOnly">
          <bool>true</bool>
         </property>
@@ -56,7 +65,7 @@
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QLineEdit" name="txtGender">
+       <widget class="QLineEdit" name="txtGioiTinhNV">
         <property name="readOnly">
          <bool>true</bool>
         </property>
@@ -70,9 +79,12 @@
        </widget>
       </item>
       <item row="3" column="1">
-       <widget class="QDateEdit" name="dtBirthDate">
+       <widget class="QDateEdit" name="txtNgaySinhNV">
         <property name="readOnly">
          <bool>true</bool>
+        </property>
+        <property name="displayFormat">
+         <string>d/M/yyyy</string>
         </property>
         <property name="calendarPopup">
          <bool>true</bool>
@@ -87,7 +99,7 @@
        </widget>
       </item>
       <item row="4" column="1">
-       <widget class="QLineEdit" name="txtPhone">
+       <widget class="QLineEdit" name="txtSDT_NV">
         <property name="readOnly">
          <bool>true</bool>
         </property>
@@ -101,7 +113,7 @@
        </widget>
       </item>
       <item row="5" column="1">
-       <widget class="QLineEdit" name="txtEmail">
+       <widget class="QLineEdit" name="txtEmailNV">
         <property name="readOnly">
          <bool>true</bool>
         </property>
@@ -115,7 +127,7 @@
        </widget>
       </item>
       <item row="6" column="1">
-       <widget class="QLineEdit" name="txtDepartment">
+       <widget class="QLineEdit" name="txtPhongBan">
         <property name="readOnly">
          <bool>true</bool>
         </property>
@@ -129,7 +141,7 @@
        </widget>
       </item>
       <item row="7" column="1">
-       <widget class="QLineEdit" name="txtPosition">
+       <widget class="QLineEdit" name="txtChucVu">
         <property name="readOnly">
          <bool>true</bool>
         </property>
@@ -143,9 +155,12 @@
        </widget>
       </item>
       <item row="8" column="1">
-       <widget class="QDateEdit" name="dtHireDate">
+       <widget class="QDateEdit" name="txtNgayTuyenDung">
         <property name="readOnly">
          <bool>true</bool>
+        </property>
+        <property name="displayFormat">
+         <string>d/M/yyyy</string>
         </property>
         <property name="calendarPopup">
          <bool>true</bool>
@@ -171,14 +186,14 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="btnCapNhatNV">
        <property name="text">
-        <string>Cập Nhật</string>
+        <string>Cập nhật</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="btnXoaNV">
        <property name="text">
         <string>Xóa</string>
        </property>
@@ -212,7 +227,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="btnClose">
+      <widget class="QPushButton" name="btnDongNV">
        <property name="text">
         <string>Đóng</string>
        </property>

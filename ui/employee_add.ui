@@ -6,12 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>379</width>
+    <width>650</width>
     <height>476</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
-   <string>Thông tin nhân viên</string>
+   <string>Nhân viên</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../resources/icons/employee-man-alt.png</normaloff>../resources/icons/employee-man-alt.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -28,7 +37,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="txtEmployeeID">
+       <widget class="QLineEdit" name="txtMaNV">
         <property name="readOnly">
          <bool>true</bool>
         </property>
@@ -42,7 +51,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="txtEmployeeName"/>
+       <widget class="QLineEdit" name="txtHoTenNV"/>
       </item>
       <item row="2" column="0">
        <widget class="QLabel" name="lblGender">
@@ -54,14 +63,20 @@
       <item row="2" column="1">
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <widget class="QRadioButton" name="radioButton">
+         <widget class="QRadioButton" name="rbNam">
+          <property name="maximumSize">
+           <size>
+            <width>100</width>
+            <height>16777215</height>
+           </size>
+          </property>
           <property name="text">
            <string>Nam</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QRadioButton" name="radioButton_2">
+         <widget class="QRadioButton" name="rbNu">
           <property name="text">
            <string>Nữ</string>
           </property>
@@ -77,7 +92,7 @@
        </widget>
       </item>
       <item row="3" column="1">
-       <widget class="QDateEdit" name="dtBirthDate">
+       <widget class="QDateEdit" name="lblNgaySinhNV">
         <property name="displayFormat">
          <string>d/M/yyyy</string>
         </property>
@@ -94,7 +109,7 @@
        </widget>
       </item>
       <item row="4" column="1">
-       <widget class="QLineEdit" name="txtPhone"/>
+       <widget class="QLineEdit" name="txtSDT_NV"/>
       </item>
       <item row="5" column="0">
        <widget class="QLabel" name="lblEmail">
@@ -104,7 +119,7 @@
        </widget>
       </item>
       <item row="5" column="1">
-       <widget class="QLineEdit" name="txtEmail"/>
+       <widget class="QLineEdit" name="txtEmail_NV"/>
       </item>
       <item row="6" column="0">
        <widget class="QLabel" name="lblDepartment">
@@ -114,11 +129,7 @@
        </widget>
       </item>
       <item row="6" column="1">
-       <widget class="QDateEdit" name="dtHireDate">
-        <property name="calendarPopup">
-         <bool>true</bool>
-        </property>
-       </widget>
+       <widget class="QComboBox" name="cbbPhongBan"/>
       </item>
       <item row="7" column="0">
        <widget class="QLabel" name="lblPosition">
@@ -128,27 +139,34 @@
        </widget>
       </item>
       <item row="7" column="1">
-       <widget class="QComboBox" name="cbDepartment"/>
+       <widget class="QComboBox" name="cbbChucVu"/>
       </item>
-      <item row="8" column="0">
+      <item row="9" column="0">
        <widget class="QLabel" name="lblHireDate">
         <property name="text">
          <string>Ngày tuyển dụng</string>
         </property>
        </widget>
       </item>
-      <item row="8" column="1">
-       <widget class="QComboBox" name="cbPosition"/>
+      <item row="9" column="1">
+       <widget class="QDateEdit" name="txtNgayTuyenDung">
+        <property name="displayFormat">
+         <string>d/M/yyyy</string>
+        </property>
+        <property name="calendarPopup">
+         <bool>true</bool>
+        </property>
+       </widget>
       </item>
-      <item row="9" column="0">
+      <item row="10" column="0">
        <widget class="QLabel" name="lblStatus">
         <property name="text">
          <string>Trạng thái</string>
         </property>
        </widget>
       </item>
-      <item row="9" column="1">
-       <widget class="QComboBox" name="cbEmployeeStatus">
+      <item row="10" column="1">
+       <widget class="QComboBox" name="cbbTrangThaiNV">
         <item>
          <property name="text">
           <string>Đang làm</string>
@@ -166,6 +184,12 @@
    </item>
    <item>
     <layout class="QHBoxLayout" name="buttonLayout">
+     <property name="topMargin">
+      <number>25</number>
+     </property>
+     <property name="bottomMargin">
+      <number>25</number>
+     </property>
      <item>
       <spacer name="horizontalSpacer">
        <property name="orientation">
@@ -180,14 +204,14 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="btnSave">
+      <widget class="QPushButton" name="btnLuuNV">
        <property name="text">
         <string>Lưu</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btnCancel">
+      <widget class="QPushButton" name="btnHuyNV">
        <property name="text">
         <string>Hủy</string>
        </property>

@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 # Kết nối với database
 import pyodbc
 
 
+=======
+# Kết nối với database  
+import pyodbc
+
+>>>>>>> origin/main
 class Database:
     def __init__(self):
         self.conn = pyodbc.connect(
@@ -28,4 +34,8 @@ class Database:
         self.conn.rollback()
 
     def close(self):
+<<<<<<< HEAD
         self.conn.close()
+=======
+        self.conn.close()
+>>>>>>> origin/main

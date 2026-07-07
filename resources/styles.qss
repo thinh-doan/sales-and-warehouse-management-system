@@ -1,0 +1,264 @@
+/* ==========================================================================
+   1. GLOBAL VARIABLES & BASE TYPOGRAPHY
+   ========================================================================== */
+QWidget {
+    font-family: "Segoe UI Variable", "Segoe UI", "SF Pro Display", "Inter", sans-serif;
+    color: #2b3a4a; /* Xám xanh đậm, đọc dịu mắt và sang hơn màu đen tuyền */
+    font-size: 13px;
+}
+
+/* Nền chung cho toàn bộ cửa sổ và Stacked Widget */
+QMainWindow, QStackedWidget, QDialog {
+    background-color: #E7E7E4;
+}
+
+/* ==========================================================================
+   2. SIDEBAR NAVIGATION (Dành riêng cho khung Sidebar)
+   ========================================================================== */
+QFrame#khungSidebar {
+    background-color: #ffffff;
+    border-right: 1px solid #CCCCCC;
+}
+
+/* Logo & Tên doanh nghiệp */
+QFrame#khungFrame {
+    border-bottom: 1px solid #E7E7E4;
+}
+QLabel#label {
+    color: #266AA6;
+    font-weight: bold;
+    font-size: 14px;
+}
+QLabel#label_2 {
+    color: #3375CC;
+    font-weight: 800;
+    font-size: 16px;
+}
+
+/* Các nút menu trong Sidebar */
+QFrame#khungSidebar QPushButton {
+    background-color: transparent;
+    color: #556677;
+    text-align: left;
+    padding: 10px 16px;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+}
+
+QFrame#khungSidebar QPushButton:hover {
+    background-color: #E7E7E4;
+    color: #3375CC;
+}
+
+QFrame#khungSidebar QPushButton:pressed,
+QFrame#khungSidebar QPushButton:checked {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #E7E7E4, stop:1 #ffffff);
+    color: #266AA6;
+    border-left: 4px solid #3375CC; /* Highlight vạch xanh bên trái khi chọn */
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   3. CARDS, GROUPBOX & STATS (Khung chứa hiện đại)
+   ========================================================================== */
+QGroupBox {
+    background-color: #ffffff;
+    border: 1px solid #CCCCCC;
+    border-radius: 10px;
+    margin-top: 22px;
+    padding-top: 18px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    left: 16px;
+    top: 10px; /* Đưa top về 0 để chữ không bị cắt chóp */
+    background-color: #FFFFFF;
+    color: #266AA6; 
+    border: 1px solid #CCCCCC;
+    border-radius: 6px;
+    padding: 4px 12px; /* Giảm padding một chút để nút tiêu đề thon gọn hơn */
+    font-weight: bold;
+    font-size: 13px;
+}
+
+/* Các thẻ KPI ở trang Dashboard */
+QFrame#frmTotalOrder, QFrame#frmRevenue, QFrame#frmCustomer, QFrame#frmProduct,
+QFrame#frmShipment, QFrame#frmCompleted, QFrame#frmLowStock, QFrame#frmPartner {
+    background-color: #ffffff;
+    border: 1px solid #CCCCCC;
+    border-radius: 10px;
+}
+
+QFrame#frmTotalOrder:hover, QFrame#frmRevenue:hover, QFrame#frmCustomer:hover, QFrame#frmProduct:hover {
+    border: 1px solid #4791D1;
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #ffffff, stop:1 #f0f6ff);
+}
+
+/* ==========================================================================
+   4. BUTTONS (Nút bấm phong cách Gradient cao cấp)
+   ========================================================================== */
+QPushButton {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #4791D1, stop:1 #3375CC);
+    color: #ffffff;
+    border: 1px solid #266AA6;
+    border-radius: 6px;
+    padding: 8px 18px;
+    font-weight: 600;
+}
+
+QPushButton:hover {
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #5ca0dc, stop:1 #4791D1);
+    border: 1px solid #3375CC;
+}
+
+QPushButton:pressed {
+    background-color: #266AA6;
+    border: 1px solid #1a4f80;
+    padding-top: 9px;
+    padding-left: 19px; /* Tạo hiệu ứng lún 3D thực tế */
+}
+
+QPushButton:disabled {
+    background-color: #CCCCCC;
+    border: 1px solid #bbbbbb;
+    color: #ffffff;
+}
+
+/* Nút Flat cho các Toolbar hoặc action phụ */
+QPushButton[flat="true"] {
+    background-color: transparent;
+    color: #3375CC;
+    border: 1px solid transparent;
+}
+
+QPushButton[flat="true"]:hover {
+    background-color: rgba(71, 145, 209, 0.1);
+    border: 1px solid #CCCCCC;
+    color: #266AA6;
+}
+
+/* ==========================================================================
+   5. INPUTS, COMBOBOX & DATEEDIT (Khung nhập liệu tinh tế)
+   ========================================================================== */
+QLineEdit, QSpinBox, QDoubleSpinBox, QDateEdit, QTimeEdit, QComboBox {
+    background-color: #ffffff;
+    border: 1px solid #CCCCCC;
+    border-radius: 6px;
+    padding: 7px 12px;
+    color: #2b3a4a;
+    selection-background-color: #4791D1;
+    selection-color: #ffffff;
+}
+
+QLineEdit:hover, QComboBox:hover, QDateEdit:hover {
+    border: 1px solid #4791D1;
+    background-color: #fafdff;
+}
+
+QLineEdit:focus, QComboBox:focus, QDateEdit:focus {
+    border: 2px solid #3375CC;
+    background-color: #ffffff;
+    padding: 6px 11px; /* Bù trừ viền dày 2px để không bị giật UI */
+}
+
+QComboBox {
+    border: 1px solid #CCCCCC;
+    border-radius: 6px;
+    padding: 6px, 11px;
+    
+}
+
+/* ==========================================================================
+   6. DATA TABLES (Bảng dữ liệu chuyên nghiệp)
+   ========================================================================== */
+QTableWidget, QTableView {
+    background-color: #ffffff;
+    border: 1px solid #CCCCCC;
+    border-radius: 8px;
+    gridline-color: #E7E7E4;
+    outline: none;
+    alternate-background-color: #fafbfc; /* Tạo sọc dưa siêu nhạt cho dễ đọc */
+}
+
+QTableWidget::item {
+    padding: 6px 10px;
+    border-bottom: 1px solid #E7E7E4;
+}
+
+QTableWidget::item:hover {
+    background-color: rgba(71, 145, 209, 0.08); /* Hover dòng nhạt */
+}
+
+QTableWidget::item:selected {
+    background-color: #3375CC;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Header Bảng */
+QHeaderView::section {
+    background-color: #E7E7E4;
+    color: #266AA6;
+    padding: 10px 12px;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
+    border: none;
+    border-bottom: 2px solid #266AA6; /* Điểm nhấn đường viền đậm dưới header */
+    border-right: 1px solid #CCCCCC;
+}
+
+QHeaderView::section:hover {
+    background-color: #d8d8d5;
+    color: #3375CC;
+}
+
+/* ==========================================================================
+   7. SCROLLBARS (Thanh cuộn tối giản phong cách macOS)
+   ========================================================================== */
+QScrollBar:vertical {
+    border: none;
+    background: transparent;
+    width: 8px;
+    margin: 2px;
+}
+
+QScrollBar::handle:vertical {
+    background-color: #CCCCCC;
+    min-height: 35px;
+    border-radius: 4px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background-color: #4791D1;
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px;
+}
+
+QScrollBar:horizontal {
+    border: none;
+    background: transparent;
+    height: 8px;
+    margin: 2px;
+}
+
+QScrollBar::handle:horizontal {
+    background-color: #CCCCCC;
+    min-width: 35px;
+    border-radius: 4px;
+}
+
+QScrollBar::handle:horizontal:hover {
+    background-color: #4791D1;
+}
+
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
+    width: 0px;
+}

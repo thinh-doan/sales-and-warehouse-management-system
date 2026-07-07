@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Thông tin chi tiết thanh toán</string>
+   <string>Thanh toán</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../resources/icons/payroll-check.png</normaloff>../resources/icons/payroll-check.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="mainVerticalLayout">
    <item>
@@ -194,12 +198,12 @@
      <item>
       <widget class="QPushButton" name="btnXacNhanTT">
        <property name="text">
-        <string>Xác Nhận Thanh Toán</string>
+        <string>Xác nhận thanh toán</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btnClose">
+      <widget class="QPushButton" name="btnCloseTT">
        <property name="text">
         <string>Đóng</string>
        </property>

@@ -6,12 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>337</width>
-    <height>372</height>
+    <width>495</width>
+    <height>420</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Thông tin đối tác vận chuyển</string>
+   <string>Đối tác vận chuyển</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../resources/icons/square-plus.png</normaloff>../resources/icons/square-plus.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -23,12 +27,12 @@
       <item row="0" column="0">
        <widget class="QLabel" name="lblPartnerID">
         <property name="text">
-         <string>Mã Đối Tác</string>
+         <string>Mã đối tác</string>
         </property>
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="txtPartnerID">
+       <widget class="QLineEdit" name="txtMaDT">
         <property name="readOnly">
          <bool>true</bool>
         </property>
@@ -37,12 +41,12 @@
       <item row="1" column="0">
        <widget class="QLabel" name="lblPartnerName">
         <property name="text">
-         <string>Tên Đối Tác</string>
+         <string>Tên đối tác</string>
         </property>
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="txtPartnerName"/>
+       <widget class="QLineEdit" name="txtTenDT"/>
       </item>
       <item row="2" column="0">
        <widget class="QLabel" name="lblPhone">
@@ -52,7 +56,7 @@
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QLineEdit" name="txtPhone"/>
+       <widget class="QLineEdit" name="txtSDT_DT"/>
       </item>
       <item row="3" column="0">
        <widget class="QLabel" name="lblEmail">
@@ -62,17 +66,17 @@
        </widget>
       </item>
       <item row="3" column="1">
-       <widget class="QLineEdit" name="txtEmail"/>
+       <widget class="QLineEdit" name="txtEmai_DT"/>
       </item>
       <item row="5" column="0">
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>Phương Thức VC</string>
+         <string>Phương thức vận chuyển</string>
         </property>
        </widget>
       </item>
       <item row="5" column="1">
-       <widget class="QRadioButton" name="radioButton">
+       <widget class="QRadioButton" name="rbP">
         <property name="text">
          <string>Tên PT</string>
         </property>
@@ -114,13 +118,19 @@
        </widget>
       </item>
       <item row="4" column="1">
-       <widget class="QLineEdit" name="lineEdit"/>
+       <widget class="QLineEdit" name="txtDiaChiDT"/>
       </item>
      </layout>
     </widget>
    </item>
    <item>
     <layout class="QHBoxLayout" name="buttonLayout">
+     <property name="topMargin">
+      <number>25</number>
+     </property>
+     <property name="bottomMargin">
+      <number>25</number>
+     </property>
      <item>
       <spacer name="horizontalSpacer">
        <property name="orientation">
@@ -135,14 +145,14 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="btnSave">
+      <widget class="QPushButton" name="btnLuuDT">
        <property name="text">
         <string>Lưu</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btnCancel">
+      <widget class="QPushButton" name="btnHuyDT">
        <property name="text">
         <string>Hủy</string>
        </property>

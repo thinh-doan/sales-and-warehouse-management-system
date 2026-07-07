@@ -6,12 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>297</width>
-    <height>189</height>
+    <width>468</width>
+    <height>298</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Thêm Sản Phẩm Vào Đơn Hàng</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../resources/icons/square-plus.png</normaloff>../resources/icons/square-plus.png</iconset>
   </property>
   <layout class="QVBoxLayout">
    <item>
@@ -22,15 +26,25 @@
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <layout class="QFormLayout" name="formLayout">
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
         <item row="0" column="0">
          <widget class="QLabel" name="lblProduct">
           <property name="text">
-           <string>Sản Phẩm</string>
+           <string>Sản phẩm</string>
           </property>
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QComboBox" name="cbbSanPham"/>
+         <widget class="QComboBox" name="cbbSanPham">
+          <property name="editable">
+           <bool>false</bool>
+          </property>
+         </widget>
         </item>
         <item row="1" column="0">
          <widget class="QLabel" name="lblStock">
@@ -49,7 +63,7 @@
         <item row="2" column="0">
          <widget class="QLabel" name="lblQuantity">
           <property name="text">
-           <string>Số Lượng</string>
+           <string>Số lượng</string>
           </property>
          </widget>
         </item>
@@ -84,14 +98,14 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="btnLuu">
+      <widget class="QPushButton" name="btnLuu_Order_detail">
        <property name="text">
         <string>Lưu</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btnHuy">
+      <widget class="QPushButton" name="btnHuyOrder_Detail">
        <property name="text">
         <string>Hủy</string>
        </property>
