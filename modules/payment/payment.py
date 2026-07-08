@@ -165,7 +165,7 @@ class PaymentTabController:
         row = self.window.tblThanhToan.currentRow()
         if row < 0:
             return None
-        code = self.window.tblThanhToan.item(row, 0).text()
+        code = self.window.tblThanhToan.item(row, 4).text()
         for item in self.payment_records:
             if item.get("maTT") == code:
                 return item
@@ -176,11 +176,15 @@ class PaymentTabController:
         for item in items:
             row = self.window.tblThanhToan.rowCount()
             self.window.tblThanhToan.insertRow(row)
-            self.window.tblThanhToan.setItem(row, 0, QtWidgets.QTableWidgetItem(item.get("maTT", "")))
-            self.window.tblThanhToan.setItem(row, 1, QtWidgets.QTableWidgetItem(item.get("maDH", "")))
-            self.window.tblThanhToan.setItem(row, 2, QtWidgets.QTableWidgetItem(f"{item.get('tongTien', 0):,.0f}"))
-            self.window.tblThanhToan.setItem(row, 3, QtWidgets.QTableWidgetItem(item.get("phuongThuc", "")))
-            self.window.tblThanhToan.setItem(row, 4, QtWidgets.QTableWidgetItem(item.get("trangThai", "")))
+            status = item.get("trangThai", "")
+            payment_date = item.get("ngayTT", "") if status == "Đã thanh toán" else ""
+
+            self.window.tblThanhToan.setItem(row, 0, QtWidgets.QTableWidgetItem(item.get("maDH", "")))
+            self.window.tblThanhToan.setItem(row, 1, QtWidgets.QTableWidgetItem(f"{item.get('tongTien', 0):,.0f}"))
+            self.window.tblThanhToan.setItem(row, 2, QtWidgets.QTableWidgetItem(item.get("phuongThuc", "")))
+            self.window.tblThanhToan.setItem(row, 3, QtWidgets.QTableWidgetItem(status))
+            self.window.tblThanhToan.setItem(row, 4, QtWidgets.QTableWidgetItem(item.get("maTT", "")))
+            self.window.tblThanhToan.setItem(row, 5, QtWidgets.QTableWidgetItem(payment_date))
 
     def refresh_table(self):
         self.payment_records = self.handler.list_payments()

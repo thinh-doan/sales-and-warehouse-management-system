@@ -13,6 +13,8 @@ from modules.customer.customer import CustomerPageController
 from modules.product.product import ProductPageController
 from modules.order.order import OrderPageController
 from modules.shipment.shipment import ShipmentPageController
+from modules.dashboard.dashboard import DashboardPageController
+
 
 
 class MainWindow(QMainWindow, Ui_phanTuChinhWindow):
@@ -31,6 +33,8 @@ class MainWindow(QMainWindow, Ui_phanTuChinhWindow):
         self.product_controller = ProductPageController(self)
         self.order_controller = OrderPageController(self)
         self.shipment_controller = ShipmentPageController(self)
+        self.dashboard_controller = DashboardPageController(self)
+        self.btnBaoCao.clicked.connect(self.show_report_page)
 
         self.current_role_key = self.permission_manager.apply(self, self.current_user)
         self._show_default_page()
