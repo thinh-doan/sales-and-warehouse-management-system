@@ -14,8 +14,9 @@ from modules.product.product import ProductPageController
 from modules.order.order import OrderPageController
 from modules.shipment.shipment import ShipmentPageController
 from modules.dashboard.dashboard import DashboardPageController
-
-
+from modules.inventory.inventory import InventoryTabController
+from modules.category.category import CategoryTabController
+from modules.payment.payment import PaymentTabController
 
 class MainWindow(QMainWindow, Ui_phanTuChinhWindow):
     def __init__(self, user_info=None):
@@ -34,7 +35,9 @@ class MainWindow(QMainWindow, Ui_phanTuChinhWindow):
         self.order_controller = OrderPageController(self)
         self.shipment_controller = ShipmentPageController(self)
         self.dashboard_controller = DashboardPageController(self)
-        self.invento
+        self.inventory_controller = InventoryTabController(self)
+        self.category_controller = CategoryTabController(self)
+        self.payment_controller = PaymentTabController(self)
 
         self.current_role_key = self.permission_manager.apply(self, self.current_user)
         self._show_default_page()
