@@ -1,3 +1,5 @@
+use [QL_BANHANG_KHOHANG]
+
 ------RÀNG BUỘC UNIQUE CHO BẢNG Customer
 ---ĐẢM BẢO SĐT KHÁCH HÀNG KHÔNG BỊ TRÙNG
 ALTER TABLE Customer ADD CONSTRAINT UQ_Customer_Phone UNIQUE (CusPhone)

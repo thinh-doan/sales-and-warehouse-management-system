@@ -338,7 +338,7 @@
        </font>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>6</number>
       </property>
       <widget class="QWidget" name="pageTongQuan">
        <layout class="QVBoxLayout" name="verticalLayout_11">
@@ -1660,11 +1660,6 @@ border-radius:8px;
          <widget class="QTableWidget" name="tblThanhToan">
           <column>
            <property name="text">
-            <string>Mã thanh toán</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
             <string>Mã đơn hàng</string>
            </property>
           </column>
@@ -1681,6 +1676,11 @@ border-radius:8px;
           <column>
            <property name="text">
             <string>Trạng thái</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Mã thanh toán</string>
            </property>
           </column>
           <column>

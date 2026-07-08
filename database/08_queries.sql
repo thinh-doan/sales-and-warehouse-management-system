@@ -68,13 +68,17 @@ GO
 
 /* 9. Quản lý cần tìm danh sách các mặt hàng đang có sẵn trong kho nhưng chưa từng bán được sản phẩm nào để lên kế hoạch xả kho.
    Thông tin gồm: ProductID, ProductName, CategoryName, TongTonKho. */
-SELECT p.ProductID, p.ProductName, c.CategoryName, TongTonKho = SUM(i.QuantityInStock)
-FROM Product p JOIN Category c ON p.CategoryID = c.CategoryID
-               JOIN Inventory i ON p.ProductID = i.ProductID
-               LEFT JOIN Order_Detail od ON p.ProductID = od.ProductID
+SELECT p.ProductID, 
+       p.ProductName, 
+       c.CategoryName, 
+       ISNULL(SUM(i.QuantityInStock), 0) AS TongTonKho
+FROM Product p 
+     LEFT JOIN Category c ON p.CategoryID = c.CategoryID
+     LEFT JOIN Inventory i ON p.ProductID = i.ProductID
+     LEFT JOIN Order_Detail od ON p.ProductID = od.ProductID
 WHERE od.ProductID IS NULL
 GROUP BY p.ProductID, p.ProductName, c.CategoryName
-HAVING SUM(i.QuantityInStock) > 0;
+HAVING ISNULL(SUM(i.QuantityInStock), 0) >= 0;
 GO
 
 /* 10. Nhân viên kho cần phân loại tình trạng tồn kho của từng sản phẩm để ưu tiên nhập hàng.

@@ -12,7 +12,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_phanTuChinhWindow(object):
     def setupUi(self, phanTuChinhWindow):
         phanTuChinhWindow.setObjectName("phanTuChinhWindow")
-        phanTuChinhWindow.resize(1058, 729)
+        phanTuChinhWindow.resize(1058, 753)
         font = QtGui.QFont()
         font.setPointSize(8)
         phanTuChinhWindow.setFont(font)
@@ -669,7 +669,7 @@ class Ui_phanTuChinhWindow(object):
         self.verticalLayout_6.addLayout(self.buttonLayout)
         self.tblTonKho = QtWidgets.QTableWidget(parent=self.pageTonKho)
         self.tblTonKho.setObjectName("tblTonKho")
-        self.tblTonKho.setColumnCount(6)
+        self.tblTonKho.setColumnCount(5)
         self.tblTonKho.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
         self.tblTonKho.setHorizontalHeaderItem(0, item)
@@ -681,8 +681,6 @@ class Ui_phanTuChinhWindow(object):
         self.tblTonKho.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
         self.tblTonKho.setHorizontalHeaderItem(4, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tblTonKho.setHorizontalHeaderItem(5, item)
         self.verticalLayout_6.addWidget(self.tblTonKho)
         self.khungChuyenTrangStacked.addWidget(self.pageTonKho)
         self.pageThanhToan = QtWidgets.QWidget()
@@ -1095,7 +1093,7 @@ class Ui_phanTuChinhWindow(object):
         self.horizontalLayout_5.addWidget(self.khungChuyenTrangStacked)
         phanTuChinhWindow.setCentralWidget(self.khungCentralwidget)
         self.phanTuMenubar = QtWidgets.QMenuBar(parent=phanTuChinhWindow)
-        self.phanTuMenubar.setGeometry(QtCore.QRect(0, 0, 1058, 22))
+        self.phanTuMenubar.setGeometry(QtCore.QRect(0, 0, 1058, 26))
         self.phanTuMenubar.setObjectName("phanTuMenubar")
         phanTuChinhWindow.setMenuBar(self.phanTuMenubar)
         self.phanTuStatusbar = QtWidgets.QStatusBar(parent=phanTuChinhWindow)
@@ -1103,7 +1101,7 @@ class Ui_phanTuChinhWindow(object):
         phanTuChinhWindow.setStatusBar(self.phanTuStatusbar)
 
         self.retranslateUi(phanTuChinhWindow)
-        self.khungChuyenTrangStacked.setCurrentIndex(10)
+        self.khungChuyenTrangStacked.setCurrentIndex(6)
         QtCore.QMetaObject.connectSlotsByName(phanTuChinhWindow)
 
     def retranslateUi(self, phanTuChinhWindow):
@@ -1308,8 +1306,6 @@ class Ui_phanTuChinhWindow(object):
         item.setText(_translate("phanTuChinhWindow", "Danh mục"))
         item = self.tblTonKho.horizontalHeaderItem(4)
         item.setText(_translate("phanTuChinhWindow", "Tồn kho"))
-        item = self.tblTonKho.horizontalHeaderItem(5)
-        item.setText(_translate("phanTuChinhWindow", "Trạng thái"))
         self.groupBox_3.setTitle(_translate("phanTuChinhWindow", "Tìm kiếm"))
         self.txtTimKiemTT.setPlaceholderText(_translate("phanTuChinhWindow", "Nhạp mã thanh toán"))
         self.lblFromDate_2.setText(_translate("phanTuChinhWindow", "Từ ngày"))

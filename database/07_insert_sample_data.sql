@@ -191,6 +191,7 @@ VALUES
 (3, N'Hỏa tốc')
 GO
 
+
 ---NHẬP DỮ LIỆU BẢNG Shipment
 INSERT INTO Shipment (ShipmentID, ShipmentDate, ExpectedDeliveryDate, ActualDeliveryDate, ShippingFee, ShipmentStatus, ShipmentMethod, OrderID, PartnerID, EmployeeID)
 VALUES
@@ -204,15 +205,15 @@ VALUES
 GO
 
 INSERT INTO Prt_Shipping_Methods (PartnerID, ShippingMethodName)
-(
-
-)
-
-USE [QL_BANHANG_KHOHANG]
-GO
-
-
-
+VALUES
+(1, N'Tiêu chuẩn'),
+(1, N'Hỏa tốc'),
+(1, N'Tiết kiệm'),
+(2, N'Tiêu chuẩn'),
+(2, N'Hỏa tốc'),
+(3, N'Tiêu chuẩn'),
+(3, N'Tiết kiệm')
+Go
 
 --------------------------BỔ SUNG SAMPLE------------------------------
 --- 1. BỔ SUNG BẢNG CUSTOMER (ID từ 9 đến 14)
@@ -325,7 +326,7 @@ VALUES
 GO
 
 --- 15. BỔ SUNG BẢNG PRT_SHIPPING_METHODS (Thêm phương thức cho đối tác mới)
-INSERT INTO Prt_Shipping_Methods (PartnerID, Prt_Shipping_Methods)
+INSERT INTO Prt_Shipping_Methods (PartnerID, ShippingMethodName)
 VALUES
 (4, N'Tiêu chuẩn'),
 (4, N'Hỏa tốc')
