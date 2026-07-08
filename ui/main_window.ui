@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1058</width>
-    <height>729</height>
+    <height>753</height>
    </rect>
   </property>
   <property name="font">
@@ -338,7 +338,7 @@
        </font>
       </property>
       <property name="currentIndex">
-       <number>10</number>
+       <number>5</number>
       </property>
       <widget class="QWidget" name="pageTongQuan">
        <layout class="QVBoxLayout" name="verticalLayout_11">
@@ -1531,11 +1531,6 @@ border-radius:8px;
             <string>Tồn kho</string>
            </property>
           </column>
-          <column>
-           <property name="text">
-            <string>Trạng thái</string>
-           </property>
-          </column>
          </widget>
         </item>
        </layout>
@@ -2484,7 +2479,7 @@ font-weight:bold;</string>
      <x>0</x>
      <y>0</y>
      <width>1058</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
