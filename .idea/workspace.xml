@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="4dcf29f2-04e0-4b8e-988e-3bfd98a5d0d8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/connect.py" beforeDir="false" afterPath="$PROJECT_DIR$/connect.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/inventory/inventory.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/inventory/inventory.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/main_window.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/main_window.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/payment/payment.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/payment/payment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/main_window.ui" beforeDir="false" afterPath="$PROJECT_DIR$/ui/main_window.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +71,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/sales_and_warehouse_management_system$category_add.coverage" NAME="category_add Coverage Results" MODIFIED="1782836208281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ui" />
-    <SUITE FILE_PATH="coverage/sales_and_warehouse_management_system$main.coverage" NAME="main Coverage Results" MODIFIED="1783406999854" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/sales_and_warehouse_management_system$main.coverage" NAME="main Coverage Results" MODIFIED="1783501785104" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/sales_and_warehouse_management_system$connect.coverage" NAME="connect Coverage Results" MODIFIED="1783276455062" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/sales_and_warehouse_management_system$database.coverage" NAME="database Coverage Results" MODIFIED="1782918393064" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/database" />
     <SUITE FILE_PATH="coverage/sales_and_warehouse_management_system$main_window.coverage" NAME="main_window Coverage Results" MODIFIED="1783276019258" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules" />

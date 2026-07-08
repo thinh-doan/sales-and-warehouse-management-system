@@ -47,27 +47,27 @@ class InventoryHandler:
     def list_items(self) -> list[dict]:
         rows = self.db.execute(
             """
-            SELECT p.ProductID, p.ProductName, c.CategoryName, p.Unit,
-                   ISNULL(SUM(i.QuantityInStock), 0) AS QuantityInStock,
-                   p.ProductStatus,
-                   MAX(i.LastUpdated) AS LastUpdated
-            FROM Product p
+            SELECT i.WarehouseID, p.ProductID, p.ProductName, c.CategoryName,
+                   i.QuantityInStock, p.ProductStatus, i.LastUpdated, p.Unit
+            FROM Inventory i
+            JOIN Product p ON p.ProductID = i.ProductID
             JOIN Category c ON c.CategoryID = p.CategoryID
-            LEFT JOIN Inventory i ON i.ProductID = p.ProductID
-            GROUP BY p.ProductID, p.ProductName, c.CategoryName, p.Unit, p.ProductStatus
-            ORDER BY p.ProductID
+            ORDER BY i.WarehouseID, p.ProductID
             """
         ).fetchall()
         return [
             {
-                "productID": int(row[0] or 0),
-                "maSP": self._to_product_code(int(row[0] or 0)),
-                "tenSP": row[1] or "",
-                "danhMuc": row[2] or "",
-                "donViTinh": row[3] or "",
+                "warehouseID": int(row[0] or 0),
+                "maKho": f"KHO{int(row[0] or 0):03d}",
+                "productID": int(row[1] or 0),
+                "maSP": self._to_product_code(int(row[1] or 0)),
+                "tenSP": row[2] or "",
+                "danhMuc": row[3] or "",
+                "soLuong": int(row[4] or 0),
                 "tonKho": int(row[4] or 0),
                 "trangThai": row[5] or "",
                 "capNhatGanNhat": self._format_date(row[6]),
+                "donViTinh": row[7] or "",
             }
             for row in rows
         ]
@@ -110,10 +110,20 @@ class InventoryHandler:
         if product_id is None:
             return False
 
-        row = self.db.execute(
-            "SELECT TOP 1 WarehouseID, QuantityInStock FROM Inventory WHERE ProductID = ? ORDER BY WarehouseID",
-            (int(product_id),),
-        ).fetchone()
+        selected_warehouse_id = item.get("warehouseID")
+        if selected_warehouse_id is not None:
+            selected_warehouse_id = int(selected_warehouse_id)
+
+        if selected_warehouse_id is not None:
+            row = self.db.execute(
+                "SELECT WarehouseID, QuantityInStock FROM Inventory WHERE ProductID = ? AND WarehouseID = ?",
+                (int(product_id), selected_warehouse_id),
+            ).fetchone()
+        else:
+            row = self.db.execute(
+                "SELECT TOP 1 WarehouseID, QuantityInStock FROM Inventory WHERE ProductID = ? ORDER BY WarehouseID",
+                (int(product_id),),
+            ).fetchone()
         warehouse_id = int(row[0] if row else 1)
         current_stock = int(row[1] if row else 0)
 
@@ -247,21 +257,19 @@ class InventoryTabController:
         self.window.txtTimKiemTK.textChanged.connect(self.filter_table)
 
     def update_total_label(self):
-        total_products = len(self.inventory_items)
-        self.window.lblTongTK.setText(f"Tổng sản phẩm trong kho: {total_products}")
+        total_quantity = sum(int(item.get("soLuong", item.get("tonKho", 0)) or 0) for item in self.inventory_items)
+        self.window.lblTongTK.setText(f"Tổng số lượng sản phẩm: {total_quantity}")
 
     def populate_table(self, items):
         self.window.tblTonKho.setRowCount(0)
         for item in items:
             row = self.window.tblTonKho.rowCount()
             self.window.tblTonKho.insertRow(row)
-            self.window.tblTonKho.setItem(row, 0, QtWidgets.QTableWidgetItem(item.get("maSP", "")))
-            self.window.tblTonKho.setItem(row, 1, QtWidgets.QTableWidgetItem(item.get("tenSP", "")))
-            self.window.tblTonKho.setItem(row, 2, QtWidgets.QTableWidgetItem(item.get("danhMuc", "")))
-            self.window.tblTonKho.setItem(row, 3, QtWidgets.QTableWidgetItem(item.get("donViTinh", "")))
-            self.window.tblTonKho.setItem(row, 4, QtWidgets.QTableWidgetItem(str(item.get("tonKho", 0))))
-            self.window.tblTonKho.setItem(row, 5, QtWidgets.QTableWidgetItem(item.get("trangThai", "")))
-            self.window.tblTonKho.setItem(row, 6, QtWidgets.QTableWidgetItem(item.get("capNhatGanNhat", "")))
+            self.window.tblTonKho.setItem(row, 0, QtWidgets.QTableWidgetItem(item.get("maKho", "")))
+            self.window.tblTonKho.setItem(row, 1, QtWidgets.QTableWidgetItem(item.get("maSP", "")))
+            self.window.tblTonKho.setItem(row, 2, QtWidgets.QTableWidgetItem(item.get("tenSP", "")))
+            self.window.tblTonKho.setItem(row, 3, QtWidgets.QTableWidgetItem(item.get("danhMuc", "")))
+            self.window.tblTonKho.setItem(row, 4, QtWidgets.QTableWidgetItem(str(item.get("soLuong", 0))))
 
     def refresh_table(self):
         self.inventory_items = self.handler.list_items()
@@ -272,7 +280,7 @@ class InventoryTabController:
         row = self.window.tblTonKho.currentRow()
         if row < 0:
             return None
-        code = self.window.tblTonKho.item(row, 0).text()
+        code = self.window.tblTonKho.item(row, 1).text()
         for item in self.inventory_items:
             if item.get("maSP") == code:
                 return item

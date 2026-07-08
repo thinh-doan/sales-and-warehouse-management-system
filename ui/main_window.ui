@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1058</width>
-    <height>753</height>
+    <height>729</height>
    </rect>
   </property>
   <property name="font">
@@ -338,7 +338,7 @@
        </font>
       </property>
       <property name="currentIndex">
-       <number>9</number>
+       <number>5</number>
       </property>
       <widget class="QWidget" name="pageTongQuan">
        <layout class="QVBoxLayout" name="verticalLayout_11">
@@ -2489,7 +2489,7 @@ font-weight:bold;</string>
      <x>0</x>
      <y>0</y>
      <width>1058</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
