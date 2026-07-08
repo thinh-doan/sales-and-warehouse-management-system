@@ -1,25 +1,41 @@
 import pyodbc
 from datetime import date
 
-from PyQt6 import QtCore, QtGui, QtWidgets
-from PyQt6.QtWidgets import QAbstractItemView, QDialog, QMessageBox, QTableWidgetItem
+from PyQt6 import QtCore, QtWidgets
+from PyQt6.QtWidgets import QDialog, QMessageBox, QTableWidgetItem
+from PyQt6.QtGui import QStandardItemModel, QStandardItem
 
 from connect import Database
 from modules.employee.employee_add_ui import Ui_EmployeeFormDialog
 from modules.employee.employee_detail_ui import Ui_EmployeeDetailDialog
 
-
+# =====================================================================
+# 1. CLASS FORM THÊM / CẬP NHẬT NHÂN VIÊN (DIALOG)
+# =====================================================================
 class EmployeeFormDialog(QDialog, Ui_EmployeeFormDialog):
     def __init__(self, parent=None, employee=None):
         super().__init__(parent)
         self.setupUi(self)
         self.employee = employee
+        
+        # Cấu hình bảng ánh xạ: Phòng ban -> Chức vụ tương ứng
+        self.ROLE_MAPPING = {
+            "Quản trị": {"position": "Quản lý hệ thống"},
+            "Kinh doanh": {"position": "Nhân viên bán hàng"},
+            "Quản lý sản phẩm": {"position": "Nhân viên quản lý sản phẩm"},
+            "Kho vận": {"position": "Nhân viên kho"},
+            "Kế toán": {"position": "Kế toán thanh toán"}
+        }
+        
         self._prepare_form()
         self._connect_signals()
 
     def _connect_signals(self):
         self.btnLuuNV.clicked.connect(self._save_employee)
         self.btnHuyNV.clicked.connect(self.reject)
+        
+        # Tự động cập nhật Chức vụ khi người dùng đổi Phòng ban
+        self.cbbPhongBan.currentTextChanged.connect(self._on_department_changed)
 
     def _prepare_form(self):
         self._populate_selectors()
@@ -33,372 +49,303 @@ class EmployeeFormDialog(QDialog, Ui_EmployeeFormDialog):
             self.txtNgayTuyenDung.setDate(QtCore.QDate.currentDate())
 
     def _populate_selectors(self):
-        departments = [
-            "Quản trị",
-            "Kinh doanh",
-            "Quản lý sản phẩm",
-            "Kho vận",
-            "Kế toán",
-        ]
-        positions = [
-            "Quản lý hệ thống",
-            "Nhân viên bán hàng",
-            "Nhân viên quản lý sản phẩm",
-            "Nhân viên kho",
-            "Điều phối giao hàng",
-            "Kế toán thanh toán",
-        ]
-
+        # Đổ danh sách phòng ban vào ComboBox
         self.cbbPhongBan.clear()
-        self.cbbPhongBan.addItems(departments)
+        self.cbbPhongBan.addItems(list(self.ROLE_MAPPING.keys()))
+        
+        # Khóa không cho chọn lệch Chức vụ so với Phòng ban
+        self.cbbChucVu.setEnabled(False) 
+        self._on_department_changed(self.cbbPhongBan.currentText())
 
-        self.cbbChucVu.clear()
-        self.cbbChucVu.addItems(positions)
+    def _on_department_changed(self, dept_name):
+        """Tự động đồng bộ Chức vụ tương ứng khi Phòng ban thay đổi"""
+        if dept_name in self.ROLE_MAPPING:
+            target_position = self.ROLE_MAPPING[dept_name]["position"]
+            self.cbbChucVu.clear()
+            self.cbbChucVu.addItem(target_position)
 
     def _fill_next_employee_id(self):
+        db = Database()
         try:
-            db = Database()
-            cursor = db.execute("SELECT ISNULL(MAX(EmployeeID), 0) + 1 FROM Employee")
+            cursor = db.execute("SELECT MAX(EmployeeID) FROM Employee")
             row = cursor.fetchone()
-            next_id = row[0] if row and row[0] is not None else 1
+            next_id = (row[0] if row and row[0] is not None else 0) + 1
             self.txtMaNV.setText(str(next_id))
+        except Exception as exc:
+            print(f"Không thể lấy mã nhân viên tiếp theo: {exc}")
+        finally:
             db.close()
-        except Exception:
-            self.txtMaNV.setText("")
 
     def _fill_form(self):
-        employee = self.employee
-        self.txtMaNV.setText(str(employee[0]))
-        self.txtHoTenNV.setText(employee[1] or "")
-        gender = (employee[2] or "").strip()
-        self.rbNam.setChecked(gender.lower() == "nam")
-        self.rbNu.setChecked(gender.lower() == "nữ" or gender.lower() == "nu")
-        if isinstance(employee[3], date):
-            self.lblNgaySinhNV.setDate(QtCore.QDate(employee[3].year, employee[3].month, employee[3].day))
-        self.txtSDT_NV.setText(employee[4] or "")
-        self.txtEmail_NV.setText(employee[5] or "")
+        if not self.employee:
+            return
+        
+        self.txtMaNV.setText(str(self.employee[0]))
+        self.txtHoTenNV.setText(str(self.employee[1] or ""))
+        
+        gender = str(self.employee[2] or "Nam")
+        if gender == "Nam":
+            self.rbNam.setChecked(True)
+        else:
+            self.rbNu.setChecked(True)
 
-        department = employee[6] or ""
-        if department and self.cbbPhongBan.findText(department) == -1:
-            self.cbbPhongBan.addItem(department)
-        self.cbbPhongBan.setCurrentText(department)
+        if self.employee[3]:
+            dob = self.employee[3]
+            self.lblNgaySinhNV.setDate(QtCore.QDate(dob.year, dob.month, dob.day))
 
-        position = employee[7] or ""
-        if position and self.cbbChucVu.findText(position) == -1:
-            self.cbbChucVu.addItem(position)
-        self.cbbChucVu.setCurrentText(position)
-
-        if isinstance(employee[8], date):
-            self.txtNgayTuyenDung.setDate(QtCore.QDate(employee[8].year, employee[8].month, employee[8].day))
+        self.txtSDT_NV.setText(str(self.employee[4] or ""))
+        self.txtEmail_NV.setText(str(self.employee[5] or ""))
+        
+        if len(self.employee) > 6 and self.employee[6]:
+            self.cbbPhongBan.setCurrentText(str(self.employee[6]))
+            self._on_department_changed(str(self.employee[6]))
+            
+        if len(self.employee) > 8 and self.employee[8]:
+            hd = self.employee[8]
+            self.txtNgayTuyenDung.setDate(QtCore.QDate(hd.year, hd.month, hd.day))
 
     def _save_employee(self):
-        employee_id = self.txtMaNV.text().strip()
-        name = self.txtHoTenNV.text().strip()
-        gender = "Nam" if self.rbNam.isChecked() else "Nữ" if self.rbNu.isChecked() else ""
-        dob = self.lblNgaySinhNV.date().toPyDate()
-        phone = self.txtSDT_NV.text().strip()
+        ma_nv = self.txtMaNV.text().strip()
+        ten_nv = self.txtHoTenNV.text().strip()
+        gioi_tinh = "Nam" if self.rbNam.isChecked() else "Nữ"
+        ngay_sinh = self.lblNgaySinhNV.date().toString("yyyy-MM-dd")
+        sdt = self.txtSDT_NV.text().strip()
         email = self.txtEmail_NV.text().strip()
-        department = self.cbbPhongBan.currentText().strip()
-        position = self.cbbChucVu.currentText().strip()
-        hire_date = self.txtNgayTuyenDung.date().toPyDate()
+        phong_ban = self.cbbPhongBan.currentText()
+        chuc_vu = self.cbbChucVu.currentText()
+        ngay_tuyen_dung = self.txtNgayTuyenDung.date().toString("yyyy-MM-dd")
 
-        if not name:
-            QMessageBox.warning(self, "Thông báo", "Vui lòng nhập họ và tên.")
-            return
-        if not gender:
-            QMessageBox.warning(self, "Thông báo", "Vui lòng chọn giới tính.")
-            return
-        if not phone:
-            QMessageBox.warning(self, "Thông báo", "Vui lòng nhập số điện thoại.")
-            return
-        if not position:
-            QMessageBox.warning(self, "Thông báo", "Vui lòng chọn chức vụ.")
+        if not ten_nv:
+            QMessageBox.warning(self, "Lỗi nhập liệu", "Vui lòng nhập tên nhân viên!")
             return
 
+        db = Database()
         try:
-            db = Database()
             if self.employee:
-                db.execute(
-                    "UPDATE Employee SET EmpName = ?, EmpGender = ?, EmpDateOfBirth = ?, EmpPhone = ?, EmpEmail = ?, Department = ?, Position = ?, HireDate = ? WHERE EmployeeID = ?",
-                    (name, gender, dob, phone, email, department, position, hire_date, int(employee_id)),
-                )
+                # Chỉ UPDATE bảng Employee
+                query = """
+                    UPDATE Employee 
+                    SET EmpName=?, EmpGender=?, EmpDateOfBirth=?, EmpPhone=?, EmpEmail=?, Department=?, Position=?, HireDate=?
+                    WHERE EmployeeID=?
+                """
+                db.execute(query, (ten_nv, gioi_tinh, ngay_sinh, sdt, email, phong_ban, chuc_vu, ngay_tuyen_dung, ma_nv))
             else:
-                db.execute(
-                    "INSERT INTO Employee (EmployeeID, EmpName, EmpGender, EmpDateOfBirth, EmpPhone, EmpEmail, Department, Position, HireDate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
-                    (int(employee_id), name, gender, dob, phone, email, department, position, hire_date),
-                )
+                # Chỉ INSERT vào bảng Employee (Đã bỏ phần tạo Account tự động)
+                query = """
+                    INSERT INTO Employee (EmployeeID, EmpName, EmpGender, EmpDateOfBirth, EmpPhone, EmpEmail, Department, Position, HireDate) 
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """
+                db.execute(query, (ma_nv, ten_nv, gioi_tinh, ngay_sinh, sdt, email, phong_ban, chuc_vu, ngay_tuyen_dung))
+            
             db.commit()
-            db.close()
+            QMessageBox.information(self, "Thành công", "Đã lưu thông tin nhân viên thành công!")
             self.accept()
         except Exception as exc:
-            QMessageBox.critical(self, "Lỗi lưu", f"Không thể lưu nhân viên.\n{exc}")
-            try:
-                db.rollback()
-                db.close()
-            except Exception:
-                pass
+            QMessageBox.critical(self, "Lỗi cơ sở dữ liệu", f"Đã xảy ra lỗi khi lưu thông tin:\n{exc}")
+        finally:
+            db.close()
 
 
+# =====================================================================
+# 2. CLASS CHI TIẾT NHÂN VIÊN (DIALOG)
+# =====================================================================
 class EmployeeDetailDialog(QDialog, Ui_EmployeeDetailDialog):
     def __init__(self, parent=None, employee=None):
         super().__init__(parent)
         self.setupUi(self)
         self.employee = employee
-        self.action_requested = None
+        
+        # Tạo cấu trúc model cho bảng tblHoatDongNV (Ví dụ gồm 3 cột)
+        self.activity_model = QStandardItemModel()
+        self.activity_model.setHorizontalHeaderLabels(["Thời gian", "Hành động", "Chi tiết"])
+        self.tblHoatDongNV.setModel(self.activity_model)
+        
+        self._fill_data()
+        self._load_activities()  # Gọi nạp hoạt động của nhân viên
+        
+        self.btnDongNV.clicked.connect(self.accept)
+        self.btnCapNhatNV.setVisible(False)
+        self.btnXoaNV.setVisible(False)
 
-        self.btnDongNV.clicked.connect(self.close)
-        self.btnCapNhatNV.clicked.connect(self._request_update)
-        self.btnXoaNV.clicked.connect(self._request_delete)
+    def _fill_data(self):
+        if not self.employee: return
+        self.txtMaNV.setText(str(self.employee[0]))
+        self.txtHoTenNV.setText(str(self.employee[1] or ""))
+        self.txtGioiTinhNV.setText(str(self.employee[2] or ""))
+        
+        if self.employee[3]:
+            dob = self.employee[3]
+            self.txtNgaySinhNV.setDate(QtCore.QDate(dob.year, dob.month, dob.day))
+            
+        self.txtSDT_NV.setText(str(self.employee[4] or ""))
+        self.txtEmailNV.setText(str(self.employee[5] or ""))
+        
+        if len(self.employee) > 6: self.txtPhongBan.setText(str(self.employee[6] or ""))
+        if len(self.employee) > 7: self.txtChucVu.setText(str(self.employee[7] or ""))
+        if len(self.employee) > 8 and self.employee[8]:
+            hd = self.employee[8]
+            self.txtNgayTuyenDung.setDate(QtCore.QDate(hd.year, hd.month, hd.day))
 
-        if employee:
-            self._fill_detail(employee)
-            self._load_activity_table(employee[0])
-
-    def _fill_detail(self, employee):
-        self.txtMaNV.setText(str(employee[0]))
-        self.txtHoTenNV.setText(employee[1] or "")
-        self.txtGioiTinhNV.setText(employee[2] or "")
-        if isinstance(employee[3], date):
-            self.txtNgaySinhNV.setDate(QtCore.QDate(employee[3].year, employee[3].month, employee[3].day))
-        self.txtSDT_NV.setText(employee[4] or "")
-        self.txtEmailNV.setText(employee[5] or "")
-        self.txtPhongBan.setText(employee[6] or "")
-        self.txtChucVu.setText(employee[7] or "")
-        if isinstance(employee[8], date):
-            self.txtNgayTuyenDung.setDate(QtCore.QDate(employee[8].year, employee[8].month, employee[8].day))
-
-    def _load_activity_table(self, employee_id):
+    def _load_activities(self):
+        """Truy vấn bảng lịch sử hoạt động dựa trên ID nhân viên hiện tại"""
+        if not self.employee: return
+        
+        emp_id = self.employee[0]
+        self.activity_model.setRowCount(0) # Làm sạch bảng trước khi nạp
+        
         db = Database()
         try:
-            self.tableView.setEditTriggers(QtWidgets.QAbstractItemView.EditTrigger.NoEditTriggers)
-            self.tableView.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectionBehavior.SelectRows)
-            self.tableView.setSelectionMode(QtWidgets.QAbstractItemView.SelectionMode.SingleSelection)
-            self.tableView.setAlternatingRowColors(True)
-            self.tableView.setColumnCount(4)
-            self.tableView.setHorizontalHeaderLabels(["Loại hoạt động", "Mã liên quan", "Ngày", "Chi tiết"])
-
+            # GIẢ ĐỊNH: Bạn có một bảng lưu vết tên là Order hoặc ActivityLog liên kết bằng EmployeeID
+            # Ở đây mình giả định quét từ bảng [Order] xem nhân viên này đã xử lý những đơn hàng nào
             query = """
-                SELECT 'Đơn hàng' AS LoaiHoatDong, CAST(o.OrderID AS VARCHAR) AS MaLienQuan,
-                       CAST(o.OrderDate AS DATE) AS Ngay,
-                       CONCAT('Tổng tiền: ', FORMAT(o.TotalAmount, 'N0')) AS ChiTiet
-                FROM [Order] o
-                WHERE o.EmployeeID = ?
-                UNION ALL
-                SELECT 'Giao hàng' AS LoaiHoatDong, CAST(s.ShipmentID AS VARCHAR) AS MaLienQuan,
-                       CAST(s.ShipmentDate AS DATE) AS Ngay,
-                       CONCAT('Trạng thái: ', s.ShipmentStatus) AS ChiTiet
-                FROM Shipment s
-                WHERE s.EmployeeID = ?
-                ORDER BY Ngay DESC
+                SELECT OrderDate, N'Xử lý đơn hàng', N'Đơn hàng mã #' + CAST(OrderID AS NVARCHAR) + N' - Tổng tiền: ' + CAST(TotalAmount AS NVARCHAR)
+                FROM [Order]
+                WHERE EmployeeID = ?
+                ORDER BY OrderDate DESC
             """
-            cursor = db.execute(query, (employee_id, employee_id))
+            
+            # MẸO: Nếu sau này bạn tạo bảng log riêng (ví dụ: LogActivity), chỉ cần sửa lại câu SQL thành:
+            # SELECT LogTime, ActionName, Description FROM LogActivity WHERE EmployeeID = ?
+            
+            cursor = db.execute(query, (emp_id,))
             rows = cursor.fetchall()
-
-            self.tableView.setRowCount(len(rows))
-            for row_idx, row in enumerate(rows):
-                for col_idx, value in enumerate(row):
-                    item = QTableWidgetItem(str(value) if value is not None else "")
-                    self.tableView.setItem(row_idx, col_idx, item)
-            self.tableView.resizeColumnsToContents()
-        except Exception as exc:
-            QMessageBox.warning(self, "Thông báo", f"Không thể tải hoạt động nhân viên.\n{exc}")
+            
+            for row_data in rows:
+                row_items = []
+                for field in row_data:
+                    # Định dạng ngày tháng hiển thị cho đẹp nếu là đối tượng date/datetime
+                    if isinstance(field, (date, QtCore.QDateTime)):
+                        val_str = field.strftime("%d/%m/%Y %H:%M:%S") if hasattr(field, 'strftime') else str(field)
+                    else:
+                        val_str = str(field) if field is not None else ""
+                        
+                    item = QStandardItem(val_str)
+                    item.setEditable(False) # Không cho sửa trực tiếp trên bảng chi tiết
+                    row_items.append(item)
+                    
+                self.activity_model.appendRow(row_items)
+                
+            # Tự động co giãn kích thước cột cho vừa chữ
+            self.tblHoatDongNV.resizeColumnsToContents()
+            
+        except Exception as e:
+            print(f"Không thể tải bảng hoạt động của nhân viên: {e}")
         finally:
             db.close()
 
-    def _request_update(self):
-        self.action_requested = "update"
-        self.accept()
 
-    def _request_delete(self):
-        self.action_requested = "delete"
-        self.accept()
-
+# =====================================================================
+# 3. CLASS CONTROLLER CHÍNH KẾT NỐI VỚI MAIN_WINDOW.UI
+# =====================================================================
 class EmployeePageController:
-    def __init__(self, window):
-        self.window = window
-        self._ensure_core_page_controllers()
-        self._ensure_core_navigation()
+    def __init__(self, main_window):
+        self.ui = main_window 
         self._connect_signals()
-        self._prepare_table()
-        self.load_employee_table()
-
-    def _ensure_core_page_controllers(self):
-        if not hasattr(self.window, "category_controller"):
-            from modules.category.category import CategoryTabController
-
-            self.window.category_controller = CategoryTabController(self.window)
-
-        if not hasattr(self.window, "inventory_controller"):
-            from modules.inventory.inventory import InventoryTabController
-
-            self.window.inventory_controller = InventoryTabController(self.window)
-
-        if not hasattr(self.window, "payment_controller"):
-            from modules.payment.payment import PaymentTabController
-
-            self.window.payment_controller = PaymentTabController(self.window)
-
-    def _ensure_core_navigation(self):
-        mapping = [
-            ("btnDanhMuc", "pageDanhMuc"),
-            ("btnTonKho", "pageTonKho"),
-            ("btnThanhToan", "pageThanhToan"),
-        ]
-        for button_name, page_name in mapping:
-            if hasattr(self.window, button_name) and hasattr(self.window, page_name):
-                button = getattr(self.window, button_name)
-                page = getattr(self.window, page_name)
-                button.clicked.connect(lambda _=False, p=page: self.window.khungChuyenTrangStacked.setCurrentWidget(p))
+        self._load_data()
 
     def _connect_signals(self):
-        self.window.btnNhanVien.clicked.connect(self.show_employee_page)
-        self.window.btnTimKiemNV.clicked.connect(self.search_employee)
-        self.window.btnThemNV.clicked.connect(self.open_add_employee_dialog)
-        self.window.btnChiTietNV.clicked.connect(self.open_employee_detail_dialog)
-        self.window.btnCapNhatNV.clicked.connect(self.open_update_employee_dialog)
-        self.window.btnXoaNV.clicked.connect(self.delete_employee)
-        self.window.btnRefreshNV.clicked.connect(self.load_employee_table)
+        self.ui.btnThemNV.clicked.connect(self._add_employee)
+        self.ui.btnCapNhatNV.clicked.connect(self._edit_employee)
+        self.ui.btnXoaNV.clicked.connect(self._delete_employee)
+        self.ui.btnChiTietNV.clicked.connect(self._show_detail)
+        self.ui.btnRefreshNV.clicked.connect(self._load_data)
+        self.ui.btnTimKiemNV.clicked.connect(self._search_employee)
 
-    def _prepare_table(self):
-        self.window.tblNhanVien.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
-        self.window.tblNhanVien.setSelectionMode(QAbstractItemView.SelectionMode.SingleSelection)
-
-    def show_employee_page(self):
-        self.window.khungChuyenTrangStacked.setCurrentWidget(self.window.pageNhanVien)
-
-    def _create_db(self):
-        return Database()
- 
-    def _build_position_filter(self, position_text):
-        if not position_text or position_text == "Tất cả":
-            return None
-        mapping = {
-            "Nv bán hàng": "Nhân viên bán hàng",
-            "Nv quản lý sản phẩm": "Nhân viên quản lý sản phẩm",
-            "Nv kế toán": "Kế toán thanh toán",
-            "Nv kho": "Nhân viên kho",
-        }
-        return mapping.get(position_text, position_text)
-
-    def search_employee(self):
-        employee_id = self.window.txtMaNV.text().strip()
-        position = self.window.cbbChucVu.currentText()
-        self.load_employee_table(employee_id=employee_id or None, position=position)
-
-    def load_employee_table(self, employee_id=None, position=None):
-        db = self._create_db()
+    def _load_data(self, search_query=None):
+        self.ui.tblNhanVien.setRowCount(0)
+        db = Database()
         try:
-            query = "SELECT EmployeeID, EmpName, EmpPhone, Position, Department, '' AS Status FROM Employee WHERE 1=1"
-            params = []
-            if employee_id:
-                query += " AND EmployeeID = ?"
-                params.append(employee_id)
-            filter_position = self._build_position_filter(position)
-            if filter_position:
-                query += " AND Position LIKE ?"
-                params.append(f"%{filter_position}%")
-            query += " ORDER BY EmployeeID"
-            cursor = db.execute(query, params if params else None)
+            base_query = "SELECT EmployeeID, EmpName, EmpPhone, Position, Department FROM Employee"
+            if search_query:
+                base_query += f" WHERE EmployeeID LIKE '%{search_query}%' OR EmpName LIKE N'%{search_query}%'"
+                
+            cursor = db.execute(base_query)
             rows = cursor.fetchall()
-            self._render_employee_table(rows)
-        except Exception as exc:
-            QMessageBox.critical(self.window, "Lỗi dữ liệu", f"Không thể tải danh sách nhân viên.\n{exc}")
+            
+            for row_idx, row_data in enumerate(rows):
+                self.ui.tblNhanVien.insertRow(row_idx)
+                for col_idx in range(5):
+                    val_str = str(row_data[col_idx]) if row_data[col_idx] is not None else ""
+                    self.ui.tblNhanVien.setItem(row_idx, col_idx, QTableWidgetItem(val_str))
+                self.ui.tblNhanVien.setItem(row_idx, 5, QTableWidgetItem("Đang làm"))
+                
+        except Exception as e:
+            print(f"Lỗi tải danh sách nhân viên: {e}")
         finally:
             db.close()
 
-    def _render_employee_table(self, rows):
-        self.window.tblNhanVien.setRowCount(len(rows))
-        for row_index, row in enumerate(rows):
-            for col_index, value in enumerate(row):
-                item = QTableWidgetItem(str(value) if value is not None else "")
-                self.window.tblNhanVien.setItem(row_index, col_index, item)
-        self.window.tblNhanVien.resizeColumnsToContents()
+    def _search_employee(self):
+        query = self.ui.txtMaNV.text().strip()
+        self._load_data(search_query=query)
 
-    def _get_selected_employee_id(self):
-        selected = self.window.tblNhanVien.selectedItems()
-        if not selected:
-            return None
-        item = self.window.tblNhanVien.item(selected[0].row(), 0)
-        if item is None:
-            return None
-        return item.text().strip()
+    def _add_employee(self):
+        dialog = EmployeeFormDialog(self.ui)
+        if dialog.exec() == QDialog.DialogCode.Accepted:
+            self._load_data()
 
-    def _load_employee_record(self, employee_id):
-        if not employee_id:
-            return None
-        db = self._create_db()
+    def _get_full_employee_data(self, emp_id):
+        db = Database()
         try:
-            cursor = db.execute(
-                "SELECT EmployeeID, EmpName, EmpGender, EmpDateOfBirth, EmpPhone, EmpEmail, Department, Position, HireDate FROM Employee WHERE EmployeeID = ?",
-                (employee_id,),
-            )
+            query = "SELECT EmployeeID, EmpName, EmpGender, EmpDateOfBirth, EmpPhone, EmpEmail, Department, Position, HireDate FROM Employee WHERE EmployeeID = ?"
+            cursor = db.execute(query, (emp_id,))
             return cursor.fetchone()
-        except Exception as exc:
-            QMessageBox.critical(self.window, "Lỗi dữ liệu", f"Không thể tải nhân viên.\n{exc}")
+        except Exception as e:
+            QMessageBox.critical(self.ui, "Lỗi", f"Không thể lấy thông tin nhân viên: {e}")
             return None
         finally:
             db.close()
 
-    def open_add_employee_dialog(self):
-        dialog = EmployeeFormDialog(self.window)
-        if dialog.exec():
-            self.load_employee_table()
-
-    def open_employee_detail_dialog(self):
-        employee_id = self._get_selected_employee_id()
-        if not employee_id:
-            QMessageBox.warning(self.window, "Thông báo", "Vui lòng chọn nhân viên để xem chi tiết.")
+    def _edit_employee(self):
+        selected_row = self.ui.tblNhanVien.currentRow()
+        if selected_row < 0:
+            QMessageBox.warning(self.ui, "Cảnh báo", "Vui lòng chọn một nhân viên từ bảng để sửa!")
             return
         
-        employee = self._load_employee_record(employee_id)
-        if employee:
-            dialog = EmployeeDetailDialog(self.window, employee)
+        emp_id = self.ui.tblNhanVien.item(selected_row, 0).text()
+        employee_data = self._get_full_employee_data(emp_id)
+
+        if employee_data:
+            dialog = EmployeeFormDialog(self.ui, employee=employee_data)
+            if dialog.exec() == QDialog.DialogCode.Accepted:
+                self._load_data()
+
+    def _show_detail(self):
+        selected_row = self.ui.tblNhanVien.currentRow()
+        if selected_row < 0:
+            QMessageBox.warning(self.ui, "Cảnh báo", "Vui lòng chọn một nhân viên để xem chi tiết!")
+            return
             
-            # Chờ người dùng tương tác với Dialog chi tiết
+        emp_id = self.ui.tblNhanVien.item(selected_row, 0).text()
+        employee_data = self._get_full_employee_data(emp_id)
+        
+        if employee_data:
+            dialog = EmployeeDetailDialog(self.ui, employee=employee_data)
             dialog.exec()
+
+    def _delete_employee(self):
+        selected_row = self.ui.tblNhanVien.currentRow()
+        if selected_row < 0:
+            QMessageBox.warning(self.ui, "Cảnh báo", "Vui lòng chọn nhân viên cần xóa!")
+            return
             
-            # Kiểm tra xem người dùng có bấm Cập nhật hoặc Xóa từ trong Dialog chi tiết không
-            if dialog.action_requested == "update":
-                self.open_update_employee_dialog()
-            elif dialog.action_requested == "delete":
-                self.delete_employee()
-
-    def open_update_employee_dialog(self):
-        employee_id = self._get_selected_employee_id()
-        if not employee_id:
-            QMessageBox.warning(self.window, "Thông báo", "Vui lòng chọn nhân viên để cập nhật.")
-            return
-        employee = self._load_employee_record(employee_id)
-        if employee:
-            dialog = EmployeeFormDialog(self.window, employee=employee)
-            if dialog.exec():
-                self.load_employee_table()
-
-    def delete_employee(self):
-        employee_id = self._get_selected_employee_id()
-        if not employee_id:
-            QMessageBox.warning(self.window, "Thông báo", "Vui lòng chọn nhân viên để xóa.")
-            return
-        employee = self._load_employee_record(employee_id)
-        if not employee:
-            return
-
-        answer = QMessageBox.question(
-            self.window,
-            "Xác nhận xóa",
-            f"Bạn có chắc chắn muốn xóa nhân viên {employee[1]} ({employee[0]}) không?",
-            QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
+        emp_id = self.ui.tblNhanVien.item(selected_row, 0).text()
+        emp_name = self.ui.tblNhanVien.item(selected_row, 1).text()
+        
+        reply = QMessageBox.question(
+            self.ui, "Xác nhận", 
+            f"Bạn có chắc chắn muốn xóa nhân viên '{emp_name}' (Mã: {emp_id}) khỏi hệ thống không?",
+            QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No
         )
-        if answer != QMessageBox.StandardButton.Yes:
-            return
-
-        db = self._create_db()
-        try:
-            db.execute("DELETE FROM Employee WHERE EmployeeID = ?", (employee_id,))
-            db.commit()
-            QMessageBox.information(self.window, "Thành công", "Nhân viên đã được xóa.")
-            self.load_employee_table()
-        except pyodbc.Error as exc:
-            QMessageBox.critical(self.window, "Lỗi xóa", f"Không thể xóa nhân viên.\n{exc}")
-        finally:
-            db.close()
+        
+        if reply == QMessageBox.StandardButton.Yes:
+            db = Database()
+            try:
+                # Đã loại bỏ dòng DELETE FROM Account cũ
+                db.execute("DELETE FROM Employee WHERE EmployeeID = ?", (emp_id,))
+                db.commit()
+                QMessageBox.information(self.ui, "Thành công", "Đã xóa nhân viên thành công!")
+                self._load_data()
+            except Exception as e:
+                QMessageBox.critical(self.ui, "Lỗi", f"Không thể xóa nhân viên: {e}")
+            finally:
+                db.close()

@@ -89,11 +89,12 @@ GO
 INSERT INTO Employee (EmployeeID, EmpName, EmpGender, EmpDateOfBirth, EmpPhone, EmpEmail, Department, Position, HireDate)
 VALUES
 (1, N'Nguyễn Hoàng Minh', N'Nam', '1992-05-10', '0911000001', 'minh@company.com', N'Quản trị', N'Quản lý hệ thống', '2024-01-10'),
-(2, N'Lê Thanh Huyền', N'Nữ', '1996-08-12', '0911000002', 'huyen@company.com', N'Kinh doanh', N'Nhân viên xử lý đơn hàng', '2024-03-15'),
+(2, N'Lê Thanh Huyền', N'Nữ', '1996-08-12', '0911000002', 'huyen@company.com', N'Kinh doanh', N'Nhân viên bán hàng', '2024-03-15'),
 (3, N'Trần Quốc Bảo', N'Nam', '1995-02-18', '0911000003', 'bao@company.com', N'Kho vận', N'Nhân viên kho', '2024-04-01'),
-(4, N'Phạm Anh Thư', N'Nữ', '1997-09-25', '0911000004', 'thu@company.com', N'Giao hàng', N'Điều phối giao hàng', '2024-05-20'),
+(4, N'Phạm Anh Thư', N'Nữ', '1997-09-25', '0911000004', 'thu@company.com', N'Quản lý sản phẩm', N'Nhân viên quản lý sản phẩm', '2024-05-20'),
 (5, N'Võ Minh Đức', N'Nam', '1994-12-03', '0911000005', 'duc@company.com', N'Kế toán', N'Kế toán thanh toán', '2024-06-10'),
-(6, N'Đặng Ngọc Mai', N'Nữ', '1998-04-09', '0911000006', 'mai@company.com', N'Chăm sóc khách hàng', N'Nhân viên CSKH', '2024-07-01');
+(7, N'Trịnh Đình Quang', N'Nam', '1993-11-20', '0911000007', 'quang@company.com', N'Kho vận', N'Nhân viên kho', '2026-01-15'),
+(8, N'Nguyễn Thu Thủy', N'Nữ', '1999-02-14', '0911000008', 'thuy@company.com', N'Kinh doanh', N'Nhân viên bán hàng', '2026-02-01');
 GO
 
 ---NHẬP DỮ LIỆU BẢNG Role
@@ -103,19 +104,19 @@ VALUES
 (2, N'Nhân viên xử lý đơn hàng', N'Tạo và cập nhật đơn hàng'),
 (3, N'Nhân viên kho', N'Quản lý sản phẩm và tồn kho'),
 (4, N'Nhân viên điều phối giao hàng', N'Tạo và theo dõi shipment'),
-(5, N'Kế toán', N'Quản lý thanh toán'),
-(6, N'Chăm sóc khách hàng', N'Tra cứu đơn hàng và hỗ trợ khách hàng');
+(5, N'Kế toán', N'Quản lý thanh toán')
 GO
 
 ---NHẬP DỮ LIỆU BẢNG Account
 INSERT INTO Account (AccountID, Username, PasswordHash, AccountStatus, EmployeeID, RoleID)
 VALUES
 (1, 'admin', 'hash_admin_123', N'Đang hoạt động', 1, 1),
-(2, 'order01', 'hash_order_123', N'Đang hoạt động', 2, 2),
+(2, 'sales01', 'hash_order_123', N'Đang hoạt động', 2, 2),
 (3, 'warehouse01', 'hash_warehouse_123', N'Đang hoạt động', 3, 3),
-(4, 'ship01', 'hash_ship_123', N'Đang hoạt động', 4, 4),
+(4, 'product01', 'hash_ship_123', N'Đang hoạt động', 4, 4),
 (5, 'accountant01', 'hash_acc_123', N'Đang hoạt động', 5, 5),
-(6, 'cskh01', 'hash_cskh_123', N'Đang hoạt động', 6, 6);
+(7, 'warehouse02', 'hash_warehouse_456', N'Đang hoạt động', 7, 3),
+(8, 'sales02', 'hash_order_456', N'Đang hoạt động', 8, 2);
 GO
 
 ---NHẬP DỮ LIỆU BẢNG Order
@@ -272,11 +273,6 @@ VALUES
 GO
 
 --- 8. BỔ SUNG BẢNG EMPLOYEE (Nhân sự mới bổ sung cho Kho 4 và vận hành đơn)
-INSERT INTO Employee (EmployeeID, EmpName, EmpGender, EmpDateOfBirth, EmpPhone, EmpEmail, Department, Position, HireDate)
-VALUES
-(7, N'Trịnh Đình Quang', N'Nam', '1993-11-20', '0911000007', 'quang@company.com', N'Kho vận', N'Thủ kho Củ Chi', '2026-01-15'),
-(8, N'Nguyễn Thu Thủy', N'Nữ', '1999-02-14', '0911000008', 'thuy@company.com', N'Kinh doanh', N'Nhân viên xử lý đơn hàng', '2026-02-01')
-GO
 
 --- 9. BỔ SUNG BẢNG ROLE (Không cần vì hệ thống phân quyền đã đủ 6 phòng ban)
 

@@ -37,6 +37,7 @@ class MainWindow(QMainWindow, Ui_phanTuChinhWindow):
         self.btnTonKho.clicked.connect(lambda: self._show_page(self.pageTonKho))
         self.btnThanhToan.clicked.connect(lambda: self._show_page(self.pageThanhToan))
         self.btnVanChuyen.clicked.connect(lambda: self._show_page(self.pageVanChuyen))
+        self.btnNhanVien.clicked.connect(lambda: self._show_page(self.pageNhanVien))
         self.btnBaoCao.clicked.connect(lambda: self._show_page(self.pageBaoCao))
         self.btnDangXuat.clicked.connect(self.logout)
 
@@ -67,14 +68,9 @@ if __name__ == "__main__":
     if login_dialog.exec() == LoginDialog.DialogCode.Accepted:
         user_data = login_dialog.get_user_info()
         print(f"Chào mừng {user_data.get('employee_name', 'người dùng')} đăng nhập thành công!")
-
-<<<<<<< HEAD
         window = MainWindow(user_info=user_data)
         window.show()
         sys.exit(app.exec())
 
     print("Ứng dụng kết thúc do hủy đăng nhập.")
     sys.exit(0)
-=======
-    sys.exit(app.exec())
->>>>>>> xu-ly

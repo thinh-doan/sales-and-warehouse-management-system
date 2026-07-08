@@ -91,7 +91,7 @@ create table [Role]
 ---TẠO BẢNG ACCOUNT
 create table Account
 (
-	AccountID int not null,
+	AccountID int null,
 	Username varchar(50) not null,
 	PasswordHash varchar(255) not null,
 	AccountStatus nvarchar(30) not null,
