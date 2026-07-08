@@ -202,6 +202,11 @@ VALUES
 (7, '2026-06-18', '2026-06-20', '2026-06-20', 30000, N'Giao thành công', N'Tiêu chuẩn', 9, 3, 4);
 GO
 
+INSERT INTO Prt_Shipping_Methods (PartnerID, ShippingMethodName)
+(
+
+)
+
 USE [QL_BANHANG_KHOHANG]
 GO
 
@@ -322,7 +327,7 @@ GO
 INSERT INTO Prt_Shipping_Methods (PartnerID, Prt_Shipping_Methods)
 VALUES
 (4, N'Tiêu chuẩn'),
-(4, N'Đồng giá')
+(4, N'Hỏa tốc')
 GO
 
 --- 16. BỔ SUNG BẢNG SHIPMENT (ShipmentID từ 8 đến 11)
@@ -331,5 +336,5 @@ VALUES
 (8, '2026-06-25', '2026-06-27', '2026-06-27', 22000, N'Giao thành công', N'Tiêu chuẩn', 11, 1, 4),
 (9, '2026-06-26', '2026-06-28', '2026-06-28', 0, N'Giao thành công', N'Tiêu chuẩn', 12, 4, 4), -- Đối tác 4 giao
 (10, '2026-06-28', '2026-06-30', NULL, 45000, N'Chờ lấy hàng', N'Tiêu chuẩn', 13, 2, 4),
-(11, '2026-06-29', '2026-07-01', '2026-07-01', 18000, N'Giao thành công', N'Đồng giá', 15, 4, 4)
+(11, '2026-06-29', '2026-07-01', '2026-07-01', 18000, N'Giao thành công', N'Hỏa tốc', 15, 4, 4)
 GO
