@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1058</width>
-    <height>753</height>
+    <height>729</height>
    </rect>
   </property>
   <property name="font">
@@ -2484,7 +2484,7 @@ font-weight:bold;</string>
      <x>0</x>
      <y>0</y>
      <width>1058</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
