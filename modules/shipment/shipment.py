@@ -83,7 +83,7 @@ class ShipmentHandler:
 			"""
 			if conditions:
 				sql += " WHERE " + " AND ".join(conditions)
-			sql += " ORDER BY s.ShipmentDate DESC, s.ShipmentID DESC"
+			sql += " ORDER BY s.ShipmentID, s.ShipmentDate DESC"
 
 			rows = db.execute(sql, params).fetchall()
 			return [

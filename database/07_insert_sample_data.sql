@@ -101,9 +101,9 @@ GO
 INSERT INTO [Role] (RoleID, RoleName, RoleDescription)
 VALUES
 (1, N'Quản trị hệ thống', N'Quản lý toàn bộ hệ thống'),
-(2, N'Nhân viên xử lý đơn hàng', N'Tạo và cập nhật đơn hàng'),
-(3, N'Nhân viên kho', N'Quản lý sản phẩm và tồn kho'),
-(4, N'Nhân viên điều phối giao hàng', N'Tạo và theo dõi shipment'),
+(2, N'Nhân viên bán hàng', N'Tạo khách hàng và đơn hàng'),
+(3, N'Nhân viên kho', N'Cập nhật trạng thái giao hàng và tồn kho '),
+(4, N'Nhân viên quản lý sản phẩm', N'Tạo sản phẩm và tồn kho mới'),
 (5, N'Kế toán', N'Quản lý thanh toán')
 GO
 
@@ -118,6 +118,7 @@ VALUES
 (7, 'warehouse02', 'hash_warehouse_456', N'Đang hoạt động', 7, 3),
 (8, 'sales02', 'hash_order_456', N'Đang hoạt động', 8, 2);
 GO
+
 
 ---NHẬP DỮ LIỆU BẢNG Order
 INSERT INTO [Order] (OrderID, OrderDate, TotalAmount, OrderStatus, ShippingAddress, CustomerID, EmployeeID)
