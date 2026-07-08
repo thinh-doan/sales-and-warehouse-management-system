@@ -205,6 +205,7 @@ class CustomerDetailDialog(QDialog, Ui_khungKhachHang):
         self._prepare_ui_mode()
         self._load_customer_data()
         self._connect_signals()
+
     def _prepare_ui_mode(self):
         """Phân bổ quyền chỉnh sửa dựa theo chế độ gọi (Xem chi tiết hay Cập nhật)"""
         if self.is_editable:
@@ -215,8 +216,9 @@ class CustomerDetailDialog(QDialog, Ui_khungKhachHang):
         # Khóa trường Mã khách hàng (Không cho phép sửa Khóa chính)
         if hasattr(self, 'txtMaKH'):
             self.txtMaKH.setEnabled(False)
-        # Thiết lập trạng thái hoạt động của các ô nhập dữ liệu định danh
-        fields = ['txtTenKH', 'txtSDT_KH', 'txtEmailKH', 'txtNgaySinh', 'rdNam', 'rdNu', 'txtMaSoThue']
+
+        # THAY ĐỔI TẠI ĐÂY: Thêm 'txtDiaChiKH' vào danh sách fields để kiểm soát quyền chỉnh sửa
+        fields = ['txtTenKH', 'txtSDT_KH', 'txtEmailKH', 'txtNgaySinh', 'rdNam', 'rdNu', 'txtMaSoThue', 'txtDiaChiKH']
         for field in fields:
             if hasattr(self, field):
                 getattr(self, field).setEnabled(self.is_editable)
@@ -265,6 +267,10 @@ class CustomerDetailDialog(QDialog, Ui_khungKhachHang):
                 if hasattr(ui, 'txtTenKH'): ui.txtTenKH.setText(str(row[1]))
                 if hasattr(ui, 'txtSDT_KH'): ui.txtSDT_KH.setText(str(row[2]))
                 if hasattr(ui, 'txtEmailKH'): ui.txtEmailKH.setText(str(row[3]) if row[3] else "")
+
+                # BỔ SUNG TẠI ĐÂY: Hiển thị địa chỉ (row[4]) lên ô QPlainTextEdit
+                if hasattr(ui, 'txtDiaChiKH'):
+                    ui.txtDiaChiKH.setPlainText(str(row[4]) if row[4] else "")
 
                 cus_type = row[5]
                 if cus_type == "Cá nhân":
