@@ -4,7 +4,7 @@ from datetime import date
 from PyQt6 import QtCore, QtWidgets
 from PyQt6.QtWidgets import QAbstractItemView, QDialog, QMessageBox, QTableWidgetItem
 
-from database import Database
+from connect import Database
 from modules.employee.employee_add_ui import Ui_EmployeeFormDialog
 from modules.employee.employee_detail_ui import Ui_EmployeeDetailDialog
 
