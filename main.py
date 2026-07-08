@@ -34,7 +34,7 @@ class MainWindow(QMainWindow, Ui_phanTuChinhWindow):
         self.order_controller = OrderPageController(self)
         self.shipment_controller = ShipmentPageController(self)
         self.dashboard_controller = DashboardPageController(self)
-        self.btnBaoCao.clicked.connect(self.show_report_page)
+        self.invento
 
         self.current_role_key = self.permission_manager.apply(self, self.current_user)
         self._show_default_page()
