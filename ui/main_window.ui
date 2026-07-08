@@ -1528,11 +1528,6 @@ border-radius:8px;
           </column>
           <column>
            <property name="text">
-            <string>Số lượng</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
             <string>Tồn kho</string>
            </property>
           </column>
@@ -1550,7 +1545,7 @@ border-radius:8px;
         <item>
          <widget class="QGroupBox" name="groupBox_3">
           <property name="title">
-           <string>GroupBox</string>
+           <string>Tìm kiếm</string>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_11">
            <item>
@@ -1670,6 +1665,11 @@ border-radius:8px;
          <widget class="QTableWidget" name="tblThanhToan">
           <column>
            <property name="text">
+            <string>Mã thanh toán</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
             <string>Mã đơn hàng</string>
            </property>
           </column>
@@ -1686,11 +1686,6 @@ border-radius:8px;
           <column>
            <property name="text">
             <string>Trạng thái</string>
-           </property>
-          </column>
-          <column>
-           <property name="text">
-            <string>Mã thanh toán</string>
            </property>
           </column>
           <column>
