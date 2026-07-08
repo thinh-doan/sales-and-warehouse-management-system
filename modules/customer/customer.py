@@ -579,6 +579,8 @@ class CustomerPageController:
         self._connect_signals()
         self._toggle_action_buttons(False)  # Làm mờ 3 nút ban đầu khi chưa chọn dòng
 
+        self.load_customer_table()
+
     def _setup_table(self):
         table = self.window.tblKhachHang
         table.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
