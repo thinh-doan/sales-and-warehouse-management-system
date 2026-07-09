@@ -120,19 +120,21 @@ class ReportPageController:
 
             elif report_type == "Sản phẩm":
                 sql = """
-                    SELECT p.ProductName,
-                           0 AS Nhap,
-                           COALESCE(SUM(od.Quantity), 0) AS Xuat,
-                           COALESCE(SUM(i.QuantityInStock), 0) AS Ton
+                    SELECT p.ProductID,
+                           p.ProductName,
+                           c.CategoryName,
+                           p.ProductUnitPrice,
+                           ISNULL(SUM(i.QuantityInStock), 0) AS QuantityInStock,
+                           p.ProductStatus
                     FROM Product p
                     LEFT JOIN Inventory i ON p.ProductID = i.ProductID
-                    LEFT JOIN Order_Detail od ON p.ProductID = od.ProductID
-                    GROUP BY p.ProductID, p.ProductName
-                    ORDER BY p.ProductName
+                    LEFT JOIN Category c ON p.CategoryID = c.CategoryID
+                    GROUP BY p.ProductID, p.ProductName, c.CategoryName, p.ProductUnitPrice, p.ProductStatus
+                    ORDER BY p.ProductID
                 """
                 cursor.execute(sql)
                 rows = cursor.fetchall()
-                headers = ["Sản phẩm", "Nhập", "Xuất", "Tồn"]
+                headers = ["Mã SP", "Tên sản phẩm", "Danh mục", "Đơn giá", "Tồn kho", "Trạng thái"]
 
             elif report_type == "Giao hàng":
                 sql = """
@@ -171,7 +173,7 @@ class ReportPageController:
                 headers = []
 
             self._render_table(headers, rows)
-            self._update_summary(headers, rows)
+            self._update_summary(report_type, rows)
             self.close_db()
 
         except Exception as exc:
@@ -191,17 +193,17 @@ class ReportPageController:
         self.window.tblBaoCao.resizeColumnsToContents()
         self.window.tblBaoCao.setSortingEnabled(True)
 
-    def _update_summary(self, headers, rows):
+    def _update_summary(self, report_type, rows):
         self.window.lblTongBanGhi.setText(str(len(rows)))
 
         money_index = None
-        if self._normalize_report_type(self.window.cbbLoaiBaoCao.currentText()) == "Doanh thu":
+        if report_type == "Doanh thu":
             money_index = 2
-        elif self._normalize_report_type(self.window.cbbLoaiBaoCao.currentText()) in {"Đơn hàng", "Thanh toán"}:
+        elif report_type in {"Đơn hàng", "Thanh toán"}:
             money_index = 3
-        elif self._normalize_report_type(self.window.cbbLoaiBaoCao.currentText()) == "Khách hàng":
+        elif report_type == "Khách hàng":
             money_index = 4
-        elif self._normalize_report_type(self.window.cbbLoaiBaoCao.currentText()) == "Sản phẩm":
+        elif report_type == "Sản phẩm":
             money_index = 3
 
         total_amount = 0.0
@@ -216,17 +218,32 @@ class ReportPageController:
 
         completed = 0
         failed = 0
-        for row in rows:
-            for value in row:
-                if isinstance(value, str):
-                    text = value.lower()
-                    if "hoàn thành" in text:
-                        completed += 1
-                    if "thất bại" in text:
-                        failed += 1
+        if report_type == "Đơn hàng":
+            completed = self._count_rows_by_value(rows, 4, "Hoàn thành")
+            failed = self._count_rows_by_value(rows, 4, "Đã hủy")
+            self.window.lblThatBai.setText(str(failed))
+        elif report_type == "Thanh toán":
+            completed = self._count_rows_by_value(rows, 4, "Đã thanh toán")
+            self.window.lblThatBai.setText("")
+        elif report_type == "Giao hàng":
+            completed = self._count_rows_by_value(rows, 4, "Giao thành công")
+            failed = self._count_rows_by_value(rows, 4, "Giao thất bại")
+            self.window.lblThatBai.setText(str(failed))
+        else:
+            for row in rows:
+                for value in row:
+                    if isinstance(value, str):
+                        text = value.lower()
+                        if "hoàn thành" in text:
+                            completed += 1
+                        if "thất bại" in text:
+                            failed += 1
+            self.window.lblThatBai.setText(str(failed))
 
         self.window.lblHoanThanh.setText(str(completed))
-        self.window.lblThatBai.setText(str(failed))
+
+    def _count_rows_by_value(self, rows, column_index, target_value):
+        return sum(1 for row in rows if len(row) > column_index and row[column_index] == target_value)
 
     def _format_value(self, value):
         if value is None:
@@ -247,7 +264,8 @@ class ReportPageController:
             "thanh toán": "Thanh toán",
             "thanh toan": "Thanh toán",
             "giao hàng": "Giao hàng",
-            "san phẩm": "Sản phẩm",
+            "sản phẩm": "Sản phẩm",
+            "san pham": "Sản phẩm",
             "kho": "Sản phẩm",
             "khách hàng": "Khách hàng",
             "khach hang": "Khách hàng",

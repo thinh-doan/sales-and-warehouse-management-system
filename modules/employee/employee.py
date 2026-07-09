@@ -185,7 +185,7 @@ class EmployeeDetailDialog(QDialog, Ui_EmployeeDetailDialog):
         if len(self.employee) > 8 and self.employee[8]:
             hd = self.employee[8]
             self.txtNgayTuyenDung.setDate(QtCore.QDate(hd.year, hd.month, hd.day))
-
+    
     def _load_activities(self):
         """Truy vấn bảng lịch sử hoạt động dựa trên ID nhân viên hiện tại"""
         if not self.employee: return
@@ -240,6 +240,19 @@ class EmployeeDetailDialog(QDialog, Ui_EmployeeDetailDialog):
 class EmployeePageController:
     def __init__(self, main_window):
         self.ui = main_window 
+        self._position_filter_map = {
+            "Tất cả": None,
+            "Nv bán hàng": "Nhân viên bán hàng",
+            "Nv quản lý sản phẩm": "Nhân viên quản lý sản phẩm",
+            "Nv kế toán": "Kế toán thanh toán",
+            "Nv kho": "Nhân viên kho",
+        }
+
+        # --- CẤU HÌNH CLICK CHỌN NGUYÊN HÀNG CHO BẢNG ---
+        self.ui.tblNhanVien.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectionBehavior.SelectRows)
+        # Chỉ cho phép chọn 1 hàng tại một thời điểm (tùy chọn nhưng nên có)
+        self.ui.tblNhanVien.setSelectionMode(QtWidgets.QAbstractItemView.SelectionMode.SingleSelection)
+
         self._connect_signals()
         self._load_data()
 
@@ -250,16 +263,32 @@ class EmployeePageController:
         self.ui.btnChiTietNV.clicked.connect(self._show_detail)
         self.ui.btnRefreshNV.clicked.connect(self._load_data)
         self.ui.btnTimKiemNV.clicked.connect(self._search_employee)
+        self.ui.cbbChucVu.currentTextChanged.connect(self._search_employee)
 
-    def _load_data(self, search_query=None):
+    def _get_position_filter(self):
+        selected_text = self.ui.cbbChucVu.currentText().strip()
+        return self._position_filter_map.get(selected_text, selected_text or None)
+
+    def _load_data(self, search_query=None, position_filter=None):
         self.ui.tblNhanVien.setRowCount(0)
         db = Database()
         try:
             base_query = "SELECT EmployeeID, EmpName, EmpPhone, Position, Department FROM Employee"
+            conditions = []
+            params = []
+
             if search_query:
-                base_query += f" WHERE EmployeeID LIKE '%{search_query}%' OR EmpName LIKE N'%{search_query}%'"
+                conditions.append("(CAST(EmployeeID AS NVARCHAR(50)) LIKE ? OR EmpName LIKE ?)")
+                params.extend([f"%{search_query}%", f"%{search_query}%"])
+
+            if position_filter:
+                conditions.append("Position = ?")
+                params.append(position_filter)
+
+            if conditions:
+                base_query += " WHERE " + " AND ".join(conditions)
                 
-            cursor = db.execute(base_query)
+            cursor = db.execute(base_query, params)
             rows = cursor.fetchall()
             
             for row_idx, row_data in enumerate(rows):
@@ -276,7 +305,8 @@ class EmployeePageController:
 
     def _search_employee(self):
         query = self.ui.txtMaNV.text().strip()
-        self._load_data(search_query=query)
+        position_filter = self._get_position_filter()
+        self._load_data(search_query=query, position_filter=position_filter)
 
     def _add_employee(self):
         dialog = EmployeeFormDialog(self.ui)

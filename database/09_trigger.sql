@@ -122,6 +122,7 @@ GO
 USE [QL_BANHANG_KHOHANG];
 GO
 
+--Tự động tạo ngày giao hàng dự kiến là 3 ngày kể từ ngày đặt đơn hàng.
 CREATE TRIGGER Trg_Shipment_Insert_SetExpected3Days
 ON Shipment
 AFTER INSERT, UPDATE
