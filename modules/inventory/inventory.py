@@ -21,6 +21,27 @@ from .inventory_update_ui import Ui_Dialog as Ui_InventoryUpdate
 class InventoryHandler:
     def __init__(self, db: Optional[Database] = None):
         self.db = db or Database()
+        self._ensure_history_table()
+
+    def _ensure_history_table(self):
+        self.db.execute(
+            """
+            IF OBJECT_ID(N'dbo.Inventory_Change_Log', N'U') IS NULL
+            BEGIN
+                CREATE TABLE dbo.Inventory_Change_Log (
+                    LogID INT IDENTITY(1,1) PRIMARY KEY,
+                    ProductID INT NOT NULL,
+                    WarehouseID INT NULL,
+                    ChangeType NVARCHAR(10) NOT NULL,
+                    ChangeQuantity INT NOT NULL,
+                    EmployeeName NVARCHAR(100) NOT NULL,
+                    Note NVARCHAR(255) NULL,
+                    ChangedAt DATETIME2 NOT NULL CONSTRAINT DF_InventoryChangeLog_ChangedAt DEFAULT SYSDATETIME()
+                );
+            END
+            """
+        )
+        self.db.commit()
 
     @staticmethod
     def _to_product_code(product_id: int) -> str:
@@ -84,25 +105,64 @@ class InventoryHandler:
     def get_item_history(self, product_id: int) -> list[dict]:
         rows = self.db.execute(
             """
-            SELECT WarehouseID, QuantityInStock, LastUpdated
-            FROM Inventory
-            WHERE ProductID = ?
-            ORDER BY WarehouseID
+            SELECT h.EventDate,
+                   h.ChangeType,
+                   h.ChangeQty,
+                   h.EmployeeName,
+                   h.Note
+            FROM (
+                SELECT l.ChangedAt AS EventDate,
+                       l.ChangeType,
+                      ABS(l.ChangeQuantity) AS ChangeQty,
+                      ISNULL(NULLIF(l.EmployeeName, N''), N'Không rõ') AS EmployeeName,
+                       ISNULL(l.Note, N'') AS Note
+                FROM Inventory_Change_Log l
+                WHERE l.ProductID = ?
+
+                UNION ALL
+
+                SELECT CAST(o.OrderDate AS DATETIME2) AS EventDate,
+                       N'Giảm' AS ChangeType,
+                      ABS(od.Quantity) AS ChangeQty,
+                      ISNULL(e.EmpName, N'Không rõ') AS EmployeeName,
+                       N'Xuất kho theo đơn DH' + CAST(o.OrderID AS NVARCHAR(20)) AS Note
+                FROM Order_Detail od
+                JOIN [Order] o ON o.OrderID = od.OrderID
+                LEFT JOIN Employee e ON e.EmployeeID = o.EmployeeID
+                WHERE od.ProductID = ?
+            ) h
+            ORDER BY h.EventDate DESC
             """,
-            (int(product_id),),
+            (int(product_id), int(product_id)),
         ).fetchall()
         return [
             {
-                "ngay": self._format_date(row[2]),
-                "loai": "Tồn hiện tại",
-                "soLuong": int(row[1] or 0),
-                "nhanVien": f"Kho {int(row[0] or 0)}",
-                "ghiChu": "Dữ liệu theo từng kho",
+                "ngay": self._format_date(row[0]),
+                "loai": (row[1] or ""),
+                "soLuong": str(int(row[2] or 0)),
+                "nhanVien": row[3] or "Không rõ",
+                "ghiChu": row[4] or "",
             }
             for row in rows
         ]
 
-    def apply_inventory_adjustment(self, item: dict, mode: str, quantity: int, note: str, nhan_vien: str = "Hệ thống"):
+    def _save_history(self, product_id: int, warehouse_id: int, change_type: str, quantity: int, employee_name: str, note: str):
+        self.db.execute(
+            """
+            INSERT INTO Inventory_Change_Log (ProductID, WarehouseID, ChangeType, ChangeQuantity, EmployeeName, Note)
+            VALUES (?, ?, ?, ?, ?, ?)
+            """,
+            (
+                int(product_id),
+                int(warehouse_id),
+                str(change_type),
+                int(abs(quantity)),
+                str(employee_name or "Không rõ"),
+                str(note or ""),
+            ),
+        )
+
+    def apply_inventory_adjustment(self, item: dict, mode: str, quantity: int, note: str, nhan_vien: str = "Không rõ"):
         if item is None:
             return False
 
@@ -145,15 +205,25 @@ class InventoryHandler:
                 (warehouse_id, int(product_id), new_stock),
             )
 
+        self._save_history(
+            product_id=int(product_id),
+            warehouse_id=warehouse_id,
+            change_type="Tăng" if mode == "Tăng" else "Giảm",
+            quantity=int(quantity),
+            employee_name=str(nhan_vien or "Hệ thống"),
+            note=note,
+        )
+
         self.db.commit()
         return True
 
 
 class InventoryDetailDialog(QtWidgets.QDialog, Ui_pageTonKho):
-    def __init__(self, handler: InventoryHandler, parent=None):
+    def __init__(self, handler: InventoryHandler, parent=None, employee_name: str = "Không rõ"):
         super().__init__(parent)
         self.setupUi(self)
         self.handler = handler
+        self.employee_name = employee_name
         self.item = None
         self.btnCapNhatTK.clicked.connect(self.on_update)
 
@@ -187,7 +257,7 @@ class InventoryDetailDialog(QtWidgets.QDialog, Ui_pageTonKho):
 
     def on_update(self):
         if self.item is not None:
-            dlg = InventoryUpdateDialog(self.handler, parent=self)
+            dlg = InventoryUpdateDialog(self.handler, parent=self, employee_name=self.employee_name)
             dlg.prepare_for_update(self.item)
             if dlg.exec() == QtWidgets.QDialog.DialogCode.Accepted:
                 updated = self.handler.get_item(self.item.get("maSP"))
@@ -197,10 +267,11 @@ class InventoryDetailDialog(QtWidgets.QDialog, Ui_pageTonKho):
 
 
 class InventoryUpdateDialog(QtWidgets.QDialog, Ui_InventoryUpdate):
-    def __init__(self, handler: InventoryHandler, parent=None):
+    def __init__(self, handler: InventoryHandler, parent=None, employee_name: str = "Không rõ"):
         super().__init__(parent)
         self.setupUi(self)
         self.handler = handler
+        self.employee_name = employee_name
         self.item = None
         self.rbTangTK.setChecked(True)
         self.btnLuuTK.clicked.connect(self.on_save)
@@ -225,7 +296,7 @@ class InventoryUpdateDialog(QtWidgets.QDialog, Ui_InventoryUpdate):
             return
         mode = "Tăng" if self.rbTangTK.isChecked() else "Giảm"
         note = self.txtGhiChuTK.toPlainText().strip() or "Không có ghi chú"
-        success = self.handler.apply_inventory_adjustment(self.item, mode, quantity, note)
+        success = self.handler.apply_inventory_adjustment(self.item, mode, quantity, note, self.employee_name)
         if not success:
             QtWidgets.QMessageBox.warning(self, "Lỗi", "Không thể cập nhật tồn kho. Vui lòng kiểm tra số lượng.")
             return
@@ -255,6 +326,11 @@ class InventoryTabController:
         self.window.btnRefreshTK.clicked.connect(self.refresh_table)
         self.window.btnTimKiemTK.clicked.connect(self.filter_table)
         self.window.txtTimKiemTK.textChanged.connect(self.filter_table)
+
+    def _get_logged_in_employee_name(self) -> str:
+        user = getattr(self.window, "current_user", {}) or {}
+        name = str(user.get("employee_name") or "").strip()
+        return name or "Không rõ"
 
     def update_total_label(self):
         total_quantity = sum(int(item.get("soLuong", item.get("tonKho", 0)) or 0) for item in self.inventory_items)
@@ -308,7 +384,7 @@ class InventoryTabController:
         if item is None:
             QtWidgets.QMessageBox.warning(self.window, "Thông báo", "Vui lòng chọn một sản phẩm để xem chi tiết.")
             return
-        dialog = InventoryDetailDialog(self.handler, self.window)
+        dialog = InventoryDetailDialog(self.handler, self.window, employee_name=self._get_logged_in_employee_name())
         dialog.fill_item(item)
         dialog.setWindowTitle("Chi tiết tồn kho")
         if dialog.exec() == QtWidgets.QDialog.DialogCode.Accepted:
@@ -319,7 +395,7 @@ class InventoryTabController:
         if item is None:
             QtWidgets.QMessageBox.warning(self.window, "Thông báo", "Vui lòng chọn một sản phẩm để cập nhật tồn kho.")
             return
-        dialog = InventoryUpdateDialog(self.handler, self.window)
+        dialog = InventoryUpdateDialog(self.handler, self.window, employee_name=self._get_logged_in_employee_name())
         dialog.prepare_for_update(item)
         dialog.setWindowTitle("Cập nhật tồn kho")
         if dialog.exec() == QtWidgets.QDialog.DialogCode.Accepted:
