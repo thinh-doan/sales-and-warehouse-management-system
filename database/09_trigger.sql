@@ -118,3 +118,22 @@ BEGIN
     END
 END
 GO
+
+USE [QL_BANHANG_KHOHANG];
+GO
+
+CREATE TRIGGER Trg_Shipment_Insert_SetExpected3Days
+ON Shipment
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Tự động tính toán nếu cột ExpectedDeliveryDate được truyền vào là NULL
+    UPDATE s
+    SET s.ExpectedDeliveryDate = DATEADD(DAY, 3, i.ShipmentDate)
+    FROM Shipment s
+         JOIN inserted i ON s.ShipmentID = i.ShipmentID
+    WHERE s.ExpectedDeliveryDate IS NULL;
+END;
+GO

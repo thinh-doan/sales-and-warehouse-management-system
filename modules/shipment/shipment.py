@@ -247,7 +247,7 @@ class ShipmentStatusDialog(QDialog, Ui_ShipmentStatus):
 		status = self._current_status
 		if status == "Chờ lấy hàng":
 			self.rbChoLayHang.setChecked(True)
-		elif status == "Đang giao hàng":
+		elif status == "Đang vận chuyển":
 			self.rbDangGiaoHang.setChecked(True)
 		elif status == "Giao thành công":
 			self.rbGiaoThanhCong.setChecked(True)
@@ -258,7 +258,7 @@ class ShipmentStatusDialog(QDialog, Ui_ShipmentStatus):
 		if self.rbChoLayHang.isChecked():
 			return "Chờ lấy hàng"
 		if self.rbDangGiaoHang.isChecked():
-			return "Đang giao hàng"
+			return "Đang vận chuyển"
 		if self.rbGiaoThanhCong.isChecked():
 			return "Giao thành công"
 		if self.rbGiaoThaiBai.isChecked():
@@ -418,7 +418,7 @@ class ShipmentPageController:
 			self.window.cbbTimKiemVC.addItems([
 				"Tất cả",
 				"Chờ lấy hàng",
-				"Đang giao hàng",
+				"Đang vận chuyển",
 				"Giao thành công",
 				"Giao thất bại",
 			])

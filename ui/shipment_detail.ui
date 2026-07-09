@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>794</width>
-    <height>668</height>
+    <height>745</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <iconset>
     <normaloff>../resources/icons/truck-side.png</normaloff>../resources/icons/truck-side.png</iconset>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
+  <layout class="QVBoxLayout" name="verticalLayout" stretch="6,3,1">
    <item>
     <widget class="QGroupBox" name="grpGeneral">
      <property name="title">

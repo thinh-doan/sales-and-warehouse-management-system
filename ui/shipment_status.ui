@@ -45,7 +45,7 @@
         <item>
          <widget class="QRadioButton" name="rbDangGiaoHang">
           <property name="text">
-           <string>Đang giao hàng</string>
+           <string>Đang vận chuyển</string>
           </property>
          </widget>
         </item>

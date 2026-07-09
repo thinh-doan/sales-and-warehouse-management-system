@@ -195,13 +195,12 @@ GO
 ---NHẬP DỮ LIỆU BẢNG Shipment
 INSERT INTO Shipment (ShipmentID, ShipmentDate, ExpectedDeliveryDate, ActualDeliveryDate, ShippingFee, ShipmentStatus, ShipmentMethod, OrderID, PartnerID, EmployeeID)
 VALUES
-(1, '2026-06-10', '2026-06-12', '2026-06-12', 30000, N'Giao thành công', N'Tiêu chuẩn', 1, 1, 4),
-(2, '2026-06-11', '2026-06-13', '2026-06-13', 25000, N'Giao thành công', N'Tiêu chuẩn', 2, 2, 4),
-(3, '2026-06-12', '2026-06-15', NULL, 35000, N'Đang vận chuyển', N'Tiêu chuẩn', 3, 1, 4),
-(4, '2026-06-14', '2026-06-16', '2026-06-16', 28000, N'Giao thành công', N'Tiêu chuẩn', 5, 3, 4),
-(5, '2026-06-15', '2026-06-18', NULL, 40000, N'Chờ lấy hàng', N'Tiêu chuẩn', 6, 2, 4),
-(6, '2026-06-17', '2026-06-20', NULL, 32000, N'Đang vận chuyển', N'Tiêu chuẩn', 8, 1, 4),
-(7, '2026-06-18', '2026-06-20', '2026-06-20', 30000, N'Giao thành công', N'Tiêu chuẩn', 9, 3, 4);
+(1, '2026-06-10', Null, '2026-06-12', 30000, N'Giao thành công', N'Tiêu chuẩn', 1, 1, 4),
+(2, '2026-06-11', Null, '2026-06-13', 25000, N'Giao thành công', N'Tiêu chuẩn', 2, 2, 4),
+(3, '2026-06-12', Null, NULL, 35000, N'Đang vận chuyển', N'Tiêu chuẩn', 3, 1, 4),
+(4, '2026-06-14', Null, '2026-06-16', 28000, N'Giao thành công', N'Tiêu chuẩn', 5, 3, 4),
+(5, '2026-06-15', Null, NULL, 32000, N'Đang vận chuyển', N'Tiêu chuẩn', 8, 1, 4),
+(7, '2026-06-18', Null, '2026-06-20', 30000, N'Giao thành công', N'Tiêu chuẩn', 9, 3, 4);
 GO
 
 INSERT INTO Prt_Shipping_Methods (PartnerID, ShippingMethodName)
@@ -335,8 +334,9 @@ GO
 --- 16. BỔ SUNG BẢNG SHIPMENT (ShipmentID từ 8 đến 11)
 INSERT INTO Shipment (ShipmentID, ShipmentDate, ExpectedDeliveryDate, ActualDeliveryDate, ShippingFee, ShipmentStatus, ShipmentMethod, OrderID, PartnerID, EmployeeID)
 VALUES
-(8, '2026-06-25', '2026-06-27', '2026-06-27', 22000, N'Giao thành công', N'Tiêu chuẩn', 11, 1, 4),
-(9, '2026-06-26', '2026-06-28', '2026-06-28', 0, N'Giao thành công', N'Tiêu chuẩn', 12, 4, 4), -- Đối tác 4 giao
-(10, '2026-06-28', '2026-06-30', NULL, 45000, N'Chờ lấy hàng', N'Tiêu chuẩn', 13, 2, 4),
-(11, '2026-06-29', '2026-07-01', '2026-07-01', 18000, N'Giao thành công', N'Hỏa tốc', 15, 4, 4)
+(8, '2026-06-25', Null, '2026-06-27', 22000, N'Giao thành công', N'Tiêu chuẩn', 11, 1, 4),
+(9, '2026-06-26', Null, '2026-06-28', 0, N'Giao thành công', N'Tiêu chuẩn', 12, 4, 4), -- Đối tác 4 giao
+(10, '2026-06-28', Null, NULL, 45000, N'Chờ lấy hàng', N'Tiêu chuẩn', 13, 2, 4),
+(11, '2026-06-29', Null, '2026-07-01', 18000, N'Giao thành công', N'Hỏa tốc', 15, 4, 4)
 GO
+

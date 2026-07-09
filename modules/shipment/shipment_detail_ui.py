@@ -12,7 +12,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_txtNote(object):
     def setupUi(self, txtNote):
         txtNote.setObjectName("txtNote")
-        txtNote.resize(794, 668)
+        txtNote.resize(794, 745)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("ui\\../resources/icons/truck-side.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         txtNote.setWindowIcon(icon)
@@ -144,6 +144,9 @@ class Ui_txtNote(object):
         self.btnCloseVC.setObjectName("btnCloseVC")
         self.hboxlayout.addWidget(self.btnCloseVC)
         self.verticalLayout.addLayout(self.hboxlayout)
+        self.verticalLayout.setStretch(0, 6)
+        self.verticalLayout.setStretch(1, 3)
+        self.verticalLayout.setStretch(2, 1)
 
         self.retranslateUi(txtNote)
         QtCore.QMetaObject.connectSlotsByName(txtNote)
