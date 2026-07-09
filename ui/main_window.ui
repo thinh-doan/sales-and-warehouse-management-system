@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1058</width>
-    <height>753</height>
+    <height>755</height>
    </rect>
   </property>
   <property name="font">
@@ -338,10 +338,10 @@
        </font>
       </property>
       <property name="currentIndex">
-       <number>10</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="pageTongQuan">
-       <layout class="QVBoxLayout" name="verticalLayout_11">
+       <layout class="QVBoxLayout" name="verticalLayout_12">
         <item>
          <widget class="QLabel" name="lblTitle_11">
           <property name="styleSheet">
@@ -607,54 +607,108 @@ border-radius:8px;
           <property name="title">
            <string>Doanh thu theo tháng</string>
           </property>
-          <layout class="QVBoxLayout" name="_16">
-           <item>
+          <layout class="QGridLayout" name="gridLayout_4">
+           <item row="0" column="0">
             <widget class="QChartView" name="chartDoanhThu"/>
            </item>
           </layout>
          </widget>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayoutStatistic">
+         <layout class="QHBoxLayout" name="horizontalLayout_10">
           <item>
-           <widget class="QGroupBox" name="grpTopProduct">
-            <property name="title">
-             <string>Top 5 sản phẩm bán chạy</string>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayoutTopProduct">
-             <item>
-              <widget class="QTableWidget" name="tblTopProduct">
-               <property name="editTriggers">
-                <set>QAbstractItemView::NoEditTriggers</set>
-               </property>
-               <property name="alternatingRowColors">
-                <bool>true</bool>
-               </property>
-               <property name="selectionBehavior">
-                <enum>QAbstractItemView::SelectRows</enum>
-               </property>
-               <property name="columnCount">
-                <number>3</number>
-               </property>
-               <column>
-                <property name="text">
-                 <string>Mã SP</string>
-                </property>
-               </column>
-               <column>
-                <property name="text">
-                 <string>Tên sản phẩm</string>
-                </property>
-               </column>
-               <column>
-                <property name="text">
-                 <string>Đã bán</string>
-                </property>
-               </column>
-              </widget>
-             </item>
-            </layout>
-           </widget>
+           <layout class="QVBoxLayout" name="verticalLayout_11">
+            <item>
+             <widget class="QGroupBox" name="grpTopProduct">
+              <property name="title">
+               <string>Top 5 sản phẩm bán chạy</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayoutTopProduct">
+               <item>
+                <widget class="QTableWidget" name="tblTopProduct">
+                 <property name="editTriggers">
+                  <set>QAbstractItemView::NoEditTriggers</set>
+                 </property>
+                 <property name="alternatingRowColors">
+                  <bool>true</bool>
+                 </property>
+                 <property name="selectionBehavior">
+                  <enum>QAbstractItemView::SelectRows</enum>
+                 </property>
+                 <property name="columnCount">
+                  <number>3</number>
+                 </property>
+                 <column>
+                  <property name="text">
+                   <string>Mã SP</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>Tên sản phẩm</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>Đã bán</string>
+                  </property>
+                 </column>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QGroupBox" name="grpRecentOrder">
+              <property name="title">
+               <string>Đơn hàng gần đây</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayoutRecentOrder">
+               <item>
+                <widget class="QTableWidget" name="tblRecentOrder">
+                 <property name="editTriggers">
+                  <set>QAbstractItemView::NoEditTriggers</set>
+                 </property>
+                 <property name="alternatingRowColors">
+                  <bool>true</bool>
+                 </property>
+                 <property name="selectionBehavior">
+                  <enum>QAbstractItemView::SelectRows</enum>
+                 </property>
+                 <property name="columnCount">
+                  <number>5</number>
+                 </property>
+                 <column>
+                  <property name="text">
+                   <string>Mã đơn</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>Khách hàng</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>Ngày tạo</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>Tổng tiền</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>Trạng thái</string>
+                  </property>
+                 </column>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
           </item>
           <item>
            <widget class="QGroupBox" name="grpOrderStatus">
@@ -669,56 +723,6 @@ border-radius:8px;
            </widget>
           </item>
          </layout>
-        </item>
-        <item>
-         <widget class="QGroupBox" name="grpRecentOrder">
-          <property name="title">
-           <string>Đơn hàng gần đây</string>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayoutRecentOrder">
-           <item>
-            <widget class="QTableWidget" name="tblRecentOrder">
-             <property name="editTriggers">
-              <set>QAbstractItemView::NoEditTriggers</set>
-             </property>
-             <property name="alternatingRowColors">
-              <bool>true</bool>
-             </property>
-             <property name="selectionBehavior">
-              <enum>QAbstractItemView::SelectRows</enum>
-             </property>
-             <property name="columnCount">
-              <number>5</number>
-             </property>
-             <column>
-              <property name="text">
-               <string>Mã đơn</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>Khách hàng</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>Ngày tạo</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>Tổng tiền</string>
-              </property>
-             </column>
-             <column>
-              <property name="text">
-               <string>Trạng thái</string>
-              </property>
-             </column>
-            </widget>
-           </item>
-          </layout>
-         </widget>
         </item>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayoutFooter">

@@ -356,9 +356,10 @@ class InventoryTabController:
         row = self.window.tblTonKho.currentRow()
         if row < 0:
             return None
+        ma_kho = self.window.tblTonKho.item(row, 0).text()
         code = self.window.tblTonKho.item(row, 1).text()
         for item in self.inventory_items:
-            if item.get("maSP") == code:
+            if item.get("maSP") == code and item.get("maKho") == ma_kho:
                 return item
         return None
 

@@ -11,11 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Thêm sản phẩm</string>
-  </property>
-  <property name="windowIcon">
-   <iconset>
-    <normaloff>../resources/icons/square-plus.png</normaloff>../resources/icons/square-plus.png</iconset>
+   <string>Dialog</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -76,51 +72,74 @@
        </property>
       </widget>
      </item>
-     <item row="4" column="0">
+     <item row="5" column="0">
       <widget class="QLabel" name="labelQuantity">
        <property name="text">
         <string>Tồn kho</string>
        </property>
       </widget>
      </item>
-     <item row="4" column="1">
+     <item row="5" column="1">
       <widget class="QLineEdit" name="txtTonKho">
        <property name="readOnly">
         <bool>true</bool>
        </property>
       </widget>
      </item>
-     <item row="5" column="0">
+     <item row="6" column="0">
       <widget class="QLabel" name="labelUnit">
        <property name="text">
         <string>Đơn vị</string>
        </property>
       </widget>
      </item>
-     <item row="5" column="1">
+     <item row="6" column="1">
       <widget class="QLineEdit" name="txtDonVi">
        <property name="readOnly">
         <bool>true</bool>
        </property>
       </widget>
      </item>
-     <item row="6" column="0">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Mô tả</string>
-       </property>
+     <item row="4" column="1">
+      <widget class="QComboBox" name="cbbKhoSB">
+       <item>
+        <property name="text">
+         <string/>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Kho Tân Bình</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Kho Thủ Đức </string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Kho Bình Tân </string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Kho Tổng Củ Chi</string>
+        </property>
+       </item>
       </widget>
      </item>
-     <item row="6" column="1">
-      <widget class="QLineEdit" name="txtMoTaSP"/>
+     <item row="4" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Kho</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
    <item>
     <layout class="QHBoxLayout">
-     <property name="topMargin">
-      <number>11</number>
-     </property>
      <item>
       <spacer name="horizontalSpacer">
        <property name="orientation">
@@ -128,21 +147,21 @@
        </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>5</width>
-         <height>5</height>
+         <width>13</width>
+         <height>13</height>
         </size>
        </property>
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="btnLuuSP">
+      <widget class="QPushButton" name="btnLuu">
        <property name="text">
         <string>Lưu</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btnHuySP">
+      <widget class="QPushButton" name="btnHuy">
        <property name="text">
         <string>Hủy</string>
        </property>
