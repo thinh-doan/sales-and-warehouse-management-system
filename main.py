@@ -17,6 +17,8 @@ from modules.dashboard.dashboard import DashboardPageController
 from modules.inventory.inventory import InventoryTabController
 from modules.category.category import CategoryTabController
 from modules.payment.payment import PaymentTabController
+from modules.ui_table_defaults import install_table_auto_sizer
+from modules.login_n_permission.logout import handle_logout
 
 class MainWindow(QMainWindow, Ui_phanTuChinhWindow):
     def __init__(self, user_info=None):
@@ -63,7 +65,12 @@ class MainWindow(QMainWindow, Ui_phanTuChinhWindow):
         self._show_page(self.pageTongQuan)
 
     def logout(self):
-        QApplication.instance().quit()
+        handle_logout(self, self._handle_relogin)
+
+    def _handle_relogin(self, user_info):
+        self.current_user = user_info or {}
+        self.current_role_key = self.permission_manager.apply(self, self.current_user)
+        self._show_default_page()
 
 # Test coi nếu bỏ có chạy dc ko
     # def show_report_page(self):
@@ -92,6 +99,7 @@ class MainWindow(QMainWindow, Ui_phanTuChinhWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
+    install_table_auto_sizer(app)
 
     try:
         with open("resources/styles.qss", "r", encoding="utf-8") as f:
