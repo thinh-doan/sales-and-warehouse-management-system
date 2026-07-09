@@ -155,7 +155,7 @@ class ProductDetailDialog(QDialog, Ui_khungMacDinh):
         self._prepare_ui_mode()
         # adjust stock history table to 3 columns (no Ghi chú)
         try:
-            self.tblLichSuTonKho.setColumnCount(3)
+            self.tblLichSuTonKho.setColumnCount(4)
             hdr0 = self.tblLichSuTonKho.horizontalHeaderItem(0)
             if hdr0:
                 hdr0.setText("Ngày")
@@ -165,6 +165,9 @@ class ProductDetailDialog(QDialog, Ui_khungMacDinh):
             hdr2 = self.tblLichSuTonKho.horizontalHeaderItem(2)
             if hdr2:
                 hdr2.setText("Số lượng")
+            hdr3 = self.tblLichSuTonKho.horizontalHeaderItem(3)
+            if hdr3:
+                hdr3.setText("Nhân viên")
         except Exception:
             pass
 
@@ -238,20 +241,59 @@ class ProductDetailDialog(QDialog, Ui_khungMacDinh):
         self.tblLichSuTonKho.setRowCount(0)
         db = Database()
         try:
+            db.execute(
+                """
+                IF OBJECT_ID(N'dbo.Inventory_Change_Log', N'U') IS NULL
+                BEGIN
+                    CREATE TABLE dbo.Inventory_Change_Log (
+                        LogID INT IDENTITY(1,1) PRIMARY KEY,
+                        ProductID INT NOT NULL,
+                        WarehouseID INT NULL,
+                        ChangeType NVARCHAR(10) NOT NULL,
+                        ChangeQuantity INT NOT NULL,
+                        EmployeeName NVARCHAR(100) NOT NULL,
+                        Note NVARCHAR(255) NULL,
+                        ChangedAt DATETIME2 NOT NULL CONSTRAINT DF_InventoryChangeLog_ChangedAt DEFAULT SYSDATETIME()
+                    );
+                END
+                """
+            )
+            db.commit()
+
             query = """
-                SELECT LastUpdated, 'Cập nhật kho' AS ChangeType, QuantityInStock, 'Số lượng tồn kho' AS Note
-                FROM Inventory
-                WHERE ProductID = ?
-                ORDER BY LastUpdated DESC
+                SELECT h.EventDate,
+                       h.ChangeType,
+                       h.ChangeQty,
+                       h.EmployeeName
+                FROM (
+                    SELECT l.ChangedAt AS EventDate,
+                           l.ChangeType,
+                          ABS(l.ChangeQuantity) AS ChangeQty,
+                          ISNULL(NULLIF(l.EmployeeName, N''), N'Không rõ') AS EmployeeName
+                    FROM Inventory_Change_Log l
+                    WHERE l.ProductID = ?
+
+                    UNION ALL
+
+                    SELECT CAST(o.OrderDate AS DATETIME2) AS EventDate,
+                           N'Giảm' AS ChangeType,
+                          ABS(od.Quantity) AS ChangeQty,
+                          ISNULL(e.EmpName, N'Không rõ') AS EmployeeName
+                    FROM Order_Detail od
+                    JOIN [Order] o ON o.OrderID = od.OrderID
+                    LEFT JOIN Employee e ON e.EmployeeID = o.EmployeeID
+                    WHERE od.ProductID = ?
+                ) h
+                ORDER BY h.EventDate DESC
             """
-            cursor = db.execute(query, (self.product[0],))
+            cursor = db.execute(query, (self.product[0], self.product[0]))
             rows = cursor.fetchall()
             self.tblLichSuTonKho.setRowCount(len(rows))
             for row_idx, row in enumerate(rows):
-                # Only populate date, type and quantity (ignore "Ghi chú" column)
                 self.tblLichSuTonKho.setItem(row_idx, 0, QTableWidgetItem(row[0].strftime("%d/%m/%Y") if row[0] else ""))
                 self.tblLichSuTonKho.setItem(row_idx, 1, QTableWidgetItem(str(row[1] or "")))
-                self.tblLichSuTonKho.setItem(row_idx, 2, QTableWidgetItem(str(row[2] or "")))
+                self.tblLichSuTonKho.setItem(row_idx, 2, QTableWidgetItem(str(int(row[2] or 0))))
+                self.tblLichSuTonKho.setItem(row_idx, 3, QTableWidgetItem(str(row[3] or "Không rõ")))
         except Exception:
             pass
         finally:
