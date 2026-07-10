@@ -121,7 +121,7 @@ class OrderItemDialog(QDialog, Ui_hopThoaiDonHangMuc):
         super().__init__(parent)
         self.setupUi(self)
         self.order_id = order_id
-        self.detail = detail
+        self.detail = detail  # Dữ liệu truyền vào dạng: (ProductID, Quantity, WarehouseID)
         self.products = []
         self._connect_signals()
         self._load_products()
@@ -233,10 +233,6 @@ class OrderItemDialog(QDialog, Ui_hopThoaiDonHangMuc):
         self._load_warehouses(product_row[0], preferred_warehouse_id)
 
     def _save_item(self):
-        if not self.order_id:
-            QMessageBox.warning(self, "Thông báo", "Vui lòng lưu đơn hàng trước khi thêm sản phẩm.")
-            return
-
         product_id = self.cbbSanPham.currentData()
         quantity = self.spinSpinSoLuong.value()
         warehouse_id = self.cbbKhoSP.currentData()
@@ -245,92 +241,47 @@ class OrderItemDialog(QDialog, Ui_hopThoaiDonHangMuc):
             QMessageBox.warning(self, "Thông báo", "Vui lòng chọn sản phẩm.")
             return
 
+        product_row = self._current_product_row()
+        if not product_row:
+            QMessageBox.warning(self, "Thông báo", "Không tìm thấy thông tin sản phẩm.")
+            return
+
         db = Database()
         try:
-            _ensure_support_tables(db)
+            if warehouse_id is None:
+                warehouse_id, _ = _best_warehouse(db, product_id, quantity)
+            if warehouse_id is None:
+                QMessageBox.warning(self, "Thông báo", "Không có kho nào đủ số lượng tồn cho sản phẩm này.")
+                return
 
-            product_row = self._current_product_row()
-            if not product_row:
-                raise ValueError("Không tìm thấy sản phẩm")
-
-            if self.detail:
+            available = _inventory_stock(db, product_id, warehouse_id)
+            
+            # Nếu đang cập nhật đơn cũ, cần cộng trả lại lượng cũ để kiểm tra tồn kho chính xác
+            old_qty = 0
+            if self.detail and self.order_id:
                 current_row = db.execute(
-                    "SELECT WarehouseID, Quantity FROM OrderDetailInventoryMap WHERE OrderID = ? AND ProductID = ?",
+                    "SELECT Quantity FROM OrderDetailInventoryMap WHERE OrderID = ? AND ProductID = ?",
                     (self.order_id, product_id),
                 ).fetchone()
-                old_quantity = int(self.detail[1] or 0)
-                mapped_warehouse_id = int(current_row[0]) if current_row else (int(warehouse_id) if warehouse_id is not None else None)
-                if mapped_warehouse_id is None:
-                    mapped_warehouse_id, _ = _best_warehouse(db, product_id, quantity)
-                if mapped_warehouse_id is None:
-                    QMessageBox.warning(self, "Thông báo", "Không có kho nào đủ tồn cho sản phẩm này.")
-                    return
+                if current_row:
+                    old_qty = int(current_row[0])
+            
+            if (available + old_qty) < quantity:
+                QMessageBox.warning(self, "Thông báo", f"Tồn kho không đủ. Hiện tại chỉ còn {available + old_qty} sản phẩm.")
+                return
 
-                delta = quantity - old_quantity
-                if delta > 0:
-                    available = _inventory_stock(db, product_id, mapped_warehouse_id)
-                    if available < delta:
-                        QMessageBox.warning(self, "Thông báo", "Tồn kho trong kho đã chọn không đủ để tăng số lượng.")
-                        return
-                    if not _adjust_inventory(db, product_id, mapped_warehouse_id, -delta):
-                        raise ValueError("Không thể trừ tồn kho.")
-                elif delta < 0:
-                    if not _adjust_inventory(db, product_id, mapped_warehouse_id, abs(delta)):
-                        raise ValueError("Không thể hoàn kho.")
-
-                db.execute(
-                    "UPDATE Order_Detail SET Quantity = ?, OrderDetailUnitPrice = ? WHERE OrderID = ? AND ProductID = ?",
-                    (quantity, product_row[2], self.order_id, product_id),
-                )
-                db.execute(
-                    "UPDATE OrderDetailInventoryMap SET WarehouseID = ?, Quantity = ? WHERE OrderID = ? AND ProductID = ?",
-                    (mapped_warehouse_id, quantity, self.order_id, product_id),
-                )
-            else:
-                existed = db.execute(
-                    "SELECT COUNT(1) FROM Order_Detail WHERE OrderID = ? AND ProductID = ?",
-                    (self.order_id, product_id),
-                ).fetchone()[0]
-                if existed:
-                    QMessageBox.warning(self, "Thông báo", "Sản phẩm này đã có trong đơn hàng. Vui lòng chọn cập nhật.")
-                    return
-
-                if warehouse_id is None:
-                    warehouse_id, _ = _best_warehouse(db, product_id, quantity)
-                if warehouse_id is None:
-                    QMessageBox.warning(self, "Thông báo", "Không có kho nào đủ tồn cho sản phẩm này.")
-                    return
-
-                available = _inventory_stock(db, product_id, warehouse_id)
-                if available < quantity:
-                    QMessageBox.warning(self, "Thông báo", "Tồn kho trong kho đã chọn không đủ.")
-                    return
-
-                db.execute(
-                    "INSERT INTO Order_Detail (OrderID, ProductID, Quantity, OrderDetailUnitPrice) VALUES (?, ?, ?, ?)",
-                    (self.order_id, product_id, quantity, product_row[2]),
-                )
-                db.execute(
-                    "INSERT INTO OrderDetailInventoryMap (OrderID, ProductID, WarehouseID, Quantity) VALUES (?, ?, ?, ?)",
-                    (self.order_id, product_id, warehouse_id, quantity),
-                )
-
-            self._refresh_order_total(db)
-            db.commit()
+            # Lưu thông tin tạm vào chính đối tượng dialog để parent window đọc ra
+            self.result_detail = {
+                "product_id": product_id,
+                "product_name": product_row[1],
+                "quantity": quantity,
+                "price": product_row[2],
+                "warehouse_id": warehouse_id,
+                "total_stock": available + old_qty
+            }
             self.accept()
-        except Exception as exc:
-            db.rollback()
-            QMessageBox.critical(self, "Lỗi", f"Không thể lưu sản phẩm vào đơn hàng.\nChi tiết: {exc}")
         finally:
             db.close()
-
-    def _refresh_order_total(self, db):
-        cursor = db.execute(
-            "SELECT COALESCE(SUM(Quantity * OrderDetailUnitPrice), 0) FROM Order_Detail WHERE OrderID = ?",
-            (self.order_id,),
-        )
-        total = cursor.fetchone()[0] or Decimal('0')
-        db.execute("UPDATE [Order] SET TotalAmount = ? WHERE OrderID = ?", (total, self.order_id))
 
 
 class OrderDetailDialog(QDialog, Ui_hopThoaiDonHang):
@@ -339,6 +290,10 @@ class OrderDetailDialog(QDialog, Ui_hopThoaiDonHang):
         self.setupUi(self)
         self.order = order
         self.order_id = order[0] if order else None
+        
+        # Danh sách tạm lưu trữ các item: chứa dict {"product_id", "product_name", "quantity", "price", "warehouse_id"}
+        self.temp_details = [] 
+        
         self._prepare_detail_table()
         self._connect_signals()
         self._load_lookup_data()
@@ -402,7 +357,7 @@ class OrderDetailDialog(QDialog, Ui_hopThoaiDonHang):
         if self.order:
             self.setWindowTitle("Cập nhật đơn hàng")
             self._load_order_header()
-            self._load_order_details()
+            self._fetch_details_from_db()
         else:
             self.setWindowTitle("Tạo đơn hàng")
             today = date.today()
@@ -416,7 +371,7 @@ class OrderDetailDialog(QDialog, Ui_hopThoaiDonHang):
             self.txtTamTinh.setText("0")
             self.txtTongTT.setText("0")
             self.txtPhiVanChuyen.setText("0")
-            self._load_order_details()
+            self._render_table_from_temp()
 
     def _load_order_header(self):
         if not self.order_id:
@@ -461,48 +416,70 @@ class OrderDetailDialog(QDialog, Ui_hopThoaiDonHang):
         finally:
             db.close()
 
-    def _load_order_details(self):
-        self.tblOrderDetail.setRowCount(0)
+    def _fetch_details_from_db(self):
+        self.temp_details = []
         if not self.order_id:
             return
         db = Database()
         try:
             rows = db.execute(
                 """
-                SELECT od.ProductID,
-                       p.ProductName,
-                       od.Quantity,
-                       od.OrderDetailUnitPrice,
-                       od.Quantity * od.OrderDetailUnitPrice AS ThanhTien,
-                       COALESCE(SUM(i.QuantityInStock), 0) AS QuantityInStock
+                SELECT od.ProductID, p.ProductName, od.Quantity, od.OrderDetailUnitPrice, map.WarehouseID,
+                       COALESCE((SELECT SUM(QuantityInStock) FROM Inventory WHERE ProductID = od.ProductID), 0)
                 FROM Order_Detail od
                 JOIN Product p ON p.ProductID = od.ProductID
-                LEFT JOIN Inventory i ON i.ProductID = od.ProductID
+                LEFT JOIN OrderDetailInventoryMap map ON map.OrderID = od.OrderID AND map.ProductID = od.ProductID
                 WHERE od.OrderID = ?
-                GROUP BY od.ProductID, p.ProductName, od.Quantity, od.OrderDetailUnitPrice
                 ORDER BY od.ProductID
                 """,
                 (self.order_id,),
             ).fetchall()
-            self.tblOrderDetail.setRowCount(len(rows))
-            for row_idx, row in enumerate(rows):
-                self.tblOrderDetail.setItem(row_idx, 0, QTableWidgetItem(str(row[0] or "")))
-                self.tblOrderDetail.setItem(row_idx, 1, QTableWidgetItem(str(row[1] or "")))
-                self.tblOrderDetail.setItem(row_idx, 2, QTableWidgetItem(str(row[2] or "")))
-                self.tblOrderDetail.setItem(row_idx, 3, QTableWidgetItem(_format_currency(row[3])))
-                self.tblOrderDetail.setItem(row_idx, 4, QTableWidgetItem(_format_currency(row[4])))
-                self.tblOrderDetail.setItem(row_idx, 5, QTableWidgetItem(str(row[5] or 0)))
+            for r in rows:
+                self.temp_details.append({
+                    "product_id": int(r[0]),
+                    "product_name": str(r[1]),
+                    "quantity": int(r[2]),
+                    "price": float(r[3]),
+                    "warehouse_id": int(r[4]) if r[4] is not None else None,
+                    "total_stock": int(r[5])
+                })
+            self._render_table_from_temp()
         finally:
             db.close()
 
+    def _render_table_from_temp(self):
+        self.tblOrderDetail.setRowCount(0)
+        self.tblOrderDetail.setRowCount(len(self.temp_details))
+        
+        subtotal = 0.0
+        for idx, item in enumerate(self.temp_details):
+            total_price = item["quantity"] * item["price"]
+            subtotal += total_price
+            
+            self.tblOrderDetail.setItem(idx, 0, QTableWidgetItem(f"SP{item['product_id']:03d}"))
+            self.tblOrderDetail.setItem(idx, 1, QTableWidgetItem(item["product_name"]))
+            self.tblOrderDetail.setItem(idx, 2, QTableWidgetItem(str(item["quantity"])))
+            self.tblOrderDetail.setItem(idx, 3, QTableWidgetItem(_format_currency(item["price"])))
+            self.tblOrderDetail.setItem(idx, 4, QTableWidgetItem(_format_currency(total_price)))
+            self.tblOrderDetail.setItem(idx, 5, QTableWidgetItem(str(item["total_stock"])))
+
+        self.txtTamTinh.setText(_format_currency(subtotal))
+        shipping_fee = _parse_float(self.txtPhiVanChuyen.text()) or 0.0
+        self.txtTongTT.setText(_format_currency(subtotal + shipping_fee))
+
     def _open_add_detail_dialog(self):
-        if not self.order_id:
-            QMessageBox.information(self, "Thông báo", "Vui lòng lưu thông tin đơn hàng trước khi thêm sản phẩm.")
-            return
         dialog = OrderItemDialog(self, order_id=self.order_id)
         if dialog.exec() == QDialog.DialogCode.Accepted:
-            self._load_order_details()
-            self._refresh_totals_from_db()
+            new_item = dialog.result_detail
+            
+            # Kiểm tra xem sản phẩm đã tồn tại trong danh sách tạm hay chưa
+            for item in self.temp_details:
+                if item["product_id"] == new_item["product_id"]:
+                    QMessageBox.warning(self, "Thông báo", "Sản phẩm này đã có trong đơn hàng. Vui lòng chọn cập nhật số lượng.")
+                    return
+                    
+            self.temp_details.append(new_item)
+            self._render_table_from_temp()
 
     def _open_update_detail_dialog(self):
         selected_rows = self.tblOrderDetail.selectionModel().selectedRows()
@@ -510,66 +487,28 @@ class OrderDetailDialog(QDialog, Ui_hopThoaiDonHang):
             QMessageBox.warning(self, "Thông báo", "Vui lòng chọn một dòng sản phẩm để cập nhật.")
             return
 
-        row = selected_rows[0].row()
-        product_id = int(self.tblOrderDetail.item(row, 0).text())
-        quantity = int(self.tblOrderDetail.item(row, 2).text() or 0)
-
-        db = Database()
-        try:
-            _ensure_support_tables(db)
-            map_row = db.execute(
-                "SELECT WarehouseID FROM OrderDetailInventoryMap WHERE OrderID = ? AND ProductID = ?",
-                (self.order_id, product_id),
-            ).fetchone()
-            warehouse_id = int(map_row[0]) if map_row else None
-        finally:
-            db.close()
-
-        detail = (product_id, quantity, warehouse_id)
+        row_idx = selected_rows[0].row()
+        target_item = self.temp_details[row_idx]
+        
+        detail = (target_item["product_id"], target_item["quantity"], target_item["warehouse_id"])
         dialog = OrderItemDialog(self, order_id=self.order_id, detail=detail)
         if dialog.exec() == QDialog.DialogCode.Accepted:
-            self._load_order_details()
-            self._refresh_totals_from_db()
+            self.temp_details[row_idx] = dialog.result_detail
+            self._render_table_from_temp()
 
     def _delete_selected_detail(self):
         selected_rows = self.tblOrderDetail.selectionModel().selectedRows()
         if not selected_rows:
             QMessageBox.warning(self, "Thông báo", "Vui lòng chọn một dòng sản phẩm để xóa.")
             return
-        answer = QMessageBox.question(self, "Xác nhận", "Bạn có chắc chắn muốn xóa sản phẩm này khỏi đơn hàng không?")
+            
+        answer = QMessageBox.question(self, "Xác nhận", "Bạn có chắc chắn muốn xóa sản phẩm này khỏi danh sách không?")
         if answer != QMessageBox.StandardButton.Yes:
             return
 
-        row = selected_rows[0].row()
-        product_id = int(self.tblOrderDetail.item(row, 0).text())
-        quantity = int(self.tblOrderDetail.item(row, 2).text() or 0)
-
-        db = Database()
-        try:
-            _ensure_support_tables(db)
-            map_row = db.execute(
-                "SELECT WarehouseID FROM OrderDetailInventoryMap WHERE OrderID = ? AND ProductID = ?",
-                (self.order_id, product_id),
-            ).fetchone()
-            warehouse_id = int(map_row[0]) if map_row else None
-            if warehouse_id is None:
-                warehouse_id, _ = _best_warehouse(db, product_id, 1)
-
-            if warehouse_id is not None:
-                if not _adjust_inventory(db, product_id, warehouse_id, quantity):
-                    raise ValueError("Không thể hoàn kho cho sản phẩm.")
-
-            db.execute("DELETE FROM Order_Detail WHERE OrderID = ? AND ProductID = ?", (self.order_id, product_id))
-            db.execute("DELETE FROM OrderDetailInventoryMap WHERE OrderID = ? AND ProductID = ?", (self.order_id, product_id))
-            self._refresh_order_total(db)
-            db.commit()
-            self._load_order_details()
-            self._refresh_totals_from_db()
-        except Exception as exc:
-            db.rollback()
-            QMessageBox.critical(self, "Lỗi", f"Không thể xóa sản phẩm khỏi đơn hàng.\nChi tiết: {exc}")
-        finally:
-            db.close()
+        row_idx = selected_rows[0].row()
+        self.temp_details.pop(row_idx)
+        self._render_table_from_temp()
 
     def _save_order(self):
         customer_id = self.cboKhachHang.currentData()
@@ -591,23 +530,76 @@ class OrderDetailDialog(QDialog, Ui_hopThoaiDonHang):
             QMessageBox.warning(self, "Thông báo", "Vui lòng nhập đầy đủ thông tin khách hàng, nhân viên và địa chỉ giao hàng.")
             return
 
+        if not self.temp_details:
+            QMessageBox.warning(self, "Thông báo", "Đơn hàng phải có ít nhất một sản phẩm.")
+            return
+
         db = Database()
         try:
+            _ensure_support_tables(db)
+            
+            # 1. Khôi phục lại kho nếu đây là đơn hàng cũ đang chỉnh sửa
             if self.order_id:
+                # Trả lại kho theo cấu hình cũ trong DB trước khi cập nhật mới
+                old_details = db.execute(
+                    "SELECT ProductID, Quantity FROM Order_Detail WHERE OrderID = ?", (self.order_id,)
+                ).fetchall()
+                for old_p in old_details:
+                    map_row = db.execute(
+                        "SELECT WarehouseID FROM OrderDetailInventoryMap WHERE OrderID = ? AND ProductID = ?",
+                        (self.order_id, int(old_p[0])),
+                    ).fetchone()
+                    w_id = int(map_row[0]) if map_row else None
+                    if w_id is not None:
+                        _adjust_inventory(db, int(old_p[0]), w_id, int(old_p[1]))
+                
+                # Xóa sạch các liên kết cũ trong Database
+                db.execute("DELETE FROM Order_Detail WHERE OrderID = ?", (self.order_id,))
+                db.execute("DELETE FROM OrderDetailInventoryMap WHERE OrderID = ?", (self.order_id,))
+                
+                # Cập nhật thông tin Header
                 db.execute(
                     "UPDATE [Order] SET OrderDate = ?, OrderStatus = ?, ShippingAddress = ?, CustomerID = ?, EmployeeID = ? WHERE OrderID = ?",
                     (order_date, order_status, shipping_address, customer_id, employee_id, self.order_id),
                 )
             else:
+                # Tạo mới hoàn toàn Đơn hàng
                 self.order_id = self._get_next_id(db, "[Order]", "OrderID")
                 db.execute(
                     "INSERT INTO [Order] (OrderID, OrderDate, TotalAmount, OrderStatus, ShippingAddress, CustomerID, EmployeeID) VALUES (?, ?, ?, ?, ?, ?, ?)",
                     (self.order_id, order_date, 0, order_status, shipping_address, customer_id, employee_id),
                 )
 
-            self._refresh_order_total(db)
-            self._upsert_payment(db, self.order_id, order_date, payment_method, payment_status)
+            # 2. Lưu đồng loạt danh sách sản phẩm tạm thời vào Database & Trừ kho hàng thực tế
+            subtotal = 0.0
+            for item in self.temp_details:
+                p_id = item["product_id"]
+                qty = item["quantity"]
+                price = item["price"]
+                w_id = item["warehouse_id"]
+                
+                # Thực hiện trừ kho
+                if not _adjust_inventory(db, p_id, w_id, -qty):
+                    raise ValueError(f"Không thể trừ tồn kho sản phẩm ID {p_id} tại kho {w_id}.")
+                
+                # Thêm vào bảng Order_Detail & Bản đồ kho hàng
+                db.execute(
+                    "INSERT INTO Order_Detail (OrderID, ProductID, Quantity, OrderDetailUnitPrice) VALUES (?, ?, ?, ?)",
+                    (self.order_id, p_id, qty, price),
+                )
+                db.execute(
+                    "INSERT INTO OrderDetailInventoryMap (OrderID, ProductID, WarehouseID, Quantity) VALUES (?, ?, ?, ?)",
+                    (self.order_id, p_id, w_id, qty),
+                )
+                subtotal += (qty * price)
+
+            # 3. Cập nhật lại tổng tiền chính thức
+            db.execute("UPDATE [Order] SET TotalAmount = ? WHERE OrderID = ?", (subtotal, self.order_id))
+            
+            # 4. Đồng bộ Thanh toán & Vận chuyển
+            self._upsert_payment(db, self.order_id, order_date, payment_method, payment_status, subtotal + shipping_fee)
             self._upsert_shipment(db, self.order_id, order_date, shipment_method, partner_id, shipping_fee, employee_id)
+            
             db.commit()
             QMessageBox.information(self, "Thành công", "Lưu đơn hàng thành công.")
             self.accept()
@@ -617,37 +609,8 @@ class OrderDetailDialog(QDialog, Ui_hopThoaiDonHang):
         finally:
             db.close()
 
-    def _refresh_order_total(self, db):
-        cursor = db.execute(
-            "SELECT COALESCE(SUM(Quantity * OrderDetailUnitPrice), 0) FROM Order_Detail WHERE OrderID = ?",
-            (self.order_id,),
-        )
-        total = cursor.fetchone()[0] or Decimal('0')
-        db.execute("UPDATE [Order] SET TotalAmount = ? WHERE OrderID = ?", (total, self.order_id))
-        self.txtTamTinh.setText(_format_currency(total))
-        shipping_fee = _parse_float(self.txtPhiVanChuyen.text()) or 0
-        self.txtTongTT.setText(_format_currency(float(total) + float(shipping_fee)))
-
-    def _refresh_totals_from_db(self):
-        db = Database()
-        try:
-            row = db.execute("SELECT TotalAmount FROM [Order] WHERE OrderID = ?", (self.order_id,)).fetchone()
-            if row:
-                total = row[0] or Decimal('0')
-                self.txtTamTinh.setText(_format_currency(total))
-                shipping_fee = _parse_float(self.txtPhiVanChuyen.text()) or 0
-                self.txtTongTT.setText(_format_currency(float(total) + float(shipping_fee)))
-        finally:
-            db.close()
-
-    def _upsert_payment(self, db, order_id, order_date, payment_method, payment_status):
+    def _upsert_payment(self, db, order_id, order_date, payment_method, payment_status, total_payment):
         payment_row = db.execute("SELECT PaymentID FROM Payment WHERE OrderID = ?", (order_id,)).fetchone()
-        
-        # Tổng thanh toán = Tạm tính + Phí vận chuyển
-        subtotal = self._read_total_amount()
-        shipping_fee = _parse_float(self.txtPhiVanChuyen.text()) or 0.0
-        total_payment = subtotal + shipping_fee
-        
         if payment_row:
             db.execute(
                 "UPDATE Payment SET PaymentDate = ?, Amount = ?, PaymentMethod = ?, PaymentStatus = ? WHERE OrderID = ?",
@@ -661,10 +624,7 @@ class OrderDetailDialog(QDialog, Ui_hopThoaiDonHang):
             )
 
     def _upsert_shipment(self, db, order_id, order_date, shipment_method, partner_id, shipping_fee, employee_id):
-        shipment_row = db.execute(
-            "SELECT ShipmentID, ShipmentStatus, ExpectedDeliveryDate, ActualDeliveryDate FROM Shipment WHERE OrderID = ?",
-            (order_id,),
-        ).fetchone()
+        shipment_row = db.execute("SELECT ShipmentID FROM Shipment WHERE OrderID = ?", (order_id,)).fetchone()
         if shipment_row:
             db.execute(
                 """
@@ -683,10 +643,6 @@ class OrderDetailDialog(QDialog, Ui_hopThoaiDonHang):
                 """,
                 (shipment_id, order_date, None, None, shipping_fee, "Chờ lấy hàng", shipment_method, order_id, partner_id or 1, employee_id),
             )
-
-    def _read_total_amount(self):
-        # Lấy giá trị float từ txtTamTinh sau khi loại bỏ định dạng tiền tệ
-        return _parse_float(self.txtTamTinh.text()) or 0.0
 
     def _get_next_id(self, db, table_name, column_name):
         row = db.execute(f"SELECT COALESCE(MAX({column_name}), 0) FROM {table_name}").fetchone()

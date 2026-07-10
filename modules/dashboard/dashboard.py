@@ -20,6 +20,26 @@ class DashboardPageController:
         self._connect_signals()
         self.load_dashboard_data()
 
+        # Cấu hình co giãn và ép kích thước bằng nhau tuyệt đối cho 2 GroupBox
+        if hasattr(self.window, "grpTopProduct") and hasattr(self.window, "grpOrderStatus"):
+            # 1. Sử dụng Ignored để layout bỏ qua kích thước tự nhiên của Widget bên trong (bảng/chart),
+            # buộc chúng phải tuân theo kích thước mà Layout cha phân bổ.
+            self.window.grpTopProduct.setSizePolicy(
+                QtWidgets.QSizePolicy.Policy.Ignored, QtWidgets.QSizePolicy.Policy.Expanding
+            )
+            self.window.grpOrderStatus.setSizePolicy(
+                QtWidgets.QSizePolicy.Policy.Ignored, QtWidgets.QSizePolicy.Policy.Expanding
+            )
+
+        # # 2. Định cấu hình cho Layout cha (horizontalLayout_10) chia tỷ lệ cân bằng tuyệt đối
+        # if hasattr(self.window, "horizontalLayout_10"):
+        #     # Đặt tỷ lệ stretch là 1 và 1 cho cả hai ô
+        #     self.window.horizontalLayout_10.setStretchFactor(self.window.grpTopProduct, 1)
+        #     self.window.horizontalLayout_10.setStretchFactor(self.window.grpOrderStatus, 1)
+            
+        #     # Khử khoảng cách thừa không mong muốn của layout cha
+        #     self.window.horizontalLayout_10.setSpacing(10)
+
     def _connect_signals(self):
         if hasattr(self.window, "btnRefreshDB"):
             self.window.btnRefreshDB.clicked.connect(self.refresh_dashboard)
@@ -27,10 +47,12 @@ class DashboardPageController:
             self.window.btnTongQuan.clicked.connect(self.show_dashboard_page)
 
     def _setup_visual_layout(self):
-        if hasattr(self.window, "verticalLayout_11"):
-            self.window.verticalLayout_11.setContentsMargins(8, 8, 8, 8)
-            self.window.verticalLayout_11.setSpacing(6)
+        # Cấu hình khoảng cách cho layout chính của trang tổng quan
+        if hasattr(self.window, "verticalLayout_12"):
+            self.window.verticalLayout_12.setContentsMargins(8, 8, 8, 8)
+            self.window.verticalLayout_12.setSpacing(6)
 
+        # Định dạng khoảng cách cho các lưới chứa thẻ KPI
         if hasattr(self.window, "gridKPI"):
             self.window.gridKPI.setVerticalSpacing(4)
             self.window.gridKPI.setHorizontalSpacing(6)
@@ -38,7 +60,7 @@ class DashboardPageController:
             self.window.gridKPI2.setVerticalSpacing(4)
             self.window.gridKPI2.setHorizontalSpacing(6)
 
-        # Thu gọn KPI cards để nhường chỗ cho các bảng/chart phía dưới.
+        # Thu gọn kích thước các thẻ KPI để dành không gian cho biểu đồ phía dưới
         kpi_frames = [
             "frmTotalOrder",
             "frmRevenue",
@@ -55,56 +77,43 @@ class DashboardPageController:
                 frame.setMinimumHeight(56)
                 frame.setMaximumHeight(68)
 
-        # Tăng vùng hiển thị chart và table cho dễ nhìn.
+        # Tối ưu hóa chiều cao hiển thị vùng biểu đồ doanh thu
         if hasattr(self.window, "grpRevenueChart"):
             self.window.grpRevenueChart.setMinimumHeight(200)
             self.window.grpRevenueChart.setMaximumHeight(240)
         if hasattr(self.window, "chartDoanhThu"):
             self.window.chartDoanhThu.setMinimumHeight(160)
 
+        # Tối ưu hóa kích thước cho nhóm sản phẩm bán chạy và trạng thái đơn hàng
         if hasattr(self.window, "grpTopProduct"):
-            self.window.grpTopProduct.setMinimumHeight(120)
-            self.window.grpTopProduct.setMaximumHeight(160)
+            self.window.grpTopProduct.setMinimumHeight(200)
+            self.window.grpTopProduct.setMaximumHeight(250)
         if hasattr(self.window, "grpOrderStatus"):
             self.window.grpOrderStatus.setMinimumHeight(200)
             self.window.grpOrderStatus.setMaximumHeight(250)
         if hasattr(self.window, "chartTrangThaiGiaoHang"):
             self.window.chartTrangThaiGiaoHang.setMinimumHeight(170)
 
-        if hasattr(self.window, "grpRecentOrder"):
-            self.window.grpRecentOrder.setMinimumHeight(110)
-            self.window.grpRecentOrder.setMaximumHeight(150)
-
+        # Cấu hình kích thước thanh footer dữ liệu và nút bấm
         if hasattr(self.window, "btnRefreshDB"):
             self.window.btnRefreshDB.setMinimumSize(100, 30)
         if hasattr(self.window, "txtLastUpdate"):
             self.window.txtLastUpdate.setMinimumHeight(28)
 
-        if hasattr(self.window, "horizontalLayoutStatistic"):
-            self.window.horizontalLayoutStatistic.setStretch(0, 1)
-            self.window.horizontalLayoutStatistic.setStretch(1, 2)
+        # Phân bổ tỷ lệ stretch theo chiều dọc cho toàn bộ màn hình Dashboard (verticalLayout_12)
+        if hasattr(self.window, "verticalLayout_12"):
+            self.window.verticalLayout_12.setStretch(0, 0)  # Title
+            self.window.verticalLayout_12.setStretch(1, 0)  # gridKPI 1
+            self.window.verticalLayout_12.setStretch(2, 0)  # gridKPI 2
+            self.window.verticalLayout_12.setStretch(3, 4)  # grpRevenueChart (Biểu đồ lớn)
+            self.window.verticalLayout_12.setStretch(4, 3)  # horizontalLayout_10 (Top sản phẩm & Trạng thái)
+            self.window.verticalLayout_12.setStretch(5, 0)  # horizontalLayoutFooter
 
-        if hasattr(self.window, "verticalLayout_11"):
-            # Giữ toàn bộ dashboard trong 1 màn hình bằng cách phân bổ lại stretch.
-            self.window.verticalLayout_11.setStretch(0, 0)
-            self.window.verticalLayout_11.setStretch(1, 0)
-            self.window.verticalLayout_11.setStretch(2, 0)
-            self.window.verticalLayout_11.setStretch(3, 3)
-            self.window.verticalLayout_11.setStretch(4, 3)
-            self.window.verticalLayout_11.setStretch(5, 1)
-            self.window.verticalLayout_11.setStretch(6, 0)
-
+        # Định dạng cấu trúc hiển thị bảng Top sản phẩm
         if hasattr(self.window, "tblTopProduct"):
             self.window.tblTopProduct.verticalHeader().setVisible(False)
             self.window.tblTopProduct.horizontalHeader().setStretchLastSection(True)
             self.window.tblTopProduct.setSizePolicy(
-                QtWidgets.QSizePolicy.Policy.Expanding,
-                QtWidgets.QSizePolicy.Policy.Expanding,
-            )
-        if hasattr(self.window, "tblRecentOrder"):
-            self.window.tblRecentOrder.verticalHeader().setVisible(False)
-            self.window.tblRecentOrder.horizontalHeader().setStretchLastSection(True)
-            self.window.tblRecentOrder.setSizePolicy(
                 QtWidgets.QSizePolicy.Policy.Expanding,
                 QtWidgets.QSizePolicy.Policy.Expanding,
             )
@@ -125,13 +134,11 @@ class DashboardPageController:
             kpis = self._query_kpis(cursor)
             monthly_revenue = self._query_revenue_by_month(cursor)
             top_products = self._query_top_products(cursor)
-            recent_rows = self._query_recent_product_rows(cursor)
             order_status = self._query_order_status(cursor)
 
             self._render_kpis(kpis)
             self._render_revenue_chart(monthly_revenue)
             self._render_top_products(top_products)
-            self._render_recent_rows(recent_rows)
             self._render_order_status_chart(order_status)
 
             if hasattr(self.window, "txtLastUpdate"):
@@ -203,8 +210,6 @@ class DashboardPageController:
         rows = execute(sql_paid).fetchall()
         revenue_by_month = {int(r[0]): float(r[1] or 0) for r in rows}
 
-        # Fallback: neu nam hien tai chua co ban ghi thanh toan da tra,
-        # dung tong doanh thu don hang de dashboard khong bi trong.
         if not revenue_by_month:
             sql_orders = """
                 SELECT MONTH(OrderDate) AS [M], SUM(TotalAmount) AS Revenue
@@ -228,22 +233,6 @@ class DashboardPageController:
             JOIN Product p ON p.ProductID = od.ProductID
             GROUP BY p.ProductID, p.ProductName
             ORDER BY SoldQty DESC, p.ProductID ASC
-        """
-        return execute(sql).fetchall()
-
-    def _query_recent_product_rows(self, execute):
-        sql = """
-            SELECT TOP 12
-                o.OrderID,
-                p.ProductName,
-                od.Quantity,
-                o.OrderDate,
-                c.CusName
-            FROM [Order] o
-            JOIN Order_Detail od ON od.OrderID = o.OrderID
-            JOIN Product p ON p.ProductID = od.ProductID
-            JOIN Customer c ON c.CustomerID = o.CustomerID
-            ORDER BY o.OrderDate DESC, o.OrderID DESC
         """
         return execute(sql).fetchall()
 
@@ -284,7 +273,6 @@ class DashboardPageController:
         chart.addSeries(series)
         chart.setTitle(f"Doanh thu theo tháng năm {datetime.now().year}")
         chart.setAnimationOptions(QChart.AnimationOption.SeriesAnimations)
-        # Tang le trai de nhan truc Y khong bi rut gon thanh "...".
         chart.setMargins(QMargins(52, 8, 10, 8))
 
         series.setBarWidth(0.62)
@@ -315,9 +303,7 @@ class DashboardPageController:
         chart.addAxis(axis_y, Qt.AlignmentFlag.AlignLeft)
         series.attachAxis(axis_y)
 
-        # Ẩn toàn bộ label giá trị trên cột để chart gọn, dễ nhìn.
         series.setLabelsVisible(False)
-
         chart.legend().setVisible(False)
 
         self.window.chartDoanhThu.setChart(chart)
@@ -368,36 +354,5 @@ class DashboardPageController:
 
         table.resizeColumnsToContents()
 
-    def _render_recent_rows(self, rows):
-        if not hasattr(self.window, "tblRecentOrder"):
-            return
-
-        table = self.window.tblRecentOrder
-        table.setColumnCount(5)
-        table.setHorizontalHeaderLabels(["Mã đơn", "Sản phẩm", "Số lượng", "Ngày mua", "Khách hàng"])
-        table.setRowCount(len(rows))
-
-        for row_idx, row in enumerate(rows):
-            order_id = int(row[0] or 0)
-            product_name = str(row[1] or "")
-            quantity = int(row[2] or 0)
-            order_date = self._format_date(row[3])
-            customer_name = str(row[4] or "")
-
-            table.setItem(row_idx, 0, QtWidgets.QTableWidgetItem(f"DH{order_id:03d}"))
-            table.setItem(row_idx, 1, QtWidgets.QTableWidgetItem(product_name))
-            table.setItem(row_idx, 2, QtWidgets.QTableWidgetItem(str(quantity)))
-            table.setItem(row_idx, 3, QtWidgets.QTableWidgetItem(order_date))
-            table.setItem(row_idx, 4, QtWidgets.QTableWidgetItem(customer_name))
-
-        table.resizeColumnsToContents()
-
     def _format_currency(self, value):
         return f"{float(value or 0):,.0f} VNĐ"
-
-    def _format_date(self, value):
-        if value is None:
-            return ""
-        if hasattr(value, "strftime"):
-            return value.strftime("%d/%m/%Y")
-        return str(value)
