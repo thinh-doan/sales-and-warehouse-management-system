@@ -85,9 +85,6 @@ CHECK (ShipmentStatus IN(N'Chờ lấy hàng', N'Đang vận chuyển', N'Giao t
 ALTER TABLE Shipment ADD CONSTRAINT CK_Shipment_ExpectedDate
 CHECK (ExpectedDeliveryDate IS NULL OR ExpectedDeliveryDate >= ShipmentDate)
 
-Alter table Shipment
-drop Constraint CK_Shipment_DeliveryDates
-
 ---RÀNG BUỘC CHECK CHO BẢNG Shipment
 ---ĐẢM BẢO NGÀY GIAO THỰC TẾ KHÔNG TRƯỚC NGÀY DỰ KIẾN (NẾU CÓ ĐIỀN CẢ HAI)
 --ALTER TABLE Shipment ADD CONSTRAINT CK_Shipment_DeliveryDates

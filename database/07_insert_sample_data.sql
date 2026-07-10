@@ -191,7 +191,6 @@ VALUES
 (3, N'Hỏa tốc')
 GO
 
-
 ---NHẬP DỮ LIỆU BẢNG Shipment
 INSERT INTO Shipment (ShipmentID, ShipmentDate, ExpectedDeliveryDate, ActualDeliveryDate, ShippingFee, ShipmentStatus, ShipmentMethod, OrderID, PartnerID, EmployeeID)
 VALUES
@@ -202,17 +201,6 @@ VALUES
 (5, '2026-06-15', Null, NULL, 32000, N'Đang vận chuyển', N'Tiêu chuẩn', 8, 1, 4),
 (7, '2026-06-18', Null, '2026-06-20', 30000, N'Giao thành công', N'Tiêu chuẩn', 9, 3, 4);
 GO
-
-INSERT INTO Prt_Shipping_Methods (PartnerID, ShippingMethodName)
-VALUES
-(1, N'Tiêu chuẩn'),
-(1, N'Hỏa tốc'),
-(1, N'Tiết kiệm'),
-(2, N'Tiêu chuẩn'),
-(2, N'Hỏa tốc'),
-(3, N'Tiêu chuẩn'),
-(3, N'Tiết kiệm')
-Go
 
 --------------------------BỔ SUNG SAMPLE------------------------------
 --- 1. BỔ SUNG BẢNG CUSTOMER (ID từ 9 đến 14)
@@ -281,13 +269,6 @@ GO
 --- 8. BỔ SUNG BẢNG EMPLOYEE (Nhân sự mới bổ sung cho Kho 4 và vận hành đơn)
 
 --- 9. BỔ SUNG BẢNG ROLE (Không cần vì hệ thống phân quyền đã đủ 6 phòng ban)
-
---- 10. BỔ SUNG BẢNG ACCOUNT
-INSERT INTO Account (AccountID, Username, PasswordHash, AccountStatus, EmployeeID, RoleID)
-VALUES
-(7, 'warehouse02', 'hash_warehouse_456', N'Đang hoạt động', 7, 3),
-(8, 'order02', 'hash_order_456', N'Đang hoạt động', 8, 2)
-GO
 
 --- 11. BỔ SUNG BẢNG ORDER (Đơn hàng từ ID 11 đến 15)
 INSERT INTO [Order] (OrderID, OrderDate, TotalAmount, OrderStatus, ShippingAddress, CustomerID, EmployeeID)
