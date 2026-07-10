@@ -126,13 +126,25 @@ VALUES
 (1, '2026-06-10', 2100000, N'Hoàn thành', N'Quận 1, TP.HCM', 1, 2),
 (2, '2026-06-11', 450000, N'Hoàn thành', N'Quận 3, TP.HCM', 2, 2),
 (3, '2026-06-12', 1350000, N'Đang giao', N'Quận 7, TP.HCM', 3, 2),
-(4, '2026-06-13', 1800000, N'Chờ xác nhận', N'Thủ Đức, TP.HCM', 4, 2),
+(4, '2026-06-13', 1800000, N'Chờ xử lý', N'Thủ Đức, TP.HCM', 4, 2),
 (5, '2026-06-14', 1300000, N'Hoàn thành', N'Bình Tân, TP.HCM', 5, 2),
-(6, '2026-06-15', 2450000, N'Đang xử lý', N'Tân Bình, TP.HCM', 6, 2),
+(6, '2026-06-15', 2450000, N'Đang chuẩn bị', N'Tân Bình, TP.HCM', 6, 2),
 (7, '2026-06-16', 980000, N'Đã hủy', N'Gò Vấp, TP.HCM', 7, 2),
 (8, '2026-06-17', 1070000, N'Đang giao', N'Quận 10, TP.HCM', 8, 2),
 (9, '2026-06-18', 2400000, N'Hoàn thành', N'Quận 1, TP.HCM', 1, 2),
-(10, '2026-06-19', 650000, N'Chờ xác nhận', N'Quận 3, TP.HCM', 2, 2);
+(10, '2026-06-19', 650000, N'Chờ xử lý', N'Quận 3, TP.HCM', 2, 2);
+GO
+
+UPDATE [Order]
+SET OrderStatus = CASE 
+    WHEN OrderStatus = N'Chờ xác nhận' THEN N'Chờ xử lý'
+    WHEN OrderStatus = N'Đang xử lý'   THEN N'Đang chuẩn bị'
+    -- Các trạng thái dưới đây đã trùng khớp, viết thêm để đảm bảo tính nhất quán (hoặc giữ nguyên)
+    WHEN OrderStatus = N'Đang giao'    THEN N'Đang giao'
+    WHEN OrderStatus = N'Hoàn thành'   THEN N'Hoàn thành'
+    WHEN OrderStatus = N'Đã hủy'       THEN N'Đã hủy'
+    ELSE OrderStatus -- Giữ nguyên nếu có trạng thái khác không nằm trong danh sách
+END;
 GO
 
 ---NHẬP DỮ LIỆU BẢNG Order_Detail

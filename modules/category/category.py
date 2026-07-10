@@ -51,9 +51,13 @@ class CategoryHandler:
     def list_categories(self) -> list[dict]:
         rows = self.db.execute(
             """
-            SELECT c.CategoryID, c.CategoryName, c.CategoryDescription, COUNT(p.ProductID) AS ProductCount
+            SELECT c.CategoryID,
+                   c.CategoryName,
+                   c.CategoryDescription,
+                   ISNULL(SUM(i.QuantityInStock), 0) AS TotalQuantity
             FROM Category c
             LEFT JOIN Product p ON p.CategoryID = c.CategoryID
+            LEFT JOIN Inventory i ON i.ProductID = p.ProductID
             GROUP BY c.CategoryID, c.CategoryName, c.CategoryDescription
             ORDER BY c.CategoryID
             """
@@ -278,13 +282,26 @@ class CategoryTabController:
 
     def populate_table(self, items):
         self.window.tblDM.setRowCount(0)
+
+        # Map cot theo tieu de de tranh lech du lieu khi UI doi thu tu cot.
+        header_to_col = {}
+        for col in range(self.window.tblDM.columnCount()):
+            header_item = self.window.tblDM.horizontalHeaderItem(col)
+            if header_item is not None:
+                header_to_col[(header_item.text() or "").strip().lower()] = col
+
+        col_ma_dm = header_to_col.get("mã danh mục", 0)
+        col_ten_dm = header_to_col.get("tên danh mục", 1)
+        col_mo_ta = header_to_col.get("mô tả", 2)
+        col_so_luong = header_to_col.get("số lượng", 3)
+
         for item in items:
             row = self.window.tblDM.rowCount()
             self.window.tblDM.insertRow(row)
-            self.window.tblDM.setItem(row, 0, QtWidgets.QTableWidgetItem(item.get("maDM", "")))
-            self.window.tblDM.setItem(row, 1, QtWidgets.QTableWidgetItem(item.get("tenDM", "")))
-            self.window.tblDM.setItem(row, 2, QtWidgets.QTableWidgetItem(item.get("moTa", "")))
-            self.window.tblDM.setItem(row, 3, QtWidgets.QTableWidgetItem(str(item.get("sl", 0))))
+            self.window.tblDM.setItem(row, col_ma_dm, QtWidgets.QTableWidgetItem(item.get("maDM", "")))
+            self.window.tblDM.setItem(row, col_ten_dm, QtWidgets.QTableWidgetItem(item.get("tenDM", "")))
+            self.window.tblDM.setItem(row, col_mo_ta, QtWidgets.QTableWidgetItem(item.get("moTa", "")))
+            self.window.tblDM.setItem(row, col_so_luong, QtWidgets.QTableWidgetItem(str(item.get("sl", 0))))
 
     def filter_table(self):
         keyword = self.window.cbbTimKiemDM.currentText().strip().lower()

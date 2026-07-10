@@ -338,7 +338,7 @@
        </font>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="pageTongQuan">
        <layout class="QVBoxLayout" name="verticalLayout_12">
@@ -651,56 +651,6 @@ border-radius:8px;
                  <column>
                   <property name="text">
                    <string>Đã bán</string>
-                  </property>
-                 </column>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
-            <item>
-             <widget class="QGroupBox" name="grpRecentOrder">
-              <property name="title">
-               <string>Đơn hàng gần đây</string>
-              </property>
-              <layout class="QVBoxLayout" name="verticalLayoutRecentOrder">
-               <item>
-                <widget class="QTableWidget" name="tblRecentOrder">
-                 <property name="editTriggers">
-                  <set>QAbstractItemView::NoEditTriggers</set>
-                 </property>
-                 <property name="alternatingRowColors">
-                  <bool>true</bool>
-                 </property>
-                 <property name="selectionBehavior">
-                  <enum>QAbstractItemView::SelectRows</enum>
-                 </property>
-                 <property name="columnCount">
-                  <number>5</number>
-                 </property>
-                 <column>
-                  <property name="text">
-                   <string>Mã đơn</string>
-                  </property>
-                 </column>
-                 <column>
-                  <property name="text">
-                   <string>Khách hàng</string>
-                  </property>
-                 </column>
-                 <column>
-                  <property name="text">
-                   <string>Ngày tạo</string>
-                  </property>
-                 </column>
-                 <column>
-                  <property name="text">
-                   <string>Tổng tiền</string>
-                  </property>
-                 </column>
-                 <column>
-                  <property name="text">
-                   <string>Trạng thái</string>
                   </property>
                  </column>
                 </widget>

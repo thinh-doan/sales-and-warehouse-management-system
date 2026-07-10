@@ -48,7 +48,7 @@ CHECK (TotalAmount >= 0)
 ---RÀNG BUỘC CHECK CHO BẢNG Order
 ---ĐẢM BẢO TRẠNG THÁI ĐƠN HÀNG HỢP LỆ
 ALTER TABLE [Order] ADD CONSTRAINT CK_Order_Status
-CHECK (OrderStatus IN (N'Chờ xác nhận', N'Đang xử lý', N'Đang giao', N'Hoàn thành', N'Đã hủy'))
+CHECK (OrderStatus IN (N'Chờ xử lý', N'Đang chuẩn bị', N'Đang giao', N'Hoàn thành', N'Đã hủy'))
 
 ---RÀNG BUỘC CHECK CHO BẢNG Order_Detail
 ---ĐẢM BẢO SỐ LƯỢNG SẢN PHẨM TRONG CHI TIẾT ĐƠN HÀNG LỚN HƠN 0

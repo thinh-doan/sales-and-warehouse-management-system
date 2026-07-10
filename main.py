@@ -18,7 +18,7 @@ from modules.dashboard.dashboard import DashboardPageController
 from modules.inventory.inventory import InventoryTabController
 from modules.category.category import CategoryTabController
 from modules.payment.payment import PaymentTabController
-from modules.ui_table_defaults import install_table_auto_sizer
+# from modules.ui_table_defaults import install_table_auto_sizer
 from modules.login_n_permission.logout import handle_logout
 
 
@@ -106,7 +106,7 @@ class MainWindow(QMainWindow, Ui_phanTuChinhWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    install_table_auto_sizer(app)
+    # install_table_auto_sizer(app)
 
     try:
         with open("resources/styles.qss", "r", encoding="utf-8") as f:

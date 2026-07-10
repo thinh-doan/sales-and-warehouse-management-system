@@ -69,9 +69,11 @@ QGroupBox {
     background-color: #ffffff;
     border: 1px solid #CCCCCC;
     border-radius: 10px;
-    margin-top: 16px;     /* ĐÃ GIẢM: Cho cân đối với form nhỏ */
-    padding-top: 14px;    /* ĐÃ GIẢM */
-    padding-bottom: 8px;  /* ĐÃ GIẢM */
+    margin-top: 12px;     /* Đã giảm nhẹ để tiêu đề nổi lên đẹp hơn */
+    padding-top: 16px;    /* Đủ khoảng trống để không bị đè vào nội dung bên trong */
+    padding-bottom: 12px; /* Đồng bộ khoảng cách đều 4 góc */
+    padding-left: 12px;   /* Thêm padding trái để nội dung không bám sát viền */
+    padding-right: 12px;  /* Thêm padding phải */
     font-weight: bold;
 }
 
@@ -79,12 +81,12 @@ QGroupBox::title {
     subcontrol-origin: margin;
     subcontrol-position: top left;
     left: 14px;
-    top: 8px; 
+    top: 4px;             /* SỬA CHÍNH: Đưa từ 8px lên 4px để đưa khung chữ lên sát giữa đường viền */
     background-color: #FFFFFF;
     color: #266AA6; 
     border: 1px solid #CCCCCC;
     border-radius: 6px;
-    padding: 2px 8px; /* ĐÃ GIẢM: Tiêu đề gọn gàng hơn */
+    padding: 3px 10px;    /* Tăng nhẹ padding cho khung tiêu đề cân đối hơn */
     font-weight: bold;
     font-size: 13px;
 }
