@@ -24,19 +24,27 @@ class ProductFormDialog(QDialog, Ui_hopThoaiMacDinh):
     def _prepare_form(self):
         if self.product:
             self.setWindowTitle("Cập nhật sản phẩm")
-            self.txtMaSP.setText(str(self.product[0] or ""))
-            self.txtTenSP.setText(str(self.product[1] or ""))
-            # 0:ProductID,1:ProductName,2:ProductUnitPrice,3:Unit,4:ProductDescription,
-            # 5:ProductStatus,6:CategoryName,7:QuantityInStock,8:LastUpdated, 9: WarehouseID
-            self.txtDanhMuc.setText(str(self.product[6] or ""))
-            self.txtDonGia.setText(str(self.product[2] or ""))
-            self.txtTonKho.setText(str(self.product[7] or ""))
-            self.txtDonVi.setText(str(self.product[3] or ""))
-            self.txtMoTaSP.setText(str(self.product[4] or ""))
+            self.txtMaSP.setText(str(self.product[0] if self.product[0] is not None else ""))
+            self.txtTenSP.setText(str(self.product[1] if self.product[1] is not None else ""))
             
-            # Update warehouse if available
-            if len(self.product) > 9 and self.product[9]:
-                self.cbbKhoSP.setCurrentIndex(self.product[9])
+            # Index -> 0:ProductID, 1:ProductName, 2:ProductUnitPrice, 3:Unit, 
+            # 4:ProductDescription, 5:ProductStatus, 6:CategoryName, 7:QuantityInStock, 
+            # 8:LastUpdated, 9:WarehouseID
+            self.txtDanhMuc.setText(str(self.product[6] if self.product[6] is not None else ""))
+            self.txtDonGia.setText(str(self.product[2] if self.product[2] is not None else ""))
+            self.txtTonKho.setText(str(self.product[7] if self.product[7] is not None else "0"))
+            self.txtDonVi.setText(str(self.product[3] if self.product[3] is not None else ""))
+            self.txtMoTaSP.setText(str(self.product[4] if self.product[4] is not None else ""))
+            
+            # Fix TypeError by explicitly converting to int, safely handling None
+            if len(self.product) > 9 and self.product[9] is not None:
+                try:
+                    warehouse_index = int(self.product[9])
+                    self.cbbKhoSP.setCurrentIndex(warehouse_index)
+                except ValueError:
+                    self.cbbKhoSP.setCurrentIndex(0)
+            else:
+                self.cbbKhoSP.setCurrentIndex(0)
             
             # For update: only ProductID should be readonly; other fields editable
             self.txtMaSP.setReadOnly(True)
@@ -81,8 +89,8 @@ class ProductFormDialog(QDialog, Ui_hopThoaiMacDinh):
             QMessageBox.warning(self, "Thông báo", "Vui lòng nhập đầy đủ dữ liệu sản phẩm.")
             return
 
-        if warehouse_idx == 0:
-            QMessageBox.warning(self, "Thông báo", "Vui lòng chọn kho.")
+        if warehouse_idx <= 0:
+            QMessageBox.warning(self, "Thông báo", "Vui lòng chọn kho hợp lệ.")
             return
 
         try:
@@ -94,7 +102,7 @@ class ProductFormDialog(QDialog, Ui_hopThoaiMacDinh):
         try:
             unit_price_val = float(unit_price)
         except ValueError:
-            QMessageBox.warning(self, "Thông báo", "Đơn giá phải là số.")
+            QMessageBox.warning(self, "Thông báo", "Đơn giá phải là số hợp lệ.")
             return
 
         try:
@@ -103,15 +111,16 @@ class ProductFormDialog(QDialog, Ui_hopThoaiMacDinh):
             QMessageBox.warning(self, "Thông báo", "Tồn kho phải là số nguyên.")
             return
 
+        today_str = date.today().strftime('%Y-%m-%d')
+        
         db = Database()
         try:
-            # Resolve category id by name, fallback to NULL if not found
             cursor = db.execute("SELECT CategoryID FROM Category WHERE CategoryName = ?", (category_name,))
             category_row = cursor.fetchone()
             if category_row:
                 category_id = category_row[0]
             else:
-                QMessageBox.warning(self, "Thông báo", "Danh mục không tồn tại. Vui lòng chọn danh mục hợp lệ.")
+                QMessageBox.warning(self, "Thông báo", "Danh mục không tồn tại. Vui lòng nhập đúng danh mục.")
                 db.close()
                 return
 
@@ -124,12 +133,12 @@ class ProductFormDialog(QDialog, Ui_hopThoaiMacDinh):
                 if cursor.fetchone()[0] > 0:
                     db.execute(
                         "UPDATE Inventory SET QuantityInStock = ?, LastUpdated = ? WHERE ProductID = ? AND WarehouseID = ?",
-                        (quantity_int, date.today(), product_id_int, warehouse_idx),
+                        (quantity_int, today_str, product_id_int, warehouse_idx),
                     )
                 else:
                     db.execute(
                         "INSERT INTO Inventory (WarehouseID, ProductID, QuantityInStock, LastUpdated) VALUES (?, ?, ?, ?)",
-                        (warehouse_idx, product_id_int, quantity_int, date.today()),
+                        (warehouse_idx, product_id_int, quantity_int, today_str),
                     )
             else:
                 cursor = db.execute("SELECT COUNT(1) FROM Product WHERE ProductID = ?", (product_id_int,))
@@ -146,7 +155,7 @@ class ProductFormDialog(QDialog, Ui_hopThoaiMacDinh):
                 if cursor.fetchone()[0] == 0:
                     db.execute(
                         "INSERT INTO Inventory (WarehouseID, ProductID, QuantityInStock, LastUpdated) VALUES (?, ?, ?, ?)",
-                        (warehouse_idx, product_id_int, quantity_int, date.today()),
+                        (warehouse_idx, product_id_int, quantity_int, today_str),
                     )
             db.commit()
             QMessageBox.information(self, "Thành công", "Lưu sản phẩm thành công.")
@@ -166,7 +175,6 @@ class ProductDetailDialog(QDialog, Ui_khungMacDinh):
         self.editable = editable
         self.action_requested = None
         self._prepare_ui_mode()
-
         self._fill_detail()
         self._connect_signals()
 
@@ -195,18 +203,21 @@ class ProductDetailDialog(QDialog, Ui_khungMacDinh):
         if not self.product:
             return
 
-        self.txtMaSP.setText(str(self.product[0] or ""))
-        self.txtTenSP.setText(str(self.product[1] or ""))
-        self.txtDanhMuc.setText(str(self.product[6] or ""))
-        self.txtDonGia.setText(str(self.product[2] or ""))
-        self.txtTonKho.setText(str(self.product[7] or ""))
-        self.txtDonVi.setText(str(self.product[3] or ""))
-        self.txtMoTaSP.setPlainText(str(self.product[4] or ""))
-        self.txtNgayTaoSP.setText(str(self.product[8] or ""))
-        self.txtTrangThaiSP.setText(str(self.product[5] or ""))
+        self.txtMaSP.setText(str(self.product[0] if self.product[0] is not None else ""))
+        self.txtTenSP.setText(str(self.product[1] if self.product[1] is not None else ""))
+        self.txtDanhMuc.setText(str(self.product[6] if self.product[6] is not None else ""))
+        self.txtDonGia.setText(str(self.product[2] if self.product[2] is not None else ""))
+        self.txtTonKho.setText(str(self.product[7] if self.product[7] is not None else "0"))
+        self.txtDonVi.setText(str(self.product[3] if self.product[3] is not None else ""))
+        self.txtMoTaSP.setPlainText(str(self.product[4] if self.product[4] is not None else ""))
+        self.txtNgayTaoSP.setText(str(self.product[8] if self.product[8] is not None else ""))
+        self.txtTrangThaiSP.setText(str(self.product[5] if self.product[5] is not None else ""))
         
-        if len(self.product) > 9 and self.product[9]:
-            self.cbbKhoSP.setCurrentIndex(self.product[9])
+        if len(self.product) > 9 and self.product[9] is not None:
+            try:
+                self.cbbKhoSP.setCurrentIndex(int(self.product[9]))
+            except ValueError:
+                self.cbbKhoSP.setCurrentIndex(0)
 
         self._load_sales_history()
         self._load_stock_history()
@@ -223,14 +234,14 @@ class ProductDetailDialog(QDialog, Ui_khungMacDinh):
                 WHERE od.ProductID = ?
                 ORDER BY o.OrderDate DESC, o.OrderID DESC
             """
-            cursor = db.execute(query, (self.product[0],))
+            cursor = db.execute(query, (int(self.product[0]),))
             rows = cursor.fetchall()
             self.tblLichSuBan.setRowCount(len(rows))
             for row_idx, row in enumerate(rows):
-                self.tblLichSuBan.setItem(row_idx, 0, QTableWidgetItem(str(row[0] or "")))
+                self.tblLichSuBan.setItem(row_idx, 0, QTableWidgetItem(str(row[0] if row[0] is not None else "")))
                 self.tblLichSuBan.setItem(row_idx, 1, QTableWidgetItem(row[1].strftime("%d/%m/%Y") if row[1] else ""))
-                self.tblLichSuBan.setItem(row_idx, 2, QTableWidgetItem(str(row[2] or "")))
-                self.tblLichSuBan.setItem(row_idx, 3, QTableWidgetItem(str(row[3] or "")))
+                self.tblLichSuBan.setItem(row_idx, 2, QTableWidgetItem(str(row[2] if row[2] is not None else "")))
+                self.tblLichSuBan.setItem(row_idx, 3, QTableWidgetItem(str(row[3] if row[3] is not None else "")))
                 self.tblLichSuBan.setItem(row_idx, 4, QTableWidgetItem(f"{row[4]:,.0f}" if row[4] is not None else ""))
         except Exception:
             pass
@@ -241,25 +252,6 @@ class ProductDetailDialog(QDialog, Ui_khungMacDinh):
         self.tblLichSuTonKho.setRowCount(0)
         db = Database()
         try:
-            db.execute(
-                """
-                IF OBJECT_ID(N'dbo.Inventory_Change_Log', N'U') IS NULL
-                BEGIN
-                    CREATE TABLE dbo.Inventory_Change_Log (
-                        LogID INT IDENTITY(1,1) PRIMARY KEY,
-                        ProductID INT NOT NULL,
-                        WarehouseID INT NULL,
-                        ChangeType NVARCHAR(10) NOT NULL,
-                        ChangeQuantity INT NOT NULL,
-                        EmployeeName NVARCHAR(100) NOT NULL,
-                        Note NVARCHAR(255) NULL,
-                        ChangedAt DATETIME2 NOT NULL CONSTRAINT DF_InventoryChangeLog_ChangedAt DEFAULT SYSDATETIME()
-                    );
-                END
-                """
-            )
-            db.commit()
-
             query = """
                 SELECT h.EventDate,
                        h.ChangeType,
@@ -286,14 +278,14 @@ class ProductDetailDialog(QDialog, Ui_khungMacDinh):
                 ) h
                 ORDER BY h.EventDate DESC
             """
-            cursor = db.execute(query, (self.product[0], self.product[0]))
+            cursor = db.execute(query, (int(self.product[0]), int(self.product[0])))
             rows = cursor.fetchall()
             self.tblLichSuTonKho.setRowCount(len(rows))
             for row_idx, row in enumerate(rows):
                 self.tblLichSuTonKho.setItem(row_idx, 0, QTableWidgetItem(row[0].strftime("%d/%m/%Y") if row[0] else ""))
-                self.tblLichSuTonKho.setItem(row_idx, 1, QTableWidgetItem(str(row[1] or "")))
-                self.tblLichSuTonKho.setItem(row_idx, 2, QTableWidgetItem(str(int(row[2] or 0))))
-                self.tblLichSuTonKho.setItem(row_idx, 3, QTableWidgetItem(str(row[3] or "Không rõ")))
+                self.tblLichSuTonKho.setItem(row_idx, 1, QTableWidgetItem(str(row[1] if row[1] is not None else "")))
+                self.tblLichSuTonKho.setItem(row_idx, 2, QTableWidgetItem(str(int(row[2] if row[2] is not None else 0))))
+                self.tblLichSuTonKho.setItem(row_idx, 3, QTableWidgetItem(str(row[3] if row[3] is not None else "Không rõ")))
         except Exception:
             pass
         finally:
@@ -334,6 +326,10 @@ class ProductPageController:
         self.window.btnXoaSP.clicked.connect(self.delete_product)
         self.window.btnRefreshSP.clicked.connect(self.load_product_table)
         self.window.btnTimKiemSP.clicked.connect(self.search_product)
+        
+        if hasattr(self.window, 'btnCapNhatTK'):
+            self.window.btnCapNhatTK.clicked.connect(self.open_update_product_dialog)
+
         if hasattr(self.window, 'txtTimKiemSP'):
             self.window.txtTimKiemSP.returnPressed.connect(self.search_product)
         if hasattr(self.window, 'cbbDanhMuc'):
@@ -368,11 +364,12 @@ class ProductPageController:
         self.window.btnChiTietSP.setEnabled(selected)
         self.window.btnCapNhatSP.setEnabled(selected)
         self.window.btnXoaSP.setEnabled(selected)
+        if hasattr(self.window, 'btnCapNhatTK'):
+            self.window.btnCapNhatTK.setEnabled(selected)
 
     def load_product_table(self, product_id=None, product_name=None):
         db = self._create_db()
         try:
-            # Aggregate inventory and select WarehouseID 
             query = """
                 SELECT p.ProductID, p.ProductName, c.CategoryName, i.WarehouseID,
                        SUM(ISNULL(i.QuantityInStock, 0)) AS QuantityInStock, p.ProductUnitPrice, p.ProductStatus
@@ -384,21 +381,20 @@ class ProductPageController:
             params = []
             if product_id:
                 query += " AND p.ProductID = ?"
-                params.append(product_id)
+                params.append(int(product_id))
             if product_name:
                 query += " AND p.ProductName LIKE ?"
                 params.append(f"%{product_name}%")
-            # Apply category filter if selected
+                
             try:
-                cat_data = None
                 if hasattr(self.window, 'cbbDanhMuc'):
                     cat_data = self.window.cbbDanhMuc.currentData()
-                if cat_data:
-                    query += " AND p.CategoryID = ?"
-                    params.append(cat_data)
+                    if cat_data is not None:
+                        query += " AND p.CategoryID = ?"
+                        params.append(cat_data)
             except Exception:
                 pass
-            # Apply status filter if selected and not 'Tất cả'
+                
             try:
                 if hasattr(self.window, 'cbbTrangThai'):
                     status_txt = self.window.cbbTrangThai.currentText().strip()
@@ -423,28 +419,26 @@ class ProductPageController:
         existing_widths = [self.window.bangSanPham.columnWidth(i) for i in range(self.window.bangSanPham.columnCount())]
         should_autofit = not existing_widths or all(width == 100 for width in existing_widths)
 
-        # Thiết lập lại table theo cấu trúc 7 cột
         self.window.bangSanPham.setColumnCount(7)
         self.window.bangSanPham.setRowCount(len(rows))
         for row_index, row in enumerate(rows):
-            # Mã SP, Tên sản phẩm, Danh mục, Mã kho, Tồn kho, Đơn giá, Trạng thái
-            self.window.bangSanPham.setItem(row_index, 0, QTableWidgetItem(str(row[0] or "")))
-            self.window.bangSanPham.setItem(row_index, 1, QTableWidgetItem(str(row[1] or "")))
-            self.window.bangSanPham.setItem(row_index, 2, QTableWidgetItem(str(row[2] or "")))
-            self.window.bangSanPham.setItem(row_index, 3, QTableWidgetItem(str(row[3] or ""))) # Mã Kho
-            self.window.bangSanPham.setItem(row_index, 4, QTableWidgetItem(str(row[4] or "0")))
-            self.window.bangSanPham.setItem(row_index, 5, QTableWidgetItem(str(row[5] or "")))
-            self.window.bangSanPham.setItem(row_index, 6, QTableWidgetItem(str(row[6] or "")))
+            self.window.bangSanPham.setItem(row_index, 0, QTableWidgetItem(str(row[0] if row[0] is not None else "")))
+            self.window.bangSanPham.setItem(row_index, 1, QTableWidgetItem(str(row[1] if row[1] is not None else "")))
+            self.window.bangSanPham.setItem(row_index, 2, QTableWidgetItem(str(row[2] if row[2] is not None else "")))
+            self.window.bangSanPham.setItem(row_index, 3, QTableWidgetItem(str(row[3] if row[3] is not None else ""))) 
+            self.window.bangSanPham.setItem(row_index, 4, QTableWidgetItem(str(row[4] if row[4] is not None else "0")))
+            self.window.bangSanPham.setItem(row_index, 5, QTableWidgetItem(str(row[5] if row[5] is not None else "")))
+            self.window.bangSanPham.setItem(row_index, 6, QTableWidgetItem(str(row[6] if row[6] is not None else "")))
 
         if should_autofit:
             self.window.bangSanPham.resizeColumnsToContents()
         else:
-            for column_index, width in enumerate(existing_widths[: self.window.bangSanPham.columnCount()]):
-                self.window.bangSanPham.setColumnWidth(column_index, width)
+            limit = min(len(existing_widths), self.window.bangSanPham.columnCount())
+            for column_index in range(limit):
+                self.window.bangSanPham.setColumnWidth(column_index, existing_widths[column_index])
         self._update_action_buttons_state()
 
     def _populate_filters(self):
-        # Fill category combobox with CategoryName and store CategoryID as data
         if not hasattr(self.window, 'cbbDanhMuc'):
             return
         db = self._create_db()
@@ -454,13 +448,12 @@ class ProductPageController:
             self.window.cbbDanhMuc.clear()
             self.window.cbbDanhMuc.addItem("Tất cả", None)
             for r in rows:
-                self.window.cbbDanhMuc.addItem(str(r[1] or ""), r[0])
+                self.window.cbbDanhMuc.addItem(str(r[1] if r[1] is not None else ""), r[0])
         except Exception:
             pass
         finally:
             db.close()
 
-        # Fill status combobox
         try:
             self.window.cbbTrangThai.clear()
             self.window.cbbTrangThai.addItem("Tất cả")
@@ -481,7 +474,7 @@ class ProductPageController:
                 "LEFT JOIN Category c ON p.CategoryID = c.CategoryID "
                 "WHERE p.ProductID = ? "
                 "GROUP BY p.ProductID, p.ProductName, p.ProductUnitPrice, p.Unit, p.ProductDescription, p.ProductStatus, c.CategoryName",
-                (product_id,),
+                (int(product_id),),
             )
             return cursor.fetchone()
         except Exception as e:
@@ -546,7 +539,7 @@ class ProductPageController:
     def _confirm_delete_product(self, product_id):
         db = self._create_db()
         try:
-            cursor = db.execute("SELECT ProductName FROM Product WHERE ProductID = ?", (product_id,))
+            cursor = db.execute("SELECT ProductName FROM Product WHERE ProductID = ?", (int(product_id),))
             row = cursor.fetchone()
             name = row[0] if row else ""
         except Exception as exc:
@@ -566,9 +559,9 @@ class ProductPageController:
 
         db = self._create_db()
         try:
-            db.execute("DELETE FROM Inventory WHERE ProductID = ?", (product_id,))
-            db.execute("DELETE FROM Order_Detail WHERE ProductID = ?", (product_id,))
-            db.execute("DELETE FROM Product WHERE ProductID = ?", (product_id,))
+            db.execute("DELETE FROM Inventory WHERE ProductID = ?", (int(product_id),))
+            db.execute("DELETE FROM Order_Detail WHERE ProductID = ?", (int(product_id),))
+            db.execute("DELETE FROM Product WHERE ProductID = ?", (int(product_id),))
             db.commit()
             QMessageBox.information(self.window, "Thành công", "Sản phẩm đã được xóa.")
             self.load_product_table()
