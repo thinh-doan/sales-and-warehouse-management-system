@@ -282,6 +282,9 @@ class PartnerPageController:
             db.close()
 
     def _render_partner_table(self, rows):
+        existing_widths = [self.window.tblDoiTac.columnWidth(i) for i in range(self.window.tblDoiTac.columnCount())]
+        should_autofit = not existing_widths or all(width == 100 for width in existing_widths)
+
         self.window.tblDoiTac.setRowCount(len(rows))
         self.window.tblDoiTac.setColumnCount(6)
         self.window.tblDoiTac.setHorizontalHeaderLabels(["Mã ĐT", "Tên ĐT", "SĐT", "Email", "Địa chỉ", "Phương thức VC"])
@@ -289,7 +292,12 @@ class PartnerPageController:
             for col_index, value in enumerate(row):
                 item = QTableWidgetItem(str(value) if value is not None else "")
                 self.window.tblDoiTac.setItem(row_index, col_index, item)
-        self.window.tblDoiTac.resizeColumnsToContents()
+
+        if should_autofit:
+            self.window.tblDoiTac.resizeColumnsToContents()
+        else:
+            for column_index, width in enumerate(existing_widths[: self.window.tblDoiTac.columnCount()]):
+                self.window.tblDoiTac.setColumnWidth(column_index, width)
 
     def _get_selected_partner_id(self):
         selected = self.window.tblDoiTac.selectedItems()

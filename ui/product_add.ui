@@ -101,7 +101,7 @@
       </widget>
      </item>
      <item row="4" column="1">
-      <widget class="QComboBox" name="cbbKhoSB">
+      <widget class="QComboBox" name="cbbKhoSP">
        <item>
         <property name="text">
          <string/>
@@ -136,6 +136,16 @@
        </property>
       </widget>
      </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Mô tả SP</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QLineEdit" name="txtMoTaSP"/>
+     </item>
     </layout>
    </item>
    <item>
@@ -154,14 +164,14 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="btnLuu">
+      <widget class="QPushButton" name="btnLuuSP">
        <property name="text">
         <string>Lưu</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btnHuy">
+      <widget class="QPushButton" name="btnHuySP">
        <property name="text">
         <string>Hủy</string>
        </property>

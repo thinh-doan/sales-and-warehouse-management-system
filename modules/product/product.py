@@ -26,14 +26,18 @@ class ProductFormDialog(QDialog, Ui_hopThoaiMacDinh):
             self.setWindowTitle("Cập nhật sản phẩm")
             self.txtMaSP.setText(str(self.product[0] or ""))
             self.txtTenSP.setText(str(self.product[1] or ""))
-            # Mapping to columns returned by _load_product_record():
             # 0:ProductID,1:ProductName,2:ProductUnitPrice,3:Unit,4:ProductDescription,
-            # 5:ProductStatus,6:CategoryName,7:QuantityInStock,8:LastUpdated
+            # 5:ProductStatus,6:CategoryName,7:QuantityInStock,8:LastUpdated, 9: WarehouseID
             self.txtDanhMuc.setText(str(self.product[6] or ""))
             self.txtDonGia.setText(str(self.product[2] or ""))
             self.txtTonKho.setText(str(self.product[7] or ""))
             self.txtDonVi.setText(str(self.product[3] or ""))
             self.txtMoTaSP.setText(str(self.product[4] or ""))
+            
+            # Update warehouse if available
+            if len(self.product) > 9 and self.product[9]:
+                self.cbbKhoSP.setCurrentIndex(self.product[9])
+            
             # For update: only ProductID should be readonly; other fields editable
             self.txtMaSP.setReadOnly(True)
             self.txtTenSP.setReadOnly(False)
@@ -41,6 +45,7 @@ class ProductFormDialog(QDialog, Ui_hopThoaiMacDinh):
             self.txtDonGia.setReadOnly(False)
             self.txtTonKho.setReadOnly(False)
             self.txtDonVi.setReadOnly(False)
+            self.cbbKhoSP.setEnabled(True)
         else:
             self.setWindowTitle("Thêm sản phẩm")
             self.txtMaSP.setText("")
@@ -50,6 +55,8 @@ class ProductFormDialog(QDialog, Ui_hopThoaiMacDinh):
             self.txtTonKho.setText("")
             self.txtDonVi.setText("")
             self.txtMoTaSP.setText("")
+            self.cbbKhoSP.setCurrentIndex(0)
+            
             # Make fields editable when adding
             self.txtMaSP.setReadOnly(False)
             self.txtTenSP.setReadOnly(False)
@@ -57,6 +64,7 @@ class ProductFormDialog(QDialog, Ui_hopThoaiMacDinh):
             self.txtDonGia.setReadOnly(False)
             self.txtTonKho.setReadOnly(False)
             self.txtDonVi.setReadOnly(False)
+            self.cbbKhoSP.setEnabled(True)
 
     def _save_product(self):
         product_id = self.txtMaSP.text().strip()
@@ -66,10 +74,15 @@ class ProductFormDialog(QDialog, Ui_hopThoaiMacDinh):
         quantity = self.txtTonKho.text().strip()
         unit = self.txtDonVi.text().strip()
         description = self.txtMoTaSP.text().strip()
+        warehouse_idx = self.cbbKhoSP.currentIndex()
         status = "Đang bán"
 
         if not product_id or not product_name or not category_name or not unit_price or not quantity or not unit:
             QMessageBox.warning(self, "Thông báo", "Vui lòng nhập đầy đủ dữ liệu sản phẩm.")
+            return
+
+        if warehouse_idx == 0:
+            QMessageBox.warning(self, "Thông báo", "Vui lòng chọn kho.")
             return
 
         try:
@@ -107,16 +120,16 @@ class ProductFormDialog(QDialog, Ui_hopThoaiMacDinh):
                     "UPDATE Product SET ProductName = ?, ProductUnitPrice = ?, Unit = ?, ProductDescription = ?, ProductStatus = ?, CategoryID = ? WHERE ProductID = ?",
                     (product_name, unit_price_val, unit, description if description else None, status, category_id, product_id_int),
                 )
-                cursor = db.execute("SELECT COUNT(1) FROM Inventory WHERE ProductID = ?", (product_id_int,))
+                cursor = db.execute("SELECT COUNT(1) FROM Inventory WHERE ProductID = ? AND WarehouseID = ?", (product_id_int, warehouse_idx))
                 if cursor.fetchone()[0] > 0:
                     db.execute(
-                        "UPDATE Inventory SET QuantityInStock = ?, LastUpdated = ? WHERE ProductID = ?",
-                        (quantity_int, date.today(), product_id_int),
+                        "UPDATE Inventory SET QuantityInStock = ?, LastUpdated = ? WHERE ProductID = ? AND WarehouseID = ?",
+                        (quantity_int, date.today(), product_id_int, warehouse_idx),
                     )
                 else:
                     db.execute(
                         "INSERT INTO Inventory (WarehouseID, ProductID, QuantityInStock, LastUpdated) VALUES (?, ?, ?, ?)",
-                        (1, product_id_int, quantity_int, date.today()),
+                        (warehouse_idx, product_id_int, quantity_int, date.today()),
                     )
             else:
                 cursor = db.execute("SELECT COUNT(1) FROM Product WHERE ProductID = ?", (product_id_int,))
@@ -129,11 +142,11 @@ class ProductFormDialog(QDialog, Ui_hopThoaiMacDinh):
                     "INSERT INTO Product (ProductID, ProductName, ProductUnitPrice, Unit, ProductDescription, ProductStatus, CategoryID) VALUES (?, ?, ?, ?, ?, ?, ?)",
                     (product_id_int, product_name, unit_price_val, unit, description if description else None, status, category_id),
                 )
-                cursor = db.execute("SELECT COUNT(1) FROM Inventory WHERE ProductID = ?", (product_id_int,))
+                cursor = db.execute("SELECT COUNT(1) FROM Inventory WHERE ProductID = ? AND WarehouseID = ?", (product_id_int, warehouse_idx))
                 if cursor.fetchone()[0] == 0:
                     db.execute(
                         "INSERT INTO Inventory (WarehouseID, ProductID, QuantityInStock, LastUpdated) VALUES (?, ?, ?, ?)",
-                        (1, product_id_int, quantity_int, date.today()),
+                        (warehouse_idx, product_id_int, quantity_int, date.today()),
                     )
             db.commit()
             QMessageBox.information(self, "Thành công", "Lưu sản phẩm thành công.")
@@ -153,23 +166,6 @@ class ProductDetailDialog(QDialog, Ui_khungMacDinh):
         self.editable = editable
         self.action_requested = None
         self._prepare_ui_mode()
-        # adjust stock history table to 3 columns (no Ghi chú)
-        try:
-            self.tblLichSuTonKho.setColumnCount(4)
-            hdr0 = self.tblLichSuTonKho.horizontalHeaderItem(0)
-            if hdr0:
-                hdr0.setText("Ngày")
-            hdr1 = self.tblLichSuTonKho.horizontalHeaderItem(1)
-            if hdr1:
-                hdr1.setText("Loại")
-            hdr2 = self.tblLichSuTonKho.horizontalHeaderItem(2)
-            if hdr2:
-                hdr2.setText("Số lượng")
-            hdr3 = self.tblLichSuTonKho.horizontalHeaderItem(3)
-            if hdr3:
-                hdr3.setText("Nhân viên")
-        except Exception:
-            pass
 
         self._fill_detail()
         self._connect_signals()
@@ -187,6 +183,7 @@ class ProductDetailDialog(QDialog, Ui_khungMacDinh):
         self.txtTonKho.setEnabled(self.editable)
         self.txtDonVi.setEnabled(self.editable)
         self.txtMoTaSP.setReadOnly(not self.editable)
+        self.cbbKhoSP.setEnabled(self.editable)
         self.txtNgayTaoSP.setEnabled(False)
         self.txtTrangThaiSP.setEnabled(False)
 
@@ -207,6 +204,9 @@ class ProductDetailDialog(QDialog, Ui_khungMacDinh):
         self.txtMoTaSP.setPlainText(str(self.product[4] or ""))
         self.txtNgayTaoSP.setText(str(self.product[8] or ""))
         self.txtTrangThaiSP.setText(str(self.product[5] or ""))
+        
+        if len(self.product) > 9 and self.product[9]:
+            self.cbbKhoSP.setCurrentIndex(self.product[9])
 
         self._load_sales_history()
         self._load_stock_history()
@@ -323,6 +323,10 @@ class ProductPageController:
         self._populate_filters()
         self.load_product_table()
 
+    @staticmethod
+    def _show_error(parent, title, exc):
+        QMessageBox.critical(parent, title, f"Đã xảy ra lỗi trong chức năng Sản phẩm.\n{exc}")
+
     def _connect_signals(self):
         self.window.btnThemSP.clicked.connect(self.open_add_product_dialog)
         self.window.btnChiTietSP.clicked.connect(self.open_product_detail_dialog)
@@ -368,10 +372,10 @@ class ProductPageController:
     def load_product_table(self, product_id=None, product_name=None):
         db = self._create_db()
         try:
-            # Aggregate inventory across warehouses to avoid duplicate product rows
+            # Aggregate inventory and select WarehouseID 
             query = """
-                SELECT p.ProductID, p.ProductName, c.CategoryName, p.ProductUnitPrice,
-                       SUM(ISNULL(i.QuantityInStock, 0)) AS QuantityInStock, p.ProductStatus
+                SELECT p.ProductID, p.ProductName, c.CategoryName, i.WarehouseID,
+                       SUM(ISNULL(i.QuantityInStock, 0)) AS QuantityInStock, p.ProductUnitPrice, p.ProductStatus
                 FROM Product p
                 LEFT JOIN Inventory i ON p.ProductID = i.ProductID
                 LEFT JOIN Category c ON p.CategoryID = c.CategoryID
@@ -403,8 +407,10 @@ class ProductPageController:
                         params.append(status_txt)
             except Exception:
                 pass
-            query += " GROUP BY p.ProductID, p.ProductName, c.CategoryName, p.ProductUnitPrice, p.ProductStatus"
+                
+            query += " GROUP BY p.ProductID, p.ProductName, c.CategoryName, i.WarehouseID, p.ProductUnitPrice, p.ProductStatus"
             query += " ORDER BY p.ProductID"
+            
             cursor = db.execute(query, params if params else None)
             rows = cursor.fetchall()
             self._render_product_table(rows)
@@ -414,15 +420,27 @@ class ProductPageController:
             db.close()
 
     def _render_product_table(self, rows):
+        existing_widths = [self.window.bangSanPham.columnWidth(i) for i in range(self.window.bangSanPham.columnCount())]
+        should_autofit = not existing_widths or all(width == 100 for width in existing_widths)
+
+        # Thiết lập lại table theo cấu trúc 7 cột
+        self.window.bangSanPham.setColumnCount(7)
         self.window.bangSanPham.setRowCount(len(rows))
         for row_index, row in enumerate(rows):
+            # Mã SP, Tên sản phẩm, Danh mục, Mã kho, Tồn kho, Đơn giá, Trạng thái
             self.window.bangSanPham.setItem(row_index, 0, QTableWidgetItem(str(row[0] or "")))
             self.window.bangSanPham.setItem(row_index, 1, QTableWidgetItem(str(row[1] or "")))
             self.window.bangSanPham.setItem(row_index, 2, QTableWidgetItem(str(row[2] or "")))
-            self.window.bangSanPham.setItem(row_index, 3, QTableWidgetItem(str(row[3] or "")))
-            self.window.bangSanPham.setItem(row_index, 4, QTableWidgetItem(str(row[4] or "")))
+            self.window.bangSanPham.setItem(row_index, 3, QTableWidgetItem(str(row[3] or ""))) # Mã Kho
+            self.window.bangSanPham.setItem(row_index, 4, QTableWidgetItem(str(row[4] or "0")))
             self.window.bangSanPham.setItem(row_index, 5, QTableWidgetItem(str(row[5] or "")))
-        self.window.bangSanPham.resizeColumnsToContents()
+            self.window.bangSanPham.setItem(row_index, 6, QTableWidgetItem(str(row[6] or "")))
+
+        if should_autofit:
+            self.window.bangSanPham.resizeColumnsToContents()
+        else:
+            for column_index, width in enumerate(existing_widths[: self.window.bangSanPham.columnCount()]):
+                self.window.bangSanPham.setColumnWidth(column_index, width)
         self._update_action_buttons_state()
 
     def _populate_filters(self):
@@ -446,7 +464,6 @@ class ProductPageController:
         try:
             self.window.cbbTrangThai.clear()
             self.window.cbbTrangThai.addItem("Tất cả")
-            # Example statuses, adapt to actual values in Product.ProductStatus
             self.window.cbbTrangThai.addItem("Đang bán")
             self.window.cbbTrangThai.addItem("Ngừng bán")
         except Exception:
@@ -457,9 +474,8 @@ class ProductPageController:
             return None
         db = self._create_db()
         try:
-            # Aggregate inventory quantities for the product to present a single record
             cursor = db.execute(
-                "SELECT p.ProductID, p.ProductName, p.ProductUnitPrice, p.Unit, p.ProductDescription, p.ProductStatus, c.CategoryName, ISNULL(SUM(i.QuantityInStock),0) AS QuantityInStock, MAX(i.LastUpdated) AS LastUpdated "
+                "SELECT p.ProductID, p.ProductName, p.ProductUnitPrice, p.Unit, p.ProductDescription, p.ProductStatus, c.CategoryName, ISNULL(SUM(i.QuantityInStock),0) AS QuantityInStock, MAX(i.LastUpdated) AS LastUpdated, MAX(i.WarehouseID) AS WarehouseID "
                 "FROM Product p "
                 "LEFT JOIN Inventory i ON p.ProductID = i.ProductID "
                 "LEFT JOIN Category c ON p.CategoryID = c.CategoryID "
@@ -475,45 +491,57 @@ class ProductPageController:
             db.close()
 
     def open_add_product_dialog(self):
-        dialog = ProductFormDialog(self.window)
-        if dialog.exec():
-            self.load_product_table()
+        try:
+            dialog = ProductFormDialog(self.window)
+            if dialog.exec():
+                self.load_product_table()
+        except Exception as exc:
+            self._show_error(self.window, "Lỗi sản phẩm", exc)
 
     def open_product_detail_dialog(self):
-        product_id = self._get_selected_product_id()
-        if not product_id:
-            QMessageBox.warning(self.window, "Thông báo", "Vui lòng chọn sản phẩm để xem chi tiết.")
-            return
-        product = self._load_product_record(product_id)
-        if not product:
-            return
+        try:
+            product_id = self._get_selected_product_id()
+            if not product_id:
+                QMessageBox.warning(self.window, "Thông báo", "Vui lòng chọn sản phẩm để xem chi tiết.")
+                return
+            product = self._load_product_record(product_id)
+            if not product:
+                return
 
-        dialog = ProductDetailDialog(self.window, product=product, editable=False)
-        dialog.exec()
-        if dialog.action_requested == "delete":
-            self._confirm_delete_product(product_id)
-        elif dialog.action_requested == "update":
-            self.open_update_product_dialog()
+            dialog = ProductDetailDialog(self.window, product=product, editable=False)
+            dialog.exec()
+            if dialog.action_requested == "delete":
+                self._confirm_delete_product(product_id)
+            elif dialog.action_requested == "update":
+                self.open_update_product_dialog()
+        except Exception as exc:
+            self._show_error(self.window, "Lỗi sản phẩm", exc)
 
     def open_update_product_dialog(self):
-        product_id = self._get_selected_product_id()
-        if not product_id:
-            QMessageBox.warning(self.window, "Thông báo", "Vui lòng chọn sản phẩm để cập nhật.")
-            return
-        product = self._load_product_record(product_id)
-        if not product:
-            return
+        try:
+            product_id = self._get_selected_product_id()
+            if not product_id:
+                QMessageBox.warning(self.window, "Thông báo", "Vui lòng chọn sản phẩm để cập nhật.")
+                return
+            product = self._load_product_record(product_id)
+            if not product:
+                return
 
-        dialog = ProductFormDialog(self.window, product=product)
-        if dialog.exec():
-            self.load_product_table()
+            dialog = ProductFormDialog(self.window, product=product)
+            if dialog.exec():
+                self.load_product_table()
+        except Exception as exc:
+            self._show_error(self.window, "Lỗi sản phẩm", exc)
 
     def delete_product(self):
-        product_id = self._get_selected_product_id()
-        if not product_id:
-            QMessageBox.warning(self.window, "Thông báo", "Vui lòng chọn sản phẩm để xóa.")
-            return
-        self._confirm_delete_product(product_id)
+        try:
+            product_id = self._get_selected_product_id()
+            if not product_id:
+                QMessageBox.warning(self.window, "Thông báo", "Vui lòng chọn sản phẩm để xóa.")
+                return
+            self._confirm_delete_product(product_id)
+        except Exception as exc:
+            self._show_error(self.window, "Lỗi sản phẩm", exc)
 
     def _confirm_delete_product(self, product_id):
         db = self._create_db()
@@ -521,6 +549,9 @@ class ProductPageController:
             cursor = db.execute("SELECT ProductName FROM Product WHERE ProductID = ?", (product_id,))
             row = cursor.fetchone()
             name = row[0] if row else ""
+        except Exception as exc:
+            self._show_error(self.window, "Lỗi xóa sản phẩm", exc)
+            return
         finally:
             db.close()
 
@@ -548,12 +579,15 @@ class ProductPageController:
             db.close()
 
     def search_product(self):
-        search_text = self.window.txtTimKiemSP.text().strip()
-        if not search_text:
-            self.load_product_table()
-            return
+        try:
+            search_text = self.window.txtTimKiemSP.text().strip()
+            if not search_text:
+                self.load_product_table()
+                return
 
-        if search_text.isdigit():
-            self.load_product_table(product_id=search_text)
-        else:
-            self.load_product_table(product_name=search_text)
+            if search_text.isdigit():
+                self.load_product_table(product_id=search_text)
+            else:
+                self.load_product_table(product_name=search_text)
+        except Exception as exc:
+            self._show_error(self.window, "Lỗi sản phẩm", exc)

@@ -1,3 +1,4 @@
+import os
 import sys
 
 from PyQt6.QtWidgets import QApplication, QMainWindow
@@ -19,6 +20,12 @@ from modules.category.category import CategoryTabController
 from modules.payment.payment import PaymentTabController
 from modules.ui_table_defaults import install_table_auto_sizer
 from modules.login_n_permission.logout import handle_logout
+
+
+if sys.platform.startswith("win") and "QT_QPA_FONTDIR" not in os.environ:
+    windows_fonts_dir = r"C:\Windows\Fonts"
+    if os.path.isdir(windows_fonts_dir):
+        os.environ["QT_QPA_FONTDIR"] = windows_fonts_dir
 
 class MainWindow(QMainWindow, Ui_phanTuChinhWindow):
     def __init__(self, user_info=None):

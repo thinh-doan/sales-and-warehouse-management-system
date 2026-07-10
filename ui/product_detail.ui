@@ -82,31 +82,67 @@
           </property>
          </widget>
         </item>
-        <item row="4" column="0">
+        <item row="5" column="0">
          <widget class="QLabel" name="labelQuantity">
           <property name="text">
            <string>Tồn kho</string>
           </property>
          </widget>
         </item>
-        <item row="4" column="1">
+        <item row="5" column="1">
          <widget class="QLineEdit" name="txtTonKho">
           <property name="readOnly">
            <bool>true</bool>
           </property>
          </widget>
         </item>
-        <item row="5" column="0">
+        <item row="6" column="0">
          <widget class="QLabel" name="labelUnit">
           <property name="text">
            <string>Đơn vị</string>
           </property>
          </widget>
         </item>
-        <item row="5" column="1">
+        <item row="6" column="1">
          <widget class="QLineEdit" name="txtDonVi">
           <property name="readOnly">
            <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QComboBox" name="cbbKhoSP">
+          <item>
+           <property name="text">
+            <string/>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Kho Tân Bình</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Kho Thủ Đức </string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Kho Bình Tân </string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Kho Tổng Củ Chi</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Kho</string>
           </property>
          </widget>
         </item>
@@ -162,7 +198,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>2</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="khungChiTiet">
       <attribute name="title">
