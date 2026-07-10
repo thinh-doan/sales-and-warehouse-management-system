@@ -12,10 +12,6 @@ ALTER TABLE Business_Customer ADD CONSTRAINT UQ_Business_Customer_TaxCode UNIQUE
 ---ĐẢM BẢO TÊN DANH MỤC KHÔNG BỊ TRÙNG
 ALTER TABLE Category ADD CONSTRAINT UQ_Category_Name UNIQUE (CategoryName)
 
----RÀNG BUỘC UNIQUE CHO BẢNG Product
----ĐẢM BẢO TÊN SẢN PHẨM KHÔNG BỊ TRÙNG
-ALTER TABLE Product ADD CONSTRAINT UQ_Product_Name UNIQUE (ProductName)
-
 ---RÀNG BUỘC UNIQUE CHO BẢNG Employee
 ---ĐẢM BẢO SĐT NHÂN VIÊN KHÔNG BỊ TRÙNG
 ALTER TABLE Employee ADD CONSTRAINT UQ_Employee_Phone UNIQUE (EmpPhone)
