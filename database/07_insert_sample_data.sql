@@ -135,18 +135,6 @@ VALUES
 (10, '2026-06-19', 650000, N'Chờ xử lý', N'Quận 3, TP.HCM', 2, 2);
 GO
 
-UPDATE [Order]
-SET OrderStatus = CASE 
-    WHEN OrderStatus = N'Chờ xác nhận' THEN N'Chờ xử lý'
-    WHEN OrderStatus = N'Đang xử lý'   THEN N'Đang chuẩn bị'
-    -- Các trạng thái dưới đây đã trùng khớp, viết thêm để đảm bảo tính nhất quán (hoặc giữ nguyên)
-    WHEN OrderStatus = N'Đang giao'    THEN N'Đang giao'
-    WHEN OrderStatus = N'Hoàn thành'   THEN N'Hoàn thành'
-    WHEN OrderStatus = N'Đã hủy'       THEN N'Đã hủy'
-    ELSE OrderStatus -- Giữ nguyên nếu có trạng thái khác không nằm trong danh sách
-END;
-GO
-
 ---NHẬP DỮ LIỆU BẢNG Order_Detail
 INSERT INTO Order_Detail (OrderID, ProductID, Quantity, OrderDetailUnitPrice)
 VALUES
