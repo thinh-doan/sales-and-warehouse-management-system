@@ -341,7 +341,7 @@
        <number>0</number>
       </property>
       <widget class="QWidget" name="pageTongQuan">
-       <layout class="QVBoxLayout" name="verticalLayout_12">
+       <layout class="QVBoxLayout" name="verticalLayout_12" stretch="1,1,1,5,7,1">
         <item>
          <widget class="QLabel" name="lblTitle_11">
           <property name="styleSheet">

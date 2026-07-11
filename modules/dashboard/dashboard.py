@@ -4,7 +4,7 @@ import math
 from datetime import datetime
 
 from PyQt6 import QtGui, QtWidgets
-from PyQt6.QtCharts import QBarCategoryAxis, QBarSeries, QBarSet, QChart, QPieSeries, QValueAxis
+from PyQt6.QtCharts import QBarCategoryAxis, QBarSeries, QBarSet, QChart, QPieSeries, QPieSlice, QLegend, QValueAxis
 from PyQt6.QtCore import QMargins, Qt
 from PyQt6.QtWidgets import QMessageBox
 
@@ -20,25 +20,14 @@ class DashboardPageController:
         self._connect_signals()
         self.load_dashboard_data()
 
-        # Cấu hình co giãn và ép kích thước bằng nhau tuyệt đối cho 2 GroupBox
+        # Đổi sang Preferred để Layout tự động tính toán không gian thực thay vì bóp nghẹt hoặc bỏ qua widget[cite: 3]
         if hasattr(self.window, "grpTopProduct") and hasattr(self.window, "grpOrderStatus"):
-            # 1. Sử dụng Ignored để layout bỏ qua kích thước tự nhiên của Widget bên trong (bảng/chart),
-            # buộc chúng phải tuân theo kích thước mà Layout cha phân bổ.
             self.window.grpTopProduct.setSizePolicy(
-                QtWidgets.QSizePolicy.Policy.Ignored, QtWidgets.QSizePolicy.Policy.Expanding
+                QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Expanding
             )
             self.window.grpOrderStatus.setSizePolicy(
-                QtWidgets.QSizePolicy.Policy.Ignored, QtWidgets.QSizePolicy.Policy.Expanding
+                QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Expanding
             )
-
-        # # 2. Định cấu hình cho Layout cha (horizontalLayout_10) chia tỷ lệ cân bằng tuyệt đối
-        # if hasattr(self.window, "horizontalLayout_10"):
-        #     # Đặt tỷ lệ stretch là 1 và 1 cho cả hai ô
-        #     self.window.horizontalLayout_10.setStretchFactor(self.window.grpTopProduct, 1)
-        #     self.window.horizontalLayout_10.setStretchFactor(self.window.grpOrderStatus, 1)
-            
-        #     # Khử khoảng cách thừa không mong muốn của layout cha
-        #     self.window.horizontalLayout_10.setSpacing(10)
 
     def _connect_signals(self):
         if hasattr(self.window, "btnRefreshDB"):
@@ -47,12 +36,10 @@ class DashboardPageController:
             self.window.btnTongQuan.clicked.connect(self.show_dashboard_page)
 
     def _setup_visual_layout(self):
-        # Cấu hình khoảng cách cho layout chính của trang tổng quan
         if hasattr(self.window, "verticalLayout_12"):
             self.window.verticalLayout_12.setContentsMargins(8, 8, 8, 8)
             self.window.verticalLayout_12.setSpacing(6)
 
-        # Định dạng khoảng cách cho các lưới chứa thẻ KPI
         if hasattr(self.window, "gridKPI"):
             self.window.gridKPI.setVerticalSpacing(4)
             self.window.gridKPI.setHorizontalSpacing(6)
@@ -60,7 +47,6 @@ class DashboardPageController:
             self.window.gridKPI2.setVerticalSpacing(4)
             self.window.gridKPI2.setHorizontalSpacing(6)
 
-        # Thu gọn kích thước các thẻ KPI để dành không gian cho biểu đồ phía dưới
         kpi_frames = [
             "frmTotalOrder",
             "frmRevenue",
@@ -77,39 +63,36 @@ class DashboardPageController:
                 frame.setMinimumHeight(56)
                 frame.setMaximumHeight(68)
 
-        # Tối ưu hóa chiều cao hiển thị vùng biểu đồ doanh thu
         if hasattr(self.window, "grpRevenueChart"):
             self.window.grpRevenueChart.setMinimumHeight(200)
             self.window.grpRevenueChart.setMaximumHeight(240)
         if hasattr(self.window, "chartDoanhThu"):
             self.window.chartDoanhThu.setMinimumHeight(160)
 
-        # Tối ưu hóa kích thước cho nhóm sản phẩm bán chạy và trạng thái đơn hàng
+        # Mở rộng kích thước trần của GroupBox biểu đồ trạng thái để nhãn chỉ ra ngoài không bị che khuất[cite: 3]
         if hasattr(self.window, "grpTopProduct"):
-            self.window.grpTopProduct.setMinimumHeight(200)
-            self.window.grpTopProduct.setMaximumHeight(250)
+            self.window.grpTopProduct.setMinimumHeight(240)
+            self.window.grpTopProduct.setMaximumHeight(16777215)
         if hasattr(self.window, "grpOrderStatus"):
-            self.window.grpOrderStatus.setMinimumHeight(200)
-            self.window.grpOrderStatus.setMaximumHeight(250)
+            self.window.grpOrderStatus.setMinimumHeight(240)
+            self.window.grpOrderStatus.setMaximumHeight(16777215)
         if hasattr(self.window, "chartTrangThaiGiaoHang"):
-            self.window.chartTrangThaiGiaoHang.setMinimumHeight(170)
+            self.window.chartTrangThaiGiaoHang.setMinimumHeight(200)
 
-        # Cấu hình kích thước thanh footer dữ liệu và nút bấm
         if hasattr(self.window, "btnRefreshDB"):
             self.window.btnRefreshDB.setMinimumSize(100, 30)
         if hasattr(self.window, "txtLastUpdate"):
             self.window.txtLastUpdate.setMinimumHeight(28)
 
-        # Phân bổ tỷ lệ stretch theo chiều dọc cho toàn bộ màn hình Dashboard (verticalLayout_12)
+        # Phân bổ lại tỷ lệ stretch cho hàng biểu đồ tròn bên dưới rộng rãi hơn[cite: 3]
         if hasattr(self.window, "verticalLayout_12"):
-            self.window.verticalLayout_12.setStretch(0, 0)  # Title
-            self.window.verticalLayout_12.setStretch(1, 0)  # gridKPI 1
-            self.window.verticalLayout_12.setStretch(2, 0)  # gridKPI 2
-            self.window.verticalLayout_12.setStretch(3, 4)  # grpRevenueChart (Biểu đồ lớn)
-            self.window.verticalLayout_12.setStretch(4, 3)  # horizontalLayout_10 (Top sản phẩm & Trạng thái)
-            self.window.verticalLayout_12.setStretch(5, 0)  # horizontalLayoutFooter
+            self.window.verticalLayout_12.setStretch(0, 0)  
+            self.window.verticalLayout_12.setStretch(1, 0)  
+            self.window.verticalLayout_12.setStretch(2, 0)  
+            self.window.verticalLayout_12.setStretch(3, 3)  
+            self.window.verticalLayout_12.setStretch(4, 4)  
+            self.window.verticalLayout_12.setStretch(5, 0)  
 
-        # Định dạng cấu trúc hiển thị bảng Top sản phẩm
         if hasattr(self.window, "tblTopProduct"):
             self.window.tblTopProduct.verticalHeader().setVisible(False)
             self.window.tblTopProduct.horizontalHeader().setStretchLastSection(True)
@@ -316,7 +299,10 @@ class DashboardPageController:
         pie_series = QPieSeries()
         total = sum(int(row[1] or 0) for row in status_rows)
 
-        for row in status_rows:
+        label_font = QtGui.QFont()
+        label_font.setPointSize(8)
+
+        for i, row in enumerate(status_rows):
             status = str(row[0] or "Không xác định")
             count = int(row[1] or 0)
             if count <= 0:
@@ -325,18 +311,42 @@ class DashboardPageController:
             percent = (count * 100.0 / total) if total else 0.0
             label = f"{status}: {percent:.1f}%"
             slice_obj = pie_series.append(label, count)
+            
+            # --- CẤU HÌNH ĐƯỜNG DẪN NHÃN AN TOÀN ---
             slice_obj.setLabelVisible(True)
+            slice_obj.setLabelFont(label_font)
+            
+            # Dùng enum chuẩn của QPieSlice để tránh gọi nhầm trên instance
+            slice_obj.setLabelPosition(QPieSlice.LabelPosition.LabelOutside) 
+            
+            # Đẩy so le độ dài đường dẫn (Arm Length) của các nhãn nhỏ (6.7%) để tách nhau ra
+            if percent < 15.0:
+                slice_obj.setLabelArmLengthFactor(0.12 + (i * 0.04))
+            else:
+                slice_obj.setLabelArmLengthFactor(0.1)
 
         chart = QChart()
         chart.addSeries(pie_series)
         chart.setTitle("Tỷ lệ trạng thái đơn hàng")
         chart.setAnimationOptions(QChart.AnimationOption.SeriesAnimations)
-        chart.legend().setVisible(True)
-        chart.legend().setAlignment(Qt.AlignmentFlag.AlignRight)
+        
+        # Nới rộng lề biểu đồ để nhãn chỉ ra ngoài không chạm viền
+        chart.setMargins(QMargins(12, 12, 12, 12))
+
+        # Cấu hình vùng Legend bên phải
+        legend = chart.legend()
+        legend.setVisible(True)
+        legend.setAlignment(Qt.AlignmentFlag.AlignRight)
+        legend_font = QtGui.QFont()
+        legend_font.setPointSize(8)
+        legend.setFont(legend_font)
+        
+        # Dùng enum chuẩn của QLegend để tránh lỗi API PyQt6
+        legend.setMarkerShape(QLegend.MarkerShape.MarkerShapeRectangle) 
 
         self.window.chartTrangThaiGiaoHang.setChart(chart)
         self.window.chartTrangThaiGiaoHang.setRenderHint(QtGui.QPainter.RenderHint.Antialiasing)
-
+   
     def _render_top_products(self, rows):
         if not hasattr(self.window, "tblTopProduct"):
             return

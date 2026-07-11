@@ -78,31 +78,6 @@ class MainWindow(QMainWindow, Ui_phanTuChinhWindow):
         self.current_role_key = self.permission_manager.apply(self, self.current_user)
         self._show_default_page()
 
-# Test coi nếu bỏ có chạy dc ko
-    # def show_report_page(self):
-    #     self._show_page(self.pageBaoCao)
-
-
-    # def show_customer_page(self):
-    #     if hasattr(self, 'khungChuyenTrangStacked') and hasattr(self, 'pageKhachHang'):
-    #         self.khungChuyenTrangStacked.setCurrentWidget(self.pageKhachHang)
-    #         # Kiểm tra xem controller và hàm load dữ liệu có tồn tại không trước khi gọi
-    #         if hasattr(self, 'customer_controller') and hasattr(self.customer_controller, 'load_customer_table'):
-    #             self.customer_controller.load_customer_table()
-
-    # def show_product_page(self):
-    #     if hasattr(self, 'khungChuyenTrangStacked') and hasattr(self, 'pageSanPham'):
-    #         self.khungChuyenTrangStacked.setCurrentWidget(self.pageSanPham)
-    #         if hasattr(self, 'product_controller') and hasattr(self.product_controller, 'load_product_table'):
-    #             self.product_controller.load_product_table()
-
-    # def show_order_page(self):
-    #     if hasattr(self, 'khungChuyenTrangStacked') and hasattr(self, 'pageDonHang'):
-    #         self.khungChuyenTrangStacked.setCurrentWidget(self.pageDonHang)
-    #         if hasattr(self, 'order_controller') and hasattr(self.order_controller, 'load_order_table'):
-    #             self.order_controller.load_order_table()
-
-
 if __name__ == "__main__":
     app = QApplication(sys.argv)
 
