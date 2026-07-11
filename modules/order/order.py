@@ -722,9 +722,12 @@ class OrderPageController:
         try:
             rows = db.execute(
                 """
-                SELECT o.OrderID, o.OrderDate, c.CusName, o.ShippingAddress, o.TotalAmount, o.OrderStatus
+                SELECT o.OrderID, o.OrderDate, c.CusName, o.ShippingAddress, 
+                       (COALESCE(o.TotalAmount, 0) + COALESCE(s.ShippingFee, 0)) AS FinalAmount, 
+                       o.OrderStatus
                 FROM [Order] o
                 LEFT JOIN Customer c ON c.CustomerID = o.CustomerID
+                LEFT JOIN Shipment s ON s.OrderID = o.OrderID
                 ORDER BY o.OrderDate DESC, o.OrderID DESC
                 """
             ).fetchall()
@@ -740,9 +743,12 @@ class OrderPageController:
         db = Database()
         try:
             query = """
-                SELECT o.OrderID, o.OrderDate, c.CusName, o.ShippingAddress, o.TotalAmount, o.OrderStatus
+                SELECT o.OrderID, o.OrderDate, c.CusName, o.ShippingAddress, 
+                       (COALESCE(o.TotalAmount, 0) + COALESCE(s.ShippingFee, 0)) AS FinalAmount, 
+                       o.OrderStatus
                 FROM [Order] o
                 LEFT JOIN Customer c ON c.CustomerID = o.CustomerID
+                LEFT JOIN Shipment s ON s.OrderID = o.OrderID
                 WHERE 1 = 1
             """
             params = []
@@ -764,7 +770,7 @@ class OrderPageController:
             rows = db.execute(query, tuple(params)).fetchall()
             self._fill_table(rows)
         finally:
-            db.close()
+            db.close()    
 
     def _fill_table(self, rows):
         table = self.window.tblDonHang
