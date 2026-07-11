@@ -422,6 +422,9 @@ class OrderDetailDialog(QDialog, Ui_hopThoaiDonHang):
             return
         db = Database()
         try:
+            # BỔ SUNG: Đảm bảo bảng tồn tại trước khi SELECT dữ liệu để tránh lỗi Invalid object name
+            _ensure_support_tables(db) 
+            
             rows = db.execute(
                 """
                 SELECT od.ProductID, p.ProductName, od.Quantity, od.OrderDetailUnitPrice, map.WarehouseID,
@@ -578,6 +581,19 @@ class OrderDetailDialog(QDialog, Ui_hopThoaiDonHang):
                 price = item["price"]
                 w_id = item["warehouse_id"]
                 
+                # --- SỬA LỖI NONETYPE: Nếu đơn cũ chưa có Map kho, ưu tiên tìm kho có nhiều tồn kho nhất
+                if w_id is None:
+                    fallback_row = db.execute(
+                        "SELECT TOP 1 WarehouseID FROM Inventory WHERE ProductID = ? ORDER BY QuantityInStock DESC", 
+                        (p_id,)
+                    ).fetchone()
+                    
+                    if fallback_row:
+                        w_id = int(fallback_row[0])
+                    else:
+                        raise ValueError(f"Không tìm thấy dữ liệu kho (Inventory) cho sản phẩm SP{p_id:03d} để thực hiện trừ tồn kho.")
+                # -----------------------------------------------------------------------------------------
+                
                 # Thực hiện trừ kho
                 if not _adjust_inventory(db, p_id, w_id, -qty):
                     raise ValueError(f"Không thể trừ tồn kho sản phẩm ID {p_id} tại kho {w_id}.")
@@ -624,6 +640,9 @@ class OrderDetailDialog(QDialog, Ui_hopThoaiDonHang):
             )
 
     def _upsert_shipment(self, db, order_id, order_date, shipment_method, partner_id, shipping_fee, employee_id):
+        # --- SỬA LỖI NONETYPE: Đảm bảo partner_id luôn hợp lệ ---
+        safe_partner_id = int(partner_id) if partner_id is not None else 1
+        
         shipment_row = db.execute("SELECT ShipmentID FROM Shipment WHERE OrderID = ?", (order_id,)).fetchone()
         if shipment_row:
             db.execute(
@@ -632,7 +651,7 @@ class OrderDetailDialog(QDialog, Ui_hopThoaiDonHang):
                 SET ShipmentDate = ?, ShippingFee = ?, ShipmentMethod = ?, PartnerID = ?, EmployeeID = ?
                 WHERE OrderID = ?
                 """,
-                (order_date, shipping_fee, shipment_method, partner_id or 1, employee_id, order_id),
+                (order_date, shipping_fee, shipment_method, safe_partner_id, employee_id, order_id),
             )
         else:
             shipment_id = self._get_next_id(db, "Shipment", "ShipmentID")
@@ -641,7 +660,7 @@ class OrderDetailDialog(QDialog, Ui_hopThoaiDonHang):
                 INSERT INTO Shipment (ShipmentID, ShipmentDate, ExpectedDeliveryDate, ActualDeliveryDate, ShippingFee, ShipmentStatus, ShipmentMethod, OrderID, PartnerID, EmployeeID)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """,
-                (shipment_id, order_date, None, None, shipping_fee, "Chờ lấy hàng", shipment_method, order_id, partner_id or 1, employee_id),
+                (shipment_id, order_date, None, None, shipping_fee, "Chờ lấy hàng", shipment_method, order_id, safe_partner_id, employee_id),
             )
 
     def _get_next_id(self, db, table_name, column_name):
@@ -767,6 +786,9 @@ class OrderPageController:
         return int(item.text()) if item and item.text().strip().isdigit() else None
 
     def _restore_inventory_for_order(self, db, order_id):
+        # BỔ SUNG: Chặn lỗi Invalid object name khi cố gắng phục hồi hàng từ đơn vị bị xóa
+        _ensure_support_tables(db)
+        
         detail_rows = db.execute(
             "SELECT ProductID, Quantity FROM Order_Detail WHERE OrderID = ? ORDER BY ProductID",
             (int(order_id),),
