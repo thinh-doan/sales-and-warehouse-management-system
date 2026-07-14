@@ -86,7 +86,3 @@ Tên tài khoản và Mật khẩu được lưu trong database/07_insert_sample
 ## Màn hình chính
 
 Sau khi đăng nhập thành công, ứng dụng mở cửa sổ chính và điều hướng đến các phân hệ thông qua thanh menu bên trái.
-
-## Đóng góp
-
-Nếu bạn muốn mở rộng README này, có thể bổ sung thêm ảnh chụp màn hình, hướng dẫn cấu hình dữ liệu mẫu, hoặc mô tả chi tiết từng phân hệ.
