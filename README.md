@@ -59,17 +59,11 @@ python -m venv venv
 venv\Scripts\activate
 ```
 
-### 2. Cài thư viện cần thiết
-
-```powershell
-pip install -r requirements.txt
-```
-
-### 3. Tạo cơ sở dữ liệu
+### 2. Tạo cơ sở dữ liệu
 
 Mở SQL Server Management Studio hoặc công cụ SQL tương tự và chạy các file trong thư mục `database/` theo đúng thứ tự ở trên.
 
-### 4. Chạy ứng dụng
+### 3. Chạy ứng dụng
 
 ```powershell
 python main.py
