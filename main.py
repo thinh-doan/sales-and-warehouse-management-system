@@ -1,7 +1,7 @@
 import os
 import sys
 
-from PyQt6.QtWidgets import QApplication, QMainWindow
+from PyQt6.QtWidgets import QApplication, QMainWindow, QHeaderView
 
 from modules.login_n_permission.role import RolePermissionManager
 from modules.login_n_permission.login import LoginDialog
@@ -34,6 +34,7 @@ class MainWindow(QMainWindow, Ui_phanTuChinhWindow):
         self.permission_manager = RolePermissionManager()
 
         self._connect_navigation()
+        self._setup_table_headers()
 
         self.employee_controller = EmployeePageController(self)
         self.partner_controller = PartnerPageController(self)
@@ -50,6 +51,19 @@ class MainWindow(QMainWindow, Ui_phanTuChinhWindow):
         self.current_role_key = self.permission_manager.apply(self, self.current_user)
         self._show_default_page()
 
+    def _setup_table_headers(self):
+        # 1. Gom tất cả các bảng có trong giao diện của bạn vào một danh sách
+        tables = [
+            self.tblTopProduct, self.tblDonHang, self.tblKhachHang, 
+            self.bangSanPham, self.tblDM, self.tblTonKho, 
+            self.tblThanhToan, self.tblVanChuyen, self.tblDoiTac, 
+            self.tblNhanVien, self.tblBaoCao,
+        ]
+
+        for table in tables:
+            # Lựa chọn A: Giãn đều TẤT CẢ các cột để lấp đầy bảng
+            table.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.Stretch)
+    
     def _connect_navigation(self):
         self.btnTongQuan.clicked.connect(lambda: self._show_page(self.pageTongQuan))
         self.btnDonhang.clicked.connect(lambda: self._show_page(self.pageDonHang))
