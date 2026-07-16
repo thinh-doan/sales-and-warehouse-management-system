@@ -12,16 +12,13 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_LoginDialog(object):
     def setupUi(self, LoginDialog):
         LoginDialog.setObjectName("LoginDialog")
-        LoginDialog.resize(581, 346)
+        LoginDialog.resize(592, 333)
         font = QtGui.QFont()
         font.setPointSize(10)
         LoginDialog.setFont(font)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("C:/Users/Admin/Downloads/entrance.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        icon.addPixmap(QtGui.QPixmap("ui\\../resources/icons/entrance.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         LoginDialog.setWindowIcon(icon)
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("ui\\../resources/icons/entrance.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        LoginDialog.setWindowIcon(icon1)
         LoginDialog.setModal(True)
         self.verticalLayout = QtWidgets.QVBoxLayout(LoginDialog)
         self.verticalLayout.setObjectName("verticalLayout")
@@ -80,7 +77,7 @@ class Ui_LoginDialog(object):
 "padding:15px;\n"
 "border-radius:8px;\n"
 "       "))
-        self.lblTitle_7.setText(_translate("LoginDialog", "<html><head/><body><p><span style=\" font-size:14pt;\">HỆ THỐNG QUẢN LÝ CỬA HÀNG</span></p></body></html>"))
+        self.lblTitle_7.setText(_translate("LoginDialog", "<html><head/><body><p><span style=\" font-size:14pt;\">HỆ THỐNG QUẢN LÝ ĐƠN HÀNG VÀ KHO HÀNG</span></p></body></html>"))
         self.grpLogin.setTitle(_translate("LoginDialog", "Thông tin đăng nhập"))
         self.lblUsername.setText(_translate("LoginDialog", "Tên đăng nhập"))
         self.lblPassword.setText(_translate("LoginDialog", "Mật khẩu"))

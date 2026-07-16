@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>581</width>
-    <height>346</height>
+    <width>592</width>
+    <height>333</height>
    </rect>
   </property>
   <property name="font">
@@ -17,10 +17,6 @@
   </property>
   <property name="windowTitle">
    <string>đăng nhập</string>
-  </property>
-  <property name="windowIcon">
-   <iconset>
-    <normaloff>C:/Users/Admin/Downloads/entrance.png</normaloff>C:/Users/Admin/Downloads/entrance.png</iconset>
   </property>
   <property name="windowIcon">
    <iconset>
@@ -43,7 +39,7 @@ border-radius:8px;
        </string>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;HỆ THỐNG QUẢN LÝ CỬA HÀNG&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;HỆ THỐNG QUẢN LÝ ĐƠN HÀNG VÀ KHO HÀNG&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
